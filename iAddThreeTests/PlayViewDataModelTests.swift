@@ -77,16 +77,3 @@ extension PlayViewDataModelTests {
         return PlayViewDataModel(numberList: numberList.map({ NumberItemPresenter($0) }), finished: finished)
     }
 }
-
-
-// MARK: - Helper Extensions
-extension NumberItem {
-    static var defaultList: [NumberItem] {
-        [
-            NumberItem(number: 6, answer: 9),
-            NumberItem(number: 0, answer: 3),
-            NumberItem(number: 2, answer: 5),
-            NumberItem(number: 9, answer: 2)
-        ]
-    }
-}

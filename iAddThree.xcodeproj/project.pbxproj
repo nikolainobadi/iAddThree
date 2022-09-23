@@ -19,6 +19,7 @@
 		D462D12F28DE50E5001FF20A /* PlayViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D12E28DE50E5001FF20A /* PlayViewDataModel.swift */; };
 		D462D13128DE5122001FF20A /* NumberItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D13028DE5122001FF20A /* NumberItemPresenter.swift */; };
 		D462D13328DE5164001FF20A /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D13228DE5164001FF20A /* PlayView.swift */; };
+		D462D13528DE55A0001FF20A /* NumberItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D13428DE55A0001FF20A /* NumberItem+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		D462D12E28DE50E5001FF20A /* PlayViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewDataModel.swift; sourceTree = "<group>"; };
 		D462D13028DE5122001FF20A /* NumberItemPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberItemPresenter.swift; sourceTree = "<group>"; };
 		D462D13228DE5164001FF20A /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
+		D462D13428DE55A0001FF20A /* NumberItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberItem+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				D44361E428DE439B00909629 /* Preview Assets.xcassets */,
+				D462D13428DE55A0001FF20A /* NumberItem+Extension.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				D462D11628DE44BE001FF20A /* NumberItemFactory.swift in Sources */,
 				D462D12F28DE50E5001FF20A /* PlayViewDataModel.swift in Sources */,
 				D44361DE28DE439A00909629 /* iAddThreeApp.swift in Sources */,
+				D462D13528DE55A0001FF20A /* NumberItem+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
