@@ -11,7 +11,21 @@
 		D44361E028DE439A00909629 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44361DF28DE439A00909629 /* ContentView.swift */; };
 		D44361E228DE439B00909629 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44361E128DE439B00909629 /* Assets.xcassets */; };
 		D44361E528DE439B00909629 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44361E428DE439B00909629 /* Preview Assets.xcassets */; };
+		D462D11328DE4490001FF20A /* NumberItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D11228DE4490001FF20A /* NumberItem.swift */; };
+		D462D11628DE44BE001FF20A /* NumberItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D11528DE44BE001FF20A /* NumberItemFactory.swift */; };
+		D462D11828DE44D1001FF20A /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D11728DE44D1001FF20A /* GameMode.swift */; };
+		D462D12728DE4547001FF20A /* NumberItemFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D12628DE4547001FF20A /* NumberItemFactoryTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D462D12128DE4534001FF20A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D44361D228DE439A00909629 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D44361D928DE439A00909629;
+			remoteInfo = iAddThree;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D44361DA28DE439A00909629 /* iAddThree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAddThree.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -19,10 +33,22 @@
 		D44361DF28DE439A00909629 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D44361E128DE439B00909629 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D44361E428DE439B00909629 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D462D11228DE4490001FF20A /* NumberItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberItem.swift; sourceTree = "<group>"; };
+		D462D11528DE44BE001FF20A /* NumberItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberItemFactory.swift; sourceTree = "<group>"; };
+		D462D11728DE44D1001FF20A /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
+		D462D11D28DE4534001FF20A /* iAddThreeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iAddThreeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D462D12628DE4547001FF20A /* NumberItemFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberItemFactoryTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D44361D728DE439A00909629 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D462D11A28DE4534001FF20A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -36,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				D44361DC28DE439A00909629 /* iAddThree */,
+				D462D11E28DE4534001FF20A /* iAddThreeTests */,
 				D44361DB28DE439A00909629 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -44,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				D44361DA28DE439A00909629 /* iAddThree.app */,
+				D462D11D28DE4534001FF20A /* iAddThreeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,6 +79,7 @@
 		D44361DC28DE439A00909629 /* iAddThree */ = {
 			isa = PBXGroup;
 			children = (
+				D462D11428DE44A6001FF20A /* NumberItemFeature */,
 				D462D10E28DE4457001FF20A /* Main */,
 				D462D10F28DE445C001FF20A /* UI */,
 				D462D11028DE4460001FF20A /* Resources */,
@@ -91,6 +120,24 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		D462D11428DE44A6001FF20A /* NumberItemFeature */ = {
+			isa = PBXGroup;
+			children = (
+				D462D11728DE44D1001FF20A /* GameMode.swift */,
+				D462D11228DE4490001FF20A /* NumberItem.swift */,
+				D462D11528DE44BE001FF20A /* NumberItemFactory.swift */,
+			);
+			path = NumberItemFeature;
+			sourceTree = "<group>";
+		};
+		D462D11E28DE4534001FF20A /* iAddThreeTests */ = {
+			isa = PBXGroup;
+			children = (
+				D462D12628DE4547001FF20A /* NumberItemFactoryTests.swift */,
+			);
+			path = iAddThreeTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -111,6 +158,24 @@
 			productReference = D44361DA28DE439A00909629 /* iAddThree.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D462D11C28DE4534001FF20A /* iAddThreeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D462D12328DE4534001FF20A /* Build configuration list for PBXNativeTarget "iAddThreeTests" */;
+			buildPhases = (
+				D462D11928DE4534001FF20A /* Sources */,
+				D462D11A28DE4534001FF20A /* Frameworks */,
+				D462D11B28DE4534001FF20A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D462D12228DE4534001FF20A /* PBXTargetDependency */,
+			);
+			name = iAddThreeTests;
+			productName = iAddThreeTests;
+			productReference = D462D11D28DE4534001FF20A /* iAddThreeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -123,6 +188,11 @@
 				TargetAttributes = {
 					D44361D928DE439A00909629 = {
 						CreatedOnToolsVersion = 13.4.1;
+					};
+					D462D11C28DE4534001FF20A = {
+						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
+						TestTargetID = D44361D928DE439A00909629;
 					};
 				};
 			};
@@ -140,6 +210,7 @@
 			projectRoot = "";
 			targets = (
 				D44361D928DE439A00909629 /* iAddThree */,
+				D462D11C28DE4534001FF20A /* iAddThreeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -154,6 +225,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D462D11B28DE4534001FF20A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -161,12 +239,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D462D11828DE44D1001FF20A /* GameMode.swift in Sources */,
 				D44361E028DE439A00909629 /* ContentView.swift in Sources */,
+				D462D11328DE4490001FF20A /* NumberItem.swift in Sources */,
+				D462D11628DE44BE001FF20A /* NumberItemFactory.swift in Sources */,
 				D44361DE28DE439A00909629 /* iAddThreeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D462D11928DE4534001FF20A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D462D12728DE4547001FF20A /* NumberItemFactoryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D462D12228DE4534001FF20A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D44361D928DE439A00909629 /* iAddThree */;
+			targetProxy = D462D12128DE4534001FF20A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		D44361E628DE439B00909629 /* Debug */ = {
@@ -341,6 +438,55 @@
 			};
 			name = Release;
 		};
+		D462D12428DE4534001FF20A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R8SJ24LQF3;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nobadi.iAddThreeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iAddThree.app/iAddThree";
+			};
+			name = Debug;
+		};
+		D462D12528DE4534001FF20A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R8SJ24LQF3;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nobadi.iAddThreeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iAddThree.app/iAddThree";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -358,6 +504,15 @@
 			buildConfigurations = (
 				D44361E928DE439B00909629 /* Debug */,
 				D44361EA28DE439B00909629 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D462D12328DE4534001FF20A /* Build configuration list for PBXNativeTarget "iAddThreeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D462D12428DE4534001FF20A /* Debug */,
+				D462D12528DE4534001FF20A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
