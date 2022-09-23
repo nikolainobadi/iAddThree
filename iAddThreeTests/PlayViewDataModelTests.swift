@@ -23,11 +23,15 @@ struct NumberItemPresenter {
 final class PlayViewDataModel {
     var numberList: [NumberItemPresenter]
     
+    private var canSubmitAnswer: Bool { !numberList.filter({ $0.userAnswer == nil }).isEmpty }
+    
     init(numberList: [NumberItemPresenter]) {
         self.numberList = numberList
     }
     
     func submitAnswer(_ number: String) {
+        guard canSubmitAnswer else { return }
+        
         if let index = numberList.firstIndex(where: { $0.userAnswer == nil }) {
             numberList[index].userAnswer = number
         }
@@ -47,6 +51,17 @@ final class PlayViewDataModelTests: XCTestCase {
         let answers = ["1", "2", "3", "4"]
 
         answers.forEach { sut.submitAnswer($0) }
+        
+        zip(sut.numberList, answers).forEach { XCTAssertEqual($0.userAnswer, $1) }
+    }
+    
+    func test_submitAnswer_furtherSubmitsHaveNoEffectOnNumberList() {
+        let sut = makeSUT()
+        let answers = ["1", "2", "3", "4"]
+        let moreAnswers = ["5", "6", "7", "8"]
+
+        answers.forEach { sut.submitAnswer($0) }
+        moreAnswers.forEach { sut.submitAnswer($0) }
         
         zip(sut.numberList, answers).forEach { XCTAssertEqual($0.userAnswer, $1) }
     }
