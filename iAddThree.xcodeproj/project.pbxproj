@@ -16,6 +16,8 @@
 		D462D11828DE44D1001FF20A /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D11728DE44D1001FF20A /* GameMode.swift */; };
 		D462D12728DE4547001FF20A /* NumberItemFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D12628DE4547001FF20A /* NumberItemFactoryTests.swift */; };
 		D462D12C28DE4633001FF20A /* PlayViewDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D12B28DE4633001FF20A /* PlayViewDataModelTests.swift */; };
+		D462D12F28DE50E5001FF20A /* PlayViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D12E28DE50E5001FF20A /* PlayViewDataModel.swift */; };
+		D462D13128DE5122001FF20A /* NumberItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D13028DE5122001FF20A /* NumberItemPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		D462D11D28DE4534001FF20A /* iAddThreeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iAddThreeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D462D12628DE4547001FF20A /* NumberItemFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberItemFactoryTests.swift; sourceTree = "<group>"; };
 		D462D12B28DE4633001FF20A /* PlayViewDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewDataModelTests.swift; sourceTree = "<group>"; };
+		D462D12E28DE50E5001FF20A /* PlayViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewDataModel.swift; sourceTree = "<group>"; };
+		D462D13028DE5122001FF20A /* NumberItemPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberItemPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 			children = (
 				D462D10E28DE4457001FF20A /* Main */,
 				D462D10F28DE445C001FF20A /* UI */,
+				D462D12D28DE50D7001FF20A /* Models */,
 				D462D11428DE44A6001FF20A /* NumberItemFeature */,
 				D462D11028DE4460001FF20A /* Resources */,
 				D44361E328DE439B00909629 /* Preview Content */,
@@ -139,6 +144,15 @@
 				D462D12B28DE4633001FF20A /* PlayViewDataModelTests.swift */,
 			);
 			path = iAddThreeTests;
+			sourceTree = "<group>";
+		};
+		D462D12D28DE50D7001FF20A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D462D12E28DE50E5001FF20A /* PlayViewDataModel.swift */,
+				D462D13028DE5122001FF20A /* NumberItemPresenter.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,8 +258,10 @@
 			files = (
 				D462D11828DE44D1001FF20A /* GameMode.swift in Sources */,
 				D44361E028DE439A00909629 /* ContentView.swift in Sources */,
+				D462D13128DE5122001FF20A /* NumberItemPresenter.swift in Sources */,
 				D462D11328DE4490001FF20A /* NumberItem.swift in Sources */,
 				D462D11628DE44BE001FF20A /* NumberItemFactory.swift in Sources */,
+				D462D12F28DE50E5001FF20A /* PlayViewDataModel.swift in Sources */,
 				D44361DE28DE439A00909629 /* iAddThreeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

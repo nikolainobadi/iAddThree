@@ -8,44 +8,8 @@
 import XCTest
 @testable import iAddThree
 
-struct NumberItemPresenter {
-    private let item: NumberItem
-    
-    var userAnswer: String?
-    var number: String { "\(item.number)" }
-    var isCorrect: Bool { "\(item.answer)" == userAnswer }
-    
-    init(_ item: NumberItem) {
-        self.item = item
-    }
-}
 
-final class PlayViewDataModel {
-    var numberList: [NumberItemPresenter]
-    
-    private let finished: (Int) -> Void
-    private var pointsToAdd: Int { numberList.filter({ $0.isCorrect }).count }
-    private var canSubmitAnswer: Bool { !numberList.filter({ $0.userAnswer == nil }).isEmpty }
-    
-    init(numberList: [NumberItemPresenter], finished: @escaping (Int) -> Void) {
-        self.numberList = numberList
-        self.finished = finished
-    }
-    
-    func submitAnswer(_ number: String) {
-        if let index = numberList.firstIndex(where: { $0.userAnswer == nil }) {
-            addAnswer(answer: number, at: index)
-        }
-    }
-    
-    private func addAnswer(answer: String, at index: Int) {
-        numberList[index].userAnswer = answer
-        
-        if !canSubmitAnswer {
-            finished(pointsToAdd)
-        }
-    }
-}
+
 
 final class PlayViewDataModelTests: XCTestCase {
     func test_init_numberListFilled_allAnswersEmpty() {
