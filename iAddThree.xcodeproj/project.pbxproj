@@ -15,6 +15,7 @@
 		D462D11628DE44BE001FF20A /* NumberItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D11528DE44BE001FF20A /* NumberItemFactory.swift */; };
 		D462D11828DE44D1001FF20A /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D11728DE44D1001FF20A /* GameMode.swift */; };
 		D462D12728DE4547001FF20A /* NumberItemFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D12628DE4547001FF20A /* NumberItemFactoryTests.swift */; };
+		D462D12C28DE4633001FF20A /* PlayViewDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D12B28DE4633001FF20A /* PlayViewDataModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		D462D11728DE44D1001FF20A /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		D462D11D28DE4534001FF20A /* iAddThreeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iAddThreeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D462D12628DE4547001FF20A /* NumberItemFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberItemFactoryTests.swift; sourceTree = "<group>"; };
+		D462D12B28DE4633001FF20A /* PlayViewDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewDataModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				D462D12628DE4547001FF20A /* NumberItemFactoryTests.swift */,
+				D462D12B28DE4633001FF20A /* PlayViewDataModelTests.swift */,
 			);
 			path = iAddThreeTests;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D462D12C28DE4633001FF20A /* PlayViewDataModelTests.swift in Sources */,
 				D462D12728DE4547001FF20A /* NumberItemFactoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
