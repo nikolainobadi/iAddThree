@@ -26,12 +26,27 @@ final class PlayViewDataModel {
     init(numberList: [NumberItemPresenter]) {
         self.numberList = numberList
     }
+    
+    func submitAnswer(_ number: String) {
+        
+    }
+    
 }
 
 final class PlayViewDataModelTests: XCTestCase {
-    func test_init_numberListFilled() {
-        XCTAssertFalse(makeSUT().numberList.isEmpty)
+    func test_init_numberListFilled_allAnswersEmpty() {
+        let sut = makeSUT()
+        
+        XCTAssertFalse(sut.numberList.isEmpty)
+        XCTAssertTrue(sut.numberList.filter({ $0.userAnswer != nil }).isEmpty)
     }
+    
+//    func test_submitAnswer_answersFilledFromLeftToRight() {
+//        let sut = makeSUT()
+//        let answers = ["1", "2", "3", "4"]
+//        
+//        answers.forEach { sut.submitAnswer($0) }
+//    }
 }
 
 
