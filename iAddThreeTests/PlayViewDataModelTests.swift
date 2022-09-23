@@ -8,9 +8,6 @@
 import XCTest
 @testable import iAddThree
 
-
-
-
 final class PlayViewDataModelTests: XCTestCase {
     func test_init_numberListFilled_allAnswersEmpty() {
         let sut = makeSUT()
