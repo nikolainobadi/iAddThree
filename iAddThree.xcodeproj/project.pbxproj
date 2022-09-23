@@ -51,9 +51,9 @@
 		D44361DC28DE439A00909629 /* iAddThree */ = {
 			isa = PBXGroup;
 			children = (
-				D44361DD28DE439A00909629 /* iAddThreeApp.swift */,
-				D44361DF28DE439A00909629 /* ContentView.swift */,
-				D44361E128DE439B00909629 /* Assets.xcassets */,
+				D462D10E28DE4457001FF20A /* Main */,
+				D462D10F28DE445C001FF20A /* UI */,
+				D462D11028DE4460001FF20A /* Resources */,
 				D44361E328DE439B00909629 /* Preview Content */,
 			);
 			path = iAddThree;
@@ -65,6 +65,30 @@
 				D44361E428DE439B00909629 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D462D10E28DE4457001FF20A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D44361DD28DE439A00909629 /* iAddThreeApp.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		D462D10F28DE445C001FF20A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D44361DF28DE439A00909629 /* ContentView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D462D11028DE4460001FF20A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D44361E128DE439B00909629 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
