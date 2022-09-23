@@ -10,10 +10,16 @@ import SwiftUI
 struct PlayView: View {
     @StateObject var dataModel: PlayViewDataModel
     
+    private func submitAnswer(_ number: String) {
+        withAnimation {
+            dataModel.submitAnswer(number)
+        }
+    }
+    
     var body: some View {
         VStack {
             NumberListView(list: dataModel.numberList)
-            NumberPadView(selection: { _ in })
+            NumberPadView(selection: submitAnswer(_:))
         }
     }
 }
