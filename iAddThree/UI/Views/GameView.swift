@@ -23,8 +23,8 @@ struct GameView: View {
                 // playView
                 
             } else {
-                ChalkButton("Start Game", action: startGame)
-                ChalkButton("How to Play", action: showInstructions)
+                ChalkButton("Start Game", style: .title2, action: startGame)
+                ChalkButton("How to Play", style: .subheadline, action: showInstructions)
             }
         }
     }
@@ -47,6 +47,7 @@ struct ChalkButton: View {
                 .padding(.horizontal, getWidthPercent(10))
                 .lineLimit(1)
                 .setChalkFont(style, autoSize: true)
+                .withRoundedBorder()
         }
     }
 }

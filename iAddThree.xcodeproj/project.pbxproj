@@ -26,6 +26,7 @@
 		D462D14528DE5910001FF20A /* ChalkboardViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D14428DE5910001FF20A /* ChalkboardViewModifier.swift */; };
 		D462D14728DE5A49001FF20A /* NumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D14628DE5A49001FF20A /* NumberPadView.swift */; };
 		D462D14928DE5B94001FF20A /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D14828DE5B94001FF20A /* GameView.swift */; };
+		D462D14B28DE5C7F001FF20A /* RoundedBorderViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D14A28DE5C7F001FF20A /* RoundedBorderViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		D462D14428DE5910001FF20A /* ChalkboardViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChalkboardViewModifier.swift; sourceTree = "<group>"; };
 		D462D14628DE5A49001FF20A /* NumberPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPadView.swift; sourceTree = "<group>"; };
 		D462D14828DE5B94001FF20A /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		D462D14A28DE5C7F001FF20A /* RoundedBorderViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorderViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,10 +180,10 @@
 			isa = PBXGroup;
 			children = (
 				D44361DF28DE439A00909629 /* ContentView.swift */,
+				D462D14828DE5B94001FF20A /* GameView.swift */,
 				D462D13228DE5164001FF20A /* PlayView.swift */,
 				D462D13F28DE5761001FF20A /* NumberListView.swift */,
 				D462D14628DE5A49001FF20A /* NumberPadView.swift */,
-				D462D14828DE5B94001FF20A /* GameView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,6 +201,7 @@
 			children = (
 				D462D13D28DE572E001FF20A /* ChalkFontViewModifier.swift */,
 				D462D14428DE5910001FF20A /* ChalkboardViewModifier.swift */,
+				D462D14A28DE5C7F001FF20A /* RoundedBorderViewModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				D462D11828DE44D1001FF20A /* GameMode.swift in Sources */,
 				D44361E028DE439A00909629 /* ContentView.swift in Sources */,
 				D462D13B28DE56B2001FF20A /* View+Extension.swift in Sources */,
+				D462D14B28DE5C7F001FF20A /* RoundedBorderViewModifier.swift in Sources */,
 				D462D14728DE5A49001FF20A /* NumberPadView.swift in Sources */,
 				D462D14928DE5B94001FF20A /* GameView.swift in Sources */,
 				D462D14028DE5761001FF20A /* NumberListView.swift in Sources */,
