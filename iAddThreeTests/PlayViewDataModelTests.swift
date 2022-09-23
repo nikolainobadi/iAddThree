@@ -23,17 +23,26 @@ struct NumberItemPresenter {
 final class PlayViewDataModel {
     var numberList: [NumberItemPresenter]
     
+    private let finished: (Int) -> Void
+    private var pointsToAdd: Int { numberList.filter({ $0.isCorrect }).count }
     private var canSubmitAnswer: Bool { !numberList.filter({ $0.userAnswer == nil }).isEmpty }
     
-    init(numberList: [NumberItemPresenter]) {
+    init(numberList: [NumberItemPresenter], finished: @escaping (Int) -> Void) {
         self.numberList = numberList
+        self.finished = finished
     }
     
     func submitAnswer(_ number: String) {
-        guard canSubmitAnswer else { return }
-        
         if let index = numberList.firstIndex(where: { $0.userAnswer == nil }) {
-            numberList[index].userAnswer = number
+            addAnswer(answer: number, at: index)
+        }
+    }
+    
+    private func addAnswer(answer: String, at index: Int) {
+        numberList[index].userAnswer = answer
+        
+        if !canSubmitAnswer {
+            finished(pointsToAdd)
         }
     }
 }
@@ -65,17 +74,43 @@ final class PlayViewDataModelTests: XCTestCase {
         
         zip(sut.numberList, answers).forEach { XCTAssertEqual($0.userAnswer, $1) }
     }
+    
+    func test_submitAnswer_onFinalSubmitFinishedIsCalled_pointsToAddMatchesCorrectAnswerCount() {
+        let numberList = NumberItem.defaultList
+        let correctAnswers = numberList.map { "\($0.answer)" }
+        let moreAnswers = ["5", "6", "7", "8"]
+        let exp = expectation(description: "waiting for finished")
+        let inverted = expectation(description: "inverted")
+        inverted.isInverted = true
+    
+        var finishedCount = 0
+        
+        let sut = makeSUT(numberList: numberList, finished: { pointsToAdd in
+            if finishedCount == 0 {
+                finishedCount += 1
+                XCTAssertEqual(pointsToAdd, 4)
+                exp.fulfill()
+            } else {
+                XCTFail("unexpected call to completion")
+            }
+        })
+        
+        correctAnswers.forEach { sut.submitAnswer($0) }
+        
+        wait(for: [exp], timeout: 0.1)
+        
+        moreAnswers.forEach { sut.submitAnswer($0) }
+        
+        wait(for: [inverted], timeout: 0.1)
+    }
 }
 
 
 // MARK: - SUT
 extension PlayViewDataModelTests {
-    func makeSUT(numberList: [NumberItemPresenter]? = nil, file: StaticString = #filePath, line: UInt = #line) -> PlayViewDataModel {
-        PlayViewDataModel(numberList: numberList ?? makeItemPresenterList())
-    }
-    
-    func makeItemPresenterList() -> [NumberItemPresenter] {
-        NumberItem.defaultList.map { NumberItemPresenter($0) }
+    func makeSUT(numberList: [NumberItem] = NumberItem.defaultList, finished: @escaping (Int) -> Void = { _ in }, file: StaticString = #filePath, line: UInt = #line) -> PlayViewDataModel {
+        
+        return PlayViewDataModel(numberList: numberList.map({ NumberItemPresenter($0) }), finished: finished)
     }
 }
 
