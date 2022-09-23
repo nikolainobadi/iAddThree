@@ -28,9 +28,10 @@ final class PlayViewDataModel {
     }
     
     func submitAnswer(_ number: String) {
-        
+        if let index = numberList.firstIndex(where: { $0.userAnswer == nil }) {
+            numberList[index].userAnswer = number
+        }
     }
-    
 }
 
 final class PlayViewDataModelTests: XCTestCase {
@@ -41,12 +42,14 @@ final class PlayViewDataModelTests: XCTestCase {
         XCTAssertTrue(sut.numberList.filter({ $0.userAnswer != nil }).isEmpty)
     }
     
-//    func test_submitAnswer_answersFilledFromLeftToRight() {
-//        let sut = makeSUT()
-//        let answers = ["1", "2", "3", "4"]
-//        
-//        answers.forEach { sut.submitAnswer($0) }
-//    }
+    func test_submitAnswer_answersFilledFromLeftToRight() {
+        let sut = makeSUT()
+        let answers = ["1", "2", "3", "4"]
+
+        answers.forEach { sut.submitAnswer($0) }
+        
+        zip(sut.numberList, answers).forEach { XCTAssertEqual($0.userAnswer, $1) }
+    }
 }
 
 
