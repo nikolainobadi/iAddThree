@@ -60,6 +60,6 @@ fileprivate struct NumberItemRow: View {
 // MARK: - Preview
 struct NumberListView_Previews: PreviewProvider {
     static var previews: some View {
-        NumberListView(list: NumberItem.defaultList.map({ NumberItemPresenter($0) }))
+        NumberListView(list: NumberItemPresenter.defaultList).onChalkboard()
     }
 }

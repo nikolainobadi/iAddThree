@@ -19,10 +19,10 @@ struct PlayView: View {
 
 struct PlayView_Previews: PreviewProvider {
     static var dataModel: PlayViewDataModel {
-        PlayViewDataModel(numberList: [], finished: { _ in })
+        PlayViewDataModel(numberList: NumberItemPresenter.defaultList, finished: { _ in })
     }
     
     static var previews: some View {
-        PlayView(dataModel: dataModel)
+        PlayView(dataModel: dataModel).onChalkboard()
     }
 }

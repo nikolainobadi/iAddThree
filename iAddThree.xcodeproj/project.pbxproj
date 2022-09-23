@@ -23,6 +23,7 @@
 		D462D13B28DE56B2001FF20A /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D13A28DE56B2001FF20A /* View+Extension.swift */; };
 		D462D13E28DE572E001FF20A /* ChalkFontViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D13D28DE572E001FF20A /* ChalkFontViewModifier.swift */; };
 		D462D14028DE5761001FF20A /* NumberListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D13F28DE5761001FF20A /* NumberListView.swift */; };
+		D462D14528DE5910001FF20A /* ChalkboardViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D14428DE5910001FF20A /* ChalkboardViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		D462D13A28DE56B2001FF20A /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		D462D13D28DE572E001FF20A /* ChalkFontViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChalkFontViewModifier.swift; sourceTree = "<group>"; };
 		D462D13F28DE5761001FF20A /* NumberListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberListView.swift; sourceTree = "<group>"; };
+		D462D14428DE5910001FF20A /* ChalkboardViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChalkboardViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				D462D13D28DE572E001FF20A /* ChalkFontViewModifier.swift */,
+				D462D14428DE5910001FF20A /* ChalkboardViewModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				D462D11628DE44BE001FF20A /* NumberItemFactory.swift in Sources */,
 				D462D12F28DE50E5001FF20A /* PlayViewDataModel.swift in Sources */,
 				D44361DE28DE439A00909629 /* iAddThreeApp.swift in Sources */,
+				D462D14528DE5910001FF20A /* ChalkboardViewModifier.swift in Sources */,
 				D462D13528DE55A0001FF20A /* NumberItem+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

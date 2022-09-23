@@ -17,3 +17,10 @@ extension NumberItem {
         ]
     }
 }
+
+extension NumberItemPresenter {
+    static var defaultList: [NumberItemPresenter] {
+        NumberItem.defaultList.map({ NumberItemPresenter($0) })
+    }
+}
+
