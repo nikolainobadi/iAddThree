@@ -17,16 +17,20 @@ struct GameView: View {
         }
     }
     
+    private func finishLevel(_ pointsToAdd: Int) {
+        
+    }
+    
     var body: some View {
         VStack {
             if isPlaying {
-                // playView
-                
+                PlayViewComposer.makePlayView(.add, finished: finishLevel(_:))
+                    .transition(.scale)
             } else {
                 ChalkButton("Start Game", style: .title2, action: startGame)
                 ChalkButton("How to Play", style: .subheadline, action: showInstructions)
             }
-        }
+        }.animation(.default, value: isPlaying)
     }
 }
 
