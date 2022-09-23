@@ -50,13 +50,27 @@ fileprivate struct NumberPadButton: View {
                     .setChalkFont(.largeTitle, textColor: .black)
                     .padding(10)
                     .frame(maxWidth: sizeNumber, maxHeight: sizeNumber)
+                    .background(OrangeBackground())
             }
         }
     }
 }
 
 
+// MARK: - Background
+fileprivate struct OrangeBackground: View {
+    var body: some View {
+        Image("orangeChalk", bundle: Bundle(identifier: "com.nobadi.iAddThreeiOS"))
+            .resizable()
+            .clipShape(Circle())
+            .padding(1)
+            .background(.white)
+            .clipShape(Circle())
+    }
+}
 
+
+// MARK: - Preview
 struct NumberPadView_Previews: PreviewProvider {
     static var previews: some View {
         PlayView_Previews.previews
