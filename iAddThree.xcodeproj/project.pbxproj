@@ -21,6 +21,7 @@
 		D462D13328DE5164001FF20A /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D13228DE5164001FF20A /* PlayView.swift */; };
 		D462D13528DE55A0001FF20A /* NumberItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D13428DE55A0001FF20A /* NumberItem+Extension.swift */; };
 		D462D13B28DE56B2001FF20A /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D13A28DE56B2001FF20A /* View+Extension.swift */; };
+		D462D13E28DE572E001FF20A /* ChalkFontViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D13D28DE572E001FF20A /* ChalkFontViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		D462D13228DE5164001FF20A /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		D462D13428DE55A0001FF20A /* NumberItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberItem+Extension.swift"; sourceTree = "<group>"; };
 		D462D13A28DE56B2001FF20A /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		D462D13D28DE572E001FF20A /* ChalkFontViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChalkFontViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				D462D13728DE5695001FF20A /* Views */,
+				D462D13C28DE570F001FF20A /* ViewModifiers */,
 				D462D13928DE56A6001FF20A /* Shared */,
 			);
 			path = UI;
@@ -178,6 +181,14 @@
 				D462D13A28DE56B2001FF20A /* View+Extension.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		D462D13C28DE570F001FF20A /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				D462D13D28DE572E001FF20A /* ChalkFontViewModifier.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +296,7 @@
 				D44361E028DE439A00909629 /* ContentView.swift in Sources */,
 				D462D13B28DE56B2001FF20A /* View+Extension.swift in Sources */,
 				D462D13328DE5164001FF20A /* PlayView.swift in Sources */,
+				D462D13E28DE572E001FF20A /* ChalkFontViewModifier.swift in Sources */,
 				D462D13128DE5122001FF20A /* NumberItemPresenter.swift in Sources */,
 				D462D11328DE4490001FF20A /* NumberItem.swift in Sources */,
 				D462D11628DE44BE001FF20A /* NumberItemFactory.swift in Sources */,
