@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct NumberItemPresenter {
+struct NumberItemPresenter: Identifiable {
     private let item: NumberItem
     
+    var id = UUID()
     var userAnswer: String?
     var number: String { "\(item.number)" }
     var isCorrect: Bool { "\(item.answer)" == userAnswer }

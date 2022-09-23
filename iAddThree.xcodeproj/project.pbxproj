@@ -22,6 +22,7 @@
 		D462D13528DE55A0001FF20A /* NumberItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D13428DE55A0001FF20A /* NumberItem+Extension.swift */; };
 		D462D13B28DE56B2001FF20A /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D13A28DE56B2001FF20A /* View+Extension.swift */; };
 		D462D13E28DE572E001FF20A /* ChalkFontViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D13D28DE572E001FF20A /* ChalkFontViewModifier.swift */; };
+		D462D14028DE5761001FF20A /* NumberListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D13F28DE5761001FF20A /* NumberListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		D462D13428DE55A0001FF20A /* NumberItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberItem+Extension.swift"; sourceTree = "<group>"; };
 		D462D13A28DE56B2001FF20A /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		D462D13D28DE572E001FF20A /* ChalkFontViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChalkFontViewModifier.swift; sourceTree = "<group>"; };
+		D462D13F28DE5761001FF20A /* NumberListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 			children = (
 				D44361DF28DE439A00909629 /* ContentView.swift */,
 				D462D13228DE5164001FF20A /* PlayView.swift */,
+				D462D13F28DE5761001FF20A /* NumberListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				D462D11828DE44D1001FF20A /* GameMode.swift in Sources */,
 				D44361E028DE439A00909629 /* ContentView.swift in Sources */,
 				D462D13B28DE56B2001FF20A /* View+Extension.swift in Sources */,
+				D462D14028DE5761001FF20A /* NumberListView.swift in Sources */,
 				D462D13328DE5164001FF20A /* PlayView.swift in Sources */,
 				D462D13E28DE572E001FF20A /* ChalkFontViewModifier.swift in Sources */,
 				D462D13128DE5122001FF20A /* NumberItemPresenter.swift in Sources */,
