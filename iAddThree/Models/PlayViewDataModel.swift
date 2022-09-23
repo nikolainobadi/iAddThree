@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class PlayViewDataModel {
-    var numberList: [NumberItemPresenter]
+final class PlayViewDataModel: ObservableObject {
+    @Published var numberList: [NumberItemPresenter]
     
     private let finished: (Int) -> Void
     
