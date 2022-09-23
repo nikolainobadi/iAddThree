@@ -13,6 +13,7 @@ struct PlayView: View {
     var body: some View {
         VStack {
             NumberListView(list: dataModel.numberList)
+            NumberPadView(selection: { _ in })
         }
     }
 }
