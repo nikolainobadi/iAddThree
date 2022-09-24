@@ -15,6 +15,7 @@ struct GameView: View {
     @StateObject var dataModel: GameViewDataModel
     
     private func startGame() { isPlaying = true }
+    private func stopPlaying() { isPlaying = false; results = nil }
     private func startNextLevel() { results = nil }
     private func finishLevel(_ pointsToAdd: Int) {
         Task {
@@ -53,6 +54,12 @@ struct GameView: View {
         .canShowError(error: $error, doneAction: { error = nil })
         .sheet(isPresented: $showingInstructions) { GameViewComposer.makeInstructionsView(.add) }
         .overlay(
+            Button(action: stopPlaying, label: { Text("Menu").setChalkFont(.subheadline) })
+                .padding(.horizontal)
+                .opacity(results != nil ? 1 : 0)
+            , alignment: .topLeading
+        )
+        .overlay(
             ScoreView(scoreText: dataModel.scoreText, highScoreText: dataModel.highScoreText)
                 .opacity((isPlaying && results == nil) ? 1 : 0)
                 .padding()
@@ -71,7 +78,7 @@ fileprivate struct GameTitle: View {
         VStack {
             Text(title).setChalkFont(.largeTitle, autoSize: true)
                 .scaleEffect(isPlaying ? 0.75 : 1)
-                .offset(y: isPlaying ? 0 : getHeightPercent(6))
+                .offset(y: getHeightPercent(isPlaying ? 2 : 5))
         }
         .lineLimit(1)
         .padding()
