@@ -38,6 +38,7 @@
 		D4BD27A728DFC10D00C698A9 /* GameViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27A628DFC10D00C698A9 /* GameViewDataModel.swift */; };
 		D4BD27A928DFCD9F00C698A9 /* GameStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27A828DFCD9F00C698A9 /* GameStorageManager.swift */; };
 		D4BD27AC28DFCE2600C698A9 /* SinglePlayHighScoreStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27AB28DFCE2600C698A9 /* SinglePlayHighScoreStore.swift */; };
+		D4BD27AE28DFCFBE00C698A9 /* GameViewDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27AD28DFCFBE00C698A9 /* GameViewDataModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		D4BD27A628DFC10D00C698A9 /* GameViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewDataModel.swift; sourceTree = "<group>"; };
 		D4BD27A828DFCD9F00C698A9 /* GameStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStorageManager.swift; sourceTree = "<group>"; };
 		D4BD27AB28DFCE2600C698A9 /* SinglePlayHighScoreStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayHighScoreStore.swift; sourceTree = "<group>"; };
+		D4BD27AD28DFCFBE00C698A9 /* GameViewDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewDataModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 			children = (
 				D462D12628DE4547001FF20A /* NumberItemFactoryTests.swift */,
 				D462D12B28DE4633001FF20A /* PlayViewDataModelTests.swift */,
+				D4BD27AD28DFCFBE00C698A9 /* GameViewDataModelTests.swift */,
 			);
 			path = iAddThreeTests;
 			sourceTree = "<group>";
@@ -195,12 +198,12 @@
 		D462D12D28DE50D7001FF20A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D462D12E28DE50E5001FF20A /* PlayViewDataModel.swift */,
+				D4BD27A628DFC10D00C698A9 /* GameViewDataModel.swift */,
 				D462D13028DE5122001FF20A /* NumberItemPresenter.swift */,
-				D4395F7428DE8FC1000A2B84 /* LevelResultsDataModel.swift */,
 				D4BD279928DF923A00C698A9 /* InstructionDetails.swift */,
 				D4BD279B28DF9B8F00C698A9 /* InstructionsViewDataModel.swift */,
-				D4BD27A628DFC10D00C698A9 /* GameViewDataModel.swift */,
+				D462D12E28DE50E5001FF20A /* PlayViewDataModel.swift */,
+				D4395F7428DE8FC1000A2B84 /* LevelResultsDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 			files = (
 				D462D12C28DE4633001FF20A /* PlayViewDataModelTests.swift in Sources */,
 				D462D12728DE4547001FF20A /* NumberItemFactoryTests.swift in Sources */,
+				D4BD27AE28DFCFBE00C698A9 /* GameViewDataModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
