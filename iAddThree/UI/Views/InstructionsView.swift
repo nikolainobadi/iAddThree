@@ -11,6 +11,13 @@ struct InstructionsView: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject var dataModel: InstructionsDataModel
     
+    private var showNextButton: Bool { dataModel.showNextButton }
+    private var showPreviousButton: Bool { dataModel.showPreviousButton }
+    
+    private func turnPage(backwards: Bool = false) {
+        withAnimation { dataModel.turnPage(backwards: backwards) }
+    }
+    
     var body: some View {
         VStack {
             NumberListView(list: dataModel.sampleList)
@@ -22,9 +29,9 @@ struct InstructionsView: View {
                     .padding([.horizontal])
                 
                 HStack {
-                    ToolBarButton(text: "Previews", color: .red, isShowing: dataModel.showPreviousButton, action: { })
+                    ToolBarButton(text: "Previews", color: .red, isShowing: showPreviousButton, action: { turnPage(backwards: true) })
                     Spacer()
-                    ToolBarButton(text: "Next", color: .green, isShowing: dataModel.showNextButton, action: { })
+                    ToolBarButton(text: "Next", color: .green, isShowing: showNextButton, action: { turnPage() })
                 }.padding()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
@@ -82,6 +89,14 @@ extension InstructionsDataModel {
     var instructions: String { currentDetails.details }
     var showPreviousButton: Bool { hasMultiplePages && !isFirstPage }
     var showNextButton: Bool { hasMultiplePages && !isLastPage }
+    
+    func turnPage(backwards: Bool) {
+        if backwards {
+            if !isFirstPage { currentPage -= 1 }
+        } else {
+            if !isLastPage { currentPage += 1 }
+        }
+    }
 }
 
 private extension InstructionsDataModel {
