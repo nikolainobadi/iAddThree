@@ -80,31 +80,3 @@ struct GameView_Previews: PreviewProvider {
         GameView(dataModel: makeDataModel()).onChalkboard()
     }
 }
-
-
-// MARK: - DataModel
-final class GameViewDataModel: ObservableObject {
-    @Published var isPlaying = false
-    
-    private let mode: GameMode
-    
-    init(mode: GameMode) {
-        self.mode = mode
-    }
-}
-
-
-extension GameViewDataModel {
-    var modeTitle: String { mode.title }
-    
-    func startGame() { isPlaying = true }
-}
-
-
-extension GameMode {
-    var title: String {
-        switch self {
-        case .add: return "Add Three"
-        }
-    }
-}
