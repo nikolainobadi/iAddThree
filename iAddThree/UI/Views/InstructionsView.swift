@@ -14,10 +14,46 @@ struct InstructionsView: View {
     var body: some View {
         VStack {
             NumberListView(list: dataModel.sampleList)
+            
+            VStack {
+                Text(dataModel.instructions)
+                    .setSmoothFont(.subheadline, autoSize: true)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                    .padding([.horizontal])
+                
+                HStack {
+                    ToolBarButton(text: "Previews", color: .red, isShowing: dataModel.showPreviousButton, action: { })
+                    Spacer()
+                    ToolBarButton(text: "Next", color: .green, isShowing: dataModel.showNextButton, action: { })
+                }.padding()
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            .background(.black.opacity(0.5))
+            .cornerRadius(20)
+            .padding()
         }.onChalkboard()
     }
 }
 
+
+// MARK: - ToolBarButton
+fileprivate struct ToolBarButton: View {
+    let text: String
+    let color: Color
+    let isShowing: Bool
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action, label: {
+            Text(text)
+                .underline()
+                .setSmoothFont(.title3, textColor: color)
+        }).opacity(isShowing ? 1 : 0)
+    }
+}
+
+
+// MARK: - Previews
 struct InstructionsView_Previews: PreviewProvider {
     static func makeDataModel(_ mode: GameMode = .add) -> InstructionsDataModel {
         InstructionsDataModel(mode: mode)
@@ -28,11 +64,12 @@ struct InstructionsView_Previews: PreviewProvider {
     }
 }
 
+
+// MARK: - DataModel
 final class InstructionsDataModel: ObservableObject {
     @Published var currentPage = 0
 
     private let mode: GameMode
-    private var instructionsList: [InstructionDetails] { mode.instructionsList }
     
     init(mode: GameMode) {
         self.mode = mode
@@ -42,8 +79,21 @@ final class InstructionsDataModel: ObservableObject {
 extension InstructionsDataModel {
     var modeTitle: String { mode.title }
     var sampleList: [NumberItemPresenter] { instructionsList[currentPage].sampleNumberList }
+    var instructions: String { currentDetails.details }
+    var showPreviousButton: Bool { hasMultiplePages && !isFirstPage }
+    var showNextButton: Bool { hasMultiplePages && !isLastPage }
 }
 
+private extension InstructionsDataModel {
+    var instructionsList: [InstructionDetails] { mode.instructionsList }
+    var currentDetails: InstructionDetails { instructionsList[currentPage] }
+    var hasMultiplePages: Bool { instructionsList.count > 1 }
+    var isFirstPage: Bool { currentPage == 0 }
+    var isLastPage: Bool { hasMultiplePages && currentPage == instructionsList.count - 1 }
+}
+
+
+// MARK: - GameMode Extension
 extension GameMode {
     var instructionsList: [InstructionDetails] {
         switch self {
@@ -52,6 +102,8 @@ extension GameMode {
     }
 }
 
+
+// MARK: - Instructions Factory
 class BaseInstructionsFactory {
     static let sampleNumberList: [NumberItemPresenter] = NumberItemPresenter.defaultList
     
