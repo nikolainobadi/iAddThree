@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4395F7528DE8FC1000A2B84 /* LevelResultsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4395F7428DE8FC1000A2B84 /* LevelResultsDataModel.swift */; };
 		D44361DE28DE439A00909629 /* iAddThreeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44361DD28DE439A00909629 /* iAddThreeApp.swift */; };
 		D44361E028DE439A00909629 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44361DF28DE439A00909629 /* ContentView.swift */; };
 		D44361E228DE439B00909629 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44361E128DE439B00909629 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D4395F7428DE8FC1000A2B84 /* LevelResultsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelResultsDataModel.swift; sourceTree = "<group>"; };
 		D44361DA28DE439A00909629 /* iAddThree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAddThree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44361DD28DE439A00909629 /* iAddThreeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAddThreeApp.swift; sourceTree = "<group>"; };
 		D44361DF28DE439A00909629 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			children = (
 				D462D12E28DE50E5001FF20A /* PlayViewDataModel.swift */,
 				D462D13028DE5122001FF20A /* NumberItemPresenter.swift */,
+				D4395F7428DE8FC1000A2B84 /* LevelResultsDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				D462D11328DE4490001FF20A /* NumberItem.swift in Sources */,
 				D462D14D28DE5D2C001FF20A /* GameViewComposer.swift in Sources */,
 				D462D11628DE44BE001FF20A /* NumberItemFactory.swift in Sources */,
+				D4395F7528DE8FC1000A2B84 /* LevelResultsDataModel.swift in Sources */,
 				D462D12F28DE50E5001FF20A /* PlayViewDataModel.swift in Sources */,
 				D44361DE28DE439A00909629 /* iAddThreeApp.swift in Sources */,
 				D462D14528DE5910001FF20A /* ChalkboardViewModifier.swift in Sources */,
