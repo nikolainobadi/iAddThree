@@ -34,6 +34,7 @@
 		D4BD279A28DF923A00C698A9 /* InstructionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD279928DF923A00C698A9 /* InstructionDetails.swift */; };
 		D4BD279C28DF9B8F00C698A9 /* InstructionsViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD279B28DF9B8F00C698A9 /* InstructionsViewDataModel.swift */; };
 		D4BD279F28DF9BD500C698A9 /* InstructionsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD279E28DF9BD500C698A9 /* InstructionsFactory.swift */; };
+		D4BD27A128DF9D6300C698A9 /* ChalkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27A028DF9D6300C698A9 /* ChalkButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		D4BD279928DF923A00C698A9 /* InstructionDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionDetails.swift; sourceTree = "<group>"; };
 		D4BD279B28DF9B8F00C698A9 /* InstructionsViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewDataModel.swift; sourceTree = "<group>"; };
 		D4BD279E28DF9BD500C698A9 /* InstructionsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsFactory.swift; sourceTree = "<group>"; };
+		D4BD27A028DF9D6300C698A9 /* ChalkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChalkButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				D462D13A28DE56B2001FF20A /* View+Extension.swift */,
+				D4BD27A028DF9D6300C698A9 /* ChalkButton.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				D462D11828DE44D1001FF20A /* GameMode.swift in Sources */,
 				D4BD279828DF91C900C698A9 /* InstructionsView.swift in Sources */,
 				D4BD279A28DF923A00C698A9 /* InstructionDetails.swift in Sources */,
+				D4BD27A128DF9D6300C698A9 /* ChalkButton.swift in Sources */,
 				D44361E028DE439A00909629 /* ContentView.swift in Sources */,
 				D462D13B28DE56B2001FF20A /* View+Extension.swift in Sources */,
 				D462D14B28DE5C7F001FF20A /* RoundedBorderViewModifier.swift in Sources */,

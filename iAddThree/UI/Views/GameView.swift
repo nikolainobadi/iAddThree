@@ -13,7 +13,7 @@ struct GameView: View {
     
     private var isPlaying: Bool { dataModel.isPlaying }
     
-    private func finishLevel(_ pointsToAdd: Int) {}
+    private func finishLevel(_ pointsToAdd: Int) { }
     
     var body: some View {
         VStack {
@@ -35,6 +35,8 @@ struct GameView: View {
     }
 }
 
+
+// MARK: - Title
 fileprivate struct GameTitle: View {
     let title: String
     let isPlaying: Bool
@@ -51,6 +53,8 @@ fileprivate struct GameTitle: View {
     }
 }
 
+
+// MARK: - MenuButtons
 fileprivate struct MenuButtons: View {
     let isPlaying: Bool
     let startGame: () -> Void
@@ -66,28 +70,8 @@ fileprivate struct MenuButtons: View {
     }
 }
 
-struct ChalkButton: View {
-    let text: String
-    let style: Font.TextStyle
-    let action: () -> Void
-    
-    init(_ text: String, style: Font.TextStyle = .title3, action: @escaping () -> Void) {
-        self.text = text
-        self.style = style
-        self.action = action
-    }
-    
-    var body: some View {
-        Button(action: action) {
-            Text(text)
-                .padding(.horizontal, getWidthPercent(10))
-                .lineLimit(1)
-                .setChalkFont(style, textColor: Color(uiColor: .systemBackground), autoSize: true)
-                .withRoundedBorder()
-        }
-    }
-}
 
+// MARK: - Preview
 struct GameView_Previews: PreviewProvider {
     static func makeDataModel(_ mode: GameMode = .add) -> GameViewDataModel {
         GameViewDataModel(mode: mode)
@@ -98,6 +82,7 @@ struct GameView_Previews: PreviewProvider {
 }
 
 
+// MARK: - DataModel
 final class GameViewDataModel: ObservableObject {
     @Published var isPlaying = false
     
