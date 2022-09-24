@@ -24,7 +24,7 @@ struct GameView: View {
     var body: some View {
         VStack {
             if isPlaying {
-                PlayViewComposer.makePlayView(.add, finished: finishLevel(_:))
+                GameViewComposer.makePlayView(.add, finished: finishLevel(_:))
                     .transition(.scale)
             } else {
                 ChalkButton("Start Game", style: .title2, action: startGame)
