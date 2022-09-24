@@ -50,7 +50,7 @@ struct ChalkButton: View {
             Text(text)
                 .padding(.horizontal, getWidthPercent(10))
                 .lineLimit(1)
-                .setChalkFont(style, textColor: .primary, autoSize: true)
+                .setChalkFont(style, textColor: Color(uiColor: .systemBackground), autoSize: true)
                 .withRoundedBorder()
         }
     }

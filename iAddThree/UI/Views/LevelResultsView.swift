@@ -8,28 +8,34 @@
 import SwiftUI
 
 struct LevelResultsView: View {
-    @State var currentScore: Int
     @State private var showingButton = false
-    @State private var showingGameOver = false
+    @StateObject var dataModel: LevelResultsDataModel
     
-    let newScore: Int?
-    let completedLevel: Int
-    let playNextLevel: () -> Void
+    private var completedLevel: Bool { dataModel.completedLevel }
+    private var showingGameOver: Bool { dataModel.showingGameOver }
     
-    private var gameOver: Bool { newScore == nil }
-    private var size: CGFloat { getWidthPercent(40) }
-    private var levelCompleteText: String { "Level \(completedLevel) \(gameOver ? "Results" : "Completed")" }
-    
-    private func showNewScore(_ score: Int) async { withAnimation(.easeOut(duration: 1)) { currentScore = score } }
-    private func showGameOver() async { withAnimation(.linear(duration: 2.5)) { showingGameOver = true } }
-    private func showButton() async {
-        try? await Task.sleep(nanoseconds: gameOver ? 2_000_000_000 : 0_500_000_000)
-        withAnimation(.easeInOut(duration: 1)) { showingButton = true}
+    private func playNextLevel() { dataModel.playNextLevel() }
+    private func animateResults() async {
+        try? await Task.sleep(nanoseconds: 1_000_000_000)
+        withAnimation(.linear(duration: completedLevel ? 1.5 : 2)) { dataModel.updateScore()}
+        try? await Task.sleep(nanoseconds: completedLevel ? 0_500_000_000 : 2_000_000_000)
+        withAnimation(.easeInOut(duration: 1)) { showingButton = true }
     }
     
     var body: some View {
         VStack {
-            if gameOver {
+            if completedLevel {
+                Text(dataModel.titleText)
+                    .padding(.top, getHeightPercent(5))
+                    .setChalkFont(.subheadline)
+                Spacer()
+                Circle()
+                    .fill(Color.black)
+                    .opacity(0.6)
+                    .frame(width: getWidthPercent(40), height: getWidthPercent(40))
+                    .modifier(NumberAnimationModifier(number: dataModel.currentScore))
+                    .padding(getWidthPercent(10))
+            } else {
                 if showingGameOver {
                     Text("Game Over")
                         .frame(maxWidth: getWidthPercent(95))
@@ -40,37 +46,16 @@ struct LevelResultsView: View {
                         .padding(.bottom, getHeightPercent(30))
                         .transition(.move(edge: .bottom))
                 }
-            } else {
-                Text(levelCompleteText)
-                    .padding(.top, getHeightPercent(5))
-                    .setChalkFont(.subheadline)
-                Spacer()
-                Circle()
-                    .fill(Color.black)
-                    .opacity(0.6)
-                    .frame(width: size, height: size)
-                    .modifier(NumberAnimationModifier(number: currentScore))
-                    .padding(getWidthPercent(10))
             }
             
-            ChalkButton("Next Level", action: playNextLevel)
+            ChalkButton(dataModel.playAgainText, action: playNextLevel)
                 .opacity(showingButton ? 1 : 0)
                 .transition(.slide)
             
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .task {
-            try? await Task.sleep(nanoseconds: 1_000_000_000)
-            
-            if let newScore = newScore {
-                await showNewScore(newScore)
-            } else {
-                await showGameOver()
-            }
-            
-           await showButton()
-        }
+        .task { await animateResults() }
     }
 }
 
@@ -78,23 +63,55 @@ struct LevelResultsView: View {
 // MARK: - Animation
 struct NumberAnimationModifier: AnimatableModifier {
     var number: Int
-    
     var animatableData: Double {
         get { Double(number) }
         set { number = Int(newValue) }
     }
     
     func body(content: Content) -> some View {
-        content
-            .overlay(Text("\(number)").setChalkFont(.largeTitle))
+        content.overlay(Text("\(number)").setChalkFont(.largeTitle))
     }
 }
 
 
 // MARK: - Preview
 struct LevelResultsView_Previews: PreviewProvider {
+    static func makeDataModel(newScore: Int? = nil) -> LevelResultsDataModel {
+        LevelResultsDataModel(currentScore: 0, newScore: 4, previousLevel: 1, playNextLevel: { })
+    }
     static var previews: some View {
-        LevelResultsView(currentScore: 0, newScore: nil, completedLevel: 1, playNextLevel: { }).onChalkboard()
-            .preferredColorScheme(.dark)
+        LevelResultsView(dataModel: makeDataModel()).onChalkboard()
+    }
+}
+
+final class LevelResultsDataModel: ObservableObject {
+    @Published var currentScore: Int
+    @Published var showingGameOver = false
+    
+    private let newScore: Int?
+    private let previousLevel: Int
+    
+    let playNextLevel: () -> Void
+    
+    init(currentScore: Int, newScore: Int?, previousLevel: Int, playNextLevel: @escaping () -> Void) {
+        self.currentScore = currentScore
+        self.newScore = newScore
+        self.previousLevel = previousLevel
+        self.playNextLevel = playNextLevel
+    }
+}
+
+
+extension LevelResultsDataModel {
+    var completedLevel: Bool { newScore != nil }
+    var titleText: String { "Level \(previousLevel) complete" }
+    var playAgainText: String { completedLevel ? "Level \(previousLevel + 1)" : "Try again?" }
+    
+    func updateScore() {
+        if let newScore = newScore {
+            currentScore = newScore
+        } else {
+            showingGameOver = true
+        }
     }
 }
