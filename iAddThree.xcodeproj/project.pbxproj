@@ -37,6 +37,7 @@
 		D4BD27A128DF9D6300C698A9 /* ChalkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27A028DF9D6300C698A9 /* ChalkButton.swift */; };
 		D4BD27A728DFC10D00C698A9 /* GameViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27A628DFC10D00C698A9 /* GameViewDataModel.swift */; };
 		D4BD27A928DFCD9F00C698A9 /* GameStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27A828DFCD9F00C698A9 /* GameStorageManager.swift */; };
+		D4BD27AC28DFCE2600C698A9 /* SinglePlayHighScoreStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27AB28DFCE2600C698A9 /* SinglePlayHighScoreStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		D4BD27A028DF9D6300C698A9 /* ChalkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChalkButton.swift; sourceTree = "<group>"; };
 		D4BD27A628DFC10D00C698A9 /* GameViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewDataModel.swift; sourceTree = "<group>"; };
 		D4BD27A828DFCD9F00C698A9 /* GameStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStorageManager.swift; sourceTree = "<group>"; };
+		D4BD27AB28DFCE2600C698A9 /* SinglePlayHighScoreStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayHighScoreStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				D462D10F28DE445C001FF20A /* UI */,
 				D462D12D28DE50D7001FF20A /* Models */,
 				D4BD279D28DF9BC200C698A9 /* Logic */,
+				D4BD27AA28DFCE0200C698A9 /* Storage */,
 				D462D11428DE44A6001FF20A /* NumberItemFeature */,
 				D462D11028DE4460001FF20A /* Resources */,
 				D44361E328DE439B00909629 /* Preview Content */,
@@ -242,6 +245,14 @@
 				D4BD27A828DFCD9F00C698A9 /* GameStorageManager.swift */,
 			);
 			path = Logic;
+			sourceTree = "<group>";
+		};
+		D4BD27AA28DFCE0200C698A9 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				D4BD27AB28DFCE2600C698A9 /* SinglePlayHighScoreStore.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,6 +371,7 @@
 				D462D13328DE5164001FF20A /* PlayView.swift in Sources */,
 				D4BD27A928DFCD9F00C698A9 /* GameStorageManager.swift in Sources */,
 				D462D13E28DE572E001FF20A /* ChalkFontViewModifier.swift in Sources */,
+				D4BD27AC28DFCE2600C698A9 /* SinglePlayHighScoreStore.swift in Sources */,
 				D462D13128DE5122001FF20A /* NumberItemPresenter.swift in Sources */,
 				D4BD279C28DF9B8F00C698A9 /* InstructionsViewDataModel.swift in Sources */,
 				D462D11328DE4490001FF20A /* NumberItem.swift in Sources */,

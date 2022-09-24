@@ -44,14 +44,3 @@ extension GameMode {
         }
     }
 }
-
-
-// MARK: - GameStorageManager
-
-
-// MARK: - HighScoreStore
-final class SinglePlayHighScoreStore: HighScoreStore {
-    var highScore: Int = 0
-    
-    func saveHighScore(_ newHighScore: Int) async throws { highScore = newHighScore }
-}
