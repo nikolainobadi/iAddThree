@@ -17,7 +17,7 @@ struct PlayView: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(spacing: getHeightPercent(15)) {
             NumberListView(list: dataModel.numberList)
             NumberPadView(selection: submitAnswer(_:))
         }
