@@ -13,14 +13,14 @@ struct InstructionsView: View {
     
     var body: some View {
         VStack {
-            
+            NumberListView(list: dataModel.sampleList)
         }.onChalkboard()
     }
 }
 
 struct InstructionsView_Previews: PreviewProvider {
     static func makeDataModel(_ mode: GameMode = .add) -> InstructionsDataModel {
-        InstructionsDataModel(instructionsList: mode.instructionsList)
+        InstructionsDataModel(mode: mode)
     }
     
     static var previews: some View {
@@ -29,15 +29,19 @@ struct InstructionsView_Previews: PreviewProvider {
 }
 
 final class InstructionsDataModel: ObservableObject {
-    private let instructionsList: [InstructionDetails]
+    @Published var currentPage = 0
+
+    private let mode: GameMode
+    private var instructionsList: [InstructionDetails] { mode.instructionsList }
     
-    init(instructionsList: [InstructionDetails]) {
-        self.instructionsList = instructionsList
+    init(mode: GameMode) {
+        self.mode = mode
     }
 }
 
 extension InstructionsDataModel {
-    
+    var modeTitle: String { mode.title }
+    var sampleList: [NumberItemPresenter] { instructionsList[currentPage].sampleNumberList }
 }
 
 extension GameMode {
