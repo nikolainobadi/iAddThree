@@ -47,49 +47,6 @@ extension GameMode {
 
 
 // MARK: - GameStorageManager
-final class GameStorageManager {
-    private let store: HighScoreStore
-    
-    var score = 0
-    var level = 1
-    
-    init(store: HighScoreStore = SinglePlayHighScoreStore()) {
-        self.store = store
-    }
-}
-
-
-extension GameStorageManager: GameStore {
-    var highScore: Int { store.highScore }
-    
-    func loadResults(pointsToAdd: Int) async throws -> LevelResultInfo {
-        guard pointsToAdd > 0 else { return LevelResultInfo(currentScore: score, newScore: nil, previousLevel: level) }
-        
-        let newScore = makeNewScore(pointsToAdd)
-        let results = LevelResultInfo(currentScore: score, newScore: newScore, previousLevel: level)
-        
-        if newScore > highScore {
-            try await store.saveHighScore(newScore)
-        }
-        
-        level = makeNewLevel()
-        score = newScore
-        
-        return results
-    }
-}
-
-
-private extension GameStorageManager {
-    func makeNewLevel() -> Int { level + 1 }
-    func makeNewScore(_ pointsToAdd: Int) -> Int { score + pointsToAdd }
-}
-
-
-protocol HighScoreStore {
-    var highScore: Int { get }
-    func saveHighScore(_ newHighScore: Int) async throws
-}
 
 
 // MARK: - HighScoreStore
