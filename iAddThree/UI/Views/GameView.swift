@@ -8,14 +8,9 @@
 import SwiftUI
 
 struct GameView: View {
-    @State var isPlaying = false
+    @StateObject var dataModel: GameViewDataModel
     
     private func showInstructions() { }
-    private func startGame() {
-        withAnimation {
-            isPlaying = true
-        }
-    }
     
     private func finishLevel(_ pointsToAdd: Int) {
         
@@ -23,14 +18,14 @@ struct GameView: View {
     
     var body: some View {
         VStack {
-            if isPlaying {
+            if dataModel.isPlaying {
                 GameViewComposer.makePlayView(.add, finished: finishLevel(_:))
                     .transition(.scale)
             } else {
-                ChalkButton("Start Game", style: .title2, action: startGame)
+                ChalkButton("Start Game", style: .title2, action: dataModel.startGame)
                 ChalkButton("How to Play", style: .subheadline, action: showInstructions)
             }
-        }.animation(.default, value: isPlaying)
+        }.animation(.default, value: dataModel.isPlaying)
     }
 }
 
@@ -57,7 +52,20 @@ struct ChalkButton: View {
 }
 
 struct GameView_Previews: PreviewProvider {
-    static var previews: some View {
-        GameView().onChalkboard()
+    static var dataModel: GameViewDataModel {
+        GameViewDataModel()
     }
+    static var previews: some View {
+        GameView(dataModel: dataModel).onChalkboard()
+    }
+}
+
+
+final class GameViewDataModel: ObservableObject {
+    @Published var isPlaying = false
+}
+
+
+extension GameViewDataModel {
+    func startGame() { isPlaying = true }
 }
