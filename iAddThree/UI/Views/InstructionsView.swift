@@ -20,7 +20,28 @@ struct InstructionsView: View {
     
     var body: some View {
         VStack {
+            VStack(spacing: 0) {
+                HStack {
+                    Spacer()
+                    Button(action: { dismiss() }) {
+                        Image(systemName: "xmark").setChalkFont(.title3)
+                    }.padding([.horizontal, .top])
+                }
+                
+                if dataModel.showHowToTitle {
+                    Text("How to Play")
+                        .lineLimit(1)
+                        .setChalkFont(.title, autoSize: true)
+                        .padding(.horizontal)
+                        .transition(.scale(scale: 0.15, anchor: .top))
+                }
+                
+                Text(dataModel.modeTitle)
+                    .setChalkFont(.title2)
+            }
+            
             NumberListView(list: dataModel.sampleList)
+                .padding(.vertical)
             
             VStack {
                 Text(dataModel.instructions)
@@ -87,6 +108,7 @@ extension InstructionsDataModel {
     var modeTitle: String { mode.title }
     var sampleList: [NumberItemPresenter] { instructionsList[currentPage].sampleNumberList }
     var instructions: String { currentDetails.details }
+    var showHowToTitle: Bool { isFirstPage }
     var showPreviousButton: Bool { hasMultiplePages && !isFirstPage }
     var showNextButton: Bool { hasMultiplePages && !isLastPage }
     
