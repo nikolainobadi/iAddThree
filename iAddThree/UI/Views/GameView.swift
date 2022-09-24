@@ -52,6 +52,12 @@ struct GameView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .canShowError(error: $error, doneAction: { error = nil })
         .sheet(isPresented: $showingInstructions) { GameViewComposer.makeInstructionsView(.add) }
+        .overlay(
+            ScoreView(scoreText: dataModel.scoreText, highScoreText: dataModel.highScoreText)
+                .opacity((isPlaying && results == nil) ? 1 : 0)
+                .padding()
+            , alignment: .bottomLeading
+        )
     }
 }
 
@@ -87,6 +93,20 @@ fileprivate struct MenuButtons: View {
         }
         .transition(.scale)
         .animation(.default, value: isPlaying)
+    }
+}
+
+
+// MARK: - Score View
+fileprivate struct ScoreView: View {
+    let scoreText: String
+    let highScoreText: String
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(scoreText)
+            Text(highScoreText)
+        }.setChalkFont(.body)
     }
 }
 
