@@ -39,6 +39,7 @@
 		D4BD27A928DFCD9F00C698A9 /* GameStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27A828DFCD9F00C698A9 /* GameStorageManager.swift */; };
 		D4BD27AC28DFCE2600C698A9 /* SinglePlayHighScoreStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27AB28DFCE2600C698A9 /* SinglePlayHighScoreStore.swift */; };
 		D4BD27AE28DFCFBE00C698A9 /* GameViewDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27AD28DFCFBE00C698A9 /* GameViewDataModelTests.swift */; };
+		D4BD27B028DFD0BB00C698A9 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27AF28DFD0BB00C698A9 /* XCTestCase+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		D4BD27A828DFCD9F00C698A9 /* GameStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStorageManager.swift; sourceTree = "<group>"; };
 		D4BD27AB28DFCE2600C698A9 /* SinglePlayHighScoreStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayHighScoreStore.swift; sourceTree = "<group>"; };
 		D4BD27AD28DFCFBE00C698A9 /* GameViewDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewDataModelTests.swift; sourceTree = "<group>"; };
+		D4BD27AF28DFD0BB00C698A9 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 				D462D12628DE4547001FF20A /* NumberItemFactoryTests.swift */,
 				D462D12B28DE4633001FF20A /* PlayViewDataModelTests.swift */,
 				D4BD27AD28DFCFBE00C698A9 /* GameViewDataModelTests.swift */,
+				D4BD27AF28DFD0BB00C698A9 /* XCTestCase+Extensions.swift */,
 			);
 			path = iAddThreeTests;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4BD27B028DFD0BB00C698A9 /* XCTestCase+Extensions.swift in Sources */,
 				D462D12C28DE4633001FF20A /* PlayViewDataModelTests.swift in Sources */,
 				D462D12728DE4547001FF20A /* NumberItemFactoryTests.swift in Sources */,
 				D4BD27AE28DFCFBE00C698A9 /* GameViewDataModelTests.swift in Sources */,
