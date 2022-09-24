@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct GameView: View {
-    @State var showingInstructions = false
+    @State private var isPlaying = false
+    @State private var showingInstructions = false
     @StateObject var dataModel: GameViewDataModel
     
-    private var isPlaying: Bool { dataModel.isPlaying }
-    
+    private func startGame() { isPlaying = true }
     private func finishLevel(_ pointsToAdd: Int) { }
     
     var body: some View {
@@ -25,7 +25,7 @@ struct GameView: View {
                     GameViewComposer.makePlayView(.add, finished: finishLevel(_:))
                         .transition(.scale)
                 } else {
-                    MenuButtons(isPlaying: isPlaying, startGame: dataModel.startGame, showInstructions: { showingInstructions = true })
+                    MenuButtons(isPlaying: isPlaying, startGame: startGame, showInstructions: { showingInstructions = true })
                 }
                 Spacer()
             }.animation(.easeInOut(duration: 0.75), value: isPlaying)
@@ -76,6 +76,7 @@ struct GameView_Previews: PreviewProvider {
     static func makeDataModel(_ mode: GameMode = .add) -> GameViewDataModel {
         GameViewDataModel(mode: mode)
     }
+    
     static var previews: some View {
         GameView(dataModel: makeDataModel()).onChalkboard()
     }
