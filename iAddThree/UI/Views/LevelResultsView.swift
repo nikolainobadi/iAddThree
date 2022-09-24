@@ -28,13 +28,12 @@ struct LevelResultsView: View {
                 Text(dataModel.titleText)
                     .padding(.top, getHeightPercent(5))
                     .setChalkFont(.subheadline)
-                Spacer()
                 Circle()
                     .fill(Color.black)
                     .opacity(0.6)
                     .frame(width: getWidthPercent(40), height: getWidthPercent(40))
                     .modifier(NumberAnimationModifier(number: dataModel.currentScore))
-                    .padding(getWidthPercent(10))
+                    .padding(getWidthPercent(20))
             } else {
                 if showingGameOver {
                     Text("Game Over")
