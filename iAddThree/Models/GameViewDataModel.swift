@@ -8,8 +8,6 @@
 import Foundation
 
 final class GameViewDataModel: ObservableObject {
-    @Published var results: LevelResultInfo?
-    
     private let mode: GameMode
     private let store: GameStore
     
@@ -24,14 +22,7 @@ final class GameViewDataModel: ObservableObject {
 extension GameViewDataModel {
     var modeTitle: String { mode.title }
     
-    func startNextRound() { results = nil }
-    func loadResults(_ pointsToAdd: Int) async throws { await postResults(try await store.loadResults(pointsToAdd: pointsToAdd)) }
-}
-
-
-// MARK: - Private Methods
-private extension GameViewDataModel {
-    @MainActor func postResults(_ results: LevelResultInfo) { self.results = results }
+    func loadResults(_ pointsToAdd: Int) async throws -> LevelResultInfo { try await store.loadResults(pointsToAdd: pointsToAdd) }
 }
 
 

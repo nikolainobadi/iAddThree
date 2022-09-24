@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LevelResultInfo {
+struct LevelResultInfo: Equatable {
     let currentScore: Int
     let newScore: Int?
     let previousLevel: Int

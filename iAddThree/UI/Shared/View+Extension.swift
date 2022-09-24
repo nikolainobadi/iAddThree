@@ -18,4 +18,26 @@ extension View {
     
     /// Percent required in parameter is direct representation. Example: 1% of height = getHeightPercent(1). 10% of height = getHeightPercent(10)
     func getHeightPercent(_ percent: CGFloat) -> CGFloat { screenHeight * (percent * 0.01) }
+    
+    func canShowError(error: Binding<Error?>, buttonTitle: String = "OK", doneAction: (() -> Void)? = nil) -> some View {
+        let localizedAlertError = CustomLocalizedError(error: error.wrappedValue)
+        
+        return alert(isPresented: .constant(localizedAlertError != nil), error: localizedAlertError) { _ in
+            Button(action: { doneAction?() }) {
+                Text("Okay")
+            }
+        } message: { error in
+            Text(error.message)
+        }
+    }
+}
+
+struct CustomLocalizedError: LocalizedError {
+    var errorDescription: String? { "Error" }
+    var recoverySuggestion: String? { nil }
+    var message: String { "Something went wrong" }
+
+    init?(error: Error?) {
+        guard error != nil else { return nil }
+    }
 }

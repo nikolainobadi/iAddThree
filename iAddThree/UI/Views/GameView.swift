@@ -8,29 +8,49 @@
 import SwiftUI
 
 struct GameView: View {
+    @State private var error: Error?
     @State private var isPlaying = false
     @State private var showingInstructions = false
+    @State private var results: LevelResultInfo?
     @StateObject var dataModel: GameViewDataModel
     
     private func startGame() { isPlaying = true }
-    private func finishLevel(_ pointsToAdd: Int) { }
+    private func startNextLevel() { results = nil }
+    private func finishLevel(_ pointsToAdd: Int) {
+        Task {
+            try? await Task.sleep(nanoseconds: 0_500_000_000)
+            do {
+                let results = try await dataModel.loadResults(pointsToAdd)
+                
+                withAnimation(.easeOut(duration: 0.75)) { self.results = results }
+            } catch {
+                self.error = error
+            }
+        }
+    }
     
     var body: some View {
         VStack {
             GameTitle(title: dataModel.modeTitle, isPlaying: isPlaying)
-                
-            VStack {
-                Spacer()
-                if isPlaying {
-                    GameViewComposer.makePlayView(.add, finished: finishLevel(_:))
-                        .transition(.scale)
-                } else {
-                    MenuButtons(isPlaying: isPlaying, startGame: startGame, showInstructions: { showingInstructions = true })
-                }
-                Spacer()
-            }.animation(.easeInOut(duration: 0.75), value: isPlaying)
+            
+            if let results = results {
+                GameViewComposer.makeLevelResultsView(results: results, playNextLevel: startNextLevel)
+                    .transition(.opacity)
+            } else {
+                VStack {
+                    Spacer()
+                    if isPlaying {
+                        GameViewComposer.makePlayView(.add, finished: finishLevel(_:))
+                            .transition(.scale)
+                    } else {
+                        MenuButtons(isPlaying: isPlaying, startGame: startGame, showInstructions: { showingInstructions = true })
+                    }
+                    Spacer()
+                }.animation(.easeInOut(duration: 0.75), value: isPlaying)
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .canShowError(error: $error, doneAction: { error = nil })
         .sheet(isPresented: $showingInstructions) { GameViewComposer.makeInstructionsView(.add) }
     }
 }
