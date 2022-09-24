@@ -21,6 +21,10 @@ enum GameViewComposer {
     static func makeLevelResultsView(results: LevelResultInfo, playNextLevel: @escaping () -> Void) -> some View {
         LevelResultsView(dataModel: LevelResultsDataModel(currentScore: results.currentScore, newScore: results.newScore, previousLevel: results.previousLevel, playNextLevel: playNextLevel))
     }
+    
+    static func makeInstructionsView(_ mode: GameMode) -> some View {
+        InstructionsView(dataModel: InstructionsDataModel(mode: mode))
+    }
 }
 
 
