@@ -23,4 +23,5 @@ extension UserDefaultsHighScoreStore: HighScoreStore {
     var highScore: Int { defaults.integer(forKey: mode.title) }
     
     func saveHighScore(_ newHighScore: Int) async throws { defaults.set(newHighScore, forKey: mode.title) }
+    func resetHighScore() async throws { defaults.set(0, forKey: mode.title) }
 }

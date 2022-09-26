@@ -35,6 +35,16 @@ struct GameView: View {
         }
     }
     
+    private func resetHighScore() {
+        Task {
+            do {
+                try await dataModel.resetHighScore()
+            } catch {
+                self.error = error
+            }
+        }
+    }
+    
     var body: some View {
         VStack {
             GameTitle(title: dataModel.modeTitle, isPlaying: isPlaying)
@@ -52,8 +62,18 @@ struct GameView: View {
                             .onAppear { dataModel.startNextLevel() }
                     } else {
                         MenuButtons(isPlaying: isPlaying, startGame: startGame, showInstructions: { showingInstructions = true })
+                        
+                        Spacer()
+                        VStack(spacing: 0) {
+                            Text(dataModel.highScoreText)
+                                .setSmoothFont(.caption)
+                            Button(action: resetHighScore) {
+                                Text("Reset High Score")
+                                    .underline()
+                                    .setSmoothFont(.subheadline)
+                            }
+                        }.opacity(!dataModel.canResetHighScore ? 1 : 0)
                     }
-                    Spacer()
                 }.animation(.easeInOut(duration: 0.75), value: isPlaying)
             }
         }

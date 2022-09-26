@@ -25,9 +25,10 @@ final class GameViewDataModel: ObservableObject {
 // MARK: - View Model
 extension GameViewDataModel {
     var level: Int { store.level }
-    var scoreText: String { "Score: \(store.score)" }
-    var highScoreText: String { "High Score: \(store.highScore)" }
     var modeTitle: String { mode.title }
+    var scoreText: String { "Score: \(store.score)" }
+    var canResetHighScore: Bool { store.highScore > 0 }
+    var highScoreText: String { "High Score: \(store.highScore)" }
     var allAnswersFilled: Bool { numberList.filter({ $0.userAnswer == nil }).isEmpty }
     
     func startNextLevel() {
@@ -43,6 +44,10 @@ extension GameViewDataModel {
     
     func loadResults() async throws -> LevelResultInfo {
         try await store.loadResults(pointsToAdd: pointsToAdd)
+    }
+    
+    func resetHighScore() async throws {
+        try await store.resetHighScore()
     }
 }
 
@@ -68,6 +73,7 @@ protocol GameStore {
     var highScore: Int { get }
     
     func loadResults(pointsToAdd: Int) async throws -> LevelResultInfo
+    func resetHighScore() async throws
 }
 
 extension GameMode {

@@ -40,6 +40,7 @@ extension View {
         case .headline: return getHeightPercent(3.5)
         case .subheadline: return getHeightPercent(3)
         case .body: return getHeightPercent(2.5)
+        case .caption: return getHeightPercent(2)
         default: return 8
         }
     }

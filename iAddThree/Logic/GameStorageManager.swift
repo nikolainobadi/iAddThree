@@ -38,6 +38,10 @@ extension GameStorageManager: GameStore {
         
         return results
     }
+    
+    func resetHighScore() async throws {
+        try await store.resetHighScore()
+    }
 }
 
 
@@ -51,5 +55,7 @@ private extension GameStorageManager {
 // MARK: - Dependencies
 protocol HighScoreStore {
     var highScore: Int { get }
+    
     func saveHighScore(_ newHighScore: Int) async throws
+    func resetHighScore() async throws
 }
