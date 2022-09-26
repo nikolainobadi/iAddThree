@@ -8,6 +8,8 @@
 import Foundation
 
 final class GameViewDataModel: ObservableObject {
+    @Published private var time: Float = 0
+    
     private let mode: GameMode
     private let store: GameStore
     
@@ -23,8 +25,15 @@ extension GameViewDataModel {
     var scoreText: String { "Score: \(store.score)" }
     var highScoreText: String { "High Score: \(store.highScore)" }
     var modeTitle: String { mode.title }
+    var timeRemaining: String { String(format: "%.2f", time) }
     
-    func loadResults(_ pointsToAdd: Int) async throws -> LevelResultInfo { try await store.loadResults(pointsToAdd: pointsToAdd) }
+    func startTimer() {
+        time = TimerManager.makeStartTime(for: store.level)
+    }
+    
+    func loadResults(_ pointsToAdd: Int) async throws -> LevelResultInfo {
+        try await store.loadResults(pointsToAdd: pointsToAdd)
+    }
 }
 
 
