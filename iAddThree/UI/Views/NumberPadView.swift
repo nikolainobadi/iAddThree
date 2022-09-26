@@ -71,8 +71,8 @@ fileprivate struct OrangeBackground: View {
 
 
 // MARK: - Preview
-struct NumberPadView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlayView_Previews.previews
-    }
-}
+//struct NumberPadView_Previews: PreviewProvider {
+//    static var previews: some View {
+//
+//    }
+//}

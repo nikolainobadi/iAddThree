@@ -12,18 +12,16 @@ struct GameView: View {
     @State private var isPlaying = false
     @State private var showingInstructions = false
     @State private var results: LevelResultInfo?
-    @State private var canSubmitAnswers = false
     @StateObject var dataModel: GameViewDataModel
     
-    private func startGame() { canSubmitAnswers = true; isPlaying = true }
+    private func startGame() { isPlaying = true }
+    private func submitAnswer(_ number: String) { withAnimation { dataModel.submitAnswer(number) } }
     private func stopPlaying() { isPlaying = false; results = nil }
-    private func startNextLevel() { results = nil }
-    private func finishLevel(_ pointsToAdd: Int) {
+    private func finishLevel() {
         Task {
-            canSubmitAnswers = false
             try? await Task.sleep(nanoseconds: 0_500_000_000)
             do {
-                let results = try await dataModel.loadResults(pointsToAdd)
+                let results = try await dataModel.loadResults()
                 
                 withAnimation(.easeOut(duration: 0.75)) { self.results = results }
             } catch {
@@ -37,15 +35,14 @@ struct GameView: View {
             GameTitle(title: dataModel.modeTitle, isPlaying: isPlaying)
             
             if let results = results {
-                GameViewComposer.makeLevelResultsView(results: results, playNextLevel: startNextLevel)
-                    .transition(.opacity)
+                GameViewComposer.makeLevelResultsView(results: results, playNextLevel: { self.results = nil })
+                    .transition(.scale)
             } else {
                 VStack {
                     Spacer()
                     if isPlaying {
-                        GameViewComposer.makePlayView(.add, level: dataModel.level, finished: finishLevel(_:))
-                            .transition(.scale)
-                            .disabled(!canSubmitAnswers)
+                        PlayView(numberList: dataModel.numberList, submitAnswer: submitAnswer(_:))
+                            .onAppear { dataModel.setNewNumberlist() }
                     } else {
                         MenuButtons(isPlaying: isPlaying, startGame: startGame, showInstructions: { showingInstructions = true })
                     }
@@ -55,6 +52,7 @@ struct GameView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .canShowError(error: $error, doneAction: { error = nil })
+        .onChange(of: dataModel.allAnswersFilled, perform: { if $0 { finishLevel() } })
         .sheet(isPresented: $showingInstructions) { GameViewComposer.makeInstructionsView(.add) }
         .overlay(
             Button(action: stopPlaying, label: { Text("Menu").setChalkFont(.subheadline) })
@@ -86,6 +84,30 @@ fileprivate struct GameTitle: View {
         .lineLimit(1)
         .padding()
         .animation(.linear(duration: 0.75), value: isPlaying)
+    }
+}
+
+
+// MARK: - PlayView
+fileprivate struct PlayView: View {
+    let numberList: [NumberItemPresenter]
+    let submitAnswer: (String) -> Void
+    
+    var body: some View {
+        VStack {
+            NumberListView(list: numberList)
+            NumberPadView(selection: submitAnswer)
+                .frame(maxWidth: getWidthPercent(90), maxHeight: getHeightPercent(55))
+                .padding(.bottom)
+        }.transition(.scale)
+//        .withTimer(isActive: $dataModel.timerActive, startTime: dataModel.remainingTime, finished: dataModel.timerFinished)
+//        .task {
+//            try? await Task.sleep(nanoseconds: 0_200_000_000)
+//
+//            withAnimation {
+//                dataModel.startTimer()
+//            }
+//        }
     }
 }
 

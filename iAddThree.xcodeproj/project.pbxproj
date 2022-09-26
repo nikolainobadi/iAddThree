@@ -16,10 +16,7 @@
 		D462D11628DE44BE001FF20A /* NumberItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D11528DE44BE001FF20A /* NumberItemFactory.swift */; };
 		D462D11828DE44D1001FF20A /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D11728DE44D1001FF20A /* GameMode.swift */; };
 		D462D12728DE4547001FF20A /* NumberItemFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D12628DE4547001FF20A /* NumberItemFactoryTests.swift */; };
-		D462D12C28DE4633001FF20A /* PlayViewDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D12B28DE4633001FF20A /* PlayViewDataModelTests.swift */; };
-		D462D12F28DE50E5001FF20A /* PlayViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D12E28DE50E5001FF20A /* PlayViewDataModel.swift */; };
 		D462D13128DE5122001FF20A /* NumberItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D13028DE5122001FF20A /* NumberItemPresenter.swift */; };
-		D462D13328DE5164001FF20A /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D13228DE5164001FF20A /* PlayView.swift */; };
 		D462D13528DE55A0001FF20A /* NumberItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D13428DE55A0001FF20A /* NumberItem+Extension.swift */; };
 		D462D13B28DE56B2001FF20A /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D13A28DE56B2001FF20A /* View+Extension.swift */; };
 		D462D13E28DE572E001FF20A /* ChalkFontViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462D13D28DE572E001FF20A /* ChalkFontViewModifier.swift */; };
@@ -69,10 +66,7 @@
 		D462D11728DE44D1001FF20A /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		D462D11D28DE4534001FF20A /* iAddThreeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iAddThreeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D462D12628DE4547001FF20A /* NumberItemFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberItemFactoryTests.swift; sourceTree = "<group>"; };
-		D462D12B28DE4633001FF20A /* PlayViewDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewDataModelTests.swift; sourceTree = "<group>"; };
-		D462D12E28DE50E5001FF20A /* PlayViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewDataModel.swift; sourceTree = "<group>"; };
 		D462D13028DE5122001FF20A /* NumberItemPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberItemPresenter.swift; sourceTree = "<group>"; };
-		D462D13228DE5164001FF20A /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		D462D13428DE55A0001FF20A /* NumberItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberItem+Extension.swift"; sourceTree = "<group>"; };
 		D462D13A28DE56B2001FF20A /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		D462D13D28DE572E001FF20A /* ChalkFontViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChalkFontViewModifier.swift; sourceTree = "<group>"; };
@@ -201,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				D462D12628DE4547001FF20A /* NumberItemFactoryTests.swift */,
-				D462D12B28DE4633001FF20A /* PlayViewDataModelTests.swift */,
 				D4BD27AD28DFCFBE00C698A9 /* GameViewDataModelTests.swift */,
 				D4BD27AF28DFD0BB00C698A9 /* XCTestCase+Extensions.swift */,
 				D4BD27B128DFD32600C698A9 /* InstructionsDataModelTests.swift */,
@@ -218,7 +211,6 @@
 				D462D13028DE5122001FF20A /* NumberItemPresenter.swift */,
 				D4BD279928DF923A00C698A9 /* InstructionDetails.swift */,
 				D4BD279B28DF9B8F00C698A9 /* InstructionsViewDataModel.swift */,
-				D462D12E28DE50E5001FF20A /* PlayViewDataModel.swift */,
 				D4395F7428DE8FC1000A2B84 /* LevelResultsDataModel.swift */,
 			);
 			path = Models;
@@ -229,7 +221,6 @@
 			children = (
 				D44361DF28DE439A00909629 /* ContentView.swift */,
 				D462D14828DE5B94001FF20A /* GameView.swift */,
-				D462D13228DE5164001FF20A /* PlayView.swift */,
 				D462D13F28DE5761001FF20A /* NumberListView.swift */,
 				D462D14628DE5A49001FF20A /* NumberPadView.swift */,
 				D462D14E28DE5EA8001FF20A /* LevelResultsView.swift */,
@@ -390,7 +381,6 @@
 				D462D14928DE5B94001FF20A /* GameView.swift in Sources */,
 				D462D14028DE5761001FF20A /* NumberListView.swift in Sources */,
 				D4BD279F28DF9BD500C698A9 /* InstructionsFactory.swift in Sources */,
-				D462D13328DE5164001FF20A /* PlayView.swift in Sources */,
 				D4BD27A928DFCD9F00C698A9 /* GameStorageManager.swift in Sources */,
 				E82AF16528E1372700F93822 /* TimerViewModifier.swift in Sources */,
 				D462D13E28DE572E001FF20A /* ChalkFontViewModifier.swift in Sources */,
@@ -402,7 +392,6 @@
 				D462D14D28DE5D2C001FF20A /* GameViewComposer.swift in Sources */,
 				D462D11628DE44BE001FF20A /* NumberItemFactory.swift in Sources */,
 				D4395F7528DE8FC1000A2B84 /* LevelResultsDataModel.swift in Sources */,
-				D462D12F28DE50E5001FF20A /* PlayViewDataModel.swift in Sources */,
 				D44361DE28DE439A00909629 /* iAddThreeApp.swift in Sources */,
 				D462D14528DE5910001FF20A /* ChalkboardViewModifier.swift in Sources */,
 				D462D13528DE55A0001FF20A /* NumberItem+Extension.swift in Sources */,
@@ -416,7 +405,6 @@
 				D4BD27B228DFD32600C698A9 /* InstructionsDataModelTests.swift in Sources */,
 				D4BD27B028DFD0BB00C698A9 /* XCTestCase+Extensions.swift in Sources */,
 				D4BD27B428DFD63800C698A9 /* LevelResultsDataModelTests.swift in Sources */,
-				D462D12C28DE4633001FF20A /* PlayViewDataModelTests.swift in Sources */,
 				D462D12728DE4547001FF20A /* NumberItemFactoryTests.swift in Sources */,
 				D4BD27AE28DFCFBE00C698A9 /* GameViewDataModelTests.swift in Sources */,
 				E82AF16328E12C9600F93822 /* TimerManagerTests.swift in Sources */,

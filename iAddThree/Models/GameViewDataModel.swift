@@ -8,6 +8,8 @@
 import Foundation
 
 final class GameViewDataModel: ObservableObject {
+    @Published var numberList = [NumberItemPresenter]()
+    
     private let mode: GameMode
     private let store: GameStore
     
@@ -24,10 +26,27 @@ extension GameViewDataModel {
     var scoreText: String { "Score: \(store.score)" }
     var highScoreText: String { "High Score: \(store.highScore)" }
     var modeTitle: String { mode.title }
+    var allAnswersFilled: Bool { numberList.filter({ $0.userAnswer == nil }).isEmpty }
     
-    func loadResults(_ pointsToAdd: Int) async throws -> LevelResultInfo {
-        try await store.loadResults(pointsToAdd: pointsToAdd)
+    func setNewNumberlist() { numberList = makeNumberList() }
+    func submitAnswer(_ number: String) {
+        if let index = numberList.firstIndex(where: { $0.userAnswer == nil }) {
+            numberList[index].userAnswer = number
+        }
     }
+    
+    func loadResults() async throws -> LevelResultInfo {
+        let points = pointsToAdd
+        return try await store.loadResults(pointsToAdd: points)
+    }
+}
+
+
+// MARK: - Private Methods
+private extension GameViewDataModel {
+    var pointsToAdd: Int { numberList.filter({ $0.isCorrect }).count }
+    
+    func makeNumberList() -> [NumberItemPresenter] { NumberItemFactory.makeNumberList(mode).map({ NumberItemPresenter($0) }) }
 }
 
 

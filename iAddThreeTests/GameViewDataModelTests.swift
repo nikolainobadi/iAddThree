@@ -15,13 +15,17 @@ final class GameViewDataModelTests: XCTestCase {
     
     func test_loadResults_pointsToAdd_error() async {
         do {
-            _ = try await makeSUT(throwError: true).loadResults(1)
+            let sut = makeSUT(throwError: true)
+            
+            sut.numberList = makeAnsweredNumberList()
+            
+            _ = try await sut.loadResults()
             XCTFail("expected error but none were thrown")
         } catch { }
     }
     
     func test_loadResults_noPointsToAdd_resultsReturned() async throws {
-        let results = try await makeSUT().loadResults(0)
+        let results = try await makeSUT().loadResults()
         
         XCTAssertEqual(results.currentScore, 0)
         XCTAssertEqual(results.previousLevel, 1)
@@ -29,9 +33,13 @@ final class GameViewDataModelTests: XCTestCase {
     }
     
     func test_loadResults_pointsToAdd_resultsReturned() async throws {
-        let pointsToAdd = 4
-        let expectedNewScore = 4
-        let results = try await makeSUT().loadResults(pointsToAdd)
+        let sampleList = makeAnsweredNumberList()
+        let expectedNewScore = sampleList.filter({ $0.isCorrect }).count
+        let sut = makeSUT()
+        
+        sut.numberList = sampleList
+        
+        let results = try await sut.loadResults()
         
         XCTAssertEqual(results.currentScore, 0)
         XCTAssertEqual(results.previousLevel, 1)
@@ -56,6 +64,14 @@ extension GameViewDataModelTests {
         trackForMemoryLeaks(sut, file: file, line: line)
         
         return sut
+    }
+    
+    func makeAnsweredNumberList() -> [NumberItemPresenter] {
+        var list = [NumberItemPresenter(NumberItem(number: 0, answer: 3))]
+        
+        list[0].userAnswer = "3"
+        
+        return list
     }
 }
 
