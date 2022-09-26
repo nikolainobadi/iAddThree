@@ -72,7 +72,7 @@ struct GameView: View {
                                     .underline()
                                     .setSmoothFont(.subheadline)
                             }
-                        }.opacity(!dataModel.canResetHighScore ? 1 : 0)
+                        }.opacity(dataModel.canResetHighScore ? 1 : 0)
                     }
                 }.animation(.easeInOut(duration: 0.75), value: isPlaying)
             }
