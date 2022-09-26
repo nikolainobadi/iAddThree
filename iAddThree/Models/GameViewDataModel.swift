@@ -8,8 +8,10 @@
 import Foundation
 
 final class GameViewDataModel: ObservableObject {
+    @Published var timerActive = false
     @Published var numberList = [NumberItemPresenter]()
-    
+    @Published var timeRemaining: Float = 10
+
     private let mode: GameMode
     private let store: GameStore
     
@@ -28,7 +30,11 @@ extension GameViewDataModel {
     var modeTitle: String { mode.title }
     var allAnswersFilled: Bool { numberList.filter({ $0.userAnswer == nil }).isEmpty }
     
-    func setNewNumberlist() { numberList = makeNumberList() }
+    func startNextLevel() {
+        configureTimer()
+        numberList = makeNumberList()
+    }
+    
     func submitAnswer(_ number: String) {
         if let index = numberList.firstIndex(where: { $0.userAnswer == nil }) {
             numberList[index].userAnswer = number
@@ -36,8 +42,7 @@ extension GameViewDataModel {
     }
     
     func loadResults() async throws -> LevelResultInfo {
-        let points = pointsToAdd
-        return try await store.loadResults(pointsToAdd: points)
+        try await store.loadResults(pointsToAdd: pointsToAdd)
     }
 }
 
@@ -47,6 +52,12 @@ private extension GameViewDataModel {
     var pointsToAdd: Int { numberList.filter({ $0.isCorrect }).count }
     
     func makeNumberList() -> [NumberItemPresenter] { NumberItemFactory.makeNumberList(mode).map({ NumberItemPresenter($0) }) }
+    func configureTimer() {
+        if level > 1 {
+            timeRemaining = TimerManager.makeStartTime(for: level)
+            timerActive = true
+        }
+    }
 }
 
 

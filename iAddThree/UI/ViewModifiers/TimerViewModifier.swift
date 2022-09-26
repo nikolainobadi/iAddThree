@@ -28,6 +28,7 @@ struct TimerViewModifier: ViewModifier {
             if timeRemaining > 0 {
                 timeRemaining -= 0.05
             } else {
+                isActive = false
                 finished()
             }
         }

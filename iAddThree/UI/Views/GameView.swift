@@ -19,7 +19,12 @@ struct GameView: View {
     private func stopPlaying() { isPlaying = false; results = nil }
     private func finishLevel() {
         Task {
-            try? await Task.sleep(nanoseconds: 0_500_000_000)
+            if dataModel.timerActive { // time still remained 
+                dataModel.timerActive = false
+                
+                try? await Task.sleep(nanoseconds: 0_500_000_000)
+            }
+            
             do {
                 let results = try await dataModel.loadResults()
                 
@@ -42,7 +47,9 @@ struct GameView: View {
                     Spacer()
                     if isPlaying {
                         PlayView(numberList: dataModel.numberList, submitAnswer: submitAnswer(_:))
-                            .onAppear { dataModel.setNewNumberlist() }
+                            .withTimer(isActive: $dataModel.timerActive, startTime: dataModel.timeRemaining, finished: finishLevel)
+                            .transition(.scale)
+                            .onAppear { dataModel.startNextLevel() }
                     } else {
                         MenuButtons(isPlaying: isPlaying, startGame: startGame, showInstructions: { showingInstructions = true })
                     }
@@ -99,15 +106,7 @@ fileprivate struct PlayView: View {
             NumberPadView(selection: submitAnswer)
                 .frame(maxWidth: getWidthPercent(90), maxHeight: getHeightPercent(55))
                 .padding(.bottom)
-        }.transition(.scale)
-//        .withTimer(isActive: $dataModel.timerActive, startTime: dataModel.remainingTime, finished: dataModel.timerFinished)
-//        .task {
-//            try? await Task.sleep(nanoseconds: 0_200_000_000)
-//
-//            withAnimation {
-//                dataModel.startTimer()
-//            }
-//        }
+        }
     }
 }
 
