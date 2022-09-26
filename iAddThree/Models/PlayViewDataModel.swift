@@ -8,12 +8,16 @@
 import Foundation
 
 final class PlayViewDataModel: ObservableObject {
+    @Published var timerActive = false
     @Published var numberList: [NumberItemPresenter]
+    
+    let remainingTime: Float
     
     private let finished: (Int) -> Void
     
-    init(numberList: [NumberItemPresenter], finished: @escaping (Int) -> Void) {
+    init(numberList: [NumberItemPresenter], remainingTime: Float,  finished: @escaping (Int) -> Void) {
         self.numberList = numberList
+        self.remainingTime = remainingTime
         self.finished = finished
     }
 }
@@ -21,6 +25,8 @@ final class PlayViewDataModel: ObservableObject {
 
 // MARK: - Actions
 extension PlayViewDataModel {
+    func startTimer() { if remainingTime > 0 { timerActive = true } }
+    func timerFinished() { finishLevel() }
     func submitAnswer(_ number: String) {
         if let index = numberList.firstIndex(where: { $0.userAnswer == nil }) {
             addAnswer(answer: number, at: index)
@@ -38,7 +44,12 @@ private extension PlayViewDataModel {
         numberList[index].userAnswer = answer
         
         if !canSubmitAnswer {
-            finished(pointsToAdd)
+            finishLevel()
         }
+    }
+    
+    func finishLevel() {
+        timerActive = false
+        finished(pointsToAdd)
     }
 }

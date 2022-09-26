@@ -14,8 +14,8 @@ struct LevelResultInfo: Equatable {
 }
 
 enum GameViewComposer {
-    static func makePlayView(_ mode: GameMode, finished: @escaping (Int) -> Void) -> some View {
-        PlayView(dataModel: PlayViewDataModel(numberList: makeItemPresenterList(mode), finished: finished))
+    static func makePlayView(_ mode: GameMode, level: Int, finished: @escaping (Int) -> Void) -> some View {
+        PlayView(dataModel: PlayViewDataModel(numberList: makeItemPresenterList(mode), remainingTime: TimerManager.makeStartTime(for: level), finished: finished))
     }
     
     static func makeLevelResultsView(results: LevelResultInfo, playNextLevel: @escaping () -> Void) -> some View {

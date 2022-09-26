@@ -12,13 +12,15 @@ struct GameView: View {
     @State private var isPlaying = false
     @State private var showingInstructions = false
     @State private var results: LevelResultInfo?
+    @State private var canSubmitAnswers = false
     @StateObject var dataModel: GameViewDataModel
     
-    private func startGame() { isPlaying = true }
+    private func startGame() { canSubmitAnswers = true; isPlaying = true }
     private func stopPlaying() { isPlaying = false; results = nil }
     private func startNextLevel() { results = nil }
     private func finishLevel(_ pointsToAdd: Int) {
         Task {
+            canSubmitAnswers = false
             try? await Task.sleep(nanoseconds: 0_500_000_000)
             do {
                 let results = try await dataModel.loadResults(pointsToAdd)
@@ -41,8 +43,9 @@ struct GameView: View {
                 VStack {
                     Spacer()
                     if isPlaying {
-                        GameViewComposer.makePlayView(.add, finished: finishLevel(_:))
+                        GameViewComposer.makePlayView(.add, level: dataModel.level, finished: finishLevel(_:))
                             .transition(.scale)
+                            .disabled(!canSubmitAnswers)
                     } else {
                         MenuButtons(isPlaying: isPlaying, startGame: startGame, showInstructions: { showingInstructions = true })
                     }

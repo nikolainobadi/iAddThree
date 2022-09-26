@@ -44,6 +44,7 @@
 		D4BD27B428DFD63800C698A9 /* LevelResultsDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27B328DFD63800C698A9 /* LevelResultsDataModelTests.swift */; };
 		E82AF16128E12B7500F93822 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82AF16028E12B7500F93822 /* TimerManager.swift */; };
 		E82AF16328E12C9600F93822 /* TimerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82AF16228E12C9600F93822 /* TimerManagerTests.swift */; };
+		E82AF16528E1372700F93822 /* TimerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82AF16428E1372700F93822 /* TimerViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		D4BD27B328DFD63800C698A9 /* LevelResultsDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelResultsDataModelTests.swift; sourceTree = "<group>"; };
 		E82AF16028E12B7500F93822 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		E82AF16228E12C9600F93822 /* TimerManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManagerTests.swift; sourceTree = "<group>"; };
+		E82AF16428E1372700F93822 /* TimerViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +253,7 @@
 				D462D13D28DE572E001FF20A /* ChalkFontViewModifier.swift */,
 				D462D14428DE5910001FF20A /* ChalkboardViewModifier.swift */,
 				D462D14A28DE5C7F001FF20A /* RoundedBorderViewModifier.swift */,
+				E82AF16428E1372700F93822 /* TimerViewModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				D4BD279F28DF9BD500C698A9 /* InstructionsFactory.swift in Sources */,
 				D462D13328DE5164001FF20A /* PlayView.swift in Sources */,
 				D4BD27A928DFCD9F00C698A9 /* GameStorageManager.swift in Sources */,
+				E82AF16528E1372700F93822 /* TimerViewModifier.swift in Sources */,
 				D462D13E28DE572E001FF20A /* ChalkFontViewModifier.swift in Sources */,
 				D4BD27AC28DFCE2600C698A9 /* SinglePlayHighScoreStore.swift in Sources */,
 				D462D13128DE5122001FF20A /* NumberItemPresenter.swift in Sources */,
