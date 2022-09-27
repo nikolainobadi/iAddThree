@@ -11,6 +11,8 @@ final class GameViewDataModel: ObservableObject {
     @Published var timerActive = false
     @Published var numberList = [NumberItemPresenter]()
     @Published var timeRemaining: Float = 10
+    @Published var results: LevelResultInfo?
+    @Published var error: Error?
 
     private let mode: GameMode
     private let store: GameStore
@@ -42,18 +44,35 @@ extension GameViewDataModel {
         }
     }
     
-    func loadResults() async throws -> LevelResultInfo {
-        try await store.loadResults(pointsToAdd: pointsToAdd)
+    func finishLevel() {
+        timerActive = false
+        
+        Task {
+            do {
+                await postResults(try await store.loadResults(pointsToAdd: pointsToAdd))
+            } catch {
+                self.error = error
+            }
+        }
     }
     
-    func resetHighScore() async throws {
-        try await store.resetHighScore()
+    func resetHighScore() {
+        Task {
+            do {
+                try await store.resetHighScore()
+            } catch {
+                self.error = error
+            }
+        }
+        
     }
 }
 
 
 // MARK: - Private Methods
 private extension GameViewDataModel {
+    @MainActor func postResults(_ results: LevelResultInfo) { self.results = results }
+    
     var pointsToAdd: Int { numberList.filter({ $0.isCorrect }).count }
     
     func makeNumberList() -> [NumberItemPresenter] { NumberItemFactory.makeNumberList(mode).map({ NumberItemPresenter($0) }) }

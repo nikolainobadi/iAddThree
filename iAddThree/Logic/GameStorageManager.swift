@@ -11,13 +11,13 @@ final class GameStorageManager {
     private let store: HighScoreStore
     
     var score = 0 // gameStore variable
-    var level = 1 // gameStore variable
+    var level = 2 // gameStore variable
     
     init(store: HighScoreStore = SinglePlayHighScoreStore()) {
         self.store = store
     }
 }
-
+ 
 
 // MARK: - Store
 extension GameStorageManager: GameStore {

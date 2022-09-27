@@ -8,42 +8,17 @@
 import SwiftUI
 
 struct GameView: View {
-    @State private var error: Error?
     @State private var isPlaying = false
     @State private var showingInstructions = false
     @State private var results: LevelResultInfo?
     @StateObject var dataModel: GameViewDataModel
     
     private func startGame() { isPlaying = true }
-    private func submitAnswer(_ number: String) { withAnimation { dataModel.submitAnswer(number) } }
     private func stopPlaying() { isPlaying = false; results = nil }
-    private func finishLevel() {
-        Task {
-            if dataModel.timerActive { // time still remained 
-                dataModel.timerActive = false
-                
-                try? await Task.sleep(nanoseconds: 0_500_000_000)
-            }
-            
-            do {
-                let results = try await dataModel.loadResults()
-                
-                withAnimation(.easeOut(duration: 0.75)) { self.results = results }
-            } catch {
-                self.error = error
-            }
-        }
-    }
-    
-    private func resetHighScore() {
-        Task {
-            do {
-                try await dataModel.resetHighScore()
-            } catch {
-                self.error = error
-            }
-        }
-    }
+    private func finishLevel() { dataModel.finishLevel() }
+    private func resetHighScore() { dataModel.resetHighScore() }
+    private func submitAnswer(_ number: String) { withAnimation { dataModel.submitAnswer(number) } }
+    private func postResults(_ results: LevelResultInfo?) { withAnimation { self.results = results } }
     
     var body: some View {
         VStack {
@@ -55,6 +30,7 @@ struct GameView: View {
             } else {
                 VStack {
                     Spacer()
+                    
                     if isPlaying {
                         PlayView(numberList: dataModel.numberList, submitAnswer: submitAnswer(_:))
                             .withTimer(isActive: $dataModel.timerActive, startTime: dataModel.timeRemaining, finished: finishLevel)
@@ -78,8 +54,9 @@ struct GameView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .canShowError(error: $error, doneAction: { error = nil })
+        .canShowError(error: $dataModel.error, doneAction: { dataModel.error = nil })
         .onChange(of: dataModel.allAnswersFilled, perform: { if $0 { finishLevel() } })
+        .onChange(of: dataModel.results, perform: { postResults($0) })
         .sheet(isPresented: $showingInstructions) { GameViewComposer.makeInstructionsView(.add) }
         .overlay(
             Button(action: stopPlaying, label: { Text("Menu").setChalkFont(.subheadline) })
