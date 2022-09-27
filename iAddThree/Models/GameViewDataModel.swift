@@ -63,11 +63,11 @@ extension GameViewDataModel {
         Task {
             do {
                 try await store.resetHighScore()
+                await stopTimer() // to trick SwiftUI into redrawing view
             } catch {
                 self.error = error
             }
         }
-        
     }
 }
 
