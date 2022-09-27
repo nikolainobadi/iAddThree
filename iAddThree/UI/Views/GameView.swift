@@ -18,7 +18,7 @@ struct GameView: View {
     private func finishLevel() { dataModel.finishLevel() }
     private func resetHighScore() { dataModel.resetHighScore() }
     private func submitAnswer(_ number: String) { withAnimation { dataModel.submitAnswer(number) } }
-    private func postResults(_ results: LevelResultInfo?) { withAnimation { self.results = results } }
+    private func postResults(_ results: LevelResultInfo?) { withAnimation(.easeOut(duration: 1))  { self.results = results } }
     
     var body: some View {
         VStack {

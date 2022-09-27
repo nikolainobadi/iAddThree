@@ -45,10 +45,13 @@ extension GameViewDataModel {
     }
     
     func finishLevel() {
-        timerActive = false
-        
         Task {
             do {
+                if timerActive {
+                    await stopTimer()
+                    try? await Task.sleep(nanoseconds: 0_300_000_000)
+                }
+                
                 await postResults(try await store.loadResults(pointsToAdd: pointsToAdd))
             } catch {
                 self.error = error
@@ -71,6 +74,7 @@ extension GameViewDataModel {
 
 // MARK: - Private Methods
 private extension GameViewDataModel {
+    @MainActor func stopTimer() { timerActive = false }
     @MainActor func postResults(_ results: LevelResultInfo) { self.results = results }
     
     var pointsToAdd: Int { numberList.filter({ $0.isCorrect }).count }
