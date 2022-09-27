@@ -8,11 +8,11 @@
 import Foundation
 
 final class GameViewDataModel: ObservableObject {
+    @Published var error: Error?
     @Published var timerActive = false
-    @Published var numberList = [NumberItemPresenter]()
     @Published var timeRemaining: Float = 10
     @Published var results: LevelResultInfo?
-    @Published var error: Error?
+    @Published var numberList = [NumberItemPresenter]()
 
     private let mode: GameMode
     private let store: GameStore
@@ -31,7 +31,7 @@ extension GameViewDataModel {
     var scoreText: String { "Score: \(store.score)" }
     var canResetHighScore: Bool { store.highScore > 0 }
     var highScoreText: String { "High Score: \(store.highScore)" }
-    var allAnswersFilled: Bool { numberList.filter({ $0.userAnswer == nil }).isEmpty }
+    var allAnswersFilled: Bool { !numberList.isEmpty && numberList.filter({ $0.userAnswer == nil }).isEmpty }
     
     func startNextLevel() {
         configureTimer()

@@ -15,8 +15,8 @@ extension XCTestCase {
         }
     }
     
-    func waitForAsyncMethod() async throws {
-        try await Task.sleep(nanoseconds: 0_010_000_000)
+    func waitForAsyncMethod(nanoseconds: UInt64 = 0_010_000_000) async throws {
+        try await Task.sleep(nanoseconds: nanoseconds)
     }
 }
 
