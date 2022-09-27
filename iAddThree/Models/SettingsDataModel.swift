@@ -10,6 +10,7 @@ import Foundation
 final class SettingsDataModel: ObservableObject {
     let requestAppReview: () -> Void
     let emailURL = "mailto:nnobadicares@gmail.com"
+    let privacyPolicyURL = "https://github.com/nikolainobadi/PrivacyPolicies/blob/main/iAddThree/iAddThree_PrivacyPolicy.md"
     
     var aboutText: String {
         """

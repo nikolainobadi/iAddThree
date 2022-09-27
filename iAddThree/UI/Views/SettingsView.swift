@@ -25,8 +25,14 @@ struct SettingsView: View {
             
             Spacer()
             
-            SettingsButtonView(emailURLString: dataModel.emailURL, rateApp: dataModel.requestAppReview)
-                .padding()
+            VStack {
+                SettingsButtonView(emailURLString: dataModel.emailURL, rateApp: dataModel.requestAppReview)
+                Link(destination: URL(string: dataModel.privacyPolicyURL)!) {
+                    Text("Privacy Policy")
+                        .underline()
+                        .setSmoothFont(.body)
+                }
+            }.padding()
         }
         .onChalkboard()
         .overlay(
@@ -84,13 +90,13 @@ struct SettingsView_Previews: PreviewProvider {
 //            .previewDevice("iPhone 8")
 //        SettingsView()
 //            .previewDevice("iPhone 11")
+//        SettingsView()
         SettingsView()
-//        SettingsView()
-//            .previewDevice("iPad mini (6th generation)")
-//        SettingsView()
-//            .previewDevice("iPad (9th generation)")
-//        SettingsView()
-//            .previewDevice("iPad Pro (12.9-inch) (5th generation)")
+            .previewDevice("iPad mini (6th generation)")
+        SettingsView()
+            .previewDevice("iPad (9th generation)")
+        SettingsView()
+            .previewDevice("iPad Pro (12.9-inch) (5th generation)")
     }
 }
 

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GameView: View {
     @State private var isPlaying = false
+    @State private var showingSettings = false
     @State private var showingInstructions = false
     @State private var results: LevelResultInfo?
     @StateObject var dataModel: GameViewDataModel
@@ -58,10 +59,11 @@ struct GameView: View {
         .onChange(of: dataModel.allAnswersFilled, perform: { if $0 { finishLevel() } })
         .onChange(of: dataModel.results, perform: { postResults($0) })
         .sheet(isPresented: $showingInstructions) { GameViewComposer.makeInstructionsView(.add) }
+        .sheet(isPresented: $showingSettings, content: { SettingsView() })
         .overlay(
             Button(action: stopPlaying, label: { Text("Menu").setChalkFont(.subheadline) })
                 .padding(.horizontal)
-                .opacity(results != nil ? 1 : 0)
+                .opacity((results != nil || isPlaying) ? 1 : 0)
             , alignment: .topLeading
         )
         .overlay(
@@ -69,6 +71,14 @@ struct GameView: View {
                 .opacity((isPlaying && results == nil) ? 1 : 0)
                 .padding()
             , alignment: .bottomLeading
+        )
+        .overlay(
+            Button(action: { showingSettings = true }) {
+                Image(systemName: "gearshape")
+                    .setChalkFont(.subheadline)
+                    .opacity((isPlaying || results != nil) ? 0 : 1)
+            }.padding()
+            , alignment: .topTrailing
         )
     }
 }
