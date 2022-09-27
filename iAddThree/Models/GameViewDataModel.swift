@@ -17,7 +17,7 @@ final class GameViewDataModel: ObservableObject {
     private let mode: GameMode
     private let store: GameStore
     
-    init(mode: GameMode, store: GameStore = GameStorageManager()) {
+    init(mode: GameMode, store: GameStore) {
         self.mode = mode
         self.store = store
     }

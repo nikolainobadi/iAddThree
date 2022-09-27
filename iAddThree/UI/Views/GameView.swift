@@ -142,7 +142,7 @@ fileprivate struct ScoreView: View {
 // MARK: - Preview
 struct GameView_Previews: PreviewProvider {
     static func makeDataModel(_ mode: GameMode = .add) -> GameViewDataModel {
-        GameViewDataModel(mode: mode)
+        GameViewDataModel(mode: mode, store: GameStorageManager(store: SinglePlayHighScoreStore()))
     }
     
     static var previews: some View {

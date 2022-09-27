@@ -13,7 +13,7 @@ final class GameStorageManager {
     var score = 0 // gameStore variable
     var level = 1 // gameStore variable
     
-    init(store: HighScoreStore = SinglePlayHighScoreStore()) {
+    init(store: HighScoreStore) {
         self.store = store
     }
 }
