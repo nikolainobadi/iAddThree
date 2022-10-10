@@ -30,14 +30,13 @@ struct GameView: View {
                     .transition(.scale)
             } else {
                 VStack {
-                    Spacer()
-                    
                     if isPlaying {
                         PlayView(numberList: dataModel.numberList, submitAnswer: submitAnswer(_:))
                             .withTimer(isActive: $dataModel.timerActive, startTime: dataModel.timeRemaining, finished: finishLevel)
                             .transition(.scale)
                             .onAppear { dataModel.startNextLevel() }
                     } else {
+                        Spacer()
                         MenuButtons(isPlaying: isPlaying, startGame: startGame, showInstructions: { showingInstructions = true })
                         
                         Spacer()
@@ -110,9 +109,10 @@ fileprivate struct PlayView: View {
     var body: some View {
         VStack {
             NumberListView(list: numberList)
+            Spacer()
             NumberPadView(selection: submitAnswer)
                 .frame(maxWidth: getWidthPercent(90), maxHeight: getHeightPercent(55))
-                .padding(.bottom)
+            Spacer()
         }
     }
 }
