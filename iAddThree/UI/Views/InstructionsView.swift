@@ -50,7 +50,7 @@ struct InstructionsView: View {
                     .padding([.horizontal])
                 
                 HStack {
-                    ToolBarButton(text: "Previews", color: .red, isShowing: showPreviousButton, action: { turnPage(backwards: true) })
+                    ToolBarButton(text: "Previous", color: .red, isShowing: showPreviousButton, action: { turnPage(backwards: true) })
                     Spacer()
                     ToolBarButton(text: "Next", color: .green, isShowing: showNextButton, action: { turnPage() })
                 }.padding()
