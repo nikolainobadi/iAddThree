@@ -41,6 +41,8 @@ extension GameStorageManager: GameStore {
     
     func resetHighScore() async throws {
         try await store.resetHighScore()
+        score = 0
+        level = 1
     }
 }
 

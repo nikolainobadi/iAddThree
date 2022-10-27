@@ -17,7 +17,6 @@ struct GameView: View {
     private func startGame() { isPlaying = true }
     private func stopPlaying() { isPlaying = false; results = nil }
     private func finishLevel() { dataModel.finishLevel() }
-    private func resetHighScore() { dataModel.resetHighScore() }
     private func submitAnswer(_ number: String) { withAnimation { dataModel.submitAnswer(number) } }
     private func postResults(_ results: LevelResultInfo?) { withAnimation(.easeOut(duration: 1))  { self.results = results } }
     
@@ -40,15 +39,8 @@ struct GameView: View {
                         MenuButtons(isPlaying: isPlaying, startGame: startGame, showInstructions: { showingInstructions = true })
                         
                         Spacer()
-                        VStack(spacing: 0) {
-                            Text(dataModel.highScoreText)
-                                .setSmoothFont(.caption)
-                            Button(action: resetHighScore) {
-                                Text("Reset High Score")
-                                    .underline()
-                                    .setSmoothFont(.subheadline)
-                            }
-                        }.opacity(dataModel.canResetHighScore ? 1 : 0)
+                        
+                        HighScoreInfoView(highScoreText: dataModel.highScoreText, canReset: dataModel.canResetHighScore, resetHighScore: dataModel.resetHighScore)
                     }
                 }.animation(.easeInOut(duration: 0.75), value: isPlaying)
             }
@@ -131,6 +123,36 @@ fileprivate struct MenuButtons: View {
         }
         .transition(.scale)
         .animation(.default, value: isPlaying)
+    }
+}
+
+
+// MARK: - HighScore Info
+fileprivate struct HighScoreInfoView: View {
+    @State private var showingConfirmation = false
+    
+    let highScoreText: String
+    let canReset: Bool
+    let resetHighScore: () -> Void
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            Text(highScoreText)
+                .setSmoothFont(.caption)
+            Button(action: { showingConfirmation = true }) {
+                Text("Reset High Score")
+                    .underline()
+                    .setSmoothFont(.subheadline)
+            }
+        }
+        .opacity(canReset ? 1 : 0)
+        .confirmationDialog("", isPresented: $showingConfirmation) {
+            Button(role: .destructive, action: resetHighScore) {
+                Text("Reset High Score")
+            }
+        } message: {
+            Text("When you reset your high score, your current score will also be reset. Would you like to proceed?")
+        }
     }
 }
 
