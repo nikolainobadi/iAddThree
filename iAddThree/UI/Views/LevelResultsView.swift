@@ -17,7 +17,7 @@ struct LevelResultsView: View {
     private func playNextLevel() { dataModel.playNextLevel() }
     private func animateResults() async {
         try? await Task.sleep(nanoseconds: 1_000_000_000)
-        withAnimation(.linear(duration: completedLevel ? 1.5 : 2)) { dataModel.updateScore()}
+        withAnimation(.linear(duration: completedLevel ? 1.5 : 2)) { dataModel.updateScore() }
         try? await Task.sleep(nanoseconds: completedLevel ? 0_500_000_000 : 2_000_000_000)
         withAnimation(.easeInOut(duration: 1)) { showingButton = true }
     }
