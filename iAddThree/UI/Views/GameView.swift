@@ -17,15 +17,20 @@ struct GameView: View {
     private func startGame() { isPlaying = true }
     private func stopPlaying() { isPlaying = false; results = nil }
     private func finishLevel() { dataModel.finishLevel() }
+    private func playNextLevel() { dataModel.results = nil }
     private func submitAnswer(_ number: String) { withAnimation { dataModel.submitAnswer(number) } }
-    private func postResults(_ results: LevelResultInfo?) { withAnimation(.easeOut(duration: 1))  { self.results = results } }
+    private func postResults(_ results: LevelResultInfo?) {
+        withAnimation(.easeOut(duration: 1))  {
+            self.results = results
+        }
+    }
     
     var body: some View {
         VStack {
             GameTitle(title: dataModel.modeTitle, isPlaying: isPlaying)
             
             if let results = results {
-                GameViewComposer.makeLevelResultsView(results: results, playNextLevel: { self.results = nil })
+                GameViewComposer.makeLevelResultsView(results: results, playNextLevel: playNextLevel)
                     .transition(.scale)
             } else {
                 VStack {
