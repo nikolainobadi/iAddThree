@@ -18,10 +18,12 @@ enum GameState: Equatable {
 struct GameNavView: View {
     @State private var state: GameState = .menu
     
+    let mode: GameMode
+    
     var body: some View {
         VStack {
             GameTitle(title: "Add Three", isPlaying: state == .playing)
-            GameContentView(state: $state)
+            GameContentView(state: $state, mode: mode)
         }
         .overlay(GameViewNavBar(state: $state), alignment: .top)
         .animation(.easeInOut(duration: 0.75), value: state)
@@ -65,81 +67,14 @@ fileprivate struct GameTitle: View {
 }
 
 
-// MARK: - GameContent
-fileprivate struct GameContentView: View {
-    @Binding var state: GameState
-    
-    private func startGame() { state = .playing }
-    private func submitAnswer(_ number: String) { }
-    private func makeNumberList() -> [NumberItemPresenter] {
-        NumberItemFactory.makeNumberList(.add).map({ NumberItemPresenter($0) })
-    }
-    
-    var body: some View {
-        switch state {
-        case .menu:
-            GameModeMenu(startGame: startGame)
-                .transition(.scale)
-        case .playing:
-            PlayView(numberList: makeNumberList(), submitAnswer: submitAnswer)
-                .transition(.scale)
-        case .results(let levelResultInfo):
-            ResultsView(results: levelResultInfo, playAgain: startGame)
-        }
-    }
-}
 
-
-// MARK: - Menu
-fileprivate struct GameModeMenu: View {
-    @State private var showingInstructions = false
-    
-    let startGame: () -> Void
-    
-    var body: some View {
-        VStack {
-            ChalkButton("Start Game", style: .title2, action: startGame)
-            ChalkButton("How to Play", style: .subheadline, action: { showingInstructions = true })
-        }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-    }
-}
-
-
-// MARK: - PlayView
-fileprivate struct PlayView: View {
-    let numberList: [NumberItemPresenter]
-    let submitAnswer: (String) -> Void
-    
-    var body: some View {
-        VStack {
-            NumberListView(list: numberList)
-            Spacer()
-            NumberPadView(selection: submitAnswer)
-                .frame(maxWidth: getWidthPercent(90), maxHeight: getHeightPercent(55))
-            Spacer()
-        }
-    }
-}
-
-
-// MARK: - Results
-fileprivate struct ResultsView: View {
-    let results: LevelResultInfo
-    let playAgain: () -> Void
-    
-    var body: some View {
-        VStack {
-            
-        }
-    }
-}
 
 
 
 // MARK: - Preview
 struct GameNavView_Previews: PreviewProvider {
     static var previews: some View {
-        GameNavView()
+        GameNavView(mode: .add)
             .onChalkboard()
     }
 }

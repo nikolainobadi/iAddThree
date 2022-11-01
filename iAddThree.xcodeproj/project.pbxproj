@@ -45,6 +45,7 @@
 		D4BD27B028DFD0BB00C698A9 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27AF28DFD0BB00C698A9 /* XCTestCase+Extensions.swift */; };
 		D4BD27B228DFD32600C698A9 /* InstructionsDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27B128DFD32600C698A9 /* InstructionsDataModelTests.swift */; };
 		D4BD27B428DFD63800C698A9 /* LevelResultsDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27B328DFD63800C698A9 /* LevelResultsDataModelTests.swift */; };
+		D4D1A4432910B1C500096130 /* GameContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1A4422910B1C500096130 /* GameContentView.swift */; };
 		E82AF16128E12B7500F93822 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82AF16028E12B7500F93822 /* TimerManager.swift */; };
 		E82AF16328E12C9600F93822 /* TimerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82AF16228E12C9600F93822 /* TimerManagerTests.swift */; };
 		E82AF16528E1372700F93822 /* TimerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82AF16428E1372700F93822 /* TimerViewModifier.swift */; };
@@ -102,6 +103,7 @@
 		D4BD27AF28DFD0BB00C698A9 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
 		D4BD27B128DFD32600C698A9 /* InstructionsDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsDataModelTests.swift; sourceTree = "<group>"; };
 		D4BD27B328DFD63800C698A9 /* LevelResultsDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelResultsDataModelTests.swift; sourceTree = "<group>"; };
+		D4D1A4422910B1C500096130 /* GameContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameContentView.swift; sourceTree = "<group>"; };
 		E82AF16028E12B7500F93822 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		E82AF16228E12C9600F93822 /* TimerManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManagerTests.swift; sourceTree = "<group>"; };
 		E82AF16428E1372700F93822 /* TimerViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModifier.swift; sourceTree = "<group>"; };
@@ -180,7 +182,8 @@
 		D462D10F28DE445C001FF20A /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				D462D13728DE5695001FF20A /* Views */,
+				D4D1A4402910B1A200096130 /* Views */,
+				D462D13728DE5695001FF20A /* Old Views */,
 				D462D13C28DE570F001FF20A /* ViewModifiers */,
 				D462D13928DE56A6001FF20A /* Shared */,
 			);
@@ -232,7 +235,7 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		D462D13728DE5695001FF20A /* Views */ = {
+		D462D13728DE5695001FF20A /* Old Views */ = {
 			isa = PBXGroup;
 			children = (
 				D44361DF28DE439A00909629 /* ContentView.swift */,
@@ -242,9 +245,8 @@
 				D462D14E28DE5EA8001FF20A /* LevelResultsView.swift */,
 				D4BD279728DF91C900C698A9 /* InstructionsView.swift */,
 				D42DBEFD28E25E65006E29D0 /* SettingsView.swift */,
-				D403E241290F51C600C84761 /* GameNavView.swift */,
 			);
-			path = Views;
+			path = "Old Views";
 			sourceTree = "<group>";
 		};
 		D462D13928DE56A6001FF20A /* Shared */ = {
@@ -285,6 +287,15 @@
 				D42DBEF928E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		D4D1A4402910B1A200096130 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D403E241290F51C600C84761 /* GameNavView.swift */,
+				D4D1A4422910B1C500096130 /* GameContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,6 +416,7 @@
 				D462D14028DE5761001FF20A /* NumberListView.swift in Sources */,
 				D4BD279F28DF9BD500C698A9 /* InstructionsFactory.swift in Sources */,
 				D4BD27A928DFCD9F00C698A9 /* GameStorageManager.swift in Sources */,
+				D4D1A4432910B1C500096130 /* GameContentView.swift in Sources */,
 				E82AF16528E1372700F93822 /* TimerViewModifier.swift in Sources */,
 				D462D13E28DE572E001FF20A /* ChalkFontViewModifier.swift in Sources */,
 				D4BD27AC28DFCE2600C698A9 /* SinglePlayHighScoreStore.swift in Sources */,
