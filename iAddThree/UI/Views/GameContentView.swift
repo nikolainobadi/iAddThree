@@ -65,13 +65,15 @@ fileprivate struct GameModeMenu: View {
     let showInstructions: () -> Void
     
     private var highScore: Int { dataModel.highScore }
+    private var showFooter: Bool { dataModel.didResetHighScore ? false : (highScore > 0) }
     private func resetScore() { dataModel.resetHighScore() }
     
     var body: some View {
         VStack {
             ChalkButton("Start Game", style: .title2, action: startGame)
             ChalkButton("How to Play", style: .subheadline, action: { showingInstructions = true })
-        }.overlay(GameModeMenuFooter(highScore: highScore, resetScore: resetScore), alignment: .bottom)
+        }
+        .overlay(GameModeMenuFooter(highScore: highScore, shouldShow: showFooter, resetScore: resetScore), alignment: .bottom)
     }
 }
 
@@ -79,9 +81,8 @@ fileprivate struct GameModeMenuFooter: View {
     @State private var showingConfirmation = false
     
     let highScore: Int
+    let shouldShow: Bool
     let resetScore: () -> Void
-    
-    private var showHighScore: Bool { highScore > 0 }
     
     var body: some View  {
         VStack(spacing: 0) {
@@ -93,7 +94,7 @@ fileprivate struct GameModeMenuFooter: View {
                     .setSmoothFont(.subheadline)
             }
         }
-        .opacity(showHighScore ? 1 : 0)
+        .opacity(shouldShow ? 1 : 0)
         .confirmationDialog("", isPresented: $showingConfirmation) {
             Button(role: .destructive, action: resetScore) { Text("Reset High Score") }
         } message: {
@@ -103,6 +104,9 @@ fileprivate struct GameModeMenuFooter: View {
 }
 
 final class GameModeMenuDataModel: ObservableObject {
+    @Published var error: Error?
+    @Published var didResetHighScore = false
+    
     private let store: HighScoreStore
     
     init(store: HighScoreStore) {
@@ -114,7 +118,15 @@ extension GameModeMenuDataModel {
     var highScore: Int { store.highScore }
     
     func resetHighScore() {
-        
+        Task {
+            do {
+                try await store.saveHighScore(0)
+                
+                didResetHighScore = true
+            } catch {
+                self.error = error
+            }
+        }
     }
 }
 
