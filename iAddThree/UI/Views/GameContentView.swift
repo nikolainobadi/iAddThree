@@ -7,9 +7,6 @@
 
 import SwiftUI
 
-
-
-
 struct GameContentView: View {
     @Binding var state: GameState
     @State private var showingInstructions = false
