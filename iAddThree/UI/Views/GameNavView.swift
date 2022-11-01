@@ -24,7 +24,6 @@ struct GameNavView: View {
             GameContentView(state: $state)
         }
         .overlay(GameViewNavBar(state: $state), alignment: .top)
-        .overlay(GameScoreFooter(state: state), alignment: .bottom)
         .animation(.easeInOut(duration: 0.75), value: state)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
     }
@@ -135,31 +134,6 @@ fileprivate struct ResultsView: View {
     }
 }
 
-
-// MARK: - Footer
-fileprivate struct GameScoreFooter: View {
-    let state: GameState
-    
-    var body: some View {
-        VStack {
-            switch state {
-            case .menu:
-                VStack {
-                    
-                }.frame(maxWidth: .infinity, alignment: .center)
-            case .playing:
-                VStack(alignment: .leading) {
-                    Text("Score: 0")
-                    Text("High Score: 0")
-                }
-                .setChalkFont(.body)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            case .results:
-                EmptyView()
-            }
-        }.padding()
-    }
-}
 
 
 // MARK: - Preview
