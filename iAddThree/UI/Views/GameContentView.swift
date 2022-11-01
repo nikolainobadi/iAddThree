@@ -20,7 +20,10 @@ enum GameContentComposer {
     }
     
     static func makePlayView(mode: GameMode, showResults: @escaping (LevelResultInfo) -> Void) -> some View {
-        let dataModel = PlayViewDataModel(mode: mode, showResults: showResults)
+        let numberList = NumberItemFactory.makeNumberList(mode)
+        let store = UserDefaultsHighScoreStore(mode: mode)
+        let manager = GameStorageManager(store: store)
+        let dataModel = PlayViewDataModel(numberList: numberList, store: manager, showResults: showResults)
         
         return PlayView(dataModel: dataModel)
     }
@@ -57,62 +60,33 @@ struct GameContentView: View {
 
 
 // MARK: - PlayView
-fileprivate struct PlayView: View {
-    let dataModel: PlayViewDataModel
-    
-    private var score: Int { dataModel.score }
-    private var highScore: Int { dataModel.highScore }
-    
-    var body: some View {
-        VStack {
-            NumberListView(list: dataModel.numberList)
-            Spacer()
-            NumberPadView(selection: dataModel.submitNumber(_:))
-                .frame(maxWidth: getWidthPercent(90), maxHeight: getHeightPercent(55))
-            Spacer()
-        }.overlay(PlayViewFooter(score: score, highScore: highScore).padding(), alignment: .bottomLeading)
-    }
-}
-
-fileprivate struct PlayViewFooter: View {
-    let score: Int
-    let highScore: Int
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text("Score: \(score)")
-            Text("High Score: \(highScore)")
-        }.setChalkFont(.body)
-    }
-}
 
 final class PlayViewDataModel: ObservableObject {
     @Published var numberList: [NumberItemPresenter]
     
+    private let store: GameStore
     private let showResults: (LevelResultInfo) -> Void
     
-    // MARK: - TODO
-    // will need to import scores from separate file
-    // score also needs to persist (like highScore)
-    // but only highScore is saved to UserDefaults
-    
-    var score: Int = 0
-    var highScore: Int = 0
-    
-    init(mode: GameMode, showResults: @escaping (LevelResultInfo) -> Void) {
-        numberList = NumberItemFactory.makeNumberList(mode).map({ NumberItemPresenter($0) })
+    init(numberList: [NumberItem], store: GameStore, showResults: @escaping (LevelResultInfo) -> Void) {
+        self.store = store
         self.showResults = showResults
+        self.numberList = numberList.map({ NumberItemPresenter($0) })
     }
+    
+    // MARK: - TODO
+    // when allAnswersFilled || timerUp, should show resultBanner, then call showResults
+}
+
+extension PlayViewDataModel {
+    var score: Int { store.score }
+    var level: Int { store.level }
+    var highScore: Int { store.highScore }
     
     func submitNumber(_ number: String) {
         if let index = numberList.firstIndex(where: { $0.userAnswer == nil }) {
             numberList[index].userAnswer = number
         }
     }
-    
-    
-    // MARK: - TODO
-    // when allAnswersFilled || timerUp, should show resultBanner, then call showResults
 }
 
 

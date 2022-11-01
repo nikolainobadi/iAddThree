@@ -35,7 +35,7 @@ struct OldGameView: View {
             } else {
                 VStack {
                     if isPlaying {
-                        PlayView(numberList: dataModel.numberList, submitAnswer: submitAnswer(_:))
+                        OldPlayView(numberList: dataModel.numberList, submitAnswer: submitAnswer(_:))
                             .withTimer(isActive: $dataModel.timerActive, startTime: dataModel.timeRemaining, finished: finishLevel)
                             .transition(.scale)
                             .onAppear { dataModel.startNextLevel() }
@@ -99,7 +99,7 @@ fileprivate struct GameTitle: View {
 
 
 // MARK: - PlayView
-fileprivate struct PlayView: View {
+fileprivate struct OldPlayView: View {
     let numberList: [NumberItemPresenter]
     let submitAnswer: (String) -> Void
     
