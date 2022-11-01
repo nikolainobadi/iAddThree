@@ -1,5 +1,5 @@
 //
-//  GameView.swift
+//  OldGameView.swift
 //  iAddThree
 //
 //  Created by Nikolai Nobadi on 9/23/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GameView: View {
+struct OldGameView: View {
     @State private var isPlaying = false
     @State private var showingSettings = false
     @State private var showingInstructions = false
@@ -183,6 +183,6 @@ struct GameView_Previews: PreviewProvider {
     }
     
     static var previews: some View {
-        GameView(dataModel: makeDataModel()).onChalkboard()
+        OldGameView(dataModel: makeDataModel()).onChalkboard()
     }
 }

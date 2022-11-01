@@ -13,7 +13,7 @@ enum ContentComposer {
         let store = GameStorageManager(store: highScoreStore)
         let dataModel = GameViewDataModel(mode: mode, store: store)
         
-        return GameView(dataModel: dataModel)
+        return OldGameView(dataModel: dataModel)
     }
 }
 

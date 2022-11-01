@@ -1,5 +1,5 @@
 //
-//  GameNavView.swift
+//  GameView.swift
 //  iAddThree
 //
 //  Created by Nikolai Nobadi on 10/30/22.
@@ -15,7 +15,7 @@ enum GameState: Equatable {
 
 
 // MARK: - Main View
-struct GameNavView: View {
+struct GameView: View {
     @State private var state: GameState = .menu
     
     let mode: GameMode
@@ -67,14 +67,10 @@ fileprivate struct GameTitle: View {
 }
 
 
-
-
-
-
 // MARK: - Preview
 struct GameNavView_Previews: PreviewProvider {
     static var previews: some View {
-        GameNavView(mode: .add)
+        GameView(mode: .add)
             .onChalkboard()
     }
 }
