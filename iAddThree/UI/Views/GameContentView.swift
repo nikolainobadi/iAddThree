@@ -8,10 +8,15 @@
 import SwiftUI
 
 enum GameContentComposer {
-    static func makeMenuView(startGame: @escaping () -> Void) -> some View {
-        let dataModel = GameModeMenuDataModel()
+    static func makeMenuView(mode: GameMode, startGame: @escaping () -> Void, showInstructions: @escaping () -> Void) -> some View {
+        let store = UserDefaultsHighScoreStore(mode: .add)
+        let dataModel = GameModeMenuDataModel(store: store)
         
-        return GameModeMenu(dataModel: dataModel)
+        return GameModeMenu(dataModel: dataModel, startGame: startGame, showInstructions: showInstructions)
+    }
+    
+    static func makeInstructionsView(_ mode: GameMode) -> some View {
+        InstructionsView(dataModel: InstructionsDataModel(mode: mode))
     }
     
     static func makePlayView(mode: GameMode, showResults: @escaping (LevelResultInfo) -> Void) -> some View {
@@ -28,38 +33,89 @@ enum GameContentComposer {
 
 struct GameContentView: View {
     @Binding var state: GameState
+    @State private var showingInstructions = false
     
     let mode: GameMode
     
     var body: some View {
-        switch state {
-        case .menu:
-            GameContentComposer.makeMenuView(startGame: { state = .playing })
-                .transition(.scale)
-        case .playing:
-            GameContentComposer.makePlayView(mode: mode, showResults: { state = .results($0) })
-                .transition(.scale)
-        case .results(let info):
-            GameContentComposer.makeResultsView(info: info, playAgain: { state = .playing })
+        VStack {
+            switch state {
+            case .menu:
+                GameContentComposer.makeMenuView(mode: mode, startGame: { state = .playing }, showInstructions: { showingInstructions = true })
+                    .transition(.scale)
+            case .playing:
+                GameContentComposer.makePlayView(mode: mode, showResults: { state = .results($0) })
+                    .transition(.scale)
+            case .results(let info):
+                GameContentComposer.makeResultsView(info: info, playAgain: { state = .playing })
+            }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        .sheet(isPresented: $showingInstructions) { GameContentComposer.makeInstructionsView(mode) }
     }
 }
 
 
 // MARK: - Menu
 fileprivate struct GameModeMenu: View {
+    @State private var showingInstructions = false
+    
     let dataModel: GameModeMenuDataModel
+    let startGame: () -> Void
+    let showInstructions: () -> Void
+    
+    private var highScore: Int { dataModel.highScore }
+    private func resetScore() { dataModel.resetHighScore() }
     
     var body: some View {
         VStack {
-            ChalkButton("Start Game", style: .title2, action: { })
-            ChalkButton("How to Play", style: .subheadline, action: {  })
-        }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            ChalkButton("Start Game", style: .title2, action: startGame)
+            ChalkButton("How to Play", style: .subheadline, action: { showingInstructions = true })
+        }.overlay(GameModeMenuFooter(highScore: highScore, resetScore: resetScore), alignment: .bottom)
+    }
+}
+
+fileprivate struct GameModeMenuFooter: View {
+    @State private var showingConfirmation = false
+    
+    let highScore: Int
+    let resetScore: () -> Void
+    
+    private var showHighScore: Bool { highScore > 0 }
+    
+    var body: some View  {
+        VStack(spacing: 0) {
+            Text("High Score: \(highScore)")
+                .setSmoothFont(.caption)
+            Button(action: { showingConfirmation = true }) {
+                Text("Reset High Score")
+                    .underline()
+                    .setSmoothFont(.subheadline)
+            }
+        }
+        .opacity(showHighScore ? 1 : 0)
+        .confirmationDialog("", isPresented: $showingConfirmation) {
+            Button(role: .destructive, action: resetScore) { Text("Reset High Score") }
+        } message: {
+            Text("When you reset your high score, your current score will also be reset. Would you like to proceed?")
+        }
     }
 }
 
 final class GameModeMenuDataModel: ObservableObject {
+    private let store: HighScoreStore
     
+    init(store: HighScoreStore) {
+        self.store = store
+    }
+}
+
+extension GameModeMenuDataModel {
+    var highScore: Int { store.highScore }
+    
+    func resetHighScore() {
+        
+    }
 }
 
 
