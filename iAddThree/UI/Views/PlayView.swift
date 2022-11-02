@@ -18,6 +18,8 @@ struct PlayView: View {
             Text("Level: \(dataModel.level)")
             NumberListView(list: dataModel.numberList)
             Spacer()
+            FinishedBanner(message: "Nice")
+                .opacity(0)
             NumberPadView(selection: dataModel.submitNumber(_:))
                 .frame(maxWidth: getWidthPercent(90), maxHeight: getHeightPercent(55))
             Spacer()
@@ -40,10 +42,22 @@ fileprivate struct PlayViewFooter: View {
 }
 
 
+// MARK: - FinishedBanner
+fileprivate struct FinishedBanner: View {
+    let message: String
+    
+    var body: some View {
+        Text(message)
+            .setChalkFont(.title)
+    }
+}
+
+
 // MARK: - Preview
 struct PlayView_Previews: PreviewProvider {
     static var store: GameStore { GameStorageManager(store: SinglePlayHighScoreStore())}
     static var previews: some View {
         PlayView(dataModel: PlayViewDataModel(numberList: NumberItem.defaultList, store: store, showResults: { _ in }))
+            .onChalkboard()
     }
 }
