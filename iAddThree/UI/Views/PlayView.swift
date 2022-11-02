@@ -12,16 +12,25 @@ struct PlayView: View {
     
     private var score: Int { dataModel.score }
     private var highScore: Int { dataModel.highScore }
+    private var showFinishedBanner: Bool { dataModel.results != nil }
     
     var body: some View {
         VStack {
             Text("Level: \(dataModel.level)")
+                .setChalkFont(.body)
+                .padding(5)
+            
             NumberListView(list: dataModel.numberList)
+            
             Spacer()
+            
             FinishedBanner(message: "Nice")
-                .opacity(0)
+                .opacity(showFinishedBanner ? 1 : 0)
+                .animation(.default, value: showFinishedBanner)
+            
             NumberPadView(selection: dataModel.submitNumber(_:))
                 .frame(maxWidth: getWidthPercent(90), maxHeight: getHeightPercent(55))
+            
             Spacer()
         }.overlay(PlayViewFooter(score: score, highScore: highScore).padding(), alignment: .bottomLeading)
     }
@@ -59,5 +68,6 @@ struct PlayView_Previews: PreviewProvider {
     static var previews: some View {
         PlayView(dataModel: PlayViewDataModel(numberList: NumberItem.defaultList, store: store, showResults: { _ in }))
             .onChalkboard()
+            .preferredColorScheme(.dark)
     }
 }
