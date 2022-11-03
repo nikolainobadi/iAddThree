@@ -31,16 +31,7 @@ struct GameContentView: View {
 
 
 // MARK: - Results
-fileprivate struct ResultsView: View {
-    let results: LevelResultInfo
-    let playAgain: () -> Void
-    
-    var body: some View {
-        VStack {
-            
-        }
-    }
-}
+
 
 
 // MARK: - Preview

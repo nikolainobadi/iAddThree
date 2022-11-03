@@ -59,18 +59,7 @@ struct LevelResultsView: View {
 }
 
 
-// MARK: - Animation
-struct NumberAnimationModifier: AnimatableModifier {
-    var number: Int
-    var animatableData: Double {
-        get { Double(number) }
-        set { number = Int(newValue) }
-    }
-    
-    func body(content: Content) -> some View {
-        content.overlay(Text("\(number)").setChalkFont(.largeTitle))
-    }
-}
+
 
 
 // MARK: - Preview
