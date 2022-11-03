@@ -25,3 +25,12 @@ extension UserDefaultsHighScoreStore: HighScoreStore {
     func saveHighScore(_ newHighScore: Int) async throws { defaults.set(newHighScore, forKey: mode.title) }
     func resetHighScore() async throws { defaults.set(0, forKey: mode.title) }
 }
+
+
+extension GameMode {
+    var title: String {
+        switch self {
+        case .add: return "Add Three"
+        }
+    }
+}

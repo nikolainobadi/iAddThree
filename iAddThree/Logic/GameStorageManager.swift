@@ -40,31 +40,6 @@ extension GameStorageManager: GameStore {
     }
 }
 
-extension GameStorageManager: OldGameStore {
-    func loadResults(pointsToAdd: Int) async throws -> LevelResultInfo {
-        LevelResultInfo(currentScore: 0, pointsToAdd: 0, currentLevel: 0, timerFinished: false)
-//        guard pointsToAdd > 0 else { return LevelResultInfo(currentScore: score, newScore: nil, previousLevel: level) }
-//
-//        let newScore = makeNewScore(pointsToAdd)
-//        let results = LevelResultInfo(currentScore: score, newScore: newScore, previousLevel: level)
-//
-//        if newScore > highScore {
-//            try await store.saveHighScore(newScore)
-//        }
-//
-//        level = makeNewLevel()
-//        score = newScore
-//
-//        return results
-    }
-    
-    func resetHighScore() async throws {
-        try await store.resetHighScore()
-        score = 0
-        level = 1
-    }
-}
-
 
 // MARK: - Private Methods
 private extension GameStorageManager {
@@ -78,5 +53,4 @@ protocol HighScoreStore {
     var highScore: Int { get }
     
     func saveHighScore(_ newHighScore: Int) async throws
-    func resetHighScore() async throws
 }

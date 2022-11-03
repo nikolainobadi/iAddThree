@@ -11,7 +11,6 @@
 		D40DD92C290B13DA000D81A9 /* GameStoreManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40DD92B290B13DA000D81A9 /* GameStoreManagerTests.swift */; };
 		D42DBEFA28E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DBEF928E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift */; };
 		D42DBEFE28E25E65006E29D0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DBEFD28E25E65006E29D0 /* SettingsView.swift */; };
-		D4395F7528DE8FC1000A2B84 /* LevelResultsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4395F7428DE8FC1000A2B84 /* LevelResultsDataModel.swift */; };
 		D44361DE28DE439A00909629 /* iAddThreeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44361DD28DE439A00909629 /* iAddThreeApp.swift */; };
 		D44361E228DE439B00909629 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44361E128DE439B00909629 /* Assets.xcassets */; };
 		D44361E528DE439B00909629 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44361E428DE439B00909629 /* Preview Assets.xcassets */; };
@@ -42,7 +41,6 @@
 		D4BD279C28DF9B8F00C698A9 /* InstructionsViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD279B28DF9B8F00C698A9 /* InstructionsViewDataModel.swift */; };
 		D4BD279F28DF9BD500C698A9 /* InstructionsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD279E28DF9BD500C698A9 /* InstructionsFactory.swift */; };
 		D4BD27A128DF9D6300C698A9 /* ChalkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27A028DF9D6300C698A9 /* ChalkButton.swift */; };
-		D4BD27A728DFC10D00C698A9 /* GameViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27A628DFC10D00C698A9 /* GameViewDataModel.swift */; };
 		D4BD27A928DFCD9F00C698A9 /* GameStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27A828DFCD9F00C698A9 /* GameStorageManager.swift */; };
 		D4BD27AC28DFCE2600C698A9 /* SinglePlayHighScoreStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27AB28DFCE2600C698A9 /* SinglePlayHighScoreStore.swift */; };
 		D4BD27AE28DFCFBE00C698A9 /* GameViewDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27AD28DFCFBE00C698A9 /* GameViewDataModelTests.swift */; };
@@ -71,7 +69,6 @@
 		D42DBEF928E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHighScoreStore.swift; sourceTree = "<group>"; };
 		D42DBEFD28E25E65006E29D0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D42F498E28E2993A007DCD8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4395F7428DE8FC1000A2B84 /* LevelResultsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelResultsDataModel.swift; sourceTree = "<group>"; };
 		D44361DA28DE439A00909629 /* iAddThree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAddThree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44361DD28DE439A00909629 /* iAddThreeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAddThreeApp.swift; sourceTree = "<group>"; };
 		D44361E128DE439B00909629 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,7 +101,6 @@
 		D4BD279B28DF9B8F00C698A9 /* InstructionsViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewDataModel.swift; sourceTree = "<group>"; };
 		D4BD279E28DF9BD500C698A9 /* InstructionsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsFactory.swift; sourceTree = "<group>"; };
 		D4BD27A028DF9D6300C698A9 /* ChalkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChalkButton.swift; sourceTree = "<group>"; };
-		D4BD27A628DFC10D00C698A9 /* GameViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewDataModel.swift; sourceTree = "<group>"; };
 		D4BD27A828DFCD9F00C698A9 /* GameStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStorageManager.swift; sourceTree = "<group>"; };
 		D4BD27AB28DFCE2600C698A9 /* SinglePlayHighScoreStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayHighScoreStore.swift; sourceTree = "<group>"; };
 		D4BD27AD28DFCFBE00C698A9 /* GameViewDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewDataModelTests.swift; sourceTree = "<group>"; };
@@ -233,11 +229,9 @@
 		D462D12D28DE50D7001FF20A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D4BD27A628DFC10D00C698A9 /* GameViewDataModel.swift */,
 				D462D13028DE5122001FF20A /* NumberItemPresenter.swift */,
 				D4BD279928DF923A00C698A9 /* InstructionDetails.swift */,
 				D4BD279B28DF9B8F00C698A9 /* InstructionsViewDataModel.swift */,
-				D4395F7428DE8FC1000A2B84 /* LevelResultsDataModel.swift */,
 				D4B8EDB428E26459001698E4 /* SettingsDataModel.swift */,
 				D47FEBDD2911D8840061E7EF /* GameModeMenuDataModel.swift */,
 				D47FEBE12911DC3F0061E7EF /* PlayViewDataModel.swift */,
@@ -433,10 +427,8 @@
 				D4BD279C28DF9B8F00C698A9 /* InstructionsViewDataModel.swift in Sources */,
 				D462D11328DE4490001FF20A /* NumberItem.swift in Sources */,
 				D4B8EDB528E26459001698E4 /* SettingsDataModel.swift in Sources */,
-				D4BD27A728DFC10D00C698A9 /* GameViewDataModel.swift in Sources */,
 				D462D14D28DE5D2C001FF20A /* GameViewComposer.swift in Sources */,
 				D462D11628DE44BE001FF20A /* NumberItemFactory.swift in Sources */,
-				D4395F7528DE8FC1000A2B84 /* LevelResultsDataModel.swift in Sources */,
 				D44361DE28DE439A00909629 /* iAddThreeApp.swift in Sources */,
 				D462D14528DE5910001FF20A /* ChalkboardViewModifier.swift in Sources */,
 				D462D13528DE55A0001FF20A /* NumberItem+Extension.swift in Sources */,
