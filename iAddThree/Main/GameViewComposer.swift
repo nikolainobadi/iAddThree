@@ -7,13 +7,6 @@
 
 import SwiftUI
 
-struct LevelResultInfo: Equatable {
-    let currentScore: Int
-    let pointsToAdd: Int
-    let currentLevel: Int
-    let timerFinished: Bool
-}
-
 enum GameViewComposer {
     static func makeLevelResultsView(results: LevelResultInfo, playNextLevel: @escaping () -> Void) -> some View {
         EmptyView()
