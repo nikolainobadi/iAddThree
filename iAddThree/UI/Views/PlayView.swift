@@ -15,14 +15,12 @@ struct PlayView: View {
     private var showFinishedBanner: Bool { dataModel.results != nil }
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             Text("Level: \(dataModel.level)")
                 .setChalkFont(.body)
-                .padding(5)
+                .padding()
             
             NumberListView(list: dataModel.numberList)
-            
-            Spacer()
             
             FinishedBanner(message: "Nice")
                 .opacity(showFinishedBanner ? 1 : 0)
@@ -30,9 +28,54 @@ struct PlayView: View {
             
             NumberPadView(selection: dataModel.submitNumber(_:))
                 .frame(maxWidth: getWidthPercent(90), maxHeight: getHeightPercent(55))
+                
             
             Spacer()
-        }.overlay(PlayViewFooter(score: score, highScore: highScore).padding(), alignment: .bottomLeading)
+        }
+        .onAppear { dataModel.startLevel() }
+        .overlay(TimerView(isActive: $dataModel.timerActive, timeRemaining: dataModel.timeRemaining), alignment: .topTrailing)
+        .overlay(PlayViewFooter(score: score, highScore: highScore).padding(), alignment: .bottomLeading)
+    }
+}
+
+// MARK: - Timer
+fileprivate struct TimerView: View {
+    @Binding var isActive: Bool
+    @State var timeRemaining: Float
+    
+    private var startTime: Float
+    
+    private let timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
+    private var timerText: String { String(format: "%.2f", timeRemaining) }
+    private var timerColor: Color {
+        let percentageRemaining = timeRemaining / startTime
+        
+        if percentageRemaining > 0.6 { return .primary }
+        if percentageRemaining < 0.25 { return .red }
+        
+        return .yellow
+    }
+    
+    init(isActive: Binding<Bool>, timeRemaining: Float) {
+        _isActive = isActive
+        self.timeRemaining = timeRemaining
+        self.startTime = timeRemaining
+    }
+    
+    var body: some View {
+        Text(timerText)
+            .padding(10)
+            .opacity(isActive ? 1 : 0)
+            .setSmoothFont(.headline, textColor: timerColor)
+            .onReceive(timer) { _ in
+                guard isActive else { return }
+                
+                if timeRemaining > 0 {
+                    timeRemaining -= 0.05
+                } else {
+                    isActive = false
+                }
+            }
     }
 }
 

@@ -21,7 +21,7 @@ struct GameView: View {
     let mode: GameMode
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             GameTitle(title: "Add Three", isPlaying: state == .playing)
             GameContentView(state: $state, mode: mode)
         }
@@ -65,6 +65,9 @@ fileprivate struct GameTitle: View {
             .offset(y: getHeightPercent(isPlaying ? 2 : 5))
     }
 }
+
+
+
 
 
 // MARK: - Preview

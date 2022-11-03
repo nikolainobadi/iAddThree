@@ -49,5 +49,6 @@ fileprivate struct ResultsView: View {
 struct GameContentView_Previews: PreviewProvider {
     static var previews: some View {
         GameContentView(state: .constant(.menu), mode: .add)
+            .onChalkboard()
     }
 }
