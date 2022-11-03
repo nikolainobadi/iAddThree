@@ -23,7 +23,7 @@ final class PlayViewDataModel: ObservableObject {
         self.numberList = numberList.map({ NumberItemPresenter($0) })
         self.$results
             .compactMap { $0 }
-            .debounce(for: 1.5, scheduler: RunLoop.main)
+            .debounce(for: 2, scheduler: RunLoop.main)
             .sink { showResults($0) }
             .store(in: &changes)
     }
@@ -36,11 +36,6 @@ extension PlayViewDataModel {
     var level: Int { store.level }
     var highScore: Int { store.highScore }
     var startTime: Float { TimerManager.makeStartTime(for: level) }
-    var finishedMessage: String? {
-        guard let results = results else { return nil }
-        
-        return "Nice"
-    }
     
     func startLevel() {
         if level > 1 {

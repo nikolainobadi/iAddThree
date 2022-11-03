@@ -7,11 +7,26 @@
 
 import SwiftUI
 
+enum FinishedBannerMessageFactory {
+    static func makeMessage(_ results: LevelResultInfo) -> String {
+        guard !results.timerFinished else { return "Times Up!" }
+        
+        switch results.pointsToAdd {
+        case 1: return "Nice Try"
+        case 2: return "Good Job!"
+        case 3: return "Gread Job!"
+        case 4: return "Perfect!"
+        default: return "Not Quite"
+        }
+    }
+}
+
 struct PlayView: View {
     @StateObject var dataModel: PlayViewDataModel
     
     private var score: Int { dataModel.score }
     private var highScore: Int { dataModel.highScore }
+    private var results: LevelResultInfo? { dataModel.results }
     
     var body: some View {
         VStack {
@@ -20,9 +35,20 @@ struct PlayView: View {
                 .padding()
             
             NumberListView(list: dataModel.numberList).padding()
-            FinishedBanner(message: dataModel.finishedMessage)
-            NumberPadView(selection: dataModel.submitNumber(_:))
-                .frame(maxWidth: getWidthPercent(90), maxHeight: getHeightPercent(55))
+            
+            Spacer()
+            
+            VStack {
+                if let results = results {
+                    FinishedBanner(message: FinishedBannerMessageFactory.makeMessage(results))
+                        .transition(.move(edge: .leading))
+                        
+                    Spacer()
+                } else {
+                    NumberPadView(selection: dataModel.submitNumber(_:))
+                        .frame(maxWidth: getWidthPercent(90), maxHeight: .infinity)
+                }
+            }.animation(.linear, value: results)
         }
         .onAppear { dataModel.startLevel() }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
