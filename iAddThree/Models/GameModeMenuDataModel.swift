@@ -28,10 +28,17 @@ extension GameModeMenuDataModel {
             do {
                 try await store.saveHighScore(0)
                 
-                didResetHighScore = true
+                await hideHighScoreView()
             } catch {
-                self.error = error
+                await showError(error)
             }
         }
     }
+}
+
+
+// MARK: - Private
+private extension GameModeMenuDataModel {
+    @MainActor func hideHighScoreView() { didResetHighScore = true }
+    @MainActor func showError(_ error: Error) { self.error = error }
 }

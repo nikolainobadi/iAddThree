@@ -29,7 +29,7 @@ enum GameContentComposer {
         return PlayView(dataModel: dataModel)
     }
     
-    static func makeResultsView(info: LevelResultInfo, playAgain: @escaping () -> Void) -> some View {
-        EmptyView()
+    static func makeResultsView(results: LevelResultInfo, playAgain: @escaping () -> Void) -> some View {
+        return ResultsView(dataModel: ResultsDataModel(results: results, playAgain: playAgain))
     }
 }

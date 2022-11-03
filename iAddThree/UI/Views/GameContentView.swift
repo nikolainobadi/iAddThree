@@ -22,16 +22,12 @@ struct GameContentView: View {
             case .playing:
                 GameContentComposer.makePlayView(mode: mode, showResults: { state = .results($0) })
                     .transition(.scale)
-            case .results(let info):
-                GameContentComposer.makeResultsView(info: info, playAgain: { state = .playing })
+            case .results(let results):
+                GameContentComposer.makeResultsView(results: results, playAgain: { state = .playing })
             }
         }.sheet(isPresented: $showingInstructions) { GameContentComposer.makeInstructionsView(mode) }
     }
 }
-
-
-// MARK: - Results
-
 
 
 // MARK: - Preview

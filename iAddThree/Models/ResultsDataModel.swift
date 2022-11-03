@@ -14,11 +14,14 @@ final class ResultsDataModel: ObservableObject {
     @Published var showingButton = false
     @Published var newScore: Int?
     
+    let playAgain: () -> Void
+    
     private let results: LevelResultInfo
     private var changes = Set<AnyCancellable>()
     
-    init(results: LevelResultInfo) {
+    init(results: LevelResultInfo, playAgain: @escaping () -> Void) {
         self.results = results
+        self.playAgain = playAgain
         self.currentScore = results.currentScore
         
         $showingViews
@@ -41,7 +44,7 @@ extension ResultsDataModel {
     var completedLevel: Bool { results.pointsToAdd > 0 }
     var currentLevel: Int { results.currentLevel }
     var nextLevel: Int { results.currentLevel + 1 }
-    var playAgainText: String { completedLevel ? "Level \(nextLevel)" : "Try Again?"}
+    var playAgainText: String { completedLevel ? "Level \(nextLevel)" : "Try Again?" }
     
     func showResults() { showingViews = true }
 }

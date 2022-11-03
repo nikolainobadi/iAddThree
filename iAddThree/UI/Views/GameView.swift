@@ -22,7 +22,7 @@ struct GameView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            GameTitle(title: "Add Three", isPlaying: state == .playing)
+            GameTitle(title: "Add Three", showingMenu: state == .menu)
             GameContentView(state: $state, mode: mode)
         }
         .overlay(GameViewNavBar(state: $state), alignment: .top)
@@ -55,14 +55,14 @@ fileprivate struct GameViewNavBar: View {
 // MARK: - Title
 fileprivate struct GameTitle: View {
     let title: String
-    let isPlaying: Bool
+    let showingMenu: Bool
     
     var body: some View {
         Text(title).setChalkFont(.largeTitle, autoSize: true)
             .padding()
             .lineLimit(1)
-            .scaleEffect(isPlaying ? 0.75 : 1)
-            .offset(y: getHeightPercent(isPlaying ? 2 : 5))
+            .scaleEffect(showingMenu ? 1 : 0.75)
+            .offset(y: getHeightPercent(showingMenu ? 5 : 2))
     }
 }
 

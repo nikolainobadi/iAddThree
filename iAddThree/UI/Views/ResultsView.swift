@@ -10,8 +10,6 @@ import SwiftUI
 struct ResultsView: View {
     @StateObject var dataModel: ResultsDataModel
     
-    let playAgain: () -> Void
-    
     private var showingViews: Bool { dataModel.showingViews }
     private var completedLevel: Bool { dataModel.completedLevel }
     
@@ -30,35 +28,17 @@ struct ResultsView: View {
         VStack {
             Text("Level \(dataModel.currentLevel) Results")
                 .setChalkFont(.title3)
+                .padding()
             
-            if showingViews {
+            VStack {
                 if completedLevel {
-                    Text("")
-                        .padding(.top, getHeightPercent(5))
-                        .setChalkFont(.subheadline)
-                    Circle()
-                        .fill(Color.black)
-                        .opacity(0.6)
-                        .frame(width: getWidthPercent(40), height: getWidthPercent(40))
-                        .modifier(
-                            NumberAnimationModifier(number: dataModel.currentScore)
-                                .animation(.linear)
-                        )
-                        .padding(getWidthPercent(20))
+                    ScoreCircle(currentScore: dataModel.currentScore)
                 } else {
-                    Text("Game Over")
-                        .frame(maxWidth: getWidthPercent(95))
-                        .setChalkFont(.title3, textColor: .red)
-                        .background(.black.opacity(9))
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .padding(.top, getHeightPercent(5))
-                        .padding(.bottom, getHeightPercent(30))
-                        .transition(.move(edge: .bottom))
+                    GameOverView()
                 }
-            }
+            }.opacity(showingViews ? 1 : 0)
             
-            
-            ChalkButton(dataModel.playAgainText, action: playAgain)
+            ChalkButton(dataModel.playAgainText, action: dataModel.playAgain)
                 .opacity(dataModel.showingButton ? 1 : 0)
                 .transition(.slide)
         }
@@ -68,6 +48,37 @@ struct ResultsView: View {
         
     }
 }
+
+// MARK: - ScoreCircle
+fileprivate struct ScoreCircle: View {
+    let currentScore: Int
+    
+    var body: some View {
+        Circle()
+            .fill(Color.black)
+            .opacity(0.6)
+            .frame(width: getWidthPercent(40), height: getWidthPercent(40))
+            .padding(getWidthPercent(20))
+            .modifier(
+                NumberAnimationModifier(number: currentScore)
+                    .animation(.linear(duration: 1.5))
+            )
+    }
+}
+
+fileprivate struct GameOverView: View {
+    var body: some View {
+        Text("Game Over")
+            .frame(maxWidth: getWidthPercent(95))
+            .setChalkFont(.title3, textColor: .red)
+            .background(.black.opacity(9))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .padding(.top, getHeightPercent(5))
+            .padding(.bottom, getHeightPercent(30))
+            .transition(.move(edge: .bottom))
+    }
+}
+
 
 // MARK: - Animation
 struct NumberAnimationModifier: AnimatableModifier {
@@ -90,10 +101,7 @@ struct ResultsView_Previews: PreviewProvider {
     }
     
     static var previews: some View {
-        ResultsView(dataModel: ResultsDataModel(results: makeResults(pointsToAdd: 4)), playAgain: { })
+        ResultsView(dataModel: ResultsDataModel(results: makeResults(pointsToAdd: 4), playAgain: { }))
             .onChalkboard()
-        
-//        ResultsView(dataModel: ResultsDataModel(results: makeResults(pointsToAdd: 0)), playAgain: { })
-//            .onChalkboard()
     }
 }
