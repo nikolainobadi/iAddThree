@@ -36,6 +36,11 @@ extension PlayViewDataModel {
     var level: Int { store.level }
     var highScore: Int { store.highScore }
     var startTime: Float { TimerManager.makeStartTime(for: level) }
+    var finishedMessage: String? {
+        guard let results = results else { return nil }
+        
+        return "Nice"
+    }
     
     func startLevel() {
         if level > 1 {

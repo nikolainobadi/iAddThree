@@ -24,10 +24,10 @@ extension GameStorageManager: GameStore {
     var highScore: Int { store.highScore }
     
     func loadResults(pointsToAdd: Int, timerFinished: Bool) async throws -> LevelResultInfo {
-        guard pointsToAdd > 0 else { return LevelResultInfo(currentScore: score, newScore: nil, previousLevel: level) }
-        
         let newScore = makeNewScore(pointsToAdd)
-        let results = LevelResultInfo(currentScore: score, newScore: newScore, previousLevel: level)
+        let results = LevelResultInfo(currentScore: score, pointsToAdd: pointsToAdd, currentLevel: level, timerFinished: timerFinished)
+    
+        guard pointsToAdd > 0 else { return results }
         
         if newScore > highScore {
             try await store.saveHighScore(newScore)
@@ -42,19 +42,20 @@ extension GameStorageManager: GameStore {
 
 extension GameStorageManager: OldGameStore {
     func loadResults(pointsToAdd: Int) async throws -> LevelResultInfo {
-        guard pointsToAdd > 0 else { return LevelResultInfo(currentScore: score, newScore: nil, previousLevel: level) }
-        
-        let newScore = makeNewScore(pointsToAdd)
-        let results = LevelResultInfo(currentScore: score, newScore: newScore, previousLevel: level)
-        
-        if newScore > highScore {
-            try await store.saveHighScore(newScore)
-        }
-        
-        level = makeNewLevel()
-        score = newScore
-        
-        return results
+        LevelResultInfo(currentScore: 0, pointsToAdd: 0, currentLevel: 0, timerFinished: false)
+//        guard pointsToAdd > 0 else { return LevelResultInfo(currentScore: score, newScore: nil, previousLevel: level) }
+//
+//        let newScore = makeNewScore(pointsToAdd)
+//        let results = LevelResultInfo(currentScore: score, newScore: newScore, previousLevel: level)
+//
+//        if newScore > highScore {
+//            try await store.saveHighScore(newScore)
+//        }
+//
+//        level = makeNewLevel()
+//        score = newScore
+//
+//        return results
     }
     
     func resetHighScore() async throws {

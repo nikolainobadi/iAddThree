@@ -12,26 +12,20 @@ struct PlayView: View {
     
     private var score: Int { dataModel.score }
     private var highScore: Int { dataModel.highScore }
-    private var showFinishedBanner: Bool { dataModel.results != nil }
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack {
             Text("Level: \(dataModel.level)")
                 .setChalkFont(.body)
                 .padding()
             
-            NumberListView(list: dataModel.numberList)
-            
-            FinishedBanner(message: "Nice")
-                .opacity(showFinishedBanner ? 1 : 0)
-                .animation(.default, value: showFinishedBanner)
-            
+            NumberListView(list: dataModel.numberList).padding()
+            FinishedBanner(message: dataModel.finishedMessage)
             NumberPadView(selection: dataModel.submitNumber(_:))
                 .frame(maxWidth: getWidthPercent(90), maxHeight: getHeightPercent(55))
-                
-            Spacer()
         }
         .onAppear { dataModel.startLevel() }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .overlay(TimerView(isActive: $dataModel.timerActive, timeRemaining: dataModel.startTime), alignment: .topTrailing)
         .overlay(PlayViewFooter(score: score, highScore: highScore).padding(), alignment: .bottomLeading)
     }
@@ -96,11 +90,15 @@ fileprivate struct PlayViewFooter: View {
 
 // MARK: - FinishedBanner
 fileprivate struct FinishedBanner: View {
-    let message: String
+    let message: String?
+    
+    private var showMessage: Bool { message != nil }
     
     var body: some View {
-        Text(message)
+        Text(message ?? "")
             .setChalkFont(.title)
+            .opacity(message != nil ? 1 : 0)
+            .animation(.default, value: showMessage)
     }
 }
 
