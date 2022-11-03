@@ -29,11 +29,10 @@ struct PlayView: View {
             NumberPadView(selection: dataModel.submitNumber(_:))
                 .frame(maxWidth: getWidthPercent(90), maxHeight: getHeightPercent(55))
                 
-            
             Spacer()
         }
         .onAppear { dataModel.startLevel() }
-        .overlay(TimerView(isActive: $dataModel.timerActive, timeRemaining: dataModel.timeRemaining), alignment: .topTrailing)
+        .overlay(TimerView(isActive: $dataModel.timerActive, timeRemaining: dataModel.startTime), alignment: .topTrailing)
         .overlay(PlayViewFooter(score: score, highScore: highScore).padding(), alignment: .bottomLeading)
     }
 }
@@ -67,6 +66,7 @@ fileprivate struct TimerView: View {
             .padding(10)
             .opacity(isActive ? 1 : 0)
             .setSmoothFont(.headline, textColor: timerColor)
+            .padding(.horizontal, isPad ? getWidthPercent(5) : 0)
             .onReceive(timer) { _ in
                 guard isActive else { return }
                 

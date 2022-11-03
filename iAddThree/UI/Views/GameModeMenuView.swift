@@ -23,8 +23,9 @@ struct GameModeMenuView: View {
             ChalkButton("Start Game", style: .title2, action: startGame)
             ChalkButton("How to Play", style: .subheadline, action: { showingInstructions = true })
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         .canShowError(error: $dataModel.error, doneAction: { dataModel.error = nil })
-        .overlay(GameModeMenuFooter(highScore: highScore, shouldShow: showFooter, resetScore: resetScore), alignment: .bottom)
+        .overlay(GameModeMenuFooter(highScore: highScore, shouldShow: showFooter, resetScore: resetScore).padding(), alignment: .bottom)
     }
 }
 

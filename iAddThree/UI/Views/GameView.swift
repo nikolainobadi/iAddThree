@@ -67,9 +67,6 @@ fileprivate struct GameTitle: View {
 }
 
 
-
-
-
 // MARK: - Preview
 struct GameNavView_Previews: PreviewProvider {
     static var previews: some View {

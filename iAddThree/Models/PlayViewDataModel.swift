@@ -11,7 +11,6 @@ import Foundation
 final class PlayViewDataModel: ObservableObject {
     @Published var error: Error?
     @Published var timerActive = false
-    @Published var timeRemaining: Float = 10
     @Published var results: LevelResultInfo?
     @Published var numberList: [NumberItemPresenter]
     
@@ -22,7 +21,11 @@ final class PlayViewDataModel: ObservableObject {
     init(numberList: [NumberItem], store: GameStore, showResults: @escaping (LevelResultInfo) -> Void) {
         self.store = store
         self.numberList = numberList.map({ NumberItemPresenter($0) })
-        self.startObservers(showResults: showResults)
+        self.$results
+            .compactMap { $0 }
+            .debounce(for: 1.5, scheduler: RunLoop.main)
+            .sink { showResults($0) }
+            .store(in: &changes)
     }
 }
 
@@ -30,13 +33,14 @@ final class PlayViewDataModel: ObservableObject {
 // MARK: - ViewModel
 extension PlayViewDataModel {
     var score: Int { store.score }
-    var level: Int { 2 }
+    var level: Int { store.level }
     var highScore: Int { store.highScore }
+    var startTime: Float { TimerManager.makeStartTime(for: level) }
     
     func startLevel() {
         if level > 1 {
-            timeRemaining = TimerManager.makeStartTime(for: level)
             timerActive = true
+            startTimerObserver()
         }
     }
     
@@ -58,29 +62,48 @@ private extension PlayViewDataModel {
     var allAnswersFilled: Bool { !numberList.isEmpty && numberList.filter({ $0.userAnswer == nil }).isEmpty }
     
     func finishLevel(timerFinished: Bool = false) {
-        if timerFinished {
+        if !timerFinished {
             timerActive = false
         }
         
         Task {
             do {
-                results = try await store.loadResults(pointsToAdd: pointsToAdd)
+                let results = try await store.loadResults(pointsToAdd: pointsToAdd, timerFinished: timerFinished)
+                
+                await postResults(results)
             } catch {
-                self.error = error
+                await showError(error)
             }
         }
     }
     
-    func startObservers(showResults: @escaping (LevelResultInfo) -> Void) {
-        $results
-            .compactMap { $0 }
-            .debounce(for: 1.5, scheduler: RunLoop.main)
-            .sink { showResults($0) }
-            .store(in: &changes)
-        
-        $timeRemaining
-            .drop(while: { $0 > 0 })
-            .sink { [weak self] _ in self?.finishLevel() }
+    func startTimerObserver() {
+        $timerActive
+            .dropFirst()
+            .sink { [weak self] in self?.timesUp(timerActive: $0) }
             .store(in: &changes)
     }
+    
+    func timesUp(timerActive: Bool) {
+        if !timerActive && !allAnswersFilled {
+            finishLevel(timerFinished: true)
+        }
+    }
+}
+
+
+// MARK: - Private UI Methods
+private extension PlayViewDataModel {
+    @MainActor func showError(_ error: Error) { self.error = error }
+    @MainActor func postResults(_ results: LevelResultInfo) { self.results = results }
+}
+
+
+// MARK: - Dependencies
+protocol GameStore {
+    var score: Int { get }
+    var level: Int { get }
+    var highScore: Int { get }
+    
+    func loadResults(pointsToAdd: Int, timerFinished: Bool) async throws -> LevelResultInfo
 }

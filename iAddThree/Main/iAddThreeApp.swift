@@ -22,7 +22,8 @@ struct AppLauncher {
 struct iAddThreeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GameView(mode: .add)
+                .onChalkboard()
         }
     }
 }

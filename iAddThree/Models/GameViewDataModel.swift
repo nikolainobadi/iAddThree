@@ -15,9 +15,9 @@ final class GameViewDataModel: ObservableObject {
     @Published var numberList = [NumberItemPresenter]()
 
     private let mode: GameMode
-    private let store: GameStore
+    private let store: OldGameStore
     
-    init(mode: GameMode, store: GameStore) {
+    init(mode: GameMode, store: OldGameStore) {
         self.mode = mode
         self.store = store
     }
@@ -90,7 +90,7 @@ private extension GameViewDataModel {
 
 
 // MARK: - Dependencies
-protocol GameStore {
+protocol OldGameStore {
     var score: Int { get }
     var level: Int { get }
     var highScore: Int { get }

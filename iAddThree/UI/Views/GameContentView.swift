@@ -25,9 +25,7 @@ struct GameContentView: View {
             case .results(let info):
                 GameContentComposer.makeResultsView(info: info, playAgain: { state = .playing })
             }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-        .sheet(isPresented: $showingInstructions) { GameContentComposer.makeInstructionsView(mode) }
+        }.sheet(isPresented: $showingInstructions) { GameContentComposer.makeInstructionsView(mode) }
     }
 }
 

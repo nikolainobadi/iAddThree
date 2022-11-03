@@ -23,6 +23,24 @@ final class GameStorageManager {
 extension GameStorageManager: GameStore {
     var highScore: Int { store.highScore }
     
+    func loadResults(pointsToAdd: Int, timerFinished: Bool) async throws -> LevelResultInfo {
+        guard pointsToAdd > 0 else { return LevelResultInfo(currentScore: score, newScore: nil, previousLevel: level) }
+        
+        let newScore = makeNewScore(pointsToAdd)
+        let results = LevelResultInfo(currentScore: score, newScore: newScore, previousLevel: level)
+        
+        if newScore > highScore {
+            try await store.saveHighScore(newScore)
+        }
+        
+        level = makeNewLevel()
+        score = newScore
+        
+        return results
+    }
+}
+
+extension GameStorageManager: OldGameStore {
     func loadResults(pointsToAdd: Int) async throws -> LevelResultInfo {
         guard pointsToAdd > 0 else { return LevelResultInfo(currentScore: score, newScore: nil, previousLevel: level) }
         
