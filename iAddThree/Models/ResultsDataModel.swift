@@ -16,10 +16,10 @@ final class ResultsDataModel: ObservableObject {
     
     let playAgain: () -> Void
     
-    private let results: LevelResult
+    private let results: LevelResults
     private var changes = Set<AnyCancellable>()
     
-    init(results: LevelResult, playAgain: @escaping () -> Void) {
+    init(results: LevelResults, playAgain: @escaping () -> Void) {
         self.results = results
         self.playAgain = playAgain
         self.currentScore = results.currentScore
