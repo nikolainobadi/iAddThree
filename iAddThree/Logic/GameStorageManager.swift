@@ -50,5 +50,7 @@ private extension GameStorageManager {
 
 // MARK: - Dependencies
 protocol HighScoreStore {
+    var highScore: Int { get }
+    
     func saveHighScore(_ newHighScore: Int) async throws
 }

@@ -31,6 +31,7 @@
 		D46B0CAC2914780F0018DD92 /* LevelResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46B0CAB2914780F0018DD92 /* LevelResults.swift */; };
 		D46B0CB42914920B0018DD92 /* LevelScoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46B0CB32914920B0018DD92 /* LevelScoreRepository.swift */; };
 		D46B0CB82914963E0018DD92 /* LevelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46B0CB72914963E0018DD92 /* LevelInfo.swift */; };
+		D46B0CBA291499710018DD92 /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46B0CB9291499710018DD92 /* ScoreManager.swift */; };
 		D47FEBDC2911D82E0061E7EF /* GameModeMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47FEBDB2911D82E0061E7EF /* GameModeMenuView.swift */; };
 		D47FEBDE2911D8840061E7EF /* GameModeMenuDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47FEBDD2911D8840061E7EF /* GameModeMenuDataModel.swift */; };
 		D47FEBE02911DB5A0061E7EF /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47FEBDF2911DB5A0061E7EF /* PlayView.swift */; };
@@ -93,6 +94,7 @@
 		D46B0CAB2914780F0018DD92 /* LevelResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelResults.swift; sourceTree = "<group>"; };
 		D46B0CB32914920B0018DD92 /* LevelScoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelScoreRepository.swift; sourceTree = "<group>"; };
 		D46B0CB72914963E0018DD92 /* LevelInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelInfo.swift; sourceTree = "<group>"; };
+		D46B0CB9291499710018DD92 /* ScoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
 		D47FEBDB2911D82E0061E7EF /* GameModeMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeMenuView.swift; sourceTree = "<group>"; };
 		D47FEBDD2911D8840061E7EF /* GameModeMenuDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeMenuDataModel.swift; sourceTree = "<group>"; };
 		D47FEBDF2911DB5A0061E7EF /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				D4BD27A828DFCD9F00C698A9 /* GameStorageManager.swift */,
 				E82AF16028E12B7500F93822 /* TimerManager.swift */,
 				D4B8EDB628E26480001698E4 /* AppRateManager.swift */,
+				D46B0CB9291499710018DD92 /* ScoreManager.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				D4BD279F28DF9BD500C698A9 /* InstructionsFactory.swift in Sources */,
 				D4BD27A928DFCD9F00C698A9 /* GameStorageManager.swift in Sources */,
 				D4D1A4432910B1C500096130 /* GameContentView.swift in Sources */,
+				D46B0CBA291499710018DD92 /* ScoreManager.swift in Sources */,
 				E82AF16528E1372700F93822 /* OldTimerViewModifier.swift in Sources */,
 				D46B0CAC2914780F0018DD92 /* LevelResults.swift in Sources */,
 				D46B0CA429145E980018DD92 /* ResultsDataModel.swift in Sources */,
