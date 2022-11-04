@@ -100,8 +100,12 @@ private extension PlayViewDataModel {
     }
     
     func makeResults(_ timerFinished: Bool) async throws -> LevelResults {
-        throw NSError()
+        try await updater.updateScore(newScore: makeNewScore())
+        
+        return LevelResults(currentScore: info.score, pointsToAdd: pointsToAdd, currentLevel: info.level, timerFinished: timerFinished)
     }
+    
+    func makeNewScore() -> Int { score + pointsToAdd }
 }
 
 
