@@ -9,7 +9,7 @@ import SwiftUI
 import Foundation
 
 enum GameContentComposer {
-    static func makeMenuView(mode: GameMode, startGame: @escaping () -> Void, showInstructions: @escaping () -> Void) -> some View {
+    static func makeMenuView(mode: GameMode, scoreStore: LevelScoreStore, startGame: @escaping () -> Void, showInstructions: @escaping () -> Void) -> some View {
         let store = UserDefaultsHighScoreStore(mode: .add)
         let dataModel = GameModeMenuDataModel(store: store)
         
@@ -20,7 +20,7 @@ enum GameContentComposer {
         InstructionsView(dataModel: InstructionsDataModel(mode: mode))
     }
     
-    static func makePlayView(mode: GameMode, showResults: @escaping (LevelResultInfo) -> Void) -> some View {
+    static func makePlayView(mode: GameMode, scoreStore: LevelScoreStore, showResults: @escaping (LevelResultInfo) -> Void) -> some View {
         let numberList = NumberItemFactory.makeNumberList(mode)
         let store = UserDefaultsHighScoreStore(mode: mode)
         let manager = GameStorageManager(store: store)

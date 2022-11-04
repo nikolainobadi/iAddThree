@@ -18,10 +18,10 @@ struct GameContentView: View {
         VStack {
             switch state {
             case .menu:
-                GameContentComposer.makeMenuView(mode: mode, startGame: { state = .playing }, showInstructions: { showingInstructions = true })
+                GameContentComposer.makeMenuView(mode: mode, scoreStore: repo, startGame: { state = .playing }, showInstructions: { showingInstructions = true })
                     .transition(.scale)
             case .playing:
-                GameContentComposer.makePlayView(mode: mode, showResults: { state = .results($0) })
+                GameContentComposer.makePlayView(mode: mode, scoreStore: repo, showResults: { state = .results($0) })
                     .transition(.scale)
             case .results(let results):
                 GameContentComposer.makeResultsView(results: results, playAgain: { state = .playing })
