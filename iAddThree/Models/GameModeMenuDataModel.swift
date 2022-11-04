@@ -48,8 +48,33 @@ protocol ScoreUpdater {
     func updateScore(newScore: Int) async throws
 }
 
-final class ScoreManager: ScoreUpdater {
+final class ScoreManager {
+    private let highScoreStore: HighScoreStore
+    private let levelScoreStore: LevelScoreStore
+    
+    init(highScoreStore: HighScoreStore, levelScoreStore: LevelScoreStore) {
+        self.highScoreStore = highScoreStore
+        self.levelScoreStore = levelScoreStore
+    }
+}
+
+extension ScoreManager: ScoreUpdater {
+    
     func updateScore(newScore: Int) async throws {
+        if newScore == 0 {
+            try await resetScoreInfo()
+        } else {
+            try await saveNewScore(newScore)
+        }
+    }
+}
+
+private extension ScoreManager {
+    func resetScoreInfo() async throws {
+        
+    }
+    
+    func saveNewScore(_ newScore: Int) async throws {
         
     }
 }

@@ -21,7 +21,7 @@ final class GameStorageManager {
 
 // MARK: - Store
 extension GameStorageManager: GameStore {
-    var highScore: Int { store.highScore }
+    var highScore: Int { 0 }
     
     func loadResults(pointsToAdd: Int, timerFinished: Bool) async throws -> LevelResultInfo {
         let newScore = makeNewScore(pointsToAdd)
@@ -50,7 +50,5 @@ private extension GameStorageManager {
 
 // MARK: - Dependencies
 protocol HighScoreStore {
-    var highScore: Int { get }
-    
     func saveHighScore(_ newHighScore: Int) async throws
 }
