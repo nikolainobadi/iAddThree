@@ -15,7 +15,7 @@ struct GameModeMenuView: View {
     let showInstructions: () -> Void
     
     private var highScore: Int { dataModel.highScore }
-    private var showFooter: Bool { dataModel.didResetHighScore ? false : (highScore > 0) }
+    private var showFooter: Bool { highScore > 0 }
     private func resetScore() { dataModel.resetHighScore() }
     
     var body: some View {
@@ -60,8 +60,12 @@ fileprivate struct GameModeMenuFooter: View {
 
 // MARK: - Preview
 struct GameModeMenuView_Previews: PreviewProvider {
+    static var updater: ScoreUpdater { ScoreManager() }
+    
+    static func makeDataModel(_ highScore: Int = 0) -> GameModeMenuDataModel { GameModeMenuDataModel(updater: updater, highScore: highScore) }
+    
     static var previews: some View {
-        GameModeMenuView(dataModel: GameModeMenuDataModel(store: SinglePlayHighScoreStore()), startGame: { }, showInstructions: { })
+        GameModeMenuView(dataModel: makeDataModel(), startGame: { }, showInstructions: { })
             .onChalkboard()
     }
 }

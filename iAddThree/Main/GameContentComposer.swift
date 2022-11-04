@@ -10,8 +10,8 @@ import Foundation
 
 enum GameContentComposer {
     static func makeMenuView(mode: GameMode, scoreStore: LevelScoreStore, startGame: @escaping () -> Void, showInstructions: @escaping () -> Void) -> some View {
-        let store = UserDefaultsHighScoreStore(mode: .add)
-        let dataModel = GameModeMenuDataModel(store: store)
+        let updater = ScoreManager()
+        let dataModel = GameModeMenuDataModel(updater: updater, highScore: 0)
         
         return GameModeMenuView(dataModel: dataModel, startGame: startGame, showInstructions: showInstructions)
     }

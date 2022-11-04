@@ -9,24 +9,23 @@ import Foundation
 
 final class GameModeMenuDataModel: ObservableObject {
     @Published var error: Error?
-    @Published var didResetHighScore = false
+    @Published var highScore: Int
     
-    private let store: HighScoreStore
+    private let updater: ScoreUpdater
     
-    init(store: HighScoreStore) {
-        self.store = store
+    init(updater: ScoreUpdater, highScore: Int) {
+        self.updater = updater
+        self.highScore = highScore
     }
 }
 
 
 // MARK: - ViewModel
 extension GameModeMenuDataModel {
-    var highScore: Int { store.highScore }
-    
     func resetHighScore() {
         Task {
             do {
-                try await store.saveHighScore(0)
+                try await updater.updateScore(newScore: 0)
                 
                 await hideHighScoreView()
             } catch {
@@ -39,6 +38,18 @@ extension GameModeMenuDataModel {
 
 // MARK: - Private
 private extension GameModeMenuDataModel {
-    @MainActor func hideHighScoreView() { didResetHighScore = true }
+    @MainActor func hideHighScoreView() { highScore = 0 }
     @MainActor func showError(_ error: Error) { self.error = error }
+}
+
+
+// MARK: - Dependencies
+protocol ScoreUpdater {
+    func updateScore(newScore: Int) async throws
+}
+
+final class ScoreManager: ScoreUpdater {
+    func updateScore(newScore: Int) async throws {
+        
+    }
 }
