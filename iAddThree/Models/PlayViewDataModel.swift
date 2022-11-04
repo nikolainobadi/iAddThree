@@ -14,12 +14,14 @@ final class PlayViewDataModel: ObservableObject {
     @Published var results: LevelResults?
     @Published var numberList: [NumberItemPresenter]
     
-    private let store: GameStore
+    private let info: LevelInfo
+    private let updater: ScoreUpdater
     
     private var changes = Set<AnyCancellable>()
     
-    init(numberList: [NumberItem], store: GameStore, showResults: @escaping (LevelResults) -> Void) {
-        self.store = store
+    init(numberList: [NumberItem], info: LevelInfo, updater: ScoreUpdater, showResults: @escaping (LevelResults) -> Void) {
+        self.info = info
+        self.updater = updater
         self.numberList = numberList.map({ NumberItemPresenter($0) })
         self.$results
             .compactMap { $0 }
@@ -32,9 +34,9 @@ final class PlayViewDataModel: ObservableObject {
 
 // MARK: - ViewModel
 extension PlayViewDataModel {
-    var score: Int { store.score }
-    var level: Int { store.level }
-    var highScore: Int { store.highScore }
+    var score: Int { info.score }
+    var level: Int { info.level }
+    var highScore: Int { info.highScore }
     var startTime: Float { TimerManager.makeStartTime(for: level) }
     
     func startLevel() {
@@ -61,22 +63,6 @@ private extension PlayViewDataModel {
     var pointsToAdd: Int { numberList.filter({ $0.isCorrect }).count }
     var allAnswersFilled: Bool { !numberList.isEmpty && numberList.filter({ $0.userAnswer == nil }).isEmpty }
     
-    func finishLevel(timerFinished: Bool = false) {
-        if !timerFinished {
-            timerActive = false
-        }
-        
-        Task {
-            do {
-                let results = try await store.loadResults(pointsToAdd: pointsToAdd, timerFinished: timerFinished)
-                
-                await postResults(results)
-            } catch {
-                await showError(error)
-            }
-        }
-    }
-    
     func startTimerObserver() {
         $timerActive
             .dropFirst()
@@ -88,6 +74,33 @@ private extension PlayViewDataModel {
         if !timerActive && !allAnswersFilled {
             finishLevel(timerFinished: true)
         }
+    }
+    
+    func finishLevel(timerFinished: Bool = false) {
+        stopTimer(timerFinished)
+        saveProgress(timerFinished)
+    }
+    
+    func stopTimer(_ timerFinished: Bool) {
+        if !timerFinished {
+            timerActive = false
+        }
+    }
+    
+    func saveProgress(_ timerFinished: Bool) {
+        Task {
+            do {
+                let results = try await makeResults(timerFinished)
+                
+                await postResults(results)
+            } catch {
+                await showError(error)
+            }
+        }
+    }
+    
+    func makeResults(_ timerFinished: Bool) async throws -> LevelResults {
+        throw NSError()
     }
 }
 

@@ -131,9 +131,12 @@ fileprivate struct FinishedBanner: View {
 
 // MARK: - Preview
 struct PlayView_Previews: PreviewProvider {
-    static var store: GameStore { GameStorageManager(store: SinglePlayHighScoreStore())}
+    static var info: LevelInfo { LevelInfo(score: 0, level: 1, highScore: 0) }
+    static var updater: ScoreUpdater { ScoreManager(highScoreStore: SinglePlayHighScoreStore(), levelScoreStore: LevelScoreRepository()) }
+    static var dataModel: PlayViewDataModel { PlayViewDataModel(numberList: NumberItem.defaultList, info: info, updater: updater, showResults: { _ in }) }
+    
     static var previews: some View {
-        PlayView(dataModel: PlayViewDataModel(numberList: NumberItem.defaultList, store: store, showResults: { _ in }))
+        PlayView(dataModel: dataModel)
             .onChalkboard()
             .preferredColorScheme(.dark)
     }
