@@ -10,6 +10,7 @@ import SwiftUI
 struct GameContentView: View {
     @Binding var state: GameState
     @State private var showingInstructions = false
+    @StateObject private var repo = LevelScoreRepository()
     
     let mode: GameMode
     
