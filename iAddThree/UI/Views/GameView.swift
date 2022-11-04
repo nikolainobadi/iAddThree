@@ -10,7 +10,7 @@ import SwiftUI
 enum GameState: Equatable {
     case menu
     case playing
-    case results(LevelResultInfo)
+    case results(LevelResult)
 }
 
 

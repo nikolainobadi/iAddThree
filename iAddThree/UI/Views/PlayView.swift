@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum FinishedBannerMessageFactory {
-    static func makeMessage(_ results: LevelResultInfo) -> String {
+    static func makeMessage(_ results: LevelResult) -> String {
         guard !results.timerFinished else { return "Times Up!" }
         
         switch results.pointsToAdd {
@@ -26,7 +26,7 @@ struct PlayView: View {
     
     private var score: Int { dataModel.score }
     private var highScore: Int { dataModel.highScore }
-    private var results: LevelResultInfo? { dataModel.results }
+    private var results: LevelResult? { dataModel.results }
     
     var body: some View {
         VStack {

@@ -11,14 +11,14 @@ import Foundation
 final class PlayViewDataModel: ObservableObject {
     @Published var error: Error?
     @Published var timerActive = false
-    @Published var results: LevelResultInfo?
+    @Published var results: LevelResult?
     @Published var numberList: [NumberItemPresenter]
     
     private let store: GameStore
     
     private var changes = Set<AnyCancellable>()
     
-    init(numberList: [NumberItem], store: GameStore, showResults: @escaping (LevelResultInfo) -> Void) {
+    init(numberList: [NumberItem], store: GameStore, showResults: @escaping (LevelResult) -> Void) {
         self.store = store
         self.numberList = numberList.map({ NumberItemPresenter($0) })
         self.$results
@@ -95,7 +95,7 @@ private extension PlayViewDataModel {
 // MARK: - Private UI Methods
 private extension PlayViewDataModel {
     @MainActor func showError(_ error: Error) { self.error = error }
-    @MainActor func postResults(_ results: LevelResultInfo) { self.results = results }
+    @MainActor func postResults(_ results: LevelResult) { self.results = results }
 }
 
 
@@ -105,5 +105,5 @@ protocol GameStore {
     var level: Int { get }
     var highScore: Int { get }
     
-    func loadResults(pointsToAdd: Int, timerFinished: Bool) async throws -> LevelResultInfo
+    func loadResults(pointsToAdd: Int, timerFinished: Bool) async throws -> LevelResult
 }

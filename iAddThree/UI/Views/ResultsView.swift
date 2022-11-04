@@ -96,8 +96,8 @@ struct NumberAnimationModifier: AnimatableModifier {
 
 // MARK: - Preview
 struct ResultsView_Previews: PreviewProvider {
-    static func makeResults(pointsToAdd: Int = 4, timerFinished: Bool = false) -> LevelResultInfo {
-        LevelResultInfo(currentScore: 0, pointsToAdd: pointsToAdd, currentLevel: 1, timerFinished: timerFinished)
+    static func makeResults(pointsToAdd: Int = 4, timerFinished: Bool = false) -> LevelResult {
+        LevelResult(currentScore: 0, pointsToAdd: pointsToAdd, currentLevel: 1, timerFinished: timerFinished)
     }
     
     static var previews: some View {

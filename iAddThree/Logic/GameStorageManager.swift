@@ -23,9 +23,9 @@ final class GameStorageManager {
 extension GameStorageManager: GameStore {
     var highScore: Int { 0 }
     
-    func loadResults(pointsToAdd: Int, timerFinished: Bool) async throws -> LevelResultInfo {
+    func loadResults(pointsToAdd: Int, timerFinished: Bool) async throws -> LevelResult {
         let newScore = makeNewScore(pointsToAdd)
-        let results = LevelResultInfo(currentScore: score, pointsToAdd: pointsToAdd, currentLevel: level, timerFinished: timerFinished)
+        let results = LevelResult(currentScore: score, pointsToAdd: pointsToAdd, currentLevel: level, timerFinished: timerFinished)
     
         guard pointsToAdd > 0 else { return results }
         
