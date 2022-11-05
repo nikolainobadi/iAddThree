@@ -41,7 +41,10 @@ private extension ScoreManager {
     }
     
     func saveNewScore(_ newScore: Int) async throws {
-        try await highScoreStore.saveHighScore(newScore)
+        if newScore > highScore {
+            try await highScoreStore.saveHighScore(newScore)
+        }
+        
         updateScoreAndLevel(score: newScore, level: level + 1)
     }
     

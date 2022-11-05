@@ -54,6 +54,7 @@
 		E82AF16328E12C9600F93822 /* TimerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82AF16228E12C9600F93822 /* TimerManagerTests.swift */; };
 		E82AF16528E1372700F93822 /* OldTimerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82AF16428E1372700F93822 /* OldTimerViewModifier.swift */; };
 		E86E06F42915D6E000F68D15 /* LevelScoreRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86E06F32915D6E000F68D15 /* LevelScoreRepositoryTests.swift */; };
+		E86E06F72915DC9F00F68D15 /* ScoreManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86E06F62915DC9F00F68D15 /* ScoreManagerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		E82AF16228E12C9600F93822 /* TimerManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManagerTests.swift; sourceTree = "<group>"; };
 		E82AF16428E1372700F93822 /* OldTimerViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldTimerViewModifier.swift; sourceTree = "<group>"; };
 		E86E06F32915D6E000F68D15 /* LevelScoreRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelScoreRepositoryTests.swift; sourceTree = "<group>"; };
+		E86E06F62915DC9F00F68D15 /* ScoreManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManagerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 		D462D11E28DE4534001FF20A /* iAddThreeTests */ = {
 			isa = PBXGroup;
 			children = (
+				E86E06F52915DC9300F68D15 /* LogicTests */,
 				E86E06F22915D6B900F68D15 /* StorageTests */,
 				D462D12628DE4547001FF20A /* NumberItemFactoryTests.swift */,
 				D4BD27AD28DFCFBE00C698A9 /* GameViewDataModelTests.swift */,
@@ -311,6 +314,14 @@
 				E86E06F32915D6E000F68D15 /* LevelScoreRepositoryTests.swift */,
 			);
 			path = StorageTests;
+			sourceTree = "<group>";
+		};
+		E86E06F52915DC9300F68D15 /* LogicTests */ = {
+			isa = PBXGroup;
+			children = (
+				E86E06F62915DC9F00F68D15 /* ScoreManagerTests.swift */,
+			);
+			path = LogicTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -462,6 +473,7 @@
 				E86E06F42915D6E000F68D15 /* LevelScoreRepositoryTests.swift in Sources */,
 				D40DD92C290B13DA000D81A9 /* GameStoreManagerTests.swift in Sources */,
 				D4BD27B028DFD0BB00C698A9 /* XCTestCase+Extensions.swift in Sources */,
+				E86E06F72915DC9F00F68D15 /* ScoreManagerTests.swift in Sources */,
 				D4BD27B428DFD63800C698A9 /* LevelResultsDataModelTests.swift in Sources */,
 				D462D12728DE4547001FF20A /* NumberItemFactoryTests.swift in Sources */,
 				D4BD27AE28DFCFBE00C698A9 /* GameViewDataModelTests.swift in Sources */,
