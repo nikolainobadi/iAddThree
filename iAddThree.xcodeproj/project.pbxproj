@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D403E242290F51C600C84761 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403E241290F51C600C84761 /* GameView.swift */; };
-		D40DD92C290B13DA000D81A9 /* GameStoreManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40DD92B290B13DA000D81A9 /* GameStoreManagerTests.swift */; };
 		D42DBEFA28E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DBEF928E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift */; };
 		D42DBEFE28E25E65006E29D0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DBEFD28E25E65006E29D0 /* SettingsView.swift */; };
 		D44361DE28DE439A00909629 /* iAddThreeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44361DD28DE439A00909629 /* iAddThreeApp.swift */; };
@@ -69,7 +68,6 @@
 
 /* Begin PBXFileReference section */
 		D403E241290F51C600C84761 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
-		D40DD92B290B13DA000D81A9 /* GameStoreManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStoreManagerTests.swift; sourceTree = "<group>"; };
 		D42DBEF928E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHighScoreStore.swift; sourceTree = "<group>"; };
 		D42DBEFD28E25E65006E29D0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D42F498E28E2993A007DCD8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -223,14 +221,11 @@
 		D462D11E28DE4534001FF20A /* iAddThreeTests */ = {
 			isa = PBXGroup;
 			children = (
+				D4AD9F0629198DDA00270165 /* Helpers */,
+				D4AD9F0529198DD100270165 /* NumberItemFeatureTests */,
 				D4AD9F012919819100270165 /* DataModelTests */,
 				E86E06F52915DC9300F68D15 /* LogicTests */,
 				E86E06F22915D6B900F68D15 /* StorageTests */,
-				D462D12628DE4547001FF20A /* NumberItemFactoryTests.swift */,
-				D4BD27AF28DFD0BB00C698A9 /* XCTestCase+Extensions.swift */,
-				D4BD27B128DFD32600C698A9 /* InstructionsDataModelTests.swift */,
-				E82AF16228E12C9600F93822 /* TimerManagerTests.swift */,
-				D40DD92B290B13DA000D81A9 /* GameStoreManagerTests.swift */,
 			);
 			path = iAddThreeTests;
 			sourceTree = "<group>";
@@ -269,6 +264,7 @@
 		D4AD9F012919819100270165 /* DataModelTests */ = {
 			isa = PBXGroup;
 			children = (
+				D4BD27B128DFD32600C698A9 /* InstructionsDataModelTests.swift */,
 				D4BD27B328DFD63800C698A9 /* LevelResultsDataModelTests.swift */,
 				D4AD9F02291981A200270165 /* PlayViewDataModelTests.swift */,
 			);
@@ -285,6 +281,22 @@
 				D47FEBE12911DC3F0061E7EF /* PlayViewDataModel.swift */,
 			);
 			path = DataModels;
+			sourceTree = "<group>";
+		};
+		D4AD9F0529198DD100270165 /* NumberItemFeatureTests */ = {
+			isa = PBXGroup;
+			children = (
+				D462D12628DE4547001FF20A /* NumberItemFactoryTests.swift */,
+			);
+			path = NumberItemFeatureTests;
+			sourceTree = "<group>";
+		};
+		D4AD9F0629198DDA00270165 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D4BD27AF28DFD0BB00C698A9 /* XCTestCase+Extensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		D4BD279D28DF9BC200C698A9 /* Logic */ = {
@@ -335,6 +347,7 @@
 		E86E06F52915DC9300F68D15 /* LogicTests */ = {
 			isa = PBXGroup;
 			children = (
+				E82AF16228E12C9600F93822 /* TimerManagerTests.swift */,
 				E86E06F62915DC9F00F68D15 /* ScoreManagerTests.swift */,
 			);
 			path = LogicTests;
@@ -488,7 +501,6 @@
 				D4AD9F03291981A200270165 /* PlayViewDataModelTests.swift in Sources */,
 				D4BD27B228DFD32600C698A9 /* InstructionsDataModelTests.swift in Sources */,
 				E86E06F42915D6E000F68D15 /* LevelScoreRepositoryTests.swift in Sources */,
-				D40DD92C290B13DA000D81A9 /* GameStoreManagerTests.swift in Sources */,
 				D4BD27B028DFD0BB00C698A9 /* XCTestCase+Extensions.swift in Sources */,
 				E86E06F72915DC9F00F68D15 /* ScoreManagerTests.swift in Sources */,
 				D4BD27B428DFD63800C698A9 /* LevelResultsDataModelTests.swift in Sources */,
