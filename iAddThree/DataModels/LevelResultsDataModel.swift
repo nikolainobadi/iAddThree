@@ -1,5 +1,5 @@
 //
-//  ResultsDataModel.swift
+//  LevelResultsDataModel.swift
 //  iAddThree
 //
 //  Created by Nikolai Nobadi on 11/3/22.
@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-final class ResultsDataModel: ObservableObject {
+final class LevelResultsDataModel: ObservableObject {
     @Published var currentScore: Int
     @Published var showingViews = false
     @Published var showingButton = false
@@ -40,7 +40,7 @@ final class ResultsDataModel: ObservableObject {
 
 
 // MARK: - ViewModel
-extension ResultsDataModel {
+extension LevelResultsDataModel {
     var completedLevel: Bool { results.pointsToAdd > 0 }
     var currentLevel: Int { results.currentLevel }
     var nextLevel: Int { results.currentLevel + 1 }
@@ -51,7 +51,7 @@ extension ResultsDataModel {
 
 
 // MARK: - Private
-private extension ResultsDataModel {
+private extension LevelResultsDataModel {
     func finishAnimation() {
         if completedLevel {
             newScore = currentScore + results.pointsToAdd

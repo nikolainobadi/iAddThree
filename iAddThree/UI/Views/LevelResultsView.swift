@@ -1,5 +1,5 @@
 //
-//  ResultsView.swift
+//  LevelResultsView.swift
 //  iAddThree
 //
 //  Created by Nikolai Nobadi on 11/3/22.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ResultsView: View {
-    @StateObject var dataModel: ResultsDataModel
+struct LevelResultsView: View {
+    @StateObject var dataModel: LevelResultsDataModel
     
     private var showingViews: Bool { dataModel.showingViews }
     private var completedLevel: Bool { dataModel.completedLevel }
@@ -101,7 +101,7 @@ struct ResultsView_Previews: PreviewProvider {
     }
     
     static var previews: some View {
-        ResultsView(dataModel: ResultsDataModel(results: makeResults(pointsToAdd: 4), playAgain: { }))
+        LevelResultsView(dataModel: LevelResultsDataModel(results: makeResults(pointsToAdd: 4), playAgain: { }))
             .onChalkboard()
     }
 }
