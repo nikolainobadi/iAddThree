@@ -11,10 +11,10 @@ final class GameModeMenuDataModel: ObservableObject {
     @Published var error: Error?
     @Published var highScore: Int
     
-    private let updater: ScoreUpdater
+    private let resetHandler: ScoreResetHandler
     
-    init(updater: ScoreUpdater, highScore: Int) {
-        self.updater = updater
+    init(resetHandler: ScoreResetHandler, highScore: Int) {
+        self.resetHandler = resetHandler
         self.highScore = highScore
     }
 }
@@ -25,7 +25,7 @@ extension GameModeMenuDataModel {
     func resetHighScore() {
         Task {
             do {
-                try await updater.updateScore(newScore: 0)
+                try await resetHandler.resetHighScore()
                 
                 await hideHighScoreView()
             } catch {
@@ -43,8 +43,9 @@ private extension GameModeMenuDataModel {
 }
 
 
+
 // MARK: - Dependencies
-protocol ScoreUpdater {
-    func updateScore(newScore: Int) async throws
+protocol ScoreResetHandler {
+    func resetHighScore() async throws
 }
 

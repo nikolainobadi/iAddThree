@@ -60,9 +60,9 @@ fileprivate struct GameModeMenuFooter: View {
 
 // MARK: - Preview
 struct GameModeMenuView_Previews: PreviewProvider {
-    static var updater: ScoreUpdater { ScoreManager(highScoreStore: SinglePlayHighScoreStore(), levelScoreStore: LevelScoreRepository()) }
+    static var resetHandler: ScoreResetHandler { ScoreManager(highScoreStore: SinglePlayHighScoreStore(), levelScoreStore: LevelScoreRepository()) }
 
-    static func makeDataModel(_ highScore: Int = 0) -> GameModeMenuDataModel { GameModeMenuDataModel(updater: updater, highScore: highScore) }
+    static func makeDataModel(_ highScore: Int = 0) -> GameModeMenuDataModel { GameModeMenuDataModel(resetHandler: resetHandler, highScore: highScore) }
     
     static var previews: some View {
         GameModeMenuView(dataModel: makeDataModel(), startGame: { }, showInstructions: { })

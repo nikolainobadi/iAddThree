@@ -117,10 +117,6 @@ private extension PlayViewDataModel {
 
 
 // MARK: - Dependencies
-protocol GameStore {
-    var score: Int { get }
-    var level: Int { get }
-    var highScore: Int { get }
-    
-    func loadResults(pointsToAdd: Int, timerFinished: Bool) async throws -> LevelResults
+protocol ScoreUpdater {
+    func updateScore(newScore: Int) async throws
 }
