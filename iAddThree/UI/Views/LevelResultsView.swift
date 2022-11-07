@@ -2,59 +2,80 @@
 //  LevelResultsView.swift
 //  iAddThree
 //
-//  Created by Nikolai Nobadi on 9/23/22.
+//  Created by Nikolai Nobadi on 11/3/22.
 //
 
 import SwiftUI
 
 struct LevelResultsView: View {
-    @State private var showingButton = false
     @StateObject var dataModel: LevelResultsDataModel
     
+    private var showingViews: Bool { dataModel.showingViews }
     private var completedLevel: Bool { dataModel.completedLevel }
-    private var showingGameOver: Bool { dataModel.showingGameOver }
     
-    private func playNextLevel() { dataModel.playNextLevel() }
-    private func animateResults() async {
-        try? await Task.sleep(nanoseconds: 1_000_000_000)
-        withAnimation(.linear(duration: completedLevel ? 1.5 : 2)) { dataModel.updateScore() }
-        try? await Task.sleep(nanoseconds: completedLevel ? 0_500_000_000 : 2_000_000_000)
-        withAnimation(.easeInOut(duration: 1)) { showingButton = true }
+    private func animateView() async {
+        try? await Task.sleep(nanoseconds: 0_500_000_000)
+        withAnimation(.linear(duration: completedLevel ? 1 : 2)) { dataModel.showResults() }
+    }
+    
+    private func animateScore(_ newScore: Int?) {
+        if let newScore = newScore {
+            withAnimation(.linear(duration: 2)) { dataModel.currentScore = newScore }
+        }
     }
     
     var body: some View {
         VStack {
-            if completedLevel {
-                Text(dataModel.titleText)
-                    .padding(.top, getHeightPercent(5))
-                    .setChalkFont(.subheadline)
-                Circle()
-                    .fill(Color.black)
-                    .opacity(0.6)
-                    .frame(width: getWidthPercent(40), height: getWidthPercent(40))
-                    .modifier(NumberAnimationModifier(number: dataModel.currentScore))
-                    .padding(getWidthPercent(20))
-            } else {
-                if showingGameOver {
-                    Text("Game Over")
-                        .frame(maxWidth: getWidthPercent(95))
-                        .setChalkFont(.title3, textColor: .red)
-                        .background(.black.opacity(9))
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .padding(.top, getHeightPercent(5))
-                        .padding(.bottom, getHeightPercent(30))
-                        .transition(.move(edge: .bottom))
+            Text("Level \(dataModel.currentLevel) Results")
+                .setChalkFont(.title3)
+                .padding()
+            
+            VStack {
+                if completedLevel {
+                    ScoreCircle(currentScore: dataModel.currentScore)
+                } else {
+                    GameOverView()
                 }
-            }
+            }.opacity(showingViews ? 1 : 0)
             
-            ChalkButton(dataModel.playAgainText, action: playNextLevel)
-                .opacity(showingButton ? 1 : 0)
+            ChalkButton(dataModel.playAgainText, action: dataModel.playAgain)
+                .opacity(dataModel.showingButton ? 1 : 0)
                 .transition(.slide)
-            
-            Spacer()
         }
+        .task { await animateView() }
+        .onChange(of: dataModel.newScore, perform: { animateScore($0) })
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .task { await animateResults() }
+        
+    }
+}
+
+// MARK: - ScoreCircle
+fileprivate struct ScoreCircle: View {
+    let currentScore: Int
+    
+    var body: some View {
+        Circle()
+            .fill(Color.black)
+            .opacity(0.6)
+            .frame(width: getWidthPercent(40), height: getWidthPercent(40))
+            .padding(getWidthPercent(20))
+            .modifier(
+                NumberAnimationModifier(number: currentScore)
+                    .animation(.linear(duration: 1.5))
+            )
+    }
+}
+
+fileprivate struct GameOverView: View {
+    var body: some View {
+        Text("Game Over")
+            .frame(maxWidth: getWidthPercent(95))
+            .setChalkFont(.title3, textColor: .red)
+            .background(.black.opacity(9))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .padding(.top, getHeightPercent(5))
+            .padding(.bottom, getHeightPercent(30))
+            .transition(.move(edge: .bottom))
     }
 }
 
@@ -74,13 +95,13 @@ struct NumberAnimationModifier: AnimatableModifier {
 
 
 // MARK: - Preview
-struct LevelResultsView_Previews: PreviewProvider {
-    static func makeDataModel(newScore: Int? = nil) -> LevelResultsDataModel {
-        LevelResultsDataModel(currentScore: 0, newScore: 4, previousLevel: 1, playNextLevel: { })
+struct ResultsView_Previews: PreviewProvider {
+    static func makeResults(pointsToAdd: Int = 4, timerFinished: Bool = false) -> LevelResults {
+        LevelResults(currentScore: 0, pointsToAdd: pointsToAdd, currentLevel: 1, timerFinished: timerFinished)
     }
+    
     static var previews: some View {
-        LevelResultsView(dataModel: makeDataModel()).onChalkboard()
+        LevelResultsView(dataModel: LevelResultsDataModel(results: makeResults(pointsToAdd: 4), playAgain: { }))
+            .onChalkboard()
     }
 }
-
-
