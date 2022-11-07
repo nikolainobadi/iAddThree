@@ -163,6 +163,7 @@
 				D42F498E28E2993A007DCD8C /* Info.plist */,
 				D462D10E28DE4457001FF20A /* Main */,
 				D462D10F28DE445C001FF20A /* UI */,
+				D4AD9F04291988FC00270165 /* DataModels */,
 				D462D12D28DE50D7001FF20A /* Models */,
 				D4BD279D28DF9BC200C698A9 /* Logic */,
 				D4BD27AA28DFCE0200C698A9 /* Storage */,
@@ -240,11 +241,6 @@
 			children = (
 				D462D13028DE5122001FF20A /* NumberItemPresenter.swift */,
 				D4BD279928DF923A00C698A9 /* InstructionDetails.swift */,
-				D4BD279B28DF9B8F00C698A9 /* InstructionsViewDataModel.swift */,
-				D4B8EDB428E26459001698E4 /* SettingsDataModel.swift */,
-				D47FEBDD2911D8840061E7EF /* GameModeMenuDataModel.swift */,
-				D47FEBE12911DC3F0061E7EF /* PlayViewDataModel.swift */,
-				D46B0CA329145E980018DD92 /* ResultsDataModel.swift */,
 				D46B0CAB2914780F0018DD92 /* LevelResults.swift */,
 				D46B0CB72914963E0018DD92 /* LevelInfo.swift */,
 			);
@@ -277,6 +273,18 @@
 				D4AD9F02291981A200270165 /* PlayViewDataModelTests.swift */,
 			);
 			path = DataModelTests;
+			sourceTree = "<group>";
+		};
+		D4AD9F04291988FC00270165 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				D4BD279B28DF9B8F00C698A9 /* InstructionsViewDataModel.swift */,
+				D47FEBDD2911D8840061E7EF /* GameModeMenuDataModel.swift */,
+				D4B8EDB428E26459001698E4 /* SettingsDataModel.swift */,
+				D46B0CA329145E980018DD92 /* ResultsDataModel.swift */,
+				D47FEBE12911DC3F0061E7EF /* PlayViewDataModel.swift */,
+			);
+			path = DataModels;
 			sourceTree = "<group>";
 		};
 		D4BD279D28DF9BC200C698A9 /* Logic */ = {
