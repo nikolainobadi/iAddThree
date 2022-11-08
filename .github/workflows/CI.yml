@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test :
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build and test
+      run: xcodebuild clean build test -project iAddThree.xcodeproj -scheme iAddThree -destination "platform=iOS Simulator,name=iPhone 13,OS=15.5" CODE_SIGNING_REQUIRED=NO
