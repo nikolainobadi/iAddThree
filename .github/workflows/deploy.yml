@@ -30,6 +30,9 @@ jobs:
         run: |
           exec .github/scripts/import-profile.sh
 
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_13.4.1.app
+        
       - name: Build app
         run: |
           fastlane run build_app
