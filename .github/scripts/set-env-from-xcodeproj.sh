@@ -3,4 +3,5 @@
 set -euo pipefail
 
 SCHEME="$(xcodebuild -list -json | jq -r '.project.schemes[0]')"
-echo "PRODUCT_NAME=$(xcodebuild -scheme "$SCHEME" -showBuildSettings | grep " PRODUCT_NAME " | sed "s/[ ]*PRODUCT_NAME = //")" >> $GITHUB_ENV
+PRODUCT_NAME="$(xcodebuild -scheme "$SCHEME" -showBuildSettings | grep " PRODUCT_NAME " | sed "s/[ ]*PRODUCT_NAME = //")"
+echo "PRODUCT_NAME=$PRODUCT_NAME" >> $GITHUB_ENV
