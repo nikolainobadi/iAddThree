@@ -4,8 +4,6 @@ on:
   push:
     branches: [ main ]
     tags: [ v* ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   deploy:
@@ -35,12 +33,9 @@ jobs:
       - name: Select Xcode
         run: sudo xcode-select -switch /Applications/Xcode_13.4.1.app
 
-      # - name: Build app
-      #   run: |
-      #     fastlane run build_app
-
-      - name: Build and Test app
-        run: xcodebuild clean build test -project iAddThree.xcodeproj -scheme iAddThree -destination "platform=iOS Simulator,name=iPhone 13,OS=15.5" ONLY_ACTIVE_ARCH=NO CODE_SIGNING_REQUIRED=NO -quiet
+      - name: Build app
+        run: |
+          fastlane run build_app
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v2
