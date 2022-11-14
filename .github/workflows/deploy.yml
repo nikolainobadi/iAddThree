@@ -4,6 +4,8 @@ on:
   push:
     branches: [ main ]
     tags: [ v* ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   deploy:
@@ -32,10 +34,14 @@ jobs:
 
       - name: Select Xcode
         run: sudo xcode-select -switch /Applications/Xcode_13.4.1.app
-        
+
       - name: Build app
         run: |
           fastlane run build_app
+
+      - name: Test app
+        run: |
+          fastlane run test_app
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v2
