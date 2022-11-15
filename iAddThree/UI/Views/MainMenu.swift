@@ -23,7 +23,9 @@ struct MainMenu: View {
             Spacer()
             ModeButtonsView(modes: availableModes, playMode: playMode(_:))
             Spacer()
-        }.fullScreenCover(item: $selectedMode) {
+        }
+        .onChange(of: modeLevel, perform: { dataModel.updateModeLevel($0) })
+        .fullScreenCover(item: $selectedMode) {
             GameView(mode: $0, dismiss: returnToMainMenu).onChalkboard()
         }
     }
@@ -43,8 +45,6 @@ fileprivate struct ModeButtonsView: View {
         }
     }
 }
-
-
 
 
 // MARK: - Preview

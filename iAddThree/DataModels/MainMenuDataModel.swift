@@ -9,4 +9,11 @@ import Foundation
 
 final class MainMenuDataModel: ObservableObject {
     @Published var availableModes: [GameMode] = [.add]
+    
+    func updateModeLevel(_ level: Int) {
+        switch level {
+        case 1: availableModes = [.add]
+        default: break
+        }
+    }
 }

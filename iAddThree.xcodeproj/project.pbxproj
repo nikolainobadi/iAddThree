@@ -280,12 +280,12 @@
 		D4AD9F04291988FC00270165 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
+				D4EC41C129244E2900B87288 /* MainMenuDataModel.swift */,
 				D4BD279B28DF9B8F00C698A9 /* InstructionsViewDataModel.swift */,
 				D47FEBDD2911D8840061E7EF /* GameModeMenuDataModel.swift */,
 				D4B8EDB428E26459001698E4 /* SettingsDataModel.swift */,
 				D46B0CA329145E980018DD92 /* LevelResultsDataModel.swift */,
 				D47FEBE12911DC3F0061E7EF /* PlayViewDataModel.swift */,
-				D4EC41C129244E2900B87288 /* MainMenuDataModel.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
