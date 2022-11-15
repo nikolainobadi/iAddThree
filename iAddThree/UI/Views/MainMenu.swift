@@ -43,9 +43,7 @@ fileprivate struct ModeButtonsView: View {
     }
 }
 
-final class MainMenuDataModel: ObservableObject {
-    @Published var availableModes: [GameMode] = [.add]
-}
+
 
 
 // MARK: - Preview
