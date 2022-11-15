@@ -51,6 +51,8 @@
 		D4BD27B228DFD32600C698A9 /* InstructionsDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27B128DFD32600C698A9 /* InstructionsDataModelTests.swift */; };
 		D4BD27B428DFD63800C698A9 /* LevelResultsDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27B328DFD63800C698A9 /* LevelResultsDataModelTests.swift */; };
 		D4D1A4432910B1C500096130 /* GameContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1A4422910B1C500096130 /* GameContentView.swift */; };
+		D4EC41C229244E2900B87288 /* MainMenuDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC41C129244E2900B87288 /* MainMenuDataModel.swift */; };
+		D4EC41C62924533300B87288 /* AppStorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC41C52924533300B87288 /* AppStorageKey.swift */; };
 		E82AF16128E12B7500F93822 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82AF16028E12B7500F93822 /* TimerManager.swift */; };
 		E82AF16328E12C9600F93822 /* TimerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82AF16228E12C9600F93822 /* TimerManagerTests.swift */; };
 		E86E06F42915D6E000F68D15 /* LevelScoreRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86E06F32915D6E000F68D15 /* LevelScoreRepositoryTests.swift */; };
@@ -115,6 +117,8 @@
 		D4BD27B128DFD32600C698A9 /* InstructionsDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsDataModelTests.swift; sourceTree = "<group>"; };
 		D4BD27B328DFD63800C698A9 /* LevelResultsDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelResultsDataModelTests.swift; sourceTree = "<group>"; };
 		D4D1A4422910B1C500096130 /* GameContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameContentView.swift; sourceTree = "<group>"; };
+		D4EC41C129244E2900B87288 /* MainMenuDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuDataModel.swift; sourceTree = "<group>"; };
+		D4EC41C52924533300B87288 /* AppStorageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKey.swift; sourceTree = "<group>"; };
 		E82AF16028E12B7500F93822 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		E82AF16228E12C9600F93822 /* TimerManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManagerTests.swift; sourceTree = "<group>"; };
 		E86E06F32915D6E000F68D15 /* LevelScoreRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelScoreRepositoryTests.swift; sourceTree = "<group>"; };
@@ -276,6 +280,7 @@
 		D4AD9F04291988FC00270165 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
+				D4EC41C129244E2900B87288 /* MainMenuDataModel.swift */,
 				D4BD279B28DF9B8F00C698A9 /* InstructionsViewDataModel.swift */,
 				D47FEBDD2911D8840061E7EF /* GameModeMenuDataModel.swift */,
 				D4B8EDB428E26459001698E4 /* SettingsDataModel.swift */,
@@ -318,6 +323,7 @@
 				D4BD27AB28DFCE2600C698A9 /* SinglePlayHighScoreStore.swift */,
 				D42DBEF928E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift */,
 				D46B0CB32914920B0018DD92 /* LevelScoreRepository.swift */,
+				D4EC41C52924533300B87288 /* AppStorageKey.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -325,6 +331,7 @@
 		D4D1A4402910B1A200096130 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D4374A112923287800FAB889 /* MainMenu.swift */,
 				D403E241290F51C600C84761 /* GameView.swift */,
 				D4D1A4422910B1C500096130 /* GameContentView.swift */,
 				D47FEBDB2911D82E0061E7EF /* GameModeMenuView.swift */,
@@ -334,7 +341,6 @@
 				D462D14628DE5A49001FF20A /* NumberPadView.swift */,
 				D462D13F28DE5761001FF20A /* NumberListView.swift */,
 				D42DBEFD28E25E65006E29D0 /* SettingsView.swift */,
-				D4374A112923287800FAB889 /* MainMenu.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -460,6 +466,7 @@
 				D462D11828DE44D1001FF20A /* GameMode.swift in Sources */,
 				D47FEBE42911DC810061E7EF /* GameContentComposer.swift in Sources */,
 				D4BD279828DF91C900C698A9 /* InstructionsView.swift in Sources */,
+				D4EC41C62924533300B87288 /* AppStorageKey.swift in Sources */,
 				D4BD279A28DF923A00C698A9 /* InstructionDetails.swift in Sources */,
 				D4BD27A128DF9D6300C698A9 /* ChalkButton.swift in Sources */,
 				D46B0CB42914920B0018DD92 /* LevelScoreRepository.swift in Sources */,
@@ -478,6 +485,7 @@
 				D4D1A4432910B1C500096130 /* GameContentView.swift in Sources */,
 				D46B0CBA291499710018DD92 /* ScoreManager.swift in Sources */,
 				D46B0CAC2914780F0018DD92 /* LevelResults.swift in Sources */,
+				D4EC41C229244E2900B87288 /* MainMenuDataModel.swift in Sources */,
 				D46B0CA429145E980018DD92 /* LevelResultsDataModel.swift in Sources */,
 				D47FEBDE2911D8840061E7EF /* GameModeMenuDataModel.swift in Sources */,
 				D462D13E28DE572E001FF20A /* ChalkFontViewModifier.swift in Sources */,
