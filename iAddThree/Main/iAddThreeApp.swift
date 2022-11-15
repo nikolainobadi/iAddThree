@@ -22,7 +22,7 @@ struct AppLauncher {
 struct iAddThreeApp: App {
     var body: some Scene {
         WindowGroup {
-            GameView(mode: .add)
+            MainMenu()
                 .onChalkboard()
         }
     }

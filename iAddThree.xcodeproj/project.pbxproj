@@ -325,6 +325,7 @@
 		D4D1A4402910B1A200096130 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D4374A112923287800FAB889 /* MainMenu.swift */,
 				D403E241290F51C600C84761 /* GameView.swift */,
 				D4D1A4422910B1C500096130 /* GameContentView.swift */,
 				D47FEBDB2911D82E0061E7EF /* GameModeMenuView.swift */,
@@ -334,7 +335,6 @@
 				D462D14628DE5A49001FF20A /* NumberPadView.swift */,
 				D462D13F28DE5761001FF20A /* NumberListView.swift */,
 				D42DBEFD28E25E65006E29D0 /* SettingsView.swift */,
-				D4374A112923287800FAB889 /* MainMenu.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
