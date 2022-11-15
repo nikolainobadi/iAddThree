@@ -10,6 +10,7 @@ import SwiftUI
 struct MainMenu: View {
     @State private var selectedMode: GameMode?
     @StateObject private var dataModel = MainMenuDataModel()
+    @AppStorage(AppStorageKey.modeLevel) var modeLevel: Int = 1
     
     private var availableModes: [GameMode] { dataModel.availableModes }
     private func playMode(_ mode: GameMode) { selectedMode = mode }
