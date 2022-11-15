@@ -13,6 +13,7 @@ struct MainMenu: View {
     
     private var availableModes: [GameMode] { dataModel.availableModes }
     private func playMode(_ mode: GameMode) { selectedMode = mode }
+    private func returnToMainMenu() { selectedMode = nil }
     
     var body: some View {
         VStack {
@@ -21,7 +22,9 @@ struct MainMenu: View {
             Spacer()
             ModeButtonsView(modes: availableModes, playMode: playMode(_:))
             Spacer()
-        }.fullScreenCover(item: $selectedMode) { GameView(mode: $0).onChalkboard() }
+        }.fullScreenCover(item: $selectedMode) {
+            GameView(mode: $0, dismiss: returnToMainMenu).onChalkboard()
+        }
     }
 }
 

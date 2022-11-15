@@ -19,13 +19,14 @@ struct GameView: View {
     @State private var state: GameState = .menu
     
     let mode: GameMode
+    let dismiss: () -> Void
     
     var body: some View {
         VStack(spacing: 0) {
             GameTitle(title: "Add Three", showingMenu: state == .menu)
             GameContentView(state: $state, mode: mode)
         }
-        .overlay(GameViewNavBar(state: $state), alignment: .top)
+        .overlay(GameViewNavBar(state: $state, dismiss: dismiss), alignment: .top)
         .animation(.easeInOut(duration: 0.75), value: state)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
     }
@@ -37,13 +38,28 @@ fileprivate struct GameViewNavBar: View {
     @Binding var state: GameState
     @State private var hideBackButton = false
     
+    let dismiss: () -> Void
+    
+    private func buttonAction() {
+        switch state {
+        case .menu: dismiss()
+        case .playing: state = .menu
+        default: break
+        }
+    }
+    
     var body: some View {
         HStack {
-            Button(action: { hideBackButton = false; state = .menu }, label: { Label("Back", systemImage: "chevron.left") })
-                .opacity(hideBackButton ? 0 : state == .playing ? 1 : 0)
+            Button(action: buttonAction) {
+                if state == .menu {
+                    Text("MainMenu")
+                } else {
+                    Label("Back", systemImage: "chevron.left")
+                        .opacity(state == .playing ? 1 : 0)
+                }
+            }
+            
             Spacer()
-            Button(action: { }, label: { Image(systemName: "gearshape") })
-                .opacity(state == .menu ? 1 : 0)
         }
         .padding()
         .setChalkFont(.subheadline)
@@ -62,7 +78,7 @@ fileprivate struct GameTitle: View {
             .padding()
             .lineLimit(1)
             .scaleEffect(showingMenu ? 1 : 0.75)
-            .offset(y: getHeightPercent(showingMenu ? 5 : 2))
+            .offset(y: getHeightPercent(showingMenu ? 8 : 2))
     }
 }
 
@@ -70,7 +86,7 @@ fileprivate struct GameTitle: View {
 // MARK: - Preview
 struct GameNavView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(mode: .add)
+        GameView(mode: .add, dismiss: { })
             .onChalkboard()
     }
 }
