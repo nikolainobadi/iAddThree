@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct GameModeMenuView: View {
-    @State private var showingInstructions = false
     @StateObject var dataModel: GameModeMenuDataModel
     
     let startGame: () -> Void
@@ -21,7 +20,7 @@ struct GameModeMenuView: View {
     var body: some View {
         VStack {
             ChalkButton("Start Game", style: .title2, action: startGame)
-            ChalkButton("How to Play", style: .subheadline, action: { showingInstructions = true })
+            ChalkButton("How to Play", style: .subheadline, action: showInstructions)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         .canShowError(error: $dataModel.error, doneAction: { dataModel.error = nil })

@@ -18,15 +18,21 @@ struct MainMenu: View {
     
     var body: some View {
         VStack {
-            AppTitleView(modeLevel: modeLevel)
-            Spacer()
-            ModeButtonsView(modes: availableModes, playMode: playMode(_:))
-            Spacer()
+            if let selectedMode = selectedMode {
+                GameView(mode: selectedMode, dismiss: returnToMainMenu)
+                    .onChalkboard()
+                    .transition(.move(edge: .bottom))
+            } else {
+                VStack {
+                    AppTitleView(modeLevel: modeLevel)
+                    Spacer()
+                    ModeButtonsView(modes: availableModes, playMode: playMode(_:))
+                    Spacer()
+                }
+            }
         }
+        .animation(.default, value: selectedMode)
         .onChange(of: modeLevel, perform: { dataModel.updateModeLevel($0) })
-        .fullScreenCover(item: $selectedMode) {
-            GameView(mode: $0, dismiss: returnToMainMenu).onChalkboard()
-        }
     }
 }
 
