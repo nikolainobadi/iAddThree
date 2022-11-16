@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum GameMode {
+enum GameMode: CaseIterable {
     case add, subtract
 }
 

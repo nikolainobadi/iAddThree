@@ -49,10 +49,8 @@ private extension ModeLevelHighScoreStoreDecorator {
     }
     
     func updateModeLevel(_ newHighScore: Int) {
-        guard canUpdateModeLevel else { return }
-        
-        if newHighScore >= upgradeNumber {
-            
+        if newHighScore >= upgradeNumber && canUpdateModeLevel {
+            defaults.set(modeLevel + 1, forKey: AppStorageKey.modeLevel)
         }
     }
 }

@@ -9,10 +9,8 @@ import SwiftUI
 
 struct MainMenu: View {
     @State private var selectedMode: GameMode?
-    @StateObject private var dataModel = MainMenuDataModel()
     @AppStorage(AppStorageKey.modeLevel) var modeLevel: Int = 1
-    
-    private var availableModes: [GameMode] { dataModel.availableModes }
+
     private func playMode(_ mode: GameMode) { selectedMode = mode }
     private func returnToMainMenu() { selectedMode = nil }
     
@@ -26,13 +24,12 @@ struct MainMenu: View {
                 VStack {
                     AppTitleView(modeLevel: modeLevel)
                     Spacer()
-                    ModeButtonsView(modes: availableModes, playMode: playMode(_:))
+                    ModeButtonsView(modeLevel: modeLevel, playMode: playMode(_:))
                     Spacer()
                 }
             }
         }
         .animation(.default, value: selectedMode)
-        .onChange(of: modeLevel, perform: { dataModel.updateModeLevel($0) })
     }
 }
 
@@ -80,14 +77,38 @@ fileprivate struct AppTitleView: View {
 
 // MARK: - ModeButtonsList
 fileprivate struct ModeButtonsView: View {
-    let modes: [GameMode]
+    let modeLevel: Int
     let playMode: (GameMode) -> Void
     
     var body: some View {
         VStack {
-            ForEach(modes, id: \.self) { mode in
-                ChalkButton(mode.title, action: { playMode(mode) })
-            }
+            ModeButton("Add", action: { playMode(.add) })
+            ModeButton("Subtract", action: { playMode(.subtract) })
+                .opacity(modeLevel >= 2 ? 1 : 0)
+        }
+    }
+}
+
+
+// MARK: - Button
+fileprivate struct ModeButton: View {
+    let text: String
+    let style: Font.TextStyle
+    let action: () -> Void
+    
+    init(_ text: String, style: Font.TextStyle = .title3, action: @escaping () -> Void) {
+        self.text = text
+        self.style = style
+        self.action = action
+    }
+    
+    var body: some View {
+        Button(action: action) {
+            Text(text)
+                .lineLimit(1)
+                .setChalkFont(style, textColor: Color(uiColor: .systemBackground), autoSize: true)
+                .frame(maxWidth: getWidthPercent(isPad ? 50 : 70))
+                .withRoundedBorder()
         }
     }
 }
