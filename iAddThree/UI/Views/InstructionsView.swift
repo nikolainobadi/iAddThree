@@ -84,7 +84,7 @@ fileprivate struct ToolBarButton: View {
 // MARK: - Previews
 struct InstructionsView_Previews: PreviewProvider {
     static func makeDataModel(_ mode: GameMode = .add) -> InstructionsDataModel {
-        InstructionsDataModel(mode: mode)
+        InstructionsDataModel(mode: mode, instructionsList: [])
     }
     
     static var previews: some View {

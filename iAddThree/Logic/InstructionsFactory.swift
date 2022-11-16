@@ -7,6 +7,15 @@
 
 import Foundation
 
+enum InstructionsFactory {
+    static func makeInstructions(for mode: GameMode) -> [InstructionDetails] {
+        switch mode {
+        case .add: return [InstructionDetails]()
+        case .subtract: return [InstructionDetails]()
+        }
+    }
+}
+
 class BaseInstructionsFactory {
     static let sampleNumberList: [NumberItemPresenter] = NumberItemPresenter.defaultList
     
@@ -25,6 +34,47 @@ class BaseInstructionsFactory {
 
 // MARK: - AddInstructions
 final class AddInstructionsFactory: BaseInstructionsFactory {
+    private override init() { super.init() }
+
+    static func makeInstructions() -> [InstructionDetails] { [firstPage, secondPage, thirdPage] }
+    
+    private static var firstPage: InstructionDetails {
+        InstructionDetails(id: 0, sampleNumberList: sampleNumberList, details:
+        """
+        Four random numbers will appear at the beginning of each round.
+
+        Add '3' to each number, starting on the left and making your way to the right.
+        """
+        )
+    }
+
+    private static var secondPage: InstructionDetails {
+        InstructionDetails(id: 1, sampleNumberList: addUserAnswers(makeUserAnsers("8", "2"), to: sampleNumberList), details:
+        """
+        When you answer correctly, the correct number will appear in green.
+
+        However, if you are incorrect, the number will appear in red.
+        """
+        )
+    }
+
+    private static var thirdPage: InstructionDetails {
+        InstructionDetails(id: 2, sampleNumberList: addUserAnswers(makeUserAnsers("8", "2", "1", "0"), to: sampleNumberList), details:
+        """
+        If the correct answer should be greater than '9', simply drop the tenths place ('drop the one')
+
+        Examples:
+        7+3 = '10', answer is '0'
+        8+3 = '11', answer is '1'
+        9+3 = '12', answer is '2'
+        """
+        )
+    }
+}
+
+
+// MARK: - Subtract Instructions
+final class SubtractInstructionsFactory: BaseInstructionsFactory {
     private override init() { super.init() }
 
     static func makeInstructions() -> [InstructionDetails] { [firstPage, secondPage, thirdPage] }

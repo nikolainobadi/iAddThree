@@ -11,9 +11,11 @@ final class InstructionsDataModel: ObservableObject {
     @Published var currentPage = 0
 
     private let mode: GameMode
+    private let instructionsList: [InstructionDetails]
     
-    init(mode: GameMode) {
+    init(mode: GameMode, instructionsList: [InstructionDetails]) {
         self.mode = mode
+        self.instructionsList = instructionsList
     }
 }
 
@@ -39,22 +41,8 @@ extension InstructionsDataModel {
 
 // MARK: - Private Helpers
 private extension InstructionsDataModel {
-    var instructionsList: [InstructionDetails] { mode.instructionsList }
     var currentDetails: InstructionDetails { instructionsList[currentPage] }
     var hasMultiplePages: Bool { instructionsList.count > 1 }
     var isFirstPage: Bool { currentPage == 0 }
     var isLastPage: Bool { hasMultiplePages && currentPage == instructionsList.count - 1 }
-}
-
-
-// MARK: - Dependencies
-extension GameMode {
-    var instructionsList: [InstructionDetails] {
-        switch self {
-        case .add: return AddInstructionsFactory.makeInstructions()
-        case .subtract:
-            // MARK: - TODO
-            return []
-        }
-    }
 }

@@ -18,7 +18,7 @@ enum GameContentComposer {
     }
     
     static func makeInstructionsView(_ mode: GameMode) -> some View {
-        InstructionsView(dataModel: InstructionsDataModel(mode: mode))
+        InstructionsView(dataModel: InstructionsDataModel(mode: mode, instructionsList: InstructionsFactory.makeInstructions(for: mode)))
     }
     
     static func makePlayView(mode: GameMode, scoreStore: LevelScoreStore, showResults: @escaping (LevelResults) -> Void) -> some View {
