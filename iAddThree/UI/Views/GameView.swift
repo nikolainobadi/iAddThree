@@ -21,9 +21,16 @@ struct GameView: View {
     let mode: GameMode
     let dismiss: () -> Void
     
+    private var title: String {
+        switch mode {
+        case .add : return "Add Three"
+        case .subtract: return "Subtract Three"
+        }
+    }
+    
     var body: some View {
         VStack(spacing: 0) {
-            GameTitle(title: "Add Three", showingMenu: state == .menu)
+            GameTitle(title: title, showingMenu: state == .menu)
             GameContentView(state: $state, mode: mode)
         }
         .overlay(GameViewNavBar(state: $state, dismiss: dismiss), alignment: .top)
