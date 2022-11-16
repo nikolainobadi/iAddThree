@@ -28,7 +28,7 @@ private extension InstructionsFactory {
     
     static func makeSecondPage(_ mode: GameMode) -> InstructionDetails {
         let answers = makeSampleAnswers(mode)
-        let sampleList = addUserAnswers([answers[0], answers[1]], to: sampleNumberList)
+        let sampleList = addUserAnswers([answers[0], answers[1], nil, nil], to: sampleNumberList)
         
         return InstructionDetails(id: 1, sampleNumberList: sampleList, details:
                """
@@ -40,7 +40,9 @@ private extension InstructionsFactory {
     }
     
     static func makeThirdPage(_ mode: GameMode) -> InstructionDetails {
-        InstructionDetails(id: 2, sampleNumberList: [], details: makeThirdPageDetails(mode))
+        let sampleList = addUserAnswers(makeSampleAnswers(mode), to: sampleNumberList)
+        
+        return InstructionDetails(id: 2, sampleNumberList: sampleList, details: makeThirdPageDetails(mode))
     }
 }
 
@@ -73,7 +75,7 @@ private extension InstructionsFactory {
             
             \(numberLine)
             
-            "Starting at \(startingNumber), simply move 3 spaces to the \(direction), which makes the correct answer \(correctAnswer).
+            Starting at \(startingNumber), simply move 3 spaces to the \(direction), which makes the correct answer \(correctAnswer).
 
             """
     }
@@ -115,7 +117,7 @@ private extension InstructionsFactory {
 //    private override init() { super.init() }
 //
 //    static func makeInstructions() -> [InstructionDetails] { [firstPage, secondPage, thirdPage] }
-//    
+//
 //    private static var firstPage: InstructionDetails {
 //        InstructionDetails(id: 0, sampleNumberList: sampleNumberList, details:
 //        """
