@@ -52,6 +52,9 @@ extension GameMode {
     var instructionsList: [InstructionDetails] {
         switch self {
         case .add: return AddInstructionsFactory.makeInstructions()
+        case .subtract:
+            // MARK: - TODO
+            return []
         }
     }
 }

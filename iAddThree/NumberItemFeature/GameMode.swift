@@ -8,13 +8,14 @@
 import Foundation
 
 enum GameMode {
-    case add
+    case add, subtract
 }
 
 extension GameMode: Identifiable {
     var id: String {
         switch self {
         case .add: return "ADD_MODE"
+        case .subtract: return "SUBTRACT_MODE"
         }
     }
 }
