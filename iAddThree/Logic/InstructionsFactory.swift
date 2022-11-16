@@ -14,21 +14,15 @@ enum InstructionsFactory {
 }
 
 
-// MARK: - Private Variables
-private extension InstructionsFactory {
-    static var sampleNumberList: [NumberItemPresenter] { NumberItemPresenter.defaultList }
-}
-
-
 // MARK: - Private Factory Methods
 private extension InstructionsFactory {
     static func makeFirstPage(_ mode: GameMode) -> InstructionDetails {
-        InstructionDetails(id: 0, sampleNumberList: sampleNumberList, details: makeFirstPageDetails(mode))
+        InstructionDetails(id: 0, sampleNumberList: makeSampleList(mode), details: makeFirstPageDetails(mode))
     }
     
     static func makeSecondPage(_ mode: GameMode) -> InstructionDetails {
         let answers = makeSampleAnswers(mode)
-        let sampleList = addUserAnswers([answers[0], answers[1], nil, nil], to: sampleNumberList)
+        let sampleList = addUserAnswers([answers[0], answers[1], nil, nil], to: makeSampleList(mode))
         
         return InstructionDetails(id: 1, sampleNumberList: sampleList, details:
                """
@@ -40,7 +34,7 @@ private extension InstructionsFactory {
     }
     
     static func makeThirdPage(_ mode: GameMode) -> InstructionDetails {
-        let sampleList = addUserAnswers(makeSampleAnswers(mode), to: sampleNumberList)
+        let sampleList = addUserAnswers(makeSampleAnswers(mode), to: makeSampleList(mode))
         
         return InstructionDetails(id: 2, sampleNumberList: sampleList, details: makeThirdPageDetails(mode))
     }
@@ -50,6 +44,12 @@ private extension InstructionsFactory {
 // MARK: - Private Helper Methods
 private extension InstructionsFactory {
     static func getOperator(_ mode: GameMode) -> String { mode == .add ? "+" : "-" }
+    static func makeSampleList(_ mode: GameMode) -> [NumberItemPresenter] {
+        switch mode {
+        case .add: return NumberItem.defaultAddList.map({ NumberItemPresenter($0) })
+        case .subtract: return NumberItem.defaultSubtractList.map({ NumberItemPresenter($0) })
+        }
+    }
     
     static func makeFirstPageDetails(_ mode: GameMode) -> String {
         """
@@ -83,7 +83,7 @@ private extension InstructionsFactory {
     static func makeSampleAnswers(_ mode: GameMode) -> [String] {
         switch mode {
         case .add: return ["8", "2", "1", "0"]
-        case .subtract: return ["", "", "", ""]
+        case .subtract: return ["2", "7", "8", "4"]
         }
     }
     
@@ -196,7 +196,7 @@ private extension InstructionsFactory {
 
 // MARK: - Dependencies
 extension NumberItem {
-    static var defaultList: [NumberItem] {
+    static var defaultAddList: [NumberItem] {
         [
             NumberItem(number: 5, answer: 8),
             NumberItem(number: 0, answer: 3),
@@ -204,10 +204,19 @@ extension NumberItem {
             NumberItem(number: 7, answer: 0)
         ]
     }
+    
+    static var defaultSubtractList: [NumberItem] {
+        [
+            NumberItem(number: 5, answer: 2),
+            NumberItem(number: 9, answer: 6),
+            NumberItem(number: 1, answer: 8),
+            NumberItem(number: 7, answer: 4)
+        ]
+    }
 }
 
 extension NumberItemPresenter {
     static var defaultList: [NumberItemPresenter] {
-        NumberItem.defaultList.map({ NumberItemPresenter($0) })
+        NumberItem.defaultAddList.map({ NumberItemPresenter($0) })
     }
 }
