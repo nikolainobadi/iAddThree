@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4007C7529247A5500F71CFD /* ModeLevelHighScoreStoreDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4007C7429247A5500F71CFD /* ModeLevelHighScoreStoreDecorator.swift */; };
 		D403E242290F51C600C84761 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403E241290F51C600C84761 /* GameView.swift */; };
 		D42DBEFA28E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DBEF928E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift */; };
 		D42DBEFE28E25E65006E29D0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DBEFD28E25E65006E29D0 /* SettingsView.swift */; };
@@ -70,6 +71,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D4007C7429247A5500F71CFD /* ModeLevelHighScoreStoreDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeLevelHighScoreStoreDecorator.swift; sourceTree = "<group>"; };
 		D403E241290F51C600C84761 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		D42DBEF928E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHighScoreStore.swift; sourceTree = "<group>"; };
 		D42DBEFD28E25E65006E29D0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				E82AF16028E12B7500F93822 /* TimerManager.swift */,
 				D4B8EDB628E26480001698E4 /* AppRateManager.swift */,
 				D46B0CB9291499710018DD92 /* ScoreManager.swift */,
+				D4007C7429247A5500F71CFD /* ModeLevelHighScoreStoreDecorator.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				E82AF16128E12B7500F93822 /* TimerManager.swift in Sources */,
 				D47FEBE02911DB5A0061E7EF /* PlayView.swift in Sources */,
 				D403E242290F51C600C84761 /* GameView.swift in Sources */,
+				D4007C7529247A5500F71CFD /* ModeLevelHighScoreStoreDecorator.swift in Sources */,
 				D462D13B28DE56B2001FF20A /* View+Extension.swift in Sources */,
 				D462D14B28DE5C7F001FF20A /* RoundedBorderViewModifier.swift in Sources */,
 				D46B0CB82914963E0018DD92 /* LevelInfo.swift in Sources */,
