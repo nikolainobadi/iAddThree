@@ -28,8 +28,7 @@ struct MainMenu: View {
                     Spacer()
                 }
             }
-        }
-        .animation(.default, value: selectedMode)
+        }.animation(.default, value: selectedMode)
     }
 }
 
