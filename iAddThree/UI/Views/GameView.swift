@@ -49,20 +49,18 @@ fileprivate struct GameViewNavBar: View {
     
     private func buttonAction() {
         switch state {
-        case .menu: dismiss()
+        case .menu, .results: dismiss()
         case .playing: state = .menu
-        default: break
         }
     }
     
     var body: some View {
         HStack {
             Button(action: buttonAction) {
-                if state == .menu {
-                    Text("MainMenu")
-                } else {
+                if state == .playing {
                     Label("Back", systemImage: "chevron.left")
-                        .opacity(state == .playing ? 1 : 0)
+                } else {
+                    Text("MainMenu")
                 }
             }
             
