@@ -23,6 +23,7 @@ struct MainMenu: View {
             } else {
                 VStack {
                     AppTitleView(modeLevel: modeLevel)
+                        .padding()
                     Spacer()
                     ModeButtonsView(modeLevel: modeLevel, playMode: playMode(_:))
                     Spacer()
