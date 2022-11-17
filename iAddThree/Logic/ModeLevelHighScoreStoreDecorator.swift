@@ -33,11 +33,11 @@ extension ModeLevelHighScoreStoreDecorator: HighScoreStore {
 
 // MARK: - Private Methods
 private extension ModeLevelHighScoreStoreDecorator {
-    var modeLevel: Int { defaults.value(forKey: AppStorageKey.modeLevel) as? Int ?? 1 }
+    var modeLevel: Int { defaults.integer(forKey: AppStorageKey.modeLevel) }
     var canUpdateModeLevel: Bool {
         switch mode {
-        case .add: return modeLevel == 1
-        case .subtract: return false
+        case .add: return modeLevel == 0
+        case .subtract: return modeLevel == 1
         }
     }
     

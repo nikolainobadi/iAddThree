@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainMenu: View {
     @State private var selectedMode: GameMode?
-    @AppStorage(AppStorageKey.modeLevel) var modeLevel: Int = 1
+    @AppStorage(AppStorageKey.modeLevel) var modeLevel: Int = 0
 
     private func playMode(_ mode: GameMode) { selectedMode = mode }
     private func returnToMainMenu() { selectedMode = nil }
@@ -83,7 +83,7 @@ fileprivate struct ModeButtonsView: View {
         VStack {
             ModeButton("Add", action: { playMode(.add) })
             ModeButton("Subtract", action: { playMode(.subtract) })
-                .opacity(modeLevel >= 2 ? 1 : 0)
+                .opacity(modeLevel >= 1 ? 1 : 0)
         }
     }
 }
