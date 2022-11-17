@@ -33,9 +33,12 @@ struct GameView: View {
             GameTitle(title: title, showingMenu: state == .menu)
             GameContentView(state: $state, mode: mode)
         }
-        .overlay(GameViewNavBar(state: $state, dismiss: dismiss), alignment: .top)
         .animation(.easeInOut(duration: 0.75), value: state)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .overlay(
+            GameViewNavBar(state: $state, dismiss: dismiss).offset(x: 0, y: -getHeightPercent(2))
+            , alignment: .top
+        )
     }
 }
 
