@@ -64,7 +64,7 @@ fileprivate struct AppTitleView: View {
         }.task {
             try? await Task.sleep(nanoseconds: 1_000_000_000)
             
-            if modeLevel > 1 {
+            if modeLevel > 0 {
                 withAnimation(.easeInOut(duration: 1)) {
                     showingSubtractBanner = true
                 }
