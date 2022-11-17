@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D4007C7529247A5500F71CFD /* ModeLevelHighScoreStoreDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4007C7429247A5500F71CFD /* ModeLevelHighScoreStoreDecorator.swift */; };
+		D40283252926F86900E6B326 /* ModeLevelHighScoreStoreDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40283242926F86900E6B326 /* ModeLevelHighScoreStoreDecoratorTests.swift */; };
 		D403E242290F51C600C84761 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403E241290F51C600C84761 /* GameView.swift */; };
 		D42DBEFA28E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DBEF928E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift */; };
 		D42DBEFE28E25E65006E29D0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DBEFD28E25E65006E29D0 /* SettingsView.swift */; };
@@ -71,6 +72,7 @@
 
 /* Begin PBXFileReference section */
 		D4007C7429247A5500F71CFD /* ModeLevelHighScoreStoreDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeLevelHighScoreStoreDecorator.swift; sourceTree = "<group>"; };
+		D40283242926F86900E6B326 /* ModeLevelHighScoreStoreDecoratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeLevelHighScoreStoreDecoratorTests.swift; sourceTree = "<group>"; };
 		D403E241290F51C600C84761 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		D42DBEF928E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHighScoreStore.swift; sourceTree = "<group>"; };
 		D42DBEFD28E25E65006E29D0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 			children = (
 				E82AF16228E12C9600F93822 /* TimerManagerTests.swift */,
 				E86E06F62915DC9F00F68D15 /* ScoreManagerTests.swift */,
+				D40283242926F86900E6B326 /* ModeLevelHighScoreStoreDecoratorTests.swift */,
 			);
 			path = LogicTests;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 			files = (
 				D4AD9F03291981A200270165 /* PlayViewDataModelTests.swift in Sources */,
 				D4BD27B228DFD32600C698A9 /* InstructionsDataModelTests.swift in Sources */,
+				D40283252926F86900E6B326 /* ModeLevelHighScoreStoreDecoratorTests.swift in Sources */,
 				E86E06F42915D6E000F68D15 /* LevelScoreRepositoryTests.swift in Sources */,
 				D4AD9F0829198EB000270165 /* GameModeMenuDataModelTests.swift in Sources */,
 				D4BD27B028DFD0BB00C698A9 /* XCTestCase+Extensions.swift in Sources */,
