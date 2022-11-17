@@ -31,16 +31,16 @@ final class InstructionsDataModelTests: XCTestCase {
     
     func test_turnPage_cannotExceedPageLimit() {
         let mode = GameMode.add
-        let pageCount = mode.instructionsList.count
+        let pageCount = makeInstructions(mode).count
         let sut = makeSUT(mode: mode)
-        
+
         var count = 0
-        
+
         while count < pageCount + 1 {
             sut.turnPage(backwards: false)
             count += 1
         }
-        
+
         XCTAssertEqual(sut.currentPage, pageCount - 1)
     }
     
@@ -104,7 +104,7 @@ final class InstructionsDataModelTests: XCTestCase {
     
     func test_instructions() {
         let mode = GameMode.add
-        let instructionsList = mode.instructionsList
+        let instructionsList = makeInstructions(mode)
         let sut = makeSUT(mode: mode)
         
         XCTAssertEqual(sut.instructions, instructionsList[0].details)
@@ -131,7 +131,10 @@ final class InstructionsDataModelTests: XCTestCase {
 // MARK: - SUT
 extension InstructionsDataModelTests {
     func makeSUT(mode: GameMode = .add, file: StaticString = #filePath, line: UInt = #line) -> InstructionsDataModel {
-        
-        InstructionsDataModel(mode: mode)
+        InstructionsDataModel(mode: mode, instructionsList: makeInstructions(mode))
+    }
+    
+    func makeInstructions(_ mode: GameMode) -> [InstructionDetails] {
+        InstructionsFactory.makeInstructions(for: mode)
     }
 }

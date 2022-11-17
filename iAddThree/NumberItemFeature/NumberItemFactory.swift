@@ -35,6 +35,10 @@ private extension NumberItemFactory {
             let answer = number + 3
             
             return answer > 9 ? answer - 10 : answer
+        case .subtract:
+            let answer = number - 3
+            
+            return answer < 0 ? answer + 10 : answer
         }
     }
 }

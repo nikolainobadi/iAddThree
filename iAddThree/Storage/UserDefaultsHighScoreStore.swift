@@ -31,6 +31,7 @@ extension GameMode {
     var title: String {
         switch self {
         case .add: return "Add Three"
+        case .subtract: return "Subtract Three"
         }
     }
 }

@@ -9,24 +9,67 @@ import SwiftUI
 
 struct MainMenu: View {
     @State private var selectedMode: GameMode?
-    @StateObject private var dataModel = MainMenuDataModel()
-    @AppStorage(AppStorageKey.modeLevel) var modeLevel: Int = 1
-    
-    private var availableModes: [GameMode] { dataModel.availableModes }
+    @AppStorage(AppStorageKey.modeLevel) var modeLevel: Int = 0
+
     private func playMode(_ mode: GameMode) { selectedMode = mode }
     private func returnToMainMenu() { selectedMode = nil }
     
     var body: some View {
         VStack {
-            Text("iAddThree")
-                .setChalkFont(.largeTitle)
-            Spacer()
-            ModeButtonsView(modes: availableModes, playMode: playMode(_:))
-            Spacer()
-        }
-        .onChange(of: modeLevel, perform: { dataModel.updateModeLevel($0) })
-        .fullScreenCover(item: $selectedMode) {
-            GameView(mode: $0, dismiss: returnToMainMenu).onChalkboard()
+            if let selectedMode = selectedMode {
+                GameView(mode: selectedMode, dismiss: returnToMainMenu)
+                    .onChalkboard()
+                    .transition(.move(edge: .bottom))
+            } else {
+                VStack {
+                    AppTitleView(modeLevel: modeLevel)
+                        .padding()
+                    Spacer()
+                    ModeButtonsView(modeLevel: modeLevel, playMode: playMode(_:))
+                    Spacer()
+                }
+            }
+        }.animation(.default, value: selectedMode)
+    }
+}
+
+
+// MARK: - Title
+fileprivate struct AppTitleView: View {
+    @State private var showingSubtractBanner = false
+    
+    let modeLevel: Int
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            HStack {
+                Text("i")
+                Text("Add").foregroundColor(.green)
+                Text("Three")
+            }
+            .lineLimit(1)
+            .setChalkFont(.largeTitle, autoSize: true)
+            .padding(.horizontal)
+            
+            if showingSubtractBanner {
+                HStack {
+                    Text("or Subtract")
+                        .setChalkFont(.body, textColor: .red)
+                        .padding(.horizontal)
+                    Spacer()
+                }
+                    .background(Color.black.opacity(0.4))
+                    .offset(x: 0, y: -getHeightPercent(1))
+                    .transition(.move(edge: .leading))
+            }
+        }.task {
+            try? await Task.sleep(nanoseconds: 1_000_000_000)
+            
+            if modeLevel > 0 {
+                withAnimation(.easeInOut(duration: 1)) {
+                    showingSubtractBanner = true
+                }
+            }
         }
     }
 }
@@ -34,14 +77,38 @@ struct MainMenu: View {
 
 // MARK: - ModeButtonsList
 fileprivate struct ModeButtonsView: View {
-    let modes: [GameMode]
+    let modeLevel: Int
     let playMode: (GameMode) -> Void
     
     var body: some View {
         VStack {
-            ForEach(modes, id: \.self) { mode in
-                ChalkButton(mode.title, action: { playMode(mode) })
-            }
+            ModeButton("Add", action: { playMode(.add) })
+            ModeButton("Subtract", action: { playMode(.subtract) })
+                .opacity(modeLevel >= 1 ? 1 : 0)
+        }
+    }
+}
+
+
+// MARK: - Button
+fileprivate struct ModeButton: View {
+    let text: String
+    let style: Font.TextStyle
+    let action: () -> Void
+    
+    init(_ text: String, style: Font.TextStyle = .title3, action: @escaping () -> Void) {
+        self.text = text
+        self.style = style
+        self.action = action
+    }
+    
+    var body: some View {
+        Button(action: action) {
+            Text(text)
+                .lineLimit(1)
+                .setChalkFont(style, textColor: Color(uiColor: .systemBackground), autoSize: true)
+                .frame(maxWidth: getWidthPercent(isPad ? 50 : 70))
+                .withRoundedBorder()
         }
     }
 }

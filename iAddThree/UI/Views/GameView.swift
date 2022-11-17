@@ -21,14 +21,24 @@ struct GameView: View {
     let mode: GameMode
     let dismiss: () -> Void
     
+    private var title: String {
+        switch mode {
+        case .add : return "Add Three"
+        case .subtract: return "Subtract Three"
+        }
+    }
+    
     var body: some View {
         VStack(spacing: 0) {
-            GameTitle(title: "Add Three", showingMenu: state == .menu)
+            GameTitle(title: title, showingMenu: state == .menu)
             GameContentView(state: $state, mode: mode)
         }
-        .overlay(GameViewNavBar(state: $state, dismiss: dismiss), alignment: .top)
         .animation(.easeInOut(duration: 0.75), value: state)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .overlay(
+            GameViewNavBar(state: $state, dismiss: dismiss).offset(x: 0, y: -getHeightPercent(2))
+            , alignment: .top
+        )
     }
 }
 
@@ -42,20 +52,18 @@ fileprivate struct GameViewNavBar: View {
     
     private func buttonAction() {
         switch state {
-        case .menu: dismiss()
+        case .menu, .results: dismiss()
         case .playing: state = .menu
-        default: break
         }
     }
     
     var body: some View {
         HStack {
             Button(action: buttonAction) {
-                if state == .menu {
-                    Text("MainMenu")
-                } else {
+                if state == .playing {
                     Label("Back", systemImage: "chevron.left")
-                        .opacity(state == .playing ? 1 : 0)
+                } else {
+                    Text("MainMenu")
                 }
             }
             
