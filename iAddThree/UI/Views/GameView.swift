@@ -35,10 +35,7 @@ struct GameView: View {
         }
         .animation(.easeInOut(duration: 0.75), value: state)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .overlay(
-            GameViewNavBar(state: $state, dismiss: dismiss)
-            , alignment: .top
-        )
+        .overlay(GameViewNavBar(state: $state, dismiss: dismiss), alignment: .top)
     }
 }
 
