@@ -12,7 +12,9 @@ struct ContentView: View {
         VStack {
             MainMenu()
             Spacer()
-            AdMobComposer.makeAdBannerView().background(.black).padding(1)
+            AdMobComposer.makeAdBannerView()
+                .background(.black)
+                .padding(.bottom, 10)
         }.onChalkboard()
     }
 }
@@ -20,5 +22,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewDevice("iPod touch (7th generation)")
     }
 }

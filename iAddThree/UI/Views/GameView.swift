@@ -36,7 +36,7 @@ struct GameView: View {
         .animation(.easeInOut(duration: 0.75), value: state)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .overlay(
-            GameViewNavBar(state: $state, dismiss: dismiss).offset(x: 0, y: -getHeightPercent(2))
+            GameViewNavBar(state: $state, dismiss: dismiss)
             , alignment: .top
         )
     }
@@ -85,8 +85,8 @@ fileprivate struct GameTitle: View {
         Text(title).setChalkFont(.largeTitle, autoSize: true)
             .padding()
             .lineLimit(1)
-            .scaleEffect(showingMenu ? 1 : 0.75)
-            .offset(y: getHeightPercent(showingMenu ? 8 : 2))
+            .scaleEffect(showingMenu ? 1 : 0.6)
+            .offset(y: getHeightPercent(showingMenu ? 8 : 3))
     }
 }
 

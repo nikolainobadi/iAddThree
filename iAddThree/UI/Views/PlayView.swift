@@ -16,31 +16,28 @@ struct PlayView: View {
     
     var body: some View {
         VStack {
-            Text("Level: \(dataModel.level)")
-                .setChalkFont(.body)
-                .padding()
-            
-            NumberListView(list: dataModel.numberList)
-                .padding(.vertical)
-            
             Spacer()
-            
+            NumberListView(list: dataModel.numberList)
+            Spacer()
             VStack {
                 if let results = results {
                     FinishedBanner(message: FinishedBannerMessageFactory.makeMessage(results))
                         .transition(.move(edge: .leading))
-                        
-                    Spacer()
+                    
+                        Spacer()
                 } else {
-                    NumberPadView(selection: dataModel.submitNumber(_:))
-                        .frame(maxWidth: getWidthPercent(90), maxHeight: .infinity)
+                    VStack(spacing: 0) {
+                        TimerView(isActive: $dataModel.timerActive, timeRemaining: dataModel.startTime)
+                        NumberPadView(selection: dataModel.submitNumber(_:))
+                            .frame(maxWidth: getWidthPercent(90), maxHeight: getHeightPercent(50))
+                    }
                 }
-            }.animation(.linear, value: results)
-        }
-        .onAppear { dataModel.startLevel() }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .overlay(TimerView(isActive: $dataModel.timerActive, timeRemaining: dataModel.startTime), alignment: .topTrailing)
-        .overlay(PlayViewFooter(score: score, highScore: highScore).padding(), alignment: .bottomLeading)
+            }
+            .animation(.linear, value: results)
+            .overlay(PlayViewFooter(score: score, highScore: highScore, level: dataModel.level), alignment: .bottomLeading)
+            
+            
+        }.onAppear { dataModel.startLevel() }
     }
 }
 
@@ -91,12 +88,18 @@ fileprivate struct TimerView: View {
 fileprivate struct PlayViewFooter: View {
     let score: Int
     let highScore: Int
+    let level: Int
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Score: \(score)")
-            Text("High Score: \(highScore)")
+        HStack {
+            VStack(alignment: .leading) {
+                Text("Score: \(score)")
+                Text("High Score: \(highScore)")
+            }
+            Spacer()
+            Text("Level: \(level)")
         }.setChalkFont(.body)
+        
     }
 }
 
