@@ -24,4 +24,4 @@ xcuserdata/
 
 
 ## iAddThree Test plist
-iAddThreeTests/*.plist
+iAddThreeTests/**/*.plist
