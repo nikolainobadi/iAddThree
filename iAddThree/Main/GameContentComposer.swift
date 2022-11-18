@@ -10,7 +10,9 @@ import Foundation
 
 enum GameContentComposer {
     static func makeGameContentView(state: Binding<GameState>, mode: GameMode) -> some View {
-        GameContentView(state: state, mode: mode)
+        let dataModel = GameContentViewDataModel()
+        
+        return GameContentView(state: state, dataModel: dataModel, mode: mode)
     }
     
     static func makeMenuView(mode: GameMode, scoreStore: LevelScoreStore, startGame: @escaping () -> Void, showInstructions: @escaping () -> Void) -> some View {

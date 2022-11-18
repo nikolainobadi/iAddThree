@@ -10,7 +10,7 @@ import SwiftUI
 struct GameContentView: View {
     @Binding var state: GameState
     @State private var showingInstructions = false
-    @StateObject private var dataModel = GameContentViewDataModel()
+    @StateObject var dataModel: GameContentViewDataModel
     
     let mode: GameMode
     
@@ -37,8 +37,9 @@ struct GameContentView: View {
 
 // MARK: - Preview
 struct GameContentView_Previews: PreviewProvider {
+    static var dataModel: GameContentViewDataModel { GameContentViewDataModel( )}
     static var previews: some View {
-        GameContentView(state: .constant(.menu), mode: .add)
+        GameContentView(state: .constant(.menu), dataModel: dataModel, mode: .add)
             .onChalkboard()
     }
 }
