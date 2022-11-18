@@ -11,8 +11,10 @@ import AppTrackingTransparency
 
 enum ATTAdapter {
     static func initializeAdService() {
-        ATTrackingManager.requestTrackingAuthorization { status in
-            GADMobileAds.sharedInstance().start()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            ATTrackingManager.requestTrackingAuthorization { status in
+                GADMobileAds.sharedInstance().start()
+            }
         }
     }
 }
