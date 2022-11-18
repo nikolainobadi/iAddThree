@@ -14,8 +14,8 @@ enum AdMobComposer {
         AdBannerView(adId: getId(.banner))
     }
     
-    static func makeInterstitialAdView(completion: @escaping () -> Void) {
-        
+    static func makeInterstitialLoader(shouldShowAd: Bool, completion: @escaping () -> Void) -> InterstitialAdLoader {
+        InterstitialAdLoader(adId: getId(.interstitial), shouldShowAd: shouldShowAd, completion: completion)
     }
 }
 
@@ -34,15 +34,14 @@ private extension AdMobComposer {
 
 final class InterstitialAdLoader: NSObject {
     private let adId: String
-    private let defaults = UserDefaults.standard
+    private let shouldShowAd: Bool
     private let completion: () -> Void
     
     private var interstitialAd: GADInterstitialAd?
-    private var shouldShowAd: Bool { false }
-    private var currentCount: Int { 0 }
     
-    init(adId: String, completion: @escaping () -> Void) {
+    init(adId: String, shouldShowAd: Bool, completion: @escaping () -> Void) {
         self.adId = adId
+        self.shouldShowAd = shouldShowAd
         self.completion = completion
         
         super.init()
