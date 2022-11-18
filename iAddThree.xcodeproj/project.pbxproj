@@ -57,6 +57,7 @@
 		D4D1A4432910B1C500096130 /* GameContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1A4422910B1C500096130 /* GameContentView.swift */; };
 		D4E7BC3A29280F9900B399FA /* AdMobId.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7BC3929280F9900B399FA /* AdMobId.swift */; };
 		D4E7BC3E292812D000B399FA /* AdBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7BC3D292812D000B399FA /* AdBannerView.swift */; };
+		D4E7BC40292815B100B399FA /* AdMobComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7BC3F292815B100B399FA /* AdMobComposer.swift */; };
 		D4EC41C62924533300B87288 /* AppStorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC41C52924533300B87288 /* AppStorageKey.swift */; };
 		E82AF16128E12B7500F93822 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82AF16028E12B7500F93822 /* TimerManager.swift */; };
 		E82AF16328E12C9600F93822 /* TimerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82AF16228E12C9600F93822 /* TimerManagerTests.swift */; };
@@ -127,6 +128,7 @@
 		D4D1A4422910B1C500096130 /* GameContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameContentView.swift; sourceTree = "<group>"; };
 		D4E7BC3929280F9900B399FA /* AdMobId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobId.swift; sourceTree = "<group>"; };
 		D4E7BC3D292812D000B399FA /* AdBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdBannerView.swift; sourceTree = "<group>"; };
+		D4E7BC3F292815B100B399FA /* AdMobComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobComposer.swift; sourceTree = "<group>"; };
 		D4EC41C52924533300B87288 /* AppStorageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKey.swift; sourceTree = "<group>"; };
 		E82AF16028E12B7500F93822 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		E82AF16228E12C9600F93822 /* TimerManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManagerTests.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				D4E7BC3929280F9900B399FA /* AdMobId.swift */,
 				D487F80B2927339F00CFBFCF /* ATTAdapter.swift */,
 				D4E7BC3D292812D000B399FA /* AdBannerView.swift */,
+				D4E7BC3F292815B100B399FA /* AdMobComposer.swift */,
 			);
 			path = AdMob;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				D462D11628DE44BE001FF20A /* NumberItemFactory.swift in Sources */,
 				D44361DE28DE439A00909629 /* iAddThreeApp.swift in Sources */,
 				D462D14528DE5910001FF20A /* ChalkboardViewModifier.swift in Sources */,
+				D4E7BC40292815B100B399FA /* AdMobComposer.swift in Sources */,
 				D462D13528DE55A0001FF20A /* NumberItem+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
