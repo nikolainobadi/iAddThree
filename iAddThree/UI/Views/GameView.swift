@@ -31,7 +31,7 @@ struct GameView: View {
     var body: some View {
         VStack(spacing: 0) {
             GameTitle(title: title, showingMenu: state == .menu)
-            GameContentView(state: $state, mode: mode)
+            GameContentComposer.makeGameContentView(state: $state, mode: mode) 
         }
         .animation(.easeInOut(duration: 0.75), value: state)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)

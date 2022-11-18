@@ -9,6 +9,10 @@ import SwiftUI
 import Foundation
 
 enum GameContentComposer {
+    static func makeGameContentView(state: Binding<GameState>, mode: GameMode) -> some View {
+        GameContentView(state: state, mode: mode)
+    }
+    
     static func makeMenuView(mode: GameMode, scoreStore: LevelScoreStore, startGame: @escaping () -> Void, showInstructions: @escaping () -> Void) -> some View {
         let highScoreStore = UserDefaultsHighScoreStore(mode: mode)
         let resetHandler = ScoreManager(highScoreStore: highScoreStore, levelScoreStore: scoreStore)
