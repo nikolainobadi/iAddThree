@@ -7,6 +7,8 @@
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
 	</dict>
+    <key>NSUserTrackingUsageDescription</key>
+    <string>This will allow personalized ads to display in the app. If you would prefer non-personalized ads, choose 'Ask App Not to Track'.</string>
     <key>GADApplicationIdentifier</key>
     <string>ca-app-pub-1506379315609688~7868479485</string>
     <key>SKAdNetworkItems</key>
