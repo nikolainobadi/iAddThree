@@ -76,7 +76,7 @@
 		D403E241290F51C600C84761 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		D42DBEF928E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHighScoreStore.swift; sourceTree = "<group>"; };
 		D42DBEFD28E25E65006E29D0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		D42F498E28E2993A007DCD8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D42F498E28E2993A007DCD8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/nelix/iOSApps/iAddThree/iAddThree/Resources/Info.plist; sourceTree = "<absolute>"; };
 		D4374A112923287800FAB889 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		D44361DA28DE439A00909629 /* iAddThree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAddThree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44361DD28DE439A00909629 /* iAddThreeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAddThreeApp.swift; sourceTree = "<group>"; };
@@ -166,7 +166,6 @@
 		D44361DC28DE439A00909629 /* iAddThree */ = {
 			isa = PBXGroup;
 			children = (
-				D42F498E28E2993A007DCD8C /* Info.plist */,
 				D462D10E28DE4457001FF20A /* Main */,
 				D462D10F28DE445C001FF20A /* UI */,
 				D4AD9F04291988FC00270165 /* DataModels */,
@@ -211,6 +210,7 @@
 		D462D11028DE4460001FF20A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D42F498E28E2993A007DCD8C /* Info.plist */,
 				D44361E128DE439B00909629 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -661,7 +661,7 @@
 				DEVELOPMENT_TEAM = R8SJ24LQF3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = iAddThree/Info.plist;
+				INFOPLIST_FILE = iAddThree/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = iAddThree;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -694,7 +694,7 @@
 				DEVELOPMENT_TEAM = R8SJ24LQF3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = iAddThree/Info.plist;
+				INFOPLIST_FILE = iAddThree/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = iAddThree;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
