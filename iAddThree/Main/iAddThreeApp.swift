@@ -20,6 +20,10 @@ struct AppLauncher {
 
 
 struct iAddThreeApp: App {
+    init() {
+        ATTAdapter.initializeAdService()
+    }
+    
     var body: some Scene {
         WindowGroup {
             MainMenu()

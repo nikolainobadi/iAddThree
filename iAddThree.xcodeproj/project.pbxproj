@@ -40,6 +40,7 @@
 		D47FEBE22911DC3F0061E7EF /* PlayViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47FEBE12911DC3F0061E7EF /* PlayViewDataModel.swift */; };
 		D47FEBE42911DC810061E7EF /* GameContentComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47FEBE32911DC810061E7EF /* GameContentComposer.swift */; };
 		D487F80929272F5C00CFBFCF /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = D487F80829272F5C00CFBFCF /* GoogleMobileAds */; };
+		D487F80C2927339F00CFBFCF /* ATTAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D487F80B2927339F00CFBFCF /* ATTAdapter.swift */; };
 		D4AD9F03291981A200270165 /* PlayViewDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD9F02291981A200270165 /* PlayViewDataModelTests.swift */; };
 		D4AD9F0829198EB000270165 /* GameModeMenuDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD9F0729198EB000270165 /* GameModeMenuDataModelTests.swift */; };
 		D4B8EDB528E26459001698E4 /* SettingsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B8EDB428E26459001698E4 /* SettingsDataModel.swift */; };
@@ -107,6 +108,7 @@
 		D47FEBDF2911DB5A0061E7EF /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		D47FEBE12911DC3F0061E7EF /* PlayViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewDataModel.swift; sourceTree = "<group>"; };
 		D47FEBE32911DC810061E7EF /* GameContentComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameContentComposer.swift; sourceTree = "<group>"; };
+		D487F80B2927339F00CFBFCF /* ATTAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATTAdapter.swift; sourceTree = "<group>"; };
 		D4AD9F02291981A200270165 /* PlayViewDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewDataModelTests.swift; sourceTree = "<group>"; };
 		D4AD9F0729198EB000270165 /* GameModeMenuDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeMenuDataModelTests.swift; sourceTree = "<group>"; };
 		D4B8EDB428E26459001698E4 /* SettingsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDataModel.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				D4BD279D28DF9BC200C698A9 /* Logic */,
 				D4BD27AA28DFCE0200C698A9 /* Storage */,
 				D462D11428DE44A6001FF20A /* NumberItemFeature */,
+				D487F80A2927338200CFBFCF /* AdMob */,
 				D462D11028DE4460001FF20A /* Resources */,
 				D44361E328DE439B00909629 /* Preview Content */,
 			);
@@ -268,6 +271,14 @@
 				D462D14A28DE5C7F001FF20A /* RoundedBorderViewModifier.swift */,
 			);
 			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		D487F80A2927338200CFBFCF /* AdMob */ = {
+			isa = PBXGroup;
+			children = (
+				D487F80B2927339F00CFBFCF /* ATTAdapter.swift */,
+			);
+			path = AdMob;
 			sourceTree = "<group>";
 		};
 		D4AD9F012919819100270165 /* DataModelTests */ = {
@@ -487,6 +498,7 @@
 				D4007C7529247A5500F71CFD /* ModeLevelHighScoreStoreDecorator.swift in Sources */,
 				D462D13B28DE56B2001FF20A /* View+Extension.swift in Sources */,
 				D462D14B28DE5C7F001FF20A /* RoundedBorderViewModifier.swift in Sources */,
+				D487F80C2927339F00CFBFCF /* ATTAdapter.swift in Sources */,
 				D46B0CB82914963E0018DD92 /* LevelInfo.swift in Sources */,
 				D462D14728DE5A49001FF20A /* NumberPadView.swift in Sources */,
 				D42DBEFA28E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift in Sources */,
