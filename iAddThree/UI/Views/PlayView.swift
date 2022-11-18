@@ -122,7 +122,7 @@ fileprivate struct FinishedBanner: View {
 // MARK: - Preview
 struct PlayView_Previews: PreviewProvider {
     static var info: LevelInfo { LevelInfo(score: 0, level: 1, highScore: 0) }
-    static var updater: ScoreUpdater { ScoreManager(highScoreStore: SinglePlayHighScoreStore(), levelScoreStore: LevelScoreRepository()) }
+    static var updater: ScoreUpdater { ScoreManager(highScoreStore: SinglePlayHighScoreStore(), levelScoreStore: GameContentViewDataModel()) }
     static var dataModel: PlayViewDataModel { PlayViewDataModel(numberList: NumberItem.defaultAddList, info: info, updater: updater, showResults: { _ in }) }
     
     static var previews: some View {

@@ -105,7 +105,7 @@ extension ScoreManagerTests {
     }
     
     func makeScoreRepo(score: Int, level: Int) -> LevelScoreStore {
-        let repo = LevelScoreRepository()
+        let repo = GameContentViewDataModel()
         
         repo.score = score
         repo.level = level
