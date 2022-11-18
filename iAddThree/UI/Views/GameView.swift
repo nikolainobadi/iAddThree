@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-enum GameState: Equatable {
-    case menu
-    case playing
-    case results(LevelResults)
-}
-
-
-// MARK: - Main View
 struct GameView: View {
     @State private var state: GameState = .menu
     
@@ -23,7 +15,7 @@ struct GameView: View {
     
     private var title: String {
         switch mode {
-        case .add : return "Add Three"
+        case .add: return "Add Three"
         case .subtract: return "Subtract Three"
         }
     }

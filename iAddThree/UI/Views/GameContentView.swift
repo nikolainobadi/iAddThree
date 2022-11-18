@@ -14,10 +14,6 @@ struct GameContentView: View {
     
     let mode: GameMode
     
-    private func playAgain() {
-        state = .playing
-    }
-    
     var body: some View {
         VStack {
             switch state {
@@ -28,7 +24,7 @@ struct GameContentView: View {
                 GameContentComposer.makePlayView(mode: mode, scoreStore: dataModel, showResults: { state = .results($0) })
                     .transition(.scale)
             case .results(let results):
-                GameContentComposer.makeResultsView(results: results, playAgain: playAgain)
+                GameContentComposer.makeResultsView(results: results, playAgain: { state = .playing })
             }
         }.sheet(isPresented: $showingInstructions) { GameContentComposer.makeInstructionsView(mode) }
     }
