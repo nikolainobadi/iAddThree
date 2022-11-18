@@ -55,6 +55,7 @@
 		D4BD27B228DFD32600C698A9 /* InstructionsDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27B128DFD32600C698A9 /* InstructionsDataModelTests.swift */; };
 		D4BD27B428DFD63800C698A9 /* LevelResultsDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD27B328DFD63800C698A9 /* LevelResultsDataModelTests.swift */; };
 		D4D1A4432910B1C500096130 /* GameContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1A4422910B1C500096130 /* GameContentView.swift */; };
+		D4E7BC3A29280F9900B399FA /* AdMobId.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7BC3929280F9900B399FA /* AdMobId.swift */; };
 		D4EC41C62924533300B87288 /* AppStorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC41C52924533300B87288 /* AppStorageKey.swift */; };
 		E82AF16128E12B7500F93822 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82AF16028E12B7500F93822 /* TimerManager.swift */; };
 		E82AF16328E12C9600F93822 /* TimerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82AF16228E12C9600F93822 /* TimerManagerTests.swift */; };
@@ -123,6 +124,7 @@
 		D4BD27B128DFD32600C698A9 /* InstructionsDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsDataModelTests.swift; sourceTree = "<group>"; };
 		D4BD27B328DFD63800C698A9 /* LevelResultsDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelResultsDataModelTests.swift; sourceTree = "<group>"; };
 		D4D1A4422910B1C500096130 /* GameContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameContentView.swift; sourceTree = "<group>"; };
+		D4E7BC3929280F9900B399FA /* AdMobId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobId.swift; sourceTree = "<group>"; };
 		D4EC41C52924533300B87288 /* AppStorageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKey.swift; sourceTree = "<group>"; };
 		E82AF16028E12B7500F93822 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		E82AF16228E12C9600F93822 /* TimerManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManagerTests.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 		D487F80A2927338200CFBFCF /* AdMob */ = {
 			isa = PBXGroup;
 			children = (
+				D4E7BC3929280F9900B399FA /* AdMobId.swift */,
 				D487F80B2927339F00CFBFCF /* ATTAdapter.swift */,
 			);
 			path = AdMob;
@@ -520,6 +523,7 @@
 				D445CF6029145064006CC062 /* LevelResultsView.swift in Sources */,
 				D4BD279C28DF9B8F00C698A9 /* InstructionsViewDataModel.swift in Sources */,
 				D462D11328DE4490001FF20A /* NumberItem.swift in Sources */,
+				D4E7BC3A29280F9900B399FA /* AdMobId.swift in Sources */,
 				D4B8EDB528E26459001698E4 /* SettingsDataModel.swift in Sources */,
 				D462D11628DE44BE001FF20A /* NumberItemFactory.swift in Sources */,
 				D44361DE28DE439A00909629 /* iAddThreeApp.swift in Sources */,
