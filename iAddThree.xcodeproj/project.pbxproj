@@ -45,6 +45,7 @@
 		D49B320129288154009AE80A /* ProUpgradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B320029288154009AE80A /* ProUpgradeView.swift */; };
 		D49B320329288248009AE80A /* TextBackgroundViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B320229288248009AE80A /* TextBackgroundViewModifier.swift */; };
 		D49B3205292883F0009AE80A /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B3204292883F0009AE80A /* DismissButton.swift */; };
+		D49B320729288498009AE80A /* ProUpgradeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B320629288498009AE80A /* ProUpgradeDataModel.swift */; };
 		D4AD9F03291981A200270165 /* PlayViewDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD9F02291981A200270165 /* PlayViewDataModelTests.swift */; };
 		D4AD9F0829198EB000270165 /* GameModeMenuDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD9F0729198EB000270165 /* GameModeMenuDataModelTests.swift */; };
 		D4B8EDB528E26459001698E4 /* SettingsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B8EDB428E26459001698E4 /* SettingsDataModel.swift */; };
@@ -123,6 +124,7 @@
 		D49B320029288154009AE80A /* ProUpgradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUpgradeView.swift; sourceTree = "<group>"; };
 		D49B320229288248009AE80A /* TextBackgroundViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBackgroundViewModifier.swift; sourceTree = "<group>"; };
 		D49B3204292883F0009AE80A /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
+		D49B320629288498009AE80A /* ProUpgradeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUpgradeDataModel.swift; sourceTree = "<group>"; };
 		D4AD9F02291981A200270165 /* PlayViewDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewDataModelTests.swift; sourceTree = "<group>"; };
 		D4AD9F0729198EB000270165 /* GameModeMenuDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeMenuDataModelTests.swift; sourceTree = "<group>"; };
 		D4B8EDB428E26459001698E4 /* SettingsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDataModel.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				D4B8EDB428E26459001698E4 /* SettingsDataModel.swift */,
 				D46B0CA329145E980018DD92 /* LevelResultsDataModel.swift */,
 				D47FEBE12911DC3F0061E7EF /* PlayViewDataModel.swift */,
+				D49B320629288498009AE80A /* ProUpgradeDataModel.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				D4E7BC452928181200B399FA /* FinishedBannerMessageFactory.swift in Sources */,
 				D462D11628DE44BE001FF20A /* NumberItemFactory.swift in Sources */,
 				D44361DE28DE439A00909629 /* iAddThreeApp.swift in Sources */,
+				D49B320729288498009AE80A /* ProUpgradeDataModel.swift in Sources */,
 				D462D14528DE5910001FF20A /* ChalkboardViewModifier.swift in Sources */,
 				D4E7BC40292815B100B399FA /* AdMobComposer.swift in Sources */,
 				D462D13528DE55A0001FF20A /* NumberItem+Extension.swift in Sources */,

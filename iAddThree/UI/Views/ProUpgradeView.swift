@@ -10,11 +10,16 @@ import SwiftUI
 struct ProUpgradeView: View {
     @StateObject var dataModel: ProUpgradeDataModel
     
+    let dismiss: () -> Void
+    
     var body: some View {
         VStack {
-            Text("iAddThree Pro")
-                .setChalkFont(.title3)
-                .padding()
+            VStack(spacing: 0) {
+                DismissButton(dismiss: dismiss)
+                Text("iAddThree Pro")
+                    .setChalkFont(.title3)
+            }.padding(.bottom, getHeightPercent(5))
+            
             Text(dataModel.details)
                 .padding()
                 .setSmoothFont(.body)
@@ -36,22 +41,12 @@ struct ProUpgradeView: View {
     }
 }
 
+
+// MARK: - Preview
 struct ProUpgradeView_Previews: PreviewProvider {
     static var dataModel: ProUpgradeDataModel { ProUpgradeDataModel() }
     static var previews: some View {
-        ProUpgradeView(dataModel: dataModel)
+        ProUpgradeView(dataModel: dataModel, dismiss: { })
             .onChalkboard()
     }
-}
-
-final class ProUpgradeDataModel: ObservableObject {
-    
-}
-
-extension ProUpgradeDataModel {
-    var isPro: Bool { false }
-    var details: String { "pro upgrade details" }
-    
-    func purchasePro() { }
-    func restorePurchases() { }
 }
