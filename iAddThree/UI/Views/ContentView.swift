@@ -14,6 +14,7 @@ struct ContentView: View {
             Spacer()
             AdMobComposer.makeAdBannerView()
                 .padding(.bottom, 10)
+            
         }.onChalkboard()
     }
 }

@@ -13,7 +13,8 @@ struct AdBannerView: View {
     
     var body: some View {
         AdBannerVC(adId: adId)
-            .frame(maxWidth: getWidthPercent(90), maxHeight: getHeightPercent(6), alignment: .center)
+            .frame(maxWidth: getWidthPercent(80), maxHeight: getHeightPercent(6))
+            .background(.orange)
     }
 }
 
@@ -30,10 +31,15 @@ final private class AdBannerVC: UIViewControllerRepresentable {
         let vc = UIViewController()
         let view = GADBannerView(adSize: GADAdSizeBanner)
         
+        vc.view.addSubview(view)
+        
         view.adUnitID = adId
         view.rootViewController = vc
-        vc.view.addSubview(view)
-        vc.view.frame = CGRect(origin: .zero, size: GADAdSizeBanner.size)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.leftAnchor.constraint(equalTo: vc.view.leftAnchor).isActive = true
+        view.rightAnchor.constraint(equalTo: vc.view.rightAnchor).isActive = true
+        view.topAnchor.constraint(equalTo: vc.view.topAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: vc.view.bottomAnchor).isActive = true
         view.load(GADRequest())
 
         return vc
