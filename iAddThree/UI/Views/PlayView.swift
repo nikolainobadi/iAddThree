@@ -7,74 +7,36 @@
 
 import SwiftUI
 
-enum FinishedBannerMessageFactory {
-    static func makeMessage(_ results: LevelResults) -> String {
-        guard !results.timerFinished else { return "Times Up!" }
-        
-        switch results.pointsToAdd {
-        case 1: return "Nice Try"
-        case 2: return "Good Job!"
-        case 3: return "Gread Job!"
-        case 4: return "Perfect!"
-        default: return "Not Quite"
-        }
-    }
-}
-
 struct PlayView: View {
     @StateObject var dataModel: PlayViewDataModel
-    struct ChalkButton: View {
-        let text: String
-        let style: Font.TextStyle
-        let action: () -> Void
-        
-        init(_ text: String, style: Font.TextStyle = .title3, action: @escaping () -> Void) {
-            self.text = text
-            self.style = style
-            self.action = action
-        }
-        
-        var body: some View {
-            Button(action: action) {
-                Text(text)
-                    .padding(.horizontal, getWidthPercent(10))
-                    .lineLimit(1)
-                    .setChalkFont(style, textColor: Color(uiColor: .systemBackground), autoSize: true)
-                    .withRoundedBorder()
-            }
-        }
-    }
+
     private var score: Int { dataModel.score }
     private var highScore: Int { dataModel.highScore }
     private var results: LevelResults? { dataModel.results }
     
     var body: some View {
-        VStack {
-            Text("Level: \(dataModel.level)")
-                .setChalkFont(.body)
-                .padding()
-            
+        VStack(spacing: 0) {
             NumberListView(list: dataModel.numberList)
-                .padding(.vertical)
-            
-            Spacer()
             
             VStack {
                 if let results = results {
+                    Spacer()
                     FinishedBanner(message: FinishedBannerMessageFactory.makeMessage(results))
                         .transition(.move(edge: .leading))
-                        
                     Spacer()
                 } else {
-                    NumberPadView(selection: dataModel.submitNumber(_:))
-                        .frame(maxWidth: getWidthPercent(90), maxHeight: .infinity)
+                    VStack {
+                        TimerView(isActive: $dataModel.timerActive, timeRemaining: dataModel.startTime)
+                        NumberPadView(selection: dataModel.submitNumber(_:))
+                            .frame(maxWidth: .infinity, maxHeight: getHeightPercent(50))
+                            .padding(.bottom)
+                    }
                 }
-            }.animation(.linear, value: results)
-        }
-        .onAppear { dataModel.startLevel() }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .overlay(TimerView(isActive: $dataModel.timerActive, timeRemaining: dataModel.startTime), alignment: .topTrailing)
-        .overlay(PlayViewFooter(score: score, highScore: highScore).padding(), alignment: .bottomLeading)
+            }
+            .frame(maxWidth: getWidthPercent(90))
+            .animation(.linear, value: results)
+            .overlay(PlayViewFooter(score: score, highScore: highScore, level: dataModel.level), alignment: .bottomLeading)
+        }.onAppear { dataModel.startLevel() }
     }
 }
 
@@ -125,11 +87,16 @@ fileprivate struct TimerView: View {
 fileprivate struct PlayViewFooter: View {
     let score: Int
     let highScore: Int
+    let level: Int
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Score: \(score)")
-            Text("High Score: \(highScore)")
+        HStack {
+            VStack(alignment: .leading) {
+                Text("Score: \(score)")
+                Text("High Score: \(highScore)")
+            }
+            Spacer()
+            Text("Level: \(level)")
         }.setChalkFont(.body)
     }
 }
@@ -153,7 +120,7 @@ fileprivate struct FinishedBanner: View {
 // MARK: - Preview
 struct PlayView_Previews: PreviewProvider {
     static var info: LevelInfo { LevelInfo(score: 0, level: 1, highScore: 0) }
-    static var updater: ScoreUpdater { ScoreManager(highScoreStore: SinglePlayHighScoreStore(), levelScoreStore: LevelScoreRepository()) }
+    static var updater: ScoreUpdater { ScoreManager(highScoreStore: SinglePlayHighScoreStore(), levelScoreStore: GameContentViewDataModel()) }
     static var dataModel: PlayViewDataModel { PlayViewDataModel(numberList: NumberItem.defaultAddList, info: info, updater: updater, showResults: { _ in }) }
     
     static var previews: some View {

@@ -22,7 +22,7 @@ struct NumberListView: View {
             ForEach(list) { item in
                 NumberItemRow(item: item, isPlaying: isPlaying)
             }
-        }.padding(.horizontal)
+        }
     }
 }
 
@@ -32,7 +32,9 @@ fileprivate struct NumberItemRow: View {
     let item: NumberItemPresenter
     let isPlaying: Bool
     
+    private var answer: String { item.userAnswer ?? "" }
     private var answerColor: Color { item.isCorrect ? .green : .red }
+    
     
     var body: some View {
         VStack(spacing: 0) {
@@ -46,10 +48,9 @@ fileprivate struct NumberItemRow: View {
                     .background(.white)
                 Text(answer)
                     .setChalkFont(.largeTitle, textColor: answerColor)
-                    
             }
         }
-        .frame(maxWidth: getWidthPercent(20))
+        .frame(maxWidth: getWidthPercent(18))
         .background(.black.opacity(0.6))
         .multilineTextAlignment(.center)
         .clipShape(RoundedRectangle(cornerRadius: 10))

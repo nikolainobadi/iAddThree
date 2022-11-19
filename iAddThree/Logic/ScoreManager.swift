@@ -58,3 +58,11 @@ protocol HighScoreStore {
     
     func saveHighScore(_ newHighScore: Int) async throws
 }
+
+protocol LevelScoreStore {
+    var score: Int { get }
+    var level: Int { get }
+    
+    func updateLevel(_ newLevel: Int)
+    func updateScore(_ newScore: Int)
+}

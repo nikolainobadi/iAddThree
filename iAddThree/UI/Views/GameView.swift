@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-enum GameState: Equatable {
-    case menu
-    case playing
-    case results(LevelResults)
-}
-
-
-// MARK: - Main View
 struct GameView: View {
     @State private var state: GameState = .menu
     
@@ -23,7 +15,7 @@ struct GameView: View {
     
     private var title: String {
         switch mode {
-        case .add : return "Add Three"
+        case .add: return "Add Three"
         case .subtract: return "Subtract Three"
         }
     }
@@ -31,14 +23,11 @@ struct GameView: View {
     var body: some View {
         VStack(spacing: 0) {
             GameTitle(title: title, showingMenu: state == .menu)
-            GameContentView(state: $state, mode: mode)
+            GameContentComposer.makeGameContentView(state: $state, mode: mode) 
         }
         .animation(.easeInOut(duration: 0.75), value: state)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .overlay(
-            GameViewNavBar(state: $state, dismiss: dismiss).offset(x: 0, y: -getHeightPercent(2))
-            , alignment: .top
-        )
+        .overlay(GameViewNavBar(state: $state, dismiss: dismiss), alignment: .top)
     }
 }
 
@@ -85,8 +74,8 @@ fileprivate struct GameTitle: View {
         Text(title).setChalkFont(.largeTitle, autoSize: true)
             .padding()
             .lineLimit(1)
-            .scaleEffect(showingMenu ? 1 : 0.75)
-            .offset(y: getHeightPercent(showingMenu ? 8 : 2))
+            .scaleEffect(showingMenu ? 1 : isSmallDevice ? 0.8 : 0.6)
+            .offset(y: getHeightPercent(showingMenu ? 8 : 3))
     }
 }
 

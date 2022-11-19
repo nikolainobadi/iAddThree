@@ -38,7 +38,7 @@ final class LevelScoreRepositoryTests: XCTestCase {
 
 // MARK: - SUT
 extension LevelScoreRepositoryTests {
-    func makeSUT() -> LevelScoreRepository {
-        LevelScoreRepository()
+    func makeSUT() -> GameContentViewDataModel {
+        GameContentViewDataModel()
     }
 }

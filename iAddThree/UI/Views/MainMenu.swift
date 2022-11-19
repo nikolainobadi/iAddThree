@@ -18,7 +18,6 @@ struct MainMenu: View {
         VStack {
             if let selectedMode = selectedMode {
                 GameView(mode: selectedMode, dismiss: returnToMainMenu)
-                    .onChalkboard()
                     .transition(.move(edge: .bottom))
             } else {
                 VStack {

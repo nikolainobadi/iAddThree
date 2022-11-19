@@ -9,12 +9,19 @@ import SwiftUI
 import Foundation
 
 enum GameContentComposer {
+    static func makeGameContentView(state: Binding<GameState>, mode: GameMode) -> some View {
+        let dataModel = GameContentViewDataModel()
+        
+        return GameContentView(state: state, dataModel: dataModel, mode: mode)
+    }
+    
     static func makeMenuView(mode: GameMode, scoreStore: LevelScoreStore, startGame: @escaping () -> Void, showInstructions: @escaping () -> Void) -> some View {
         let highScoreStore = UserDefaultsHighScoreStore(mode: mode)
         let resetHandler = ScoreManager(highScoreStore: highScoreStore, levelScoreStore: scoreStore)
         let dataModel = GameModeMenuDataModel(resetHandler: resetHandler, highScore: highScoreStore.highScore)
+        let adLoader = makeAdLoader(level: scoreStore.level, completion: startGame)
         
-        return GameModeMenuView(dataModel: dataModel, startGame: startGame, showInstructions: showInstructions)
+        return GameModeMenuView(dataModel: dataModel, startGame: adLoader.showAd, showInstructions: showInstructions)
     }
     
     static func makeInstructionsView(_ mode: GameMode) -> some View {
@@ -33,6 +40,31 @@ enum GameContentComposer {
     }
     
     static func makeResultsView(results: LevelResults, playAgain: @escaping () -> Void) -> some View {
-        return LevelResultsView(dataModel: LevelResultsDataModel(results: results, playAgain: playAgain))
+        let adLoader = makeAdLoader(level: results.currentLevel + 1, completion: playAgain)
+        let dataModel = LevelResultsDataModel(results: results, playAgain: adLoader.showAd)
+        
+        return LevelResultsView(dataModel: dataModel)
+    }
+}
+
+
+// MARK: - Private Methods
+private extension GameContentComposer {
+    static func makeAdLoader(level: Int, completion: @escaping () -> Void) -> InterstitialAdLoader {
+        AdMobComposer.makeInterstitialLoader(shouldShowAd: AdDisplayManager(level: level).shouldShowAdd(), completion: completion)
+    }
+}
+
+
+
+// MARK: - Dependencies
+final class AdDisplayManager {
+    private let level: Int
+    
+    init(level: Int) {
+        self.level = level
+    }
+    func shouldShowAdd() -> Bool {
+        level % 3 == 0
     }
 }
