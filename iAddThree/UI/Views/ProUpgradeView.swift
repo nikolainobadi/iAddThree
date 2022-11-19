@@ -12,10 +12,26 @@ struct ProUpgradeView: View {
     
     var body: some View {
         VStack {
+            Text("iAddThree Pro")
+                .setChalkFont(.title3)
+                .padding()
             Text(dataModel.details)
                 .padding()
                 .setSmoothFont(.body)
                 .withTextBackground()
+            
+            Spacer()
+            Button(action: dataModel.purchasePro) {
+                Text("Remove Ads")
+            }
+            
+            Button(action: dataModel.restorePurchases) {
+                Text("Restore Purchases")
+                    .underline()
+                    .setSmoothFont(.body)
+            }
+            
+            Spacer()
         }
     }
 }
@@ -35,4 +51,7 @@ final class ProUpgradeDataModel: ObservableObject {
 extension ProUpgradeDataModel {
     var isPro: Bool { false }
     var details: String { "pro upgrade details" }
+    
+    func purchasePro() { }
+    func restorePurchases() { }
 }

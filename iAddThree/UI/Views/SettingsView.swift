@@ -37,23 +37,6 @@ struct SettingsView: View {
 }
 
 
-// MARK: - DismissButton
-fileprivate struct DismissButton: View {
-    let dismiss: () -> Void
-    
-    var body: some View {
-        HStack {
-            Spacer()
-            Button(action: dismiss) {
-                Image(systemName: "xmark")
-                    .padding(.horizontal)
-                    .setChalkFont(.subheadline)
-            }
-        }
-    }
-}
-
-
 // MARK: - About
 fileprivate struct AboutView: View {
     let showList: () -> Void
