@@ -12,10 +12,6 @@ final class SettingsDataModel: ObservableObject {
     
     private let versionNumber: String?
     private let requestAppReview: () -> Void
-    let emailURL = "mailto:nnobadicares@gmail.com"
-    let privacyPolicyURL = "https://github.com/nikolainobadi/PrivacyPolicies/blob/main/iAddThree/iAddThree_PrivacyPolicy.md"
-    
-    
     
     init(versionNumber: String?, requestAppReview: @escaping () -> Void) {
         self.versionNumber = versionNumber
@@ -24,7 +20,10 @@ final class SettingsDataModel: ObservableObject {
 }
 
 
+// MARK: - View Model
 extension SettingsDataModel {
+    var emailURL: String { "mailto:nnobadicares@gmail.com" }
+    var privacyPolicyURL: String { "https://github.com/nikolainobadi/PrivacyPolicies/blob/main/iAddThree/iAddThree_PrivacyPolicy.md" }
     var versionText: String {
         guard let versionNumber = versionNumber else { return "" }
         
