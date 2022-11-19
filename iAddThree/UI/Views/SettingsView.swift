@@ -13,8 +13,6 @@ struct SettingsView: View {
     
     private var showingAbout: Bool { dataModel.showingAbout }
     
-    private func showList() { dataModel.showingAbout = false }
-    
     var body: some View {
         VStack {
             VStack(spacing: 0) {
@@ -25,33 +23,11 @@ struct SettingsView: View {
             
             VStack {
                 if showingAbout {
-                    VStack {
-                        HStack {
-                            Button(action: showList) {
-                                Label {
-                                    Text("Settings List")
-                                        .underline()
-                                        
-                                } icon: {
-                                    Image(systemName: "chevron.left")
-                                }.setSmoothFont(.body)
-                            }.padding(.horizontal)
-                            Spacer()
-                        }
-                        Text(dataModel.aboutText)
-                            .setSmoothFont(.body)
-                            .padding()
-                            
-                    }
-                    .background(.black.opacity(0.5))
-                    .cornerRadius(20)
-                    .padding(5)
-                    
+                    AboutView(showList: { dataModel.showingAbout = false }, aboutText: dataModel.aboutText)
                 } else {
-                    
+                    SettingsButtonView(dataModel: dataModel)
                 }
             }.animation(.easeIn(duration: 1), value: showingAbout)
-            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .onChalkboard()
@@ -73,6 +49,36 @@ fileprivate struct DismissButton: View {
                     .setChalkFont(.subheadline)
             }
         }
+    }
+}
+
+
+// MARK: - About
+fileprivate struct AboutView: View {
+    let showList: () -> Void
+    let aboutText: String
+    
+    var body: some View {
+        VStack {
+            HStack {
+                Button(action: showList) {
+                    Label {
+                        Text("Settings List")
+                            .underline()
+                    } icon: {
+                        Image(systemName: "chevron.left")
+                    }.setSmoothFont(.body)
+                }.padding(.horizontal)
+                Spacer()
+            }
+            Text(aboutText)
+                .setSmoothFont(.body)
+                .padding()
+                
+        }
+        .background(.black.opacity(0.5))
+        .cornerRadius(20)
+        .padding(5)
     }
 }
 
