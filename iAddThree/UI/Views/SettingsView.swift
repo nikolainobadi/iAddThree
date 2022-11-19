@@ -22,8 +22,9 @@ struct SettingsView: View {
             }.padding(.bottom, getHeightPercent(5))
             
             VStack {
-                if showingAbout {
+                if !showingAbout {
                     AboutView(showList: { dataModel.showingAbout = false }, aboutText: dataModel.aboutText)
+                        .padding(.horizontal, 5)
                 } else {
                     SettingsButtonView(dataModel: dataModel)
                 }
@@ -74,10 +75,7 @@ fileprivate struct AboutView: View {
             Text(aboutText)
                 .setSmoothFont(.body)
                 .padding()
-        }
-        .background(.black.opacity(0.5))
-        .cornerRadius(20)
-        .padding(5)
+        }.withTextBackground()
     }
 }
 
