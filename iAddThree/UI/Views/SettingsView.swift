@@ -55,7 +55,7 @@ struct SettingsView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .onChalkboard()
-        .overlay(Text(dataModel.versionNumber).setSmoothFont(.body), alignment: .bottom)
+        .overlay(Text(dataModel.versionText).setSmoothFont(.body), alignment: .bottom)
     }
 }
 
@@ -95,7 +95,7 @@ fileprivate struct SettingsButtonView: View {
                 .frame(width: getWidthPercent(width))
                 .withRoundedBorder()
             
-            Button(action: dataModel.requestAppReview) {
+            Button(action: dataModel.rateApp) {
                 Text("Rate App")
                     .frame(width: getWidthPercent(width))
                     .withRoundedBorder()
@@ -115,7 +115,7 @@ fileprivate struct SettingsButtonView: View {
 }
 
 struct SettingsView_Previews: PreviewProvider {
-    static var dataModel: SettingsDataModel { SettingsDataModel() }
+    static var dataModel: SettingsDataModel { SettingsDataModel(versionNumber: "2.0.1", requestAppReview: { }) }
     static var previews: some View {
         SettingsView(dataModel: dataModel)
             .previewDevice("iPod touch (7th generation)")

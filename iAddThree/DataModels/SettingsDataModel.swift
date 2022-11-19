@@ -9,21 +9,27 @@ import Foundation
 
 final class SettingsDataModel: ObservableObject {
     @Published var showingAbout = false
-    let requestAppReview: () -> Void
+    
+    private let versionNumber: String?
+    private let requestAppReview: () -> Void
     let emailURL = "mailto:nnobadicares@gmail.com"
     let privacyPolicyURL = "https://github.com/nikolainobadi/PrivacyPolicies/blob/main/iAddThree/iAddThree_PrivacyPolicy.md"
     
     
     
-    init(requestAppReview: @escaping () -> Void = AppRateManager.requestAppReview) {
+    init(versionNumber: String?, requestAppReview: @escaping () -> Void) {
+        self.versionNumber = versionNumber
         self.requestAppReview = requestAppReview
     }
 }
 
 
 extension SettingsDataModel {
-    var versionNumber: String {  Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "" }
-    
+    var versionText: String {
+        guard let versionNumber = versionNumber else { return "" }
+        
+        return "Version \(versionNumber)"
+    }
     var aboutText: String {
         """
         iAddThree was inspired by a mental exercise presented in the book *Thinking Fast and Slow*, by nobel prize winning psychologist, Daniel Kahneman.
@@ -32,5 +38,6 @@ extension SettingsDataModel {
         """
     }
     
+    func rateApp() { requestAppReview() }
     func showAbout() { showingAbout = true }
 }

@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-enum SettingsComposer {
-    static func makeSettingsView() -> some View {
-        SettingsView(dataModel: SettingsDataModel())
-    }
-}
-
 struct MainMenu: View {
     @State private var selectedMode: GameMode?
     @State private var showingSettings = false

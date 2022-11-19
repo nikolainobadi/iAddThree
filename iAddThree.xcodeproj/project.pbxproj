@@ -41,6 +41,7 @@
 		D47FEBE42911DC810061E7EF /* GameContentComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47FEBE32911DC810061E7EF /* GameContentComposer.swift */; };
 		D487F80929272F5C00CFBFCF /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = D487F80829272F5C00CFBFCF /* GoogleMobileAds */; };
 		D487F80C2927339F00CFBFCF /* ATTAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D487F80B2927339F00CFBFCF /* ATTAdapter.swift */; };
+		D49B31FE29287B83009AE80A /* SettingsComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B31FD29287B83009AE80A /* SettingsComposer.swift */; };
 		D4AD9F03291981A200270165 /* PlayViewDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD9F02291981A200270165 /* PlayViewDataModelTests.swift */; };
 		D4AD9F0829198EB000270165 /* GameModeMenuDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD9F0729198EB000270165 /* GameModeMenuDataModelTests.swift */; };
 		D4B8EDB528E26459001698E4 /* SettingsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B8EDB428E26459001698E4 /* SettingsDataModel.swift */; };
@@ -115,6 +116,7 @@
 		D47FEBE12911DC3F0061E7EF /* PlayViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewDataModel.swift; sourceTree = "<group>"; };
 		D47FEBE32911DC810061E7EF /* GameContentComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameContentComposer.swift; sourceTree = "<group>"; };
 		D487F80B2927339F00CFBFCF /* ATTAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATTAdapter.swift; sourceTree = "<group>"; };
+		D49B31FD29287B83009AE80A /* SettingsComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsComposer.swift; sourceTree = "<group>"; };
 		D4AD9F02291981A200270165 /* PlayViewDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewDataModelTests.swift; sourceTree = "<group>"; };
 		D4AD9F0729198EB000270165 /* GameModeMenuDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeMenuDataModelTests.swift; sourceTree = "<group>"; };
 		D4B8EDB428E26459001698E4 /* SettingsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDataModel.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			children = (
 				D44361DD28DE439A00909629 /* iAddThreeApp.swift */,
 				D47FEBE32911DC810061E7EF /* GameContentComposer.swift */,
+				D49B31FD29287B83009AE80A /* SettingsComposer.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				D4BD27AC28DFCE2600C698A9 /* SinglePlayHighScoreStore.swift in Sources */,
 				D42DBEFE28E25E65006E29D0 /* SettingsView.swift in Sources */,
 				D462D13128DE5122001FF20A /* NumberItemPresenter.swift in Sources */,
+				D49B31FE29287B83009AE80A /* SettingsComposer.swift in Sources */,
 				D47FEBE22911DC3F0061E7EF /* PlayViewDataModel.swift in Sources */,
 				D445CF6029145064006CC062 /* LevelResultsView.swift in Sources */,
 				D4E7BC432928165000B399FA /* ContentView.swift in Sources */,
