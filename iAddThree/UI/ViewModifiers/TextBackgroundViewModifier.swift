@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct TextBackgroundViewModifier: ViewModifier {
+    let opacity: CGFloat
     func body(content: Content) -> some View {
         content
-            .background(.black.opacity(0.5))
+            .background(.black.opacity(opacity))
             .cornerRadius(20)
     }
 }
 
 extension View {
-    func withTextBackground() -> some View { modifier(TextBackgroundViewModifier())}
+    func withTextBackground(opacity: CGFloat = 0.5) -> some View { modifier(TextBackgroundViewModifier(opacity: opacity)) }
 }

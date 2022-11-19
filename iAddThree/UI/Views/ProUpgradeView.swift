@@ -14,30 +14,69 @@ struct ProUpgradeView: View {
     
     var body: some View {
         VStack {
-            VStack(spacing: 0) {
-                DismissButton(dismiss: dismiss)
-                Text("iAddThree Pro")
-                    .setChalkFont(.title3)
-            }.padding(.bottom, getHeightPercent(5))
-            
-            Text(dataModel.details)
-                .padding()
-                .setSmoothFont(.body)
-                .withTextBackground()
-            
-            Spacer()
-            Button(action: dataModel.purchasePro) {
-                Text("Remove Ads")
+            ProHeaderView(dismiss: dismiss)
+            ProDetails(details: dataModel.details)
+            PurchaseButtons(dataModel: dataModel)
+        }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+    }
+}
+
+
+// MARK: - Header
+fileprivate struct ProHeaderView: View {
+    let dismiss: () -> Void
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            DismissButton(dismiss: dismiss)
+            Text("iAddThree Pro")
+                .setChalkFont(.title3)
+        }.padding(.bottom, getHeightPercent(5))
+    }
+}
+
+
+// MARK: - Details
+fileprivate struct ProDetails: View {
+    let details: String
+    
+    var body: some View {
+        Text(details)
+            .padding()
+            .setSmoothFont(.body)
+            .withTextBackground()
+    }
+}
+
+
+
+// MARK: - PurchaseButtons
+fileprivate struct PurchaseButtons: View {
+    @ObservedObject var dataModel: ProUpgradeDataModel
+    
+    private var showPurchaseButton: Bool { !dataModel.isPro }
+    
+    var body: some View {
+        VStack {
+            if showPurchaseButton {
+                Button(action: dataModel.purchasePro) {
+                    Text("Remove Ads")
+                        .setSmoothFont(.headline)
+                        .padding(.horizontal)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.green)
+                .shadow(color: .black, radius: 4, x: 2, y: 2)
             }
             
             Button(action: dataModel.restorePurchases) {
                 Text("Restore Purchases")
                     .underline()
                     .setSmoothFont(.body)
-            }
-            
-            Spacer()
+            }.padding(.top)
         }
+        .padding()
+        .withTextBackground(opacity: 0.2)
     }
 }
 
@@ -48,5 +87,9 @@ struct ProUpgradeView_Previews: PreviewProvider {
     static var previews: some View {
         ProUpgradeView(dataModel: dataModel, dismiss: { })
             .onChalkboard()
+        
+        ProUpgradeView(dataModel: dataModel, dismiss: { })
+            .onChalkboard()
+            .preferredColorScheme(.dark)
     }
 }
