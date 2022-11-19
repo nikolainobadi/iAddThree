@@ -120,22 +120,13 @@ fileprivate struct SettingsButtonView: View {
     }
 }
 
+
+// MARK: - Preview
 struct SettingsView_Previews: PreviewProvider {
     static var dataModel: SettingsDataModel { SettingsDataModel(versionNumber: "2.0.1", requestAppReview: { }) }
+    
     static var previews: some View {
         SettingsView(dataModel: dataModel)
-            .previewDevice("iPod touch (7th generation)")
-//        SettingsView(dataModel: dataModel)
-//            .previewDevice("iPhone 8")
-//        SettingsView(dataModel: dataModel)
-//            .previewDevice("iPhone 11")
-        SettingsView(dataModel: dataModel)
-//        SettingsView(dataModel: dataModel)
-//            .previewDevice("iPad mini (6th generation)")
-//        SettingsView(dataModel: dataModel)
-//            .previewDevice("iPad (9th generation)")
-//        SettingsView(dataModel: dataModel)
-//            .previewDevice("iPad Pro (12.9-inch) (5th generation)")
     }
 }
 
