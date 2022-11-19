@@ -74,7 +74,6 @@ fileprivate struct AboutView: View {
             Text(aboutText)
                 .setSmoothFont(.body)
                 .padding()
-                
         }
         .background(.black.opacity(0.5))
         .cornerRadius(20)
@@ -85,37 +84,46 @@ fileprivate struct AboutView: View {
 
 // MARK: - Buttons
 fileprivate struct SettingsButtonView: View {
+    @State private var showingProUpgrade = false
     @ObservedObject var dataModel: SettingsDataModel
     
-    private let width: CGFloat = 70
+    private var width: CGFloat { 70 }
     
     var body: some View {
         VStack(spacing: getHeightPercent(5)) {
-            Button(action: { }) {
-                Text("Remove Ads")
-                    .frame(width: getWidthPercent(width))
-                    .withRoundedBorder()
-            }
-            
-            Link("Send Feedback", destination: URL(string: dataModel.emailURL)!)
-                .frame(width: getWidthPercent(width))
-                .withRoundedBorder()
-            
-            Button(action: dataModel.rateApp) {
-                Text("Rate App")
-                    .frame(width: getWidthPercent(width))
-                    .withRoundedBorder()
-            }
-            
-            Button(action: dataModel.showAbout) {
-                Text("About")
-                    .frame(width: getWidthPercent(width))
-                    .withRoundedBorder()
-            }
-            
-            Link("Privacy Policy", destination: URL(string: dataModel.privacyPolicyURL)!)
-                .frame(width: getWidthPercent(width))
-                .withRoundedBorder()
+            VStack {
+                if showingProUpgrade {
+                    // MARK: - ProUprade View
+                } else {
+                    VStack {
+                        Button(action: { showingProUpgrade = true }) {
+                            Text("Remove Ads")
+                                .frame(width: getWidthPercent(width))
+                                .withRoundedBorder()
+                        }
+                        
+                        Link("Send Feedback", destination: URL(string: dataModel.emailURL)!)
+                            .frame(width: getWidthPercent(width))
+                            .withRoundedBorder()
+                        
+                        Button(action: dataModel.rateApp) {
+                            Text("Rate App")
+                                .frame(width: getWidthPercent(width))
+                                .withRoundedBorder()
+                        }
+                        
+                        Button(action: dataModel.showAbout) {
+                            Text("About")
+                                .frame(width: getWidthPercent(width))
+                                .withRoundedBorder()
+                        }
+                        
+                        Link("Privacy Policy", destination: URL(string: dataModel.privacyPolicyURL)!)
+                            .frame(width: getWidthPercent(width))
+                            .withRoundedBorder()
+                    }.transition(.opacity)
+                }
+            }.animation(.easeIn(duration: 1), value: showingProUpgrade)
         }.setSmoothFont(.headline)
     }
 }
@@ -129,7 +137,3 @@ struct SettingsView_Previews: PreviewProvider {
         SettingsView(dataModel: dataModel)
     }
 }
-
-
-
-
