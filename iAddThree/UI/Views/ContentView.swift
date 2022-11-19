@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    private var showBanner: Bool { true }
     var body: some View {
         VStack {
             MainMenu()
-            Spacer()
-            AdMobComposer.makeAdBannerView()
-                .padding(.bottom, 10)
             
+            if showBanner {
+                Spacer()
+                AdMobComposer.makeAdBannerView()
+                    .padding(.bottom, 10)
+            }
         }.onChalkboard()
     }
 }

@@ -14,7 +14,6 @@ struct AdBannerView: View {
     var body: some View {
         AdBannerVC(adId: adId)
             .frame(maxWidth: getWidthPercent(80), maxHeight: getHeightPercent(6))
-            .background(.orange)
     }
 }
 

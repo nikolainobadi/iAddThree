@@ -15,28 +15,27 @@ struct PlayView: View {
     private var results: LevelResults? { dataModel.results }
     
     var body: some View {
-        VStack {
-            Spacer()
+        VStack(spacing: 0) {
             NumberListView(list: dataModel.numberList)
-            Spacer()
+            
             VStack {
                 if let results = results {
+                    Spacer()
                     FinishedBanner(message: FinishedBannerMessageFactory.makeMessage(results))
                         .transition(.move(edge: .leading))
-                    
-                        Spacer()
+                    Spacer()
                 } else {
-                    VStack(spacing: 0) {
+                    VStack {
                         TimerView(isActive: $dataModel.timerActive, timeRemaining: dataModel.startTime)
                         NumberPadView(selection: dataModel.submitNumber(_:))
-                            .frame(maxWidth: getWidthPercent(90), maxHeight: getHeightPercent(50))
+                            .frame(maxWidth: .infinity, maxHeight: getHeightPercent(50))
+                            .padding(.bottom)
                     }
                 }
             }
+            .frame(maxWidth: getWidthPercent(90))
             .animation(.linear, value: results)
             .overlay(PlayViewFooter(score: score, highScore: highScore, level: dataModel.level), alignment: .bottomLeading)
-            
-            
         }.onAppear { dataModel.startLevel() }
     }
 }
@@ -99,7 +98,6 @@ fileprivate struct PlayViewFooter: View {
             Spacer()
             Text("Level: \(level)")
         }.setChalkFont(.body)
-        
     }
 }
 

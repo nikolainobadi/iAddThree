@@ -74,7 +74,7 @@ fileprivate struct GameTitle: View {
         Text(title).setChalkFont(.largeTitle, autoSize: true)
             .padding()
             .lineLimit(1)
-            .scaleEffect(showingMenu ? 1 : 0.6)
+            .scaleEffect(showingMenu ? 1 : isSmallDevice ? 0.8 : 0.6)
             .offset(y: getHeightPercent(showingMenu ? 8 : 3))
     }
 }
