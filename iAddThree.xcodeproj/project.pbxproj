@@ -125,6 +125,7 @@
 		D49B320229288248009AE80A /* TextBackgroundViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBackgroundViewModifier.swift; sourceTree = "<group>"; };
 		D49B3204292883F0009AE80A /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		D49B320629288498009AE80A /* ProUpgradeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUpgradeDataModel.swift; sourceTree = "<group>"; };
+		D4A91B4629298D6700DA1A69 /* StoreKitConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitConfig.storekit; sourceTree = "<group>"; };
 		D4AD9F02291981A200270165 /* PlayViewDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewDataModelTests.swift; sourceTree = "<group>"; };
 		D4AD9F0729198EB000270165 /* GameModeMenuDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeMenuDataModelTests.swift; sourceTree = "<group>"; };
 		D4B8EDB428E26459001698E4 /* SettingsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDataModel.swift; sourceTree = "<group>"; };
@@ -200,6 +201,7 @@
 				D4BD27AA28DFCE0200C698A9 /* Storage */,
 				D462D11428DE44A6001FF20A /* NumberItemFeature */,
 				D487F80A2927338200CFBFCF /* AdMob */,
+				D4A91B4529298D4C00DA1A69 /* InAppPurchase */,
 				D462D11028DE4460001FF20A /* Resources */,
 				D44361E328DE439B00909629 /* Preview Content */,
 			);
@@ -308,6 +310,14 @@
 				D4E7BC3F292815B100B399FA /* AdMobComposer.swift */,
 			);
 			path = AdMob;
+			sourceTree = "<group>";
+		};
+		D4A91B4529298D4C00DA1A69 /* InAppPurchase */ = {
+			isa = PBXGroup;
+			children = (
+				D4A91B4629298D6700DA1A69 /* StoreKitConfig.storekit */,
+			);
+			path = InAppPurchase;
 			sourceTree = "<group>";
 		};
 		D4AD9F012919819100270165 /* DataModelTests */ = {
