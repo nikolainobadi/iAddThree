@@ -13,7 +13,6 @@ struct ContentView: View {
             MainMenu()
             Spacer()
             AdMobComposer.makeAdBannerView()
-                .background(.black)
                 .padding(.bottom, 10)
         }.onChalkboard()
     }

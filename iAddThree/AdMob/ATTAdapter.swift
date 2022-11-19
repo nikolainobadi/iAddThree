@@ -14,6 +14,7 @@ enum ATTAdapter {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             ATTrackingManager.requestTrackingAuthorization { status in
                 GADMobileAds.sharedInstance().start()
+                GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ GADSimulatorID ]
             }
         }
     }

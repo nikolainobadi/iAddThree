@@ -52,7 +52,6 @@ final class InterstitialAdLoader: NSObject {
         if let ad = interstitialAd, shouldShowAd {
             ad.show(failure: completion)
         } else {
-            incrementAdActions()
             completion()
         }
     }
@@ -75,10 +74,6 @@ private extension InterstitialAdLoader {
             self?.interstitialAd = ad
             self?.interstitialAd?.fullScreenContentDelegate = self
         }
-    }
-    
-    func incrementAdActions() {
-        
     }
     
     func finished() {

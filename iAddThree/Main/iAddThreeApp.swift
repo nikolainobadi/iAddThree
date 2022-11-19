@@ -22,7 +22,7 @@ struct AppLauncher {
 struct iAddThreeApp: App {
     var body: some Scene {
         WindowGroup {
-            MainMenu()
+            ContentView()
                 .onChalkboard()
                 .onAppear {
                     ATTAdapter.initializeAdService()
