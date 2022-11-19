@@ -90,12 +90,12 @@ fileprivate struct SettingsButtonView: View {
     private var width: CGFloat { 70 }
     
     var body: some View {
-        VStack(spacing: getHeightPercent(5)) {
+        VStack {
             VStack {
                 if showingProUpgrade {
                     // MARK: - ProUprade View
                 } else {
-                    VStack {
+                    VStack(spacing: getHeightPercent(5)) {
                         Button(action: { showingProUpgrade = true }) {
                             Text("Remove Ads")
                                 .frame(width: getWidthPercent(width))
