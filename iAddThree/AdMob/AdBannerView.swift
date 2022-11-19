@@ -30,7 +30,7 @@ final private class AdBannerVC: UIViewControllerRepresentable {
         let vc = UIViewController()
         let view = GADBannerView(adSize: GADAdSizeBanner)
         
-        view.adUnitID = ""
+        view.adUnitID = adId
         view.rootViewController = vc
         vc.view.addSubview(view)
         vc.view.frame = CGRect(origin: .zero, size: GADAdSizeBanner.size)
