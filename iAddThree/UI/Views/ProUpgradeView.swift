@@ -59,7 +59,7 @@ fileprivate struct PurchaseButtons: View {
     var body: some View {
         VStack {
             if showPurchaseButton {
-                Button(action: dataModel.purchasePro) {
+                Button(action: dataModel.purchase) {
                     Text("Remove Ads")
                         .setSmoothFont(.headline)
                         .padding(.horizontal)
@@ -69,7 +69,7 @@ fileprivate struct PurchaseButtons: View {
                 .shadow(color: .black, radius: 4, x: 2, y: 2)
             }
             
-            Button(action: dataModel.restorePurchases) {
+            Button(action: dataModel.restorePurchase) {
                 Text("Restore Purchases")
                     .underline()
                     .setSmoothFont(.body)
