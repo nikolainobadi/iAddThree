@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+enum SettingsComposer {
+    static func makeSettingsView() -> some View {
+        SettingsView()
+    }
+}
+
 struct MainMenu: View {
     @State private var selectedMode: GameMode?
     @State private var showingSettings = false
@@ -32,7 +38,7 @@ struct MainMenu: View {
             }
         }
         .animation(.default, value: selectedMode)
-        .sheet(isPresented: $showingSettings) { SettingsView() }
+        .sheet(isPresented: $showingSettings) { SettingsComposer.makeSettingsView() }
     }
 }
 

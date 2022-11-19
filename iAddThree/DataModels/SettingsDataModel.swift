@@ -8,9 +8,21 @@
 import Foundation
 
 final class SettingsDataModel: ObservableObject {
+    @Published var showingAbout = false
     let requestAppReview: () -> Void
     let emailURL = "mailto:nnobadicares@gmail.com"
     let privacyPolicyURL = "https://github.com/nikolainobadi/PrivacyPolicies/blob/main/iAddThree/iAddThree_PrivacyPolicy.md"
+    
+    
+    
+    init(requestAppReview: @escaping () -> Void = AppRateManager.requestAppReview) {
+        self.requestAppReview = requestAppReview
+    }
+}
+
+
+extension SettingsDataModel {
+    var versionNumber: String {  Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "" }
     
     var aboutText: String {
         """
@@ -20,7 +32,5 @@ final class SettingsDataModel: ObservableObject {
         """
     }
     
-    init(requestAppReview: @escaping () -> Void = AppRateManager.requestAppReview) {
-        self.requestAppReview = requestAppReview
-    }
+    func showAbout() { showingAbout = true }
 }
