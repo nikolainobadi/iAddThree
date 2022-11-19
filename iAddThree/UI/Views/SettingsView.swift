@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
-    @StateObject var dataModel = SettingsDataModel()
+    @StateObject var dataModel: SettingsDataModel
     
     private var showingAbout: Bool { dataModel.showingAbout }
     
@@ -115,19 +115,20 @@ fileprivate struct SettingsButtonView: View {
 }
 
 struct SettingsView_Previews: PreviewProvider {
+    static var dataModel: SettingsDataModel { SettingsDataModel() }
     static var previews: some View {
-        SettingsView()
+        SettingsView(dataModel: dataModel)
             .previewDevice("iPod touch (7th generation)")
-//        SettingsView()
+//        SettingsView(dataModel: dataModel)
 //            .previewDevice("iPhone 8")
-//        SettingsView()
+//        SettingsView(dataModel: dataModel)
 //            .previewDevice("iPhone 11")
-        SettingsView()
-//        SettingsView()
+        SettingsView(dataModel: dataModel)
+//        SettingsView(dataModel: dataModel)
 //            .previewDevice("iPad mini (6th generation)")
-//        SettingsView()
+//        SettingsView(dataModel: dataModel)
 //            .previewDevice("iPad (9th generation)")
-//        SettingsView()
+//        SettingsView(dataModel: dataModel)
 //            .previewDevice("iPad Pro (12.9-inch) (5th generation)")
     }
 }

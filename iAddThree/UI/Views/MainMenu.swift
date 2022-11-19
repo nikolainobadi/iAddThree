@@ -9,7 +9,7 @@ import SwiftUI
 
 enum SettingsComposer {
     static func makeSettingsView() -> some View {
-        SettingsView()
+        SettingsView(dataModel: SettingsDataModel())
     }
 }
 
