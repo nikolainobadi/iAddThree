@@ -95,8 +95,7 @@ extension ModeLevelHighScoreStoreDecoratorTests {
     }
     
     func makeUserDefaults(_ modeLevel: Int) -> UserDefaults {
-        let defaults = UserDefaults(suiteName: #file)!
-        defaults.removePersistentDomain(forName: #file)
+        let defaults = MockUserDefaults(suiteName: #file)!
         defaults.set(modeLevel, forKey: AppStorageKey.modeLevel)
         return defaults
     }
