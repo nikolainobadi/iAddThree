@@ -22,7 +22,7 @@ struct SettingsView: View {
             }.padding(.bottom, getHeightPercent(5))
             
             VStack {
-                if !showingAbout {
+                if showingAbout {
                     AboutView(showList: { dataModel.showingAbout = false }, aboutText: dataModel.aboutText)
                         .padding(.horizontal, 5)
                 } else {
@@ -74,7 +74,7 @@ fileprivate struct SettingsButtonView: View {
         VStack {
             VStack {
                 if showingProUpgrade {
-                    // MARK: - ProUprade View
+                    SettingsComposer.makeProUpgradeView(dismiss: { showingProUpgrade = false })
                 } else {
                     VStack(spacing: getHeightPercent(5)) {
                         Button(action: { showingProUpgrade = true }) {
@@ -104,7 +104,7 @@ fileprivate struct SettingsButtonView: View {
                             .withRoundedBorder()
                     }.transition(.opacity)
                 }
-            }.animation(.easeIn(duration: 1), value: showingProUpgrade)
+            }.animation(.default, value: showingProUpgrade)
         }.setSmoothFont(.headline)
     }
 }

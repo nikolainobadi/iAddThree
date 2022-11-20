@@ -17,7 +17,11 @@ struct ProUpgradeView: View {
             ProHeaderView(dismiss: dismiss)
             ProDetails(details: dataModel.details)
             PurchaseButtons(dataModel: dataModel)
-        }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .task {
+            await dataModel.fetchProduct()
+        }
     }
 }
 
@@ -60,9 +64,13 @@ fileprivate struct PurchaseButtons: View {
         VStack {
             if showPurchaseButton {
                 Button(action: dataModel.purchase) {
-                    Text("Remove Ads")
-                        .setSmoothFont(.headline)
-                        .padding(.horizontal)
+                    VStack {
+                        Text(dataModel.productName)
+                            .setSmoothFont(.headline)
+                        
+                        Text(dataModel.productPrice)
+                            .setSmoothFont(.body)
+                    }.padding(.horizontal)
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(.green)

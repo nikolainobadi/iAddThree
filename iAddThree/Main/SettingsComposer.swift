@@ -14,6 +14,12 @@ enum SettingsComposer {
         
         return SettingsView(dataModel: dataModel)
     }
+    
+    static func makeProUpgradeView(dismiss: @escaping () -> Void) -> some View {
+        let dataModel = ProUpgradeDataModel()
+        
+        return ProUpgradeView(dataModel: dataModel, dismiss: dismiss)
+    }
 }
 
 
