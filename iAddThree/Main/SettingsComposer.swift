@@ -15,8 +15,8 @@ enum SettingsComposer {
         return SettingsView(dataModel: dataModel)
     }
     
-    static func makeProUpgradeView(dismiss: @escaping () -> Void) -> some View {
-        return ProUpgradeView(dataModel: ProUpgradeDataModel(store: InAppPurchaseManager()), dismiss: dismiss)
+    static func makeProUpgradeView() -> some View {
+        return ProUpgradeView(dataModel: ProUpgradeDataModel(store: InAppPurchaseManager()))
     }
 }
 

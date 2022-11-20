@@ -11,35 +11,19 @@ struct ProUpgradeView: View {
     @StateObject var dataModel: ProUpgradeDataModel
     @AppStorage(AppStorageKey.adsRemoved) var removeAds: Bool = false
     
-    let dismiss: () -> Void
-    
     private var showPurchaseButton: Bool { !removeAds }
     private var details: String { removeAds ? dataModel.thankYouMessage : dataModel.removeAdsMessage }
     
     var body: some View {
         VStack {
-            ProHeaderView(dismiss: dismiss)
             ProDetails(details: details)
+                .padding(.bottom)
             PurchaseButtons(dataModel: dataModel, showPurchaseButton: showPurchaseButton)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .task {
             await dataModel.fetchProduct()
         }
-    }
-}
-
-
-// MARK: - Header
-fileprivate struct ProHeaderView: View {
-    let dismiss: () -> Void
-    
-    var body: some View {
-        VStack(spacing: 0) {
-            DismissButton(dismiss: dismiss)
-            Text("iAddThree Pro")
-                .setChalkFont(.title3)
-        }.padding(.bottom, getHeightPercent(5))
     }
 }
 
@@ -54,6 +38,7 @@ fileprivate struct ProDetails: View {
             .setSmoothFont(.body)
             .withTextBackground()
             .multilineTextAlignment(.center)
+            .frame(maxWidth: getWidthPercent(98))
     }
 }
 
@@ -66,31 +51,27 @@ fileprivate struct PurchaseButtons: View {
     let showPurchaseButton: Bool
     
     var body: some View {
-        VStack {
-            if showPurchaseButton {
-                Button(action: dataModel.purchase) {
-                    VStack {
-                        Text(dataModel.productName)
-                            .setSmoothFont(.headline)
-                        
-                        Text(dataModel.productPrice)
-                            .setSmoothFont(.body)
-                    }.padding(.horizontal)
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(.green)
-                .shadow(color: .black, radius: 4, x: 2, y: 2)
-                .padding()
+        if showPurchaseButton {
+            Button(action: dataModel.purchase) {
+                VStack {
+                    Text(dataModel.productName)
+                        .setSmoothFont(.headline)
+                    
+                    Text(dataModel.productPrice)
+                        .setSmoothFont(.body)
+                }.padding(.horizontal)
             }
-            
+            .buttonStyle(.borderedProminent)
+            .tint(.green)
+            .shadow(color: .black, radius: 4, x: 2, y: 2)
+            .padding()
+        } else {
             Button(action: dataModel.restorePurchase) {
                 Text("Restore Purchases")
                     .underline()
                     .setSmoothFont(.body)
             }.padding()
         }
-        .padding()
-        .withTextBackground(opacity: 0.2)
     }
 }
 
@@ -111,10 +92,10 @@ struct ProUpgradeView_Previews: PreviewProvider {
     
     static var dataModel: ProUpgradeDataModel { ProUpgradeDataModel(store: MockStore()) }
     static var previews: some View {
-        ProUpgradeView(dataModel: dataModel, dismiss: { })
+        ProUpgradeView(dataModel: dataModel)
             .onChalkboard()
         
-        ProUpgradeView(dataModel: dataModel, dismiss: { })
+        ProUpgradeView(dataModel: dataModel)
             .onChalkboard()
             .preferredColorScheme(.dark)
     }

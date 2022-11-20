@@ -16,11 +16,31 @@ struct SettingsView: View {
     private var state: SettingsViewState { dataModel.state }
     
     private func showList() { dataModel.show(.list) }
-    private func popView() { dismiss() }
     
     var body: some View {
         VStack {
-            SettingsHeader(title: title, showBackButton: showBackButton, showList: showList, dismiss: popView)
+            VStack(spacing: 0) {
+                HStack {
+                    Button(action: showList) {
+                        Label {
+                            Text("Back")
+                        } icon: {
+                            Image(systemName: "chevron.left")
+                        }.setChalkFont(.body)
+                    }
+                    .padding(.horizontal)
+                    .opacity(showBackButton ? 1 : 0)
+                    
+                    Spacer()
+                    DismissButton(dismiss: { dismiss() })
+                }
+                
+                Text(title)
+                    .lineLimit(1)
+                    .setChalkFont(.title, autoSize: true)
+                    .padding(.horizontal)
+                    .padding(.top, state == .upgrade ? getHeightPercent(2) : 0)
+            }.padding(.bottom, getHeightPercent(5))
             
             VStack {
                 switch state {
@@ -30,38 +50,13 @@ struct SettingsView: View {
                     AboutView(showList: showList, aboutText: dataModel.aboutText)
                         .padding(.horizontal, 5)
                 case .upgrade:
-                    SettingsComposer.makeProUpgradeView(dismiss: { })
+                    SettingsComposer.makeProUpgradeView()
                 }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .onChalkboard()
         .overlay(Text(dataModel.versionText).setSmoothFont(.body), alignment: .bottom)
-    }
-}
-
-
-// MARK: - Header
-fileprivate struct SettingsHeader: View {
-    let title: String
-    let showBackButton: Bool
-    let showList: () -> Void
-    let dismiss: () -> Void
-    
-    var body: some View {
-        VStack(spacing: 0) {
-            HStack {
-                Button(action: showList) {
-                    Text("Back")
-                        .setChalkFont(.body)
-                }.opacity(showBackButton ? 1 : 0)
-                Spacer()
-                DismissButton(dismiss: dismiss)
-            }
-            
-            Text(title)
-                .setChalkFont(.title)
-        }.padding(.bottom, getHeightPercent(5))
     }
 }
 

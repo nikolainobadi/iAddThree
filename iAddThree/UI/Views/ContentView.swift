@@ -21,7 +21,9 @@ struct ContentView: View {
                 .opacity(removeAds ? 0 : 1)
         }
         .onChalkboard()
-        .onChange(of: dataModel.removeAds, perform: { removeAds = $0 })
+        .onChange(of: dataModel.removeAds, perform: { newValue in
+            removeAds = newValue
+        })
     }
 }
 
