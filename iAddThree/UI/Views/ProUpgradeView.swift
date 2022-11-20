@@ -96,7 +96,19 @@ fileprivate struct PurchaseButtons: View {
 
 // MARK: - Preview
 struct ProUpgradeView_Previews: PreviewProvider {
-    static var dataModel: ProUpgradeDataModel { ProUpgradeDataModel() }
+    class MockStore: InAppPurchaseStore {
+        @Published var name = "Remove Ads"
+        @Published var price = "$0.99"
+        
+        var productNamePublisher: Published<String>.Publisher { $name }
+        var productPricePublisher: Published<String>.Publisher { $price }
+        
+        func fetchProducts() async throws { }
+        func purchaseRemoveAdsEntitlement() async throws { }
+        func restorePurchases() async throws { }
+    }
+    
+    static var dataModel: ProUpgradeDataModel { ProUpgradeDataModel(store: MockStore()) }
     static var previews: some View {
         ProUpgradeView(dataModel: dataModel, dismiss: { })
             .onChalkboard()

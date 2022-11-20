@@ -10,22 +10,18 @@ import Foundation
 
 enum SettingsComposer {
     static func makeSettingsView() -> some View {
-        let dataModel = SettingsDataModel(versionNumber: getAppVerionNumber(), requestAppReview: AppRateManager.requestAppReview)
+        let dataModel = SettingsDataModel(versionNumber: appVersionNumber, requestAppReview: AppRateManager.requestAppReview)
         
         return SettingsView(dataModel: dataModel)
     }
     
     static func makeProUpgradeView(dismiss: @escaping () -> Void) -> some View {
-        let dataModel = ProUpgradeDataModel()
-        
-        return ProUpgradeView(dataModel: dataModel, dismiss: dismiss)
+        return ProUpgradeView(dataModel: ProUpgradeDataModel(store: InAppPurchaseManager()), dismiss: dismiss)
     }
 }
 
 
 // MARK: - Private Methods
 private extension SettingsComposer {
-    static func getAppVerionNumber() -> String? {
-        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-    }
+    static var appVersionNumber: String? { Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String }
 }

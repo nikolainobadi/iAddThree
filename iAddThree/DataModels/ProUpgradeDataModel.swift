@@ -5,11 +5,17 @@
 //  Created by Nikolai Nobadi on 11/18/22.
 //
 
-import StoreKit
 import Foundation
 
 final class ProUpgradeDataModel: ObservableObject {
-    @Published private var product: Product?
+    @Published var productName = ""
+    @Published var productPrice = ""
+    
+    private let store: InAppPurchaseStore
+    
+    init(store: InAppPurchaseStore) {
+        self.store = store
+    }
 }
 
 
@@ -17,18 +23,12 @@ final class ProUpgradeDataModel: ObservableObject {
 extension ProUpgradeDataModel {
     var removeAdsMessage: String { "" }
     var thankYouMessage: String { "" }
-    var productName: String { product?.displayName ?? "" }
-    var productPrice: String {
-        guard let price = product?.price else { return "" }
-        
-        return "\(price)"
-    }
     
     func fetchProduct() async {
+        startListeners()
+        
         do {
-            if let product = try await Product.products(for: [InAppPurchaseProductKey.removeAds]).first {
-                await setProduct(product)
-            }
+            try await store.fetchProducts()
         } catch {
             // MARK: - TODO
             print(error)
@@ -38,9 +38,7 @@ extension ProUpgradeDataModel {
     func purchase() {
         Task {
             do {
-                guard let result = try await product?.purchase() else { return }
-                
-                await handlePurchaseResult(result)
+                try await store.purchaseRemoveAdsEntitlement()
             } catch {
                 // MARK: - TODO
                 print(error)
@@ -49,19 +47,23 @@ extension ProUpgradeDataModel {
     }
     
     func restorePurchase() {
-        // MARK: - TODO
+        Task {
+            do {
+                try await store.restorePurchases()
+            } catch {
+                // MARK: - TODO
+                print(error)
+            }
+        }
     }
 }
 
 
 // MARK: - Private Methods
 private extension ProUpgradeDataModel {
-    
-    
-    @MainActor func setProduct(_ product: Product) { self.product = product }
-    
-    func handlePurchaseResult(_ result: Product.PurchaseResult) async {
-        
+    func startListeners() {
+        store.productNamePublisher.dispatchOnMainQueue().assign(to: &$productName)
+        store.productPricePublisher.dispatchOnMainQueue().assign(to: &$productPrice)
     }
 }
 
@@ -75,5 +77,3 @@ protocol InAppPurchaseStore {
     func purchaseRemoveAdsEntitlement() async throws
     func restorePurchases() async throws // ideally should NOT be needed
 }
-
-
