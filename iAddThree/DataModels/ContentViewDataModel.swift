@@ -12,6 +12,7 @@ final class ContentViewDataModel: ObservableObject {
     
     init(publisher: ProStatusPublisher) {
         publisher.isProPublisher
+            .dispatchOnMainQueue()
             .assign(to: &$isPro)
     }
 }
