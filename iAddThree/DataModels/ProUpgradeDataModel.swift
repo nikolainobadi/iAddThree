@@ -61,22 +61,19 @@ private extension ProUpgradeDataModel {
     @MainActor func setProduct(_ product: Product) { self.product = product }
     
     func handlePurchaseResult(_ result: Product.PurchaseResult) async {
-        switch result {
-        case .success(let verification):
-            switch verification {
-            case .verified(let transaction):
-                // MARK: - TODO
-                // update pro status
-                await transaction.finish()
-            case .unverified: break
-            }
-        case .userCancelled: break
-        case .pending: break
-        @unknown default: break
-        }
+        
     }
 }
 
 
 // MARK: - Dependencies
+protocol InAppPurchaseStore {
+    var productNamePublisher: Published<String>.Publisher { get }
+    var productPricePublisher: Published<String>.Publisher { get }
+    
+    func fetchProducts() async throws
+    func purchaseRemoveAdsEntitlement() async throws
+    func restorePurchases() async throws // ideally should NOT be needed
+}
+
 

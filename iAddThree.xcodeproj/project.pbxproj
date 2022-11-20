@@ -52,6 +52,7 @@
 		D4A91B502929B6D300DA1A69 /* Publisher+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A91B4F2929B6D300DA1A69 /* Publisher+Extensions.swift */; };
 		D4A91B522929BC8800DA1A69 /* InAppPurchaseProfuctKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A91B512929BC8800DA1A69 /* InAppPurchaseProfuctKey.swift */; };
 		D4A91B542929BCEA00DA1A69 /* TransactionResultVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A91B532929BCEA00DA1A69 /* TransactionResultVerifier.swift */; };
+		D4A91B562929BF6400DA1A69 /* InAppPurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A91B552929BF6400DA1A69 /* InAppPurchaseManager.swift */; };
 		D4AD9F03291981A200270165 /* PlayViewDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD9F02291981A200270165 /* PlayViewDataModelTests.swift */; };
 		D4AD9F0829198EB000270165 /* GameModeMenuDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD9F0729198EB000270165 /* GameModeMenuDataModelTests.swift */; };
 		D4B8EDB528E26459001698E4 /* SettingsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B8EDB428E26459001698E4 /* SettingsDataModel.swift */; };
@@ -138,6 +139,7 @@
 		D4A91B4F2929B6D300DA1A69 /* Publisher+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Extensions.swift"; sourceTree = "<group>"; };
 		D4A91B512929BC8800DA1A69 /* InAppPurchaseProfuctKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseProfuctKey.swift; sourceTree = "<group>"; };
 		D4A91B532929BCEA00DA1A69 /* TransactionResultVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResultVerifier.swift; sourceTree = "<group>"; };
+		D4A91B552929BF6400DA1A69 /* InAppPurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseManager.swift; sourceTree = "<group>"; };
 		D4AD9F02291981A200270165 /* PlayViewDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewDataModelTests.swift; sourceTree = "<group>"; };
 		D4AD9F0729198EB000270165 /* GameModeMenuDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeMenuDataModelTests.swift; sourceTree = "<group>"; };
 		D4B8EDB428E26459001698E4 /* SettingsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDataModel.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				D4A91B472929B17000DA1A69 /* ProStatusManager.swift */,
 				D4A91B512929BC8800DA1A69 /* InAppPurchaseProfuctKey.swift */,
 				D4A91B532929BCEA00DA1A69 /* TransactionResultVerifier.swift */,
+				D4A91B552929BF6400DA1A69 /* InAppPurchaseManager.swift */,
 			);
 			path = InAppPurchase;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				D462D13128DE5122001FF20A /* NumberItemPresenter.swift in Sources */,
 				D49B31FE29287B83009AE80A /* SettingsComposer.swift in Sources */,
 				D47FEBE22911DC3F0061E7EF /* PlayViewDataModel.swift in Sources */,
+				D4A91B562929BF6400DA1A69 /* InAppPurchaseManager.swift in Sources */,
 				D445CF6029145064006CC062 /* LevelResultsView.swift in Sources */,
 				D49B320129288154009AE80A /* ProUpgradeView.swift in Sources */,
 				D4E7BC432928165000B399FA /* ContentView.swift in Sources */,
