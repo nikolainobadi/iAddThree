@@ -31,13 +31,3 @@ extension View {
         }
     }
 }
-
-struct CustomLocalizedError: LocalizedError {
-    var errorDescription: String? { "Error" }
-    var recoverySuggestion: String? { nil }
-    var message: String { "Something went wrong" }
-
-    init?(error: Error?) {
-        guard error != nil else { return nil }
-    }
-}

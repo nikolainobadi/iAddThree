@@ -10,6 +10,7 @@
 		D4007C7529247A5500F71CFD /* ModeLevelHighScoreStoreDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4007C7429247A5500F71CFD /* ModeLevelHighScoreStoreDecorator.swift */; };
 		D40283252926F86900E6B326 /* ModeLevelHighScoreStoreDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40283242926F86900E6B326 /* ModeLevelHighScoreStoreDecoratorTests.swift */; };
 		D403E242290F51C600C84761 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403E241290F51C600C84761 /* GameView.swift */; };
+		D419E53E292AEE39004D90EA /* CustomLocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419E53D292AEE39004D90EA /* CustomLocalizedError.swift */; };
 		D42DBEFA28E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DBEF928E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift */; };
 		D42DBEFE28E25E65006E29D0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DBEFD28E25E65006E29D0 /* SettingsView.swift */; };
 		D4374A122923287800FAB889 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4374A112923287800FAB889 /* MainMenu.swift */; };
@@ -94,6 +95,7 @@
 		D4007C7429247A5500F71CFD /* ModeLevelHighScoreStoreDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeLevelHighScoreStoreDecorator.swift; sourceTree = "<group>"; };
 		D40283242926F86900E6B326 /* ModeLevelHighScoreStoreDecoratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeLevelHighScoreStoreDecoratorTests.swift; sourceTree = "<group>"; };
 		D403E241290F51C600C84761 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		D419E53D292AEE39004D90EA /* CustomLocalizedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocalizedError.swift; sourceTree = "<group>"; };
 		D42DBEF928E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHighScoreStore.swift; sourceTree = "<group>"; };
 		D42DBEFD28E25E65006E29D0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D42F498E28E2993A007DCD8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/nelix/iOSApps/iAddThree/iAddThree/Resources/Info.plist; sourceTree = "<absolute>"; };
@@ -186,6 +188,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D419E53C292AEE2F004D90EA /* ErrorHandling */ = {
+			isa = PBXGroup;
+			children = (
+				D419E53D292AEE39004D90EA /* CustomLocalizedError.swift */,
+			);
+			path = ErrorHandling;
+			sourceTree = "<group>";
+		};
 		D44361D128DE439A00909629 = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +352,7 @@
 		D4A91B4B2929B6A800DA1A69 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D419E53C292AEE2F004D90EA /* ErrorHandling */,
 				D4A91B4C2929B6AF00DA1A69 /* Extensions */,
 			);
 			path = Shared;
@@ -601,6 +612,7 @@
 				D47FEBDE2911D8840061E7EF /* GameModeMenuDataModel.swift in Sources */,
 				D462D13E28DE572E001FF20A /* ChalkFontViewModifier.swift in Sources */,
 				D4374A122923287800FAB889 /* MainMenu.swift in Sources */,
+				D419E53E292AEE39004D90EA /* CustomLocalizedError.swift in Sources */,
 				D4BD27AC28DFCE2600C698A9 /* SinglePlayHighScoreStore.swift in Sources */,
 				D42DBEFE28E25E65006E29D0 /* SettingsView.swift in Sources */,
 				D462D13128DE5122001FF20A /* NumberItemPresenter.swift in Sources */,
