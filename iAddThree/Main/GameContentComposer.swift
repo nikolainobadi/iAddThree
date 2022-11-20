@@ -28,7 +28,7 @@ enum GameContentComposer {
         InstructionsView(dataModel: InstructionsDataModel(mode: mode, instructionsList: InstructionsFactory.makeInstructions(for: mode)))
     }
     
-    static func makePlayView(mode: GameMode, scoreStore: LevelScoreStore, showResults: @escaping (LevelResults) -> Void) -> some View {
+    static func makePlayView(mode: GameMode, scoreStore: LevelScoreStore, withAds: Bool, showResults: @escaping (LevelResults) -> Void) -> some View {
         let numberList = NumberItemFactory.makeNumberList(mode)
         let highScoreStore = UserDefaultsHighScoreStore(mode: mode)
         let highScoreDecorator = ModeLevelHighScoreStoreDecorator(mode: mode, decoratee: highScoreStore)
@@ -39,7 +39,7 @@ enum GameContentComposer {
         return PlayView(dataModel: dataModel)
     }
     
-    static func makeResultsView(results: LevelResults, playAgain: @escaping () -> Void) -> some View {
+    static func makeResultsView(results: LevelResults, withAds: Bool, playAgain: @escaping () -> Void) -> some View {
         let adLoader = makeAdLoader(level: results.currentLevel + 1, completion: playAgain)
         let dataModel = LevelResultsDataModel(results: results, playAgain: adLoader.showAd)
         

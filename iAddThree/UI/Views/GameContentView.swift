@@ -11,6 +11,7 @@ struct GameContentView: View {
     @Binding var state: GameState
     @State private var showingInstructions = false
     @StateObject var dataModel: GameContentViewDataModel
+    @AppStorage(AppStorageKey.adsRemoved) var removeAds: Bool = false
     
     let mode: GameMode
     
@@ -21,10 +22,10 @@ struct GameContentView: View {
                 GameContentComposer.makeMenuView(mode: mode, scoreStore: dataModel, startGame: { state = .playing }, showInstructions: { showingInstructions = true })
                     .transition(.scale)
             case .playing:
-                GameContentComposer.makePlayView(mode: mode, scoreStore: dataModel, showResults: { state = .results($0) })
+                GameContentComposer.makePlayView(mode: mode, scoreStore: dataModel, withAds: !removeAds, showResults: { state = .results($0) })
                     .transition(.scale)
             case .results(let results):
-                GameContentComposer.makeResultsView(results: results, playAgain: { state = .playing })
+                GameContentComposer.makeResultsView(results: results, withAds: !removeAds, playAgain: { state = .playing })
             }
         }.sheet(isPresented: $showingInstructions) { GameContentComposer.makeInstructionsView(mode) }
     }
