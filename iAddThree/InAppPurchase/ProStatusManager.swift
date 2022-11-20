@@ -61,12 +61,3 @@ private extension ProStatusManager {
         }
     }
 }
-
-enum TransactionResultVerifier {
-    static func checkVerified<T>(_ result: VerificationResult<T>) throws -> T {
-        switch result {
-        case .unverified: throw StoreError.failedVerification
-        case .verified(let safe): return safe
-        }
-    }
-}
