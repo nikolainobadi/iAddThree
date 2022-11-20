@@ -9,17 +9,18 @@ import SwiftUI
 
 struct ProUpgradeView: View {
     @StateObject var dataModel: ProUpgradeDataModel
+    @AppStorage(AppStorageKey.adsRemoved) var removeAds: Bool = false
     
     let dismiss: () -> Void
     
-    // MARK: - TODO
-    private var details: String { "" }
+    private var showPurchaseButton: Bool { !removeAds }
+    private var details: String { removeAds ? dataModel.removeAdsMessage : dataModel.thankYouMessage }
     
     var body: some View {
         VStack {
             ProHeaderView(dismiss: dismiss)
             ProDetails(details: details)
-            PurchaseButtons(dataModel: dataModel)
+            PurchaseButtons(dataModel: dataModel, showPurchaseButton: showPurchaseButton)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .task {
@@ -61,9 +62,7 @@ fileprivate struct ProDetails: View {
 fileprivate struct PurchaseButtons: View {
     @ObservedObject var dataModel: ProUpgradeDataModel
     
-    
-    // MARK: - TODO
-    private var showPurchaseButton: Bool { false }
+    let showPurchaseButton: Bool
     
     var body: some View {
         VStack {
