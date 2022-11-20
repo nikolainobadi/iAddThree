@@ -34,7 +34,7 @@ struct GameContentView: View {
 
 // MARK: - Preview
 struct GameContentView_Previews: PreviewProvider {
-    static var dataModel: GameContentViewDataModel { GameContentViewDataModel( )}
+    static var dataModel: GameContentViewDataModel { GameContentViewDataModel()}
     static var previews: some View {
         GameContentView(state: .constant(.menu), dataModel: dataModel, mode: .add)
             .onChalkboard()
