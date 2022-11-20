@@ -8,6 +8,7 @@
 import Foundation
 
 final class ProUpgradeDataModel: ObservableObject {
+    @Published var error: Error?
     @Published var productName = ""
     @Published var productPrice = ""
     
@@ -50,8 +51,7 @@ extension ProUpgradeDataModel {
         do {
             try await store.fetchProducts()
         } catch {
-            // MARK: - TODO
-            print(error)
+            await showError(.networkError)
         }
     }
     
@@ -64,8 +64,7 @@ extension ProUpgradeDataModel {
                     updateProStatus()
                 }
             } catch {
-                // MARK: - TODO
-                print(error)
+                await showError(error as? ProUpgradeError ?? .networkError)
             }
         }
     }
@@ -75,8 +74,7 @@ extension ProUpgradeDataModel {
             do {
                 try await store.restorePurchases()
             } catch {
-                // MARK: - TODO
-                print(error)
+                await showError(error as? ProUpgradeError ?? .networkError)
             }
         }
     }
@@ -85,6 +83,8 @@ extension ProUpgradeDataModel {
 
 // MARK: - Private Methods
 private extension ProUpgradeDataModel {
+    @MainActor func showError(_ error: ProUpgradeError) { self.error = error }
+    
     func startListeners() {
         store.productNamePublisher.dispatchOnMainQueue().assign(to: &$productName)
         store.productPricePublisher.dispatchOnMainQueue().assign(to: &$productPrice)
