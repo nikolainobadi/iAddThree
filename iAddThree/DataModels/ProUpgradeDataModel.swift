@@ -12,6 +12,7 @@ final class ProUpgradeDataModel: ObservableObject {
     @Published var productPrice = ""
     
     private let store: InAppPurchaseStore
+    private let myEmail = "nikolai.nobadi@gmail.com"
     
     init(store: InAppPurchaseStore) {
         self.store = store
@@ -21,8 +22,25 @@ final class ProUpgradeDataModel: ObservableObject {
 
 // MARK: - View Model
 extension ProUpgradeDataModel {
-    var removeAdsMessage: String { "" }
-    var thankYouMessage: String { "" }
+    var removeAdsMessage: String {
+        """
+        Tired of those pesky ads ruining your cognitive training?
+        
+        Why not remove them?
+        
+        And if the ads don't bother you, perhaps you can consider the purchase a small donation to help this independent iOS Developer make a living :)
+        """
+    }
+    
+    var thankYouMessage: String {
+        """
+        You, dear sir or ma'am, are truly a wonder.
+        
+        Thank your for the purchase. It may not seem like a lot, but each purchase helps provide me with what I need to continue building apps for the world!
+        
+        If you ever have any ideas/feedback (for iAddThree or any of my apps), please feel free to email me directly at \(myEmail)!
+        """
+    }
     
     func fetchProduct() async {
         startListeners()

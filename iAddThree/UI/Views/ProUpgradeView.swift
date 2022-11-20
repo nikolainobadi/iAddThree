@@ -14,7 +14,7 @@ struct ProUpgradeView: View {
     let dismiss: () -> Void
     
     private var showPurchaseButton: Bool { !removeAds }
-    private var details: String { removeAds ? dataModel.removeAdsMessage : dataModel.thankYouMessage }
+    private var details: String { removeAds ? dataModel.thankYouMessage : dataModel.removeAdsMessage }
     
     var body: some View {
         VStack {
@@ -53,6 +53,7 @@ fileprivate struct ProDetails: View {
             .padding()
             .setSmoothFont(.body)
             .withTextBackground()
+            .multilineTextAlignment(.center)
     }
 }
 
@@ -79,13 +80,14 @@ fileprivate struct PurchaseButtons: View {
                 .buttonStyle(.borderedProminent)
                 .tint(.green)
                 .shadow(color: .black, radius: 4, x: 2, y: 2)
+                .padding()
             }
             
             Button(action: dataModel.restorePurchase) {
                 Text("Restore Purchases")
                     .underline()
                     .setSmoothFont(.body)
-            }.padding(.top)
+            }.padding()
         }
         .padding()
         .withTextBackground(opacity: 0.2)
