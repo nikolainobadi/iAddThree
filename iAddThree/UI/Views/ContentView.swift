@@ -9,19 +9,19 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var dataModel = ContentViewDataModel()
-    
-    private var showBanner: Bool { !dataModel.isPro }
+    @AppStorage(AppStorageKey.adsRemoved) var removeAds: Bool = false
     
     var body: some View {
         VStack {
             MainMenu()
             
-            if showBanner {
-                Spacer()
-                AdMobComposer.makeAdBannerView()
-                    .padding(.bottom, 10)
-            }
-        }.onChalkboard()
+            Spacer()
+            AdMobComposer.makeAdBannerView()
+                .padding(.bottom, 10)
+                .opacity(removeAds ? 0 : 1)
+        }
+        .onChalkboard()
+        .onChange(of: dataModel.removeAds, perform: { removeAds = $0 })
     }
 }
 

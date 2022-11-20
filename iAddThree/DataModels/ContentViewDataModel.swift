@@ -8,17 +8,17 @@
 import Foundation
 
 final class ContentViewDataModel: ObservableObject {
-    @Published var isPro = false
+    @Published var removeAds = false
     
     init(publisher: ProStatusPublisher = ProStatusManager()) {
-        publisher.isProPublisher
+        publisher.removeAdsPublisher
             .dispatchOnMainQueue()
-            .assign(to: &$isPro)
+            .assign(to: &$removeAds)
     }
 }
 
 
 // MARK: - Dependencies
 protocol ProStatusPublisher {
-    var isProPublisher: Published<Bool>.Publisher { get }
+    var removeAdsPublisher: Published<Bool>.Publisher { get }
 }

@@ -13,23 +13,18 @@ enum StoreError: Error {
 }
 
 final class ProStatusManager {
-    @Published var isPro = false
+    @Published var removeAds = false
     
     var updateListenerTask: Task<Void, Error>? = nil
     
-    init() {
-       updateListenerTask = startTransactionListener()
-    }
-    
-    deinit {
-        updateListenerTask?.cancel()
-    }
+    init() { updateListenerTask = startTransactionListener() }
+    deinit { updateListenerTask?.cancel() }
 }
 
 
 // MARK: - Publisher
 extension ProStatusManager: ProStatusPublisher {
-    var isProPublisher: Published<Bool>.Publisher { $isPro }
+    var removeAdsPublisher: Published<Bool>.Publisher { $removeAds }
 }
 
 
@@ -56,7 +51,7 @@ private extension ProStatusManager {
             do {
                 let transaction = try TransactionResultVerifier.checkVerified(result)
                 
-                isPro = transaction.productID == InAppPurchaseProductKey.removeAds
+                removeAds = transaction.productID == InAppPurchaseProductKey.removeAds
                 
                 await transaction.finish()
             } catch {
