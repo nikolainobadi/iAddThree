@@ -15,20 +15,20 @@ enum GameContentComposer {
         return GameContentView(state: state, dataModel: dataModel, mode: mode)
     }
     
-    static func makeMenuView(mode: GameMode, scoreStore: LevelScoreStore, startGame: @escaping () -> Void, showInstructions: @escaping () -> Void) -> some View {
+    static func makeMenuView(mode: GameMode, scoreStore: LevelScoreStore, withAds: Bool, startGame: @escaping () -> Void, showInstructions: @escaping () -> Void) -> some View {
         let highScoreStore = UserDefaultsHighScoreStore(mode: mode)
         let resetHandler = ScoreManager(highScoreStore: highScoreStore, levelScoreStore: scoreStore)
         let dataModel = GameModeMenuDataModel(resetHandler: resetHandler, highScore: highScoreStore.highScore)
-        let adLoader = makeAdLoader(level: scoreStore.level, completion: startGame)
+        let startGame = makePlayAction(withAds: withAds, level: scoreStore.level, completion: startGame)
         
-        return GameModeMenuView(dataModel: dataModel, startGame: adLoader.showAd, showInstructions: showInstructions)
+        return GameModeMenuView(dataModel: dataModel, startGame: startGame, showInstructions: showInstructions)
     }
     
     static func makeInstructionsView(_ mode: GameMode) -> some View {
         InstructionsView(dataModel: InstructionsDataModel(mode: mode, instructionsList: InstructionsFactory.makeInstructions(for: mode)))
     }
     
-    static func makePlayView(mode: GameMode, scoreStore: LevelScoreStore, withAds: Bool, showResults: @escaping (LevelResults) -> Void) -> some View {
+    static func makePlayView(mode: GameMode, scoreStore: LevelScoreStore, showResults: @escaping (LevelResults) -> Void) -> some View {
         let numberList = NumberItemFactory.makeNumberList(mode)
         let highScoreStore = UserDefaultsHighScoreStore(mode: mode)
         let highScoreDecorator = ModeLevelHighScoreStoreDecorator(mode: mode, decoratee: highScoreStore)
@@ -40,8 +40,8 @@ enum GameContentComposer {
     }
     
     static func makeResultsView(results: LevelResults, withAds: Bool, playAgain: @escaping () -> Void) -> some View {
-        let adLoader = makeAdLoader(level: results.currentLevel + 1, completion: playAgain)
-        let dataModel = LevelResultsDataModel(results: results, playAgain: adLoader.showAd)
+        let playAgain = makePlayAction(withAds: withAds, level: results.currentLevel + 1, completion: playAgain)
+        let dataModel = LevelResultsDataModel(results: results, playAgain: playAgain)
         
         return LevelResultsView(dataModel: dataModel)
     }
@@ -50,8 +50,10 @@ enum GameContentComposer {
 
 // MARK: - Private Methods
 private extension GameContentComposer {
-    static func makeAdLoader(level: Int, completion: @escaping () -> Void) -> InterstitialAdLoader {
-        AdMobComposer.makeInterstitialLoader(shouldShowAd: AdDisplayManager(level: level).shouldShowAdd(), completion: completion)
+    static func makePlayAction(withAds: Bool, level: Int, completion: @escaping () -> Void) -> () -> Void {
+        guard withAds else { return completion }
+        
+        return AdMobComposer.makeInterstitialLoader(shouldShowAd: AdDisplayManager(level: level).shouldShowAdd(), completion: completion).showAd
     }
 }
 
