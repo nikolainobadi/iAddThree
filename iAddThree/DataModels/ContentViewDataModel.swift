@@ -10,7 +10,7 @@ import Foundation
 final class ContentViewDataModel: ObservableObject {
     @Published var isPro = false
     
-    init(publisher: ProStatusPublisher) {
+    init(publisher: ProStatusPublisher = ProStatusManager()) {
         publisher.isProPublisher
             .dispatchOnMainQueue()
             .assign(to: &$isPro)

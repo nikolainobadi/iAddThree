@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    private var showBanner: Bool { true }
+    @StateObject var dataModel = ContentViewDataModel()
+    
+    private var showBanner: Bool { !dataModel.isPro }
+    
     var body: some View {
         VStack {
             MainMenu()
@@ -22,9 +25,9 @@ struct ContentView: View {
     }
 }
 
+// MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .previewDevice("iPod touch (7th generation)")
     }
 }

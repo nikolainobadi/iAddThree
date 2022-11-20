@@ -27,6 +27,12 @@ final class ProStatusManager {
 }
 
 
+// MARK: - Publisher
+extension ProStatusManager: ProStatusPublisher {
+    var isProPublisher: Published<Bool>.Publisher { $isPro }
+}
+
+
 // MARK: - Private Methods
 private extension ProStatusManager {
     func startTransactionListener() -> Task<Void, Error> {
