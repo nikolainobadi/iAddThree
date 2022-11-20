@@ -51,7 +51,7 @@ fileprivate struct PurchaseButtons: View {
     let showPurchaseButton: Bool
     
     var body: some View {
-        if showPurchaseButton {
+        VStack {
             Button(action: dataModel.purchase) {
                 VStack {
                     Text(dataModel.productName)
@@ -65,13 +65,13 @@ fileprivate struct PurchaseButtons: View {
             .tint(.green)
             .shadow(color: .black, radius: 4, x: 2, y: 2)
             .padding()
-        } else {
+            
             Button(action: dataModel.restorePurchase) {
                 Text("Restore Purchases")
                     .underline()
                     .setSmoothFont(.body)
             }.padding()
-        }
+        }.opacity(showPurchaseButton ? 1 : 0)
     }
 }
 
