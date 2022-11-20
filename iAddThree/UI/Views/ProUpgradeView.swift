@@ -12,10 +12,13 @@ struct ProUpgradeView: View {
     
     let dismiss: () -> Void
     
+    // MARK: - TODO
+    private var details: String { "" }
+    
     var body: some View {
         VStack {
             ProHeaderView(dismiss: dismiss)
-            ProDetails(details: dataModel.details)
+            ProDetails(details: details)
             PurchaseButtons(dataModel: dataModel)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
@@ -58,7 +61,9 @@ fileprivate struct ProDetails: View {
 fileprivate struct PurchaseButtons: View {
     @ObservedObject var dataModel: ProUpgradeDataModel
     
-    private var showPurchaseButton: Bool { !dataModel.isPro }
+    
+    // MARK: - TODO
+    private var showPurchaseButton: Bool { false }
     
     var body: some View {
         VStack {

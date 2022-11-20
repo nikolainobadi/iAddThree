@@ -15,12 +15,8 @@ final class ProUpgradeDataModel: ObservableObject {
 
 // MARK: - View Model
 extension ProUpgradeDataModel {
-    
-    
-    
-    // MARK: - TODO
-    var isPro: Bool { false } 
-    var details: String { isPro ? thankYouMessage : proDetails }
+    var removeAdsMessage: String { "" }
+    var thankYouMessage: String { "" }
     var productName: String { product?.displayName ?? "" }
     var productPrice: String {
         guard let price = product?.price else { return "" }
@@ -60,8 +56,7 @@ extension ProUpgradeDataModel {
 
 // MARK: - Private Methods
 private extension ProUpgradeDataModel {
-    var proDetails: String { "" }
-    var thankYouMessage: String { "" }
+    
     
     @MainActor func setProduct(_ product: Product) { self.product = product }
     
@@ -81,3 +76,7 @@ private extension ProUpgradeDataModel {
         }
     }
 }
+
+
+// MARK: - Dependencies
+
