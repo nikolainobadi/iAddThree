@@ -29,8 +29,8 @@ extension InAppPurchaseManager: InAppPurchaseStore {
         product = try await Product.products(for: [InAppPurchaseProductKey.removeAds]).first
     }
     
-    func purchaseRemoveAdsEntitlement() async throws {
-        guard let purchaseResult = try await product?.purchase() else { return }
+    func purchaseRemoveAdsEntitlement() async throws -> Bool {
+        guard let purchaseResult = try await product?.purchase() else { return false }
         
         switch purchaseResult {
         case .success(let successResult):
@@ -39,9 +39,11 @@ extension InAppPurchaseManager: InAppPurchaseStore {
             // purchase results handled in ProStatusManager
             
             await transaction.finish()
-        case .userCancelled: break
-        case .pending: break
-        @unknown default: break
+            
+            return true
+        case .userCancelled: return false
+        case .pending: return false
+        @unknown default: return false
         }
     }
     

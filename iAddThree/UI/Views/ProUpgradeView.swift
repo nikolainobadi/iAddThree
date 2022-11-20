@@ -86,7 +86,7 @@ struct ProUpgradeView_Previews: PreviewProvider {
         var productPricePublisher: Published<String>.Publisher { $price }
         
         func fetchProducts() async throws { }
-        func purchaseRemoveAdsEntitlement() async throws { }
+        func purchaseRemoveAdsEntitlement() async throws -> Bool { false }
         func restorePurchases() async throws { }
     }
     

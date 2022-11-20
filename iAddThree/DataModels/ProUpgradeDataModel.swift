@@ -12,10 +12,12 @@ final class ProUpgradeDataModel: ObservableObject {
     @Published var productPrice = ""
     
     private let store: InAppPurchaseStore
+    private let defaults: UserDefaults
     private let myEmail = "nikolai.nobadi@gmail.com"
     
-    init(store: InAppPurchaseStore) {
+    init(store: InAppPurchaseStore, defaults: UserDefaults = UserDefaults.standard) {
         self.store = store
+        self.defaults = defaults
     }
 }
 
@@ -56,7 +58,11 @@ extension ProUpgradeDataModel {
     func purchase() {
         Task {
             do {
-                try await store.purchaseRemoveAdsEntitlement()
+                let didPurchase = try await store.purchaseRemoveAdsEntitlement()
+                
+                if didPurchase {
+                    updateProStatus()
+                }
             } catch {
                 // MARK: - TODO
                 print(error)
@@ -83,6 +89,10 @@ private extension ProUpgradeDataModel {
         store.productNamePublisher.dispatchOnMainQueue().assign(to: &$productName)
         store.productPricePublisher.dispatchOnMainQueue().assign(to: &$productPrice)
     }
+    
+    func updateProStatus() {
+        defaults.set(true, forKey: AppStorageKey.adsRemoved)
+    }
 }
 
 
@@ -92,6 +102,6 @@ protocol InAppPurchaseStore {
     var productPricePublisher: Published<String>.Publisher { get }
     
     func fetchProducts() async throws
-    func purchaseRemoveAdsEntitlement() async throws
+    func purchaseRemoveAdsEntitlement() async throws -> Bool
     func restorePurchases() async throws // ideally should NOT be needed
 }
