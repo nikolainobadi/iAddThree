@@ -35,6 +35,7 @@ private extension ProStatusManager {
                 do {
                     let transaction = try TransactionResultVerifier.checkVerified(result)
                     
+                    await updateProStatus()
                     await transaction.finish()
                 } catch {
                     // MARK: - TODO
@@ -50,6 +51,8 @@ private extension ProStatusManager {
                 let transaction = try TransactionResultVerifier.checkVerified(result)
                 
                 isPro = transaction.productID == InAppPurchaseProductKey.removeAds
+                
+                await transaction.finish()
             } catch {
                 // MARK: - TODO
                 print(error)
