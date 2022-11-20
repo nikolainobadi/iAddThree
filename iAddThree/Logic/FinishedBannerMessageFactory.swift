@@ -14,7 +14,7 @@ enum FinishedBannerMessageFactory {
         switch results.pointsToAdd {
         case 1: return "Nice Try"
         case 2: return "Good Job!"
-        case 3: return "Gread Job!"
+        case 3: return "Great Job!"
         case 4: return "Perfect!"
         default: return "Not Quite"
         }
