@@ -8,10 +8,6 @@
 import StoreKit
 import Foundation
 
-enum InAppPurchaseProductKey {
-    static let removeAds = "com.nobadi.AddThree.RemoveAd"
-}
-
 final class ProUpgradeDataModel: ObservableObject {
     @Published private var product: Product?
 }
@@ -19,7 +15,11 @@ final class ProUpgradeDataModel: ObservableObject {
 
 // MARK: - View Model
 extension ProUpgradeDataModel {
-    var isPro: Bool { false }
+    
+    
+    
+    // MARK: - TODO
+    var isPro: Bool { false } 
     var details: String { isPro ? thankYouMessage : proDetails }
     var productName: String { product?.displayName ?? "" }
     var productPrice: String {
