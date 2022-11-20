@@ -46,10 +46,43 @@ final class ProUpgradeDataModelTests: XCTestCase {
         XCTAssertTrue(sut.productPrice.isEmpty)
     }
 
-//    func test_purchase() async {
-//
-//    }
-//
+    func test_purchase_success() async throws {
+        let (sut, _, defaults) = makeSUT(shouldPurchase: true)
+        
+        sut.purchase()
+        
+        try await waitForAsyncMethod()
+        
+        XCTAssertNil(sut.error)
+        
+        guard let defaultsValue = defaults.value(forKey: AppStorageKey.adsRemoved) else { return XCTFail("Expected a value") }
+        guard let removeAds = defaultsValue as? Bool else { return XCTFail("expected a bool") }
+    
+        XCTAssertTrue(removeAds)
+    }
+    
+    func test_purchase_didNotPurchase_noError() async throws {
+        let (sut, _, defaults) = makeSUT(shouldPurchase: false)
+        
+        sut.purchase()
+        
+        try await waitForAsyncMethod()
+        
+        XCTAssertNil(sut.error)
+        XCTAssertNil(defaults.value(forKey: AppStorageKey.adsRemoved))
+    }
+    
+    func test_purchase_error() async throws {
+        let (sut, _, defaults) = makeSUT(throwError: true, shouldPurchase: true)
+        
+        sut.purchase()
+        
+        try await waitForAsyncMethod()
+        
+        XCTAssertNotNil(sut.error)
+        XCTAssertNil(defaults.value(forKey: AppStorageKey.adsRemoved))
+    }
+
 //    func test_restorePurchases() async {
 //
 //    }
