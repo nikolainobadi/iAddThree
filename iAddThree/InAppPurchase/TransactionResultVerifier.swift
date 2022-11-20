@@ -11,7 +11,7 @@ import Foundation
 enum TransactionResultVerifier {
     static func checkVerified<T>(_ result: VerificationResult<T>) throws -> T {
         switch result {
-        case .unverified: throw StoreError.failedVerification
+        case .unverified: throw ProUpgradeError.unverifiedTransaction
         case .verified(let safe): return safe
         }
     }

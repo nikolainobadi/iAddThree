@@ -8,10 +8,6 @@
 import StoreKit
 import Foundation
 
-enum StoreError: Error {
-    case failedVerification
-}
-
 final class ProStatusManager {
     @Published var removeAds = false
     
