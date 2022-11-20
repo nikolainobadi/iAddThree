@@ -11,6 +11,8 @@
 		D40283252926F86900E6B326 /* ModeLevelHighScoreStoreDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40283242926F86900E6B326 /* ModeLevelHighScoreStoreDecoratorTests.swift */; };
 		D403E242290F51C600C84761 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403E241290F51C600C84761 /* GameView.swift */; };
 		D419E53E292AEE39004D90EA /* CustomLocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419E53D292AEE39004D90EA /* CustomLocalizedError.swift */; };
+		D419E540292AEEED004D90EA /* ProUpgradeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419E53F292AEEED004D90EA /* ProUpgradeError.swift */; };
+		D419E543292AF059004D90EA /* SupportEmailURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419E542292AF059004D90EA /* SupportEmailURL.swift */; };
 		D42DBEFA28E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DBEF928E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift */; };
 		D42DBEFE28E25E65006E29D0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DBEFD28E25E65006E29D0 /* SettingsView.swift */; };
 		D4374A122923287800FAB889 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4374A112923287800FAB889 /* MainMenu.swift */; };
@@ -96,6 +98,8 @@
 		D40283242926F86900E6B326 /* ModeLevelHighScoreStoreDecoratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeLevelHighScoreStoreDecoratorTests.swift; sourceTree = "<group>"; };
 		D403E241290F51C600C84761 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		D419E53D292AEE39004D90EA /* CustomLocalizedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocalizedError.swift; sourceTree = "<group>"; };
+		D419E53F292AEEED004D90EA /* ProUpgradeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUpgradeError.swift; sourceTree = "<group>"; };
+		D419E542292AF059004D90EA /* SupportEmailURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportEmailURL.swift; sourceTree = "<group>"; };
 		D42DBEF928E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHighScoreStore.swift; sourceTree = "<group>"; };
 		D42DBEFD28E25E65006E29D0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D42F498E28E2993A007DCD8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/nelix/iOSApps/iAddThree/iAddThree/Resources/Info.plist; sourceTree = "<absolute>"; };
@@ -192,8 +196,17 @@
 			isa = PBXGroup;
 			children = (
 				D419E53D292AEE39004D90EA /* CustomLocalizedError.swift */,
+				D419E53F292AEEED004D90EA /* ProUpgradeError.swift */,
 			);
 			path = ErrorHandling;
+			sourceTree = "<group>";
+		};
+		D419E541292AF04C004D90EA /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				D419E542292AF059004D90EA /* SupportEmailURL.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		D44361D128DE439A00909629 = {
@@ -352,6 +365,7 @@
 		D4A91B4B2929B6A800DA1A69 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D419E541292AF04C004D90EA /* Constants */,
 				D419E53C292AEE2F004D90EA /* ErrorHandling */,
 				D4A91B4C2929B6AF00DA1A69 /* Extensions */,
 			);
@@ -583,6 +597,7 @@
 				D4A91B502929B6D300DA1A69 /* Publisher+Extensions.swift in Sources */,
 				D4BD279A28DF923A00C698A9 /* InstructionDetails.swift in Sources */,
 				D4BD27A128DF9D6300C698A9 /* ChalkButton.swift in Sources */,
+				D419E540292AEEED004D90EA /* ProUpgradeError.swift in Sources */,
 				D46B0CB42914920B0018DD92 /* GameContentViewDataModel.swift in Sources */,
 				D49B320329288248009AE80A /* TextBackgroundViewModifier.swift in Sources */,
 				D49B3205292883F0009AE80A /* DismissButton.swift in Sources */,
@@ -614,6 +629,7 @@
 				D4374A122923287800FAB889 /* MainMenu.swift in Sources */,
 				D419E53E292AEE39004D90EA /* CustomLocalizedError.swift in Sources */,
 				D4BD27AC28DFCE2600C698A9 /* SinglePlayHighScoreStore.swift in Sources */,
+				D419E543292AF059004D90EA /* SupportEmailURL.swift in Sources */,
 				D42DBEFE28E25E65006E29D0 /* SettingsView.swift in Sources */,
 				D462D13128DE5122001FF20A /* NumberItemPresenter.swift in Sources */,
 				D49B31FE29287B83009AE80A /* SettingsComposer.swift in Sources */,

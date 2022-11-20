@@ -28,7 +28,7 @@ final class SettingsDataModel: ObservableObject {
 // MARK: - View Model
 extension SettingsDataModel {
     var isPro: Bool { false }
-    var emailURL: String { "mailto:nnobadicares@gmail.com" }
+    var emailURL: String { "mailto:\(SUPPORT_EMAIL)" }
     var privacyPolicyURL: String { "https://github.com/nikolainobadi/PrivacyPolicies/blob/main/iAddThree/iAddThree_PrivacyPolicy.md" }
     var title: String { state == .upgrade ? "iAddThree Pro" : "Settings" }
     var versionText: String {
