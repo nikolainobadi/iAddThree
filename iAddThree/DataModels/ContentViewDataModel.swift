@@ -8,7 +8,7 @@
 import Foundation
 
 final class ContentViewDataModel: ObservableObject {
-    @Published var removeAds = false
+    @Published var removeAds = false 
     
     init(publisher: ProStatusPublisher = ProStatusManager()) {
         publisher.removeAdsPublisher

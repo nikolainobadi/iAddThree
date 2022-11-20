@@ -17,8 +17,17 @@ final class ProStatusManager {
     
     var updateListenerTask: Task<Void, Error>? = nil
     
-    init() { updateListenerTask = startTransactionListener() }
-    deinit { updateListenerTask?.cancel() }
+    init() {
+        updateListenerTask = startTransactionListener()
+        
+        Task {
+            await updateProStatus()
+        }
+    }
+    
+    deinit {
+        updateListenerTask?.cancel()
+    }
 }
 
 
@@ -31,12 +40,12 @@ extension ProStatusManager: ProStatusPublisher {
 // MARK: - Private Methods
 private extension ProStatusManager {
     func startTransactionListener() -> Task<Void, Error> {
-        return Task {
+        return Task.detached {
             for await result in Transaction.updates {
                 do {
                     let transaction = try TransactionResultVerifier.checkVerified(result)
                     
-                    await updateProStatus()
+                    await self.updateProStatus()
                     await transaction.finish()
                 } catch {
                     // MARK: - TODO
