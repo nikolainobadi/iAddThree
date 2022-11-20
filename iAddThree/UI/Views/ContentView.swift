@@ -15,10 +15,11 @@ struct ContentView: View {
         VStack {
             MainMenu()
             
-            Spacer()
-            AdMobComposer.makeAdBannerView()
-                .padding(.bottom, 10)
-                .opacity(removeAds ? 0 : 1)
+            if !removeAds {
+                Spacer()
+                AdMobComposer.makeAdBannerView()
+                    .padding(.bottom, 10)
+            }
         }
         .onChalkboard()
         .onChange(of: dataModel.removeAds, perform: { newValue in
