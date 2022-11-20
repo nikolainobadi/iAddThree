@@ -10,29 +10,58 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject var dataModel: SettingsDataModel
+
+    private var title: String { dataModel.title }
+    private var showBackButton: Bool { state == .upgrade }
+    private var state: SettingsViewState { dataModel.state }
     
-    private var showingAbout: Bool { dataModel.showingAbout }
+    private func showList() { dataModel.show(.list) }
+    private func popView() { dismiss() }
     
     var body: some View {
         VStack {
-            VStack(spacing: 0) {
-                DismissButton(dismiss: { dismiss() })
-                Text("Settings")
-                    .setChalkFont(.title)
-            }.padding(.bottom, getHeightPercent(5))
+            SettingsHeader(title: title, showBackButton: showBackButton, showList: showList, dismiss: popView)
             
             VStack {
-                if showingAbout {
-                    AboutView(showList: { dataModel.showingAbout = false }, aboutText: dataModel.aboutText)
-                        .padding(.horizontal, 5)
-                } else {
+                switch state {
+                case .list:
                     SettingsButtonView(dataModel: dataModel)
+                case .about:
+                    AboutView(showList: showList, aboutText: dataModel.aboutText)
+                        .padding(.horizontal, 5)
+                case .upgrade:
+                    SettingsComposer.makeProUpgradeView(dismiss: { })
                 }
-            }.animation(.easeIn(duration: 1), value: showingAbout)
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .onChalkboard()
         .overlay(Text(dataModel.versionText).setSmoothFont(.body), alignment: .bottom)
+    }
+}
+
+
+// MARK: - Header
+fileprivate struct SettingsHeader: View {
+    let title: String
+    let showBackButton: Bool
+    let showList: () -> Void
+    let dismiss: () -> Void
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            HStack {
+                Button(action: showList) {
+                    Text("Back")
+                        .setChalkFont(.body)
+                }.opacity(showBackButton ? 1 : 0)
+                Spacer()
+                DismissButton(dismiss: dismiss)
+            }
+            
+            Text(title)
+                .setChalkFont(.title)
+        }.padding(.bottom, getHeightPercent(5))
     }
 }
 
@@ -71,40 +100,32 @@ fileprivate struct SettingsButtonView: View {
     private var width: CGFloat { 70 }
     
     var body: some View {
-        VStack {
-            VStack {
-                if showingProUpgrade {
-                    SettingsComposer.makeProUpgradeView(dismiss: { showingProUpgrade = false })
-                } else {
-                    VStack(spacing: getHeightPercent(5)) {
-                        Button(action: { showingProUpgrade = true }) {
-                            Text("Remove Ads")
-                                .frame(width: getWidthPercent(width))
-                                .withRoundedBorder()
-                        }
-                        
-                        Link("Send Feedback", destination: URL(string: dataModel.emailURL)!)
-                            .frame(width: getWidthPercent(width))
-                            .withRoundedBorder()
-                        
-                        Button(action: dataModel.rateApp) {
-                            Text("Rate App")
-                                .frame(width: getWidthPercent(width))
-                                .withRoundedBorder()
-                        }
-                        
-                        Button(action: dataModel.showAbout) {
-                            Text("About")
-                                .frame(width: getWidthPercent(width))
-                                .withRoundedBorder()
-                        }
-                        
-                        Link("Privacy Policy", destination: URL(string: dataModel.privacyPolicyURL)!)
-                            .frame(width: getWidthPercent(width))
-                            .withRoundedBorder()
-                    }.transition(.opacity)
-                }
-            }.animation(.default, value: showingProUpgrade)
+        VStack(spacing: getHeightPercent(5)) {
+            Button(action: { dataModel.show(.upgrade) }) {
+                Text("Remove Ads")
+                    .frame(width: getWidthPercent(width))
+                    .withRoundedBorder()
+            }
+            
+            Link("Send Feedback", destination: URL(string: dataModel.emailURL)!)
+                .frame(width: getWidthPercent(width))
+                .withRoundedBorder()
+            
+            Button(action: dataModel.rateApp) {
+                Text("Rate App")
+                    .frame(width: getWidthPercent(width))
+                    .withRoundedBorder()
+            }
+            
+            Button(action: { dataModel.show(.about) }) {
+                Text("About")
+                    .frame(width: getWidthPercent(width))
+                    .withRoundedBorder()
+            }
+            
+            Link("Privacy Policy", destination: URL(string: dataModel.privacyPolicyURL)!)
+                .frame(width: getWidthPercent(width))
+                .withRoundedBorder()
         }.setSmoothFont(.headline)
     }
 }

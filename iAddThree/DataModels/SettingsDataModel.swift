@@ -7,8 +7,13 @@
 
 import Foundation
 
+enum SettingsViewState {
+    case list, about, upgrade
+}
+
 final class SettingsDataModel: ObservableObject {
     @Published var showingAbout = false
+    @Published var state: SettingsViewState = .list
     
     private let versionNumber: String?
     private let requestAppReview: () -> Void
@@ -25,6 +30,7 @@ extension SettingsDataModel {
     var isPro: Bool { false }
     var emailURL: String { "mailto:nnobadicares@gmail.com" }
     var privacyPolicyURL: String { "https://github.com/nikolainobadi/PrivacyPolicies/blob/main/iAddThree/iAddThree_PrivacyPolicy.md" }
+    var title: String { state == .upgrade ? "iAddThree Pro" : "Settings" }
     var versionText: String {
         guard let versionNumber = versionNumber else { return "" }
         
@@ -39,5 +45,5 @@ extension SettingsDataModel {
     }
     
     func rateApp() { requestAppReview() }
-    func showAbout() { showingAbout = true }
+    func show(_ state: SettingsViewState) { self.state = state }
 }
