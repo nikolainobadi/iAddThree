@@ -46,6 +46,7 @@
 		D49B320329288248009AE80A /* TextBackgroundViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B320229288248009AE80A /* TextBackgroundViewModifier.swift */; };
 		D49B3205292883F0009AE80A /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B3204292883F0009AE80A /* DismissButton.swift */; };
 		D49B320729288498009AE80A /* ProUpgradeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B320629288498009AE80A /* ProUpgradeDataModel.swift */; };
+		D4A91B482929B17000DA1A69 /* ProStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A91B472929B17000DA1A69 /* ProStatusManager.swift */; };
 		D4AD9F03291981A200270165 /* PlayViewDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD9F02291981A200270165 /* PlayViewDataModelTests.swift */; };
 		D4AD9F0829198EB000270165 /* GameModeMenuDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD9F0729198EB000270165 /* GameModeMenuDataModelTests.swift */; };
 		D4B8EDB528E26459001698E4 /* SettingsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B8EDB428E26459001698E4 /* SettingsDataModel.swift */; };
@@ -126,6 +127,7 @@
 		D49B3204292883F0009AE80A /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		D49B320629288498009AE80A /* ProUpgradeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUpgradeDataModel.swift; sourceTree = "<group>"; };
 		D4A91B4629298D6700DA1A69 /* StoreKitConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitConfig.storekit; sourceTree = "<group>"; };
+		D4A91B472929B17000DA1A69 /* ProStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProStatusManager.swift; sourceTree = "<group>"; };
 		D4AD9F02291981A200270165 /* PlayViewDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewDataModelTests.swift; sourceTree = "<group>"; };
 		D4AD9F0729198EB000270165 /* GameModeMenuDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeMenuDataModelTests.swift; sourceTree = "<group>"; };
 		D4B8EDB428E26459001698E4 /* SettingsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDataModel.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				D4A91B4629298D6700DA1A69 /* StoreKitConfig.storekit */,
+				D4A91B472929B17000DA1A69 /* ProStatusManager.swift */,
 			);
 			path = InAppPurchase;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				D4E7BC432928165000B399FA /* ContentView.swift in Sources */,
 				D4FFC54B29283273006AE74C /* GameState.swift in Sources */,
 				D4BD279C28DF9B8F00C698A9 /* InstructionsViewDataModel.swift in Sources */,
+				D4A91B482929B17000DA1A69 /* ProStatusManager.swift in Sources */,
 				D462D11328DE4490001FF20A /* NumberItem.swift in Sources */,
 				D4E7BC3A29280F9900B399FA /* AdMobId.swift in Sources */,
 				D4B8EDB528E26459001698E4 /* SettingsDataModel.swift in Sources */,

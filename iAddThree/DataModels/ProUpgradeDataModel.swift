@@ -45,7 +45,6 @@ extension ProUpgradeDataModel {
                 guard let result = try await product?.purchase() else { return }
                 
                 await handlePurchaseResult(result)
-                
             } catch {
                 // MARK: - TODO
                 print(error)
