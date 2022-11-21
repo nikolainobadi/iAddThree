@@ -9,10 +9,12 @@ import SwiftUI
 
 struct MainMenu: View {
     @State private var selectedMode: GameMode?
+    @State private var showingSettings = false
     @AppStorage(AppStorageKey.modeLevel) var modeLevel: Int = 0
 
     private func playMode(_ mode: GameMode) { selectedMode = mode }
     private func returnToMainMenu() { selectedMode = nil }
+    private func showSettings() { showingSettings = true }
     
     var body: some View {
         VStack {
@@ -26,9 +28,23 @@ struct MainMenu: View {
                     Spacer()
                     ModeButtonsView(modeLevel: modeLevel, playMode: playMode(_:))
                     Spacer()
-                }
+                }.overlay(SettingsButton(showSettings: showSettings), alignment: .topTrailing)
             }
-        }.animation(.default, value: selectedMode)
+        }
+        .animation(.default, value: selectedMode)
+        .sheet(isPresented: $showingSettings) { SettingsComposer.makeSettingsView() }
+    }
+}
+
+
+// MARK: - SettingsButton
+fileprivate struct SettingsButton: View {
+    let showSettings: () -> Void
+    var body: some View {
+        Button(action: showSettings) {
+            Image(systemName: "gearshape")
+                .setChalkFont(.subheadline)
+        }.padding(.horizontal)
     }
 }
 

@@ -8,23 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
-    private var showBanner: Bool { true }
+    @StateObject var dataModel = ContentViewDataModel()
+    @AppStorage(AppStorageKey.adsRemoved) var removeAds: Bool = false
+    
     var body: some View {
         VStack {
             MainMenu()
             
-            if showBanner {
+            if !removeAds {
                 Spacer()
                 AdMobComposer.makeAdBannerView()
                     .padding(.bottom, 10)
             }
-        }.onChalkboard()
+        }
+        .onChalkboard()
+        .onChange(of: dataModel.removeAds, perform: { newValue in
+            removeAds = newValue
+        })
     }
 }
 
+// MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .previewDevice("iPod touch (7th generation)")
     }
 }

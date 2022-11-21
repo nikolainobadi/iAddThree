@@ -33,7 +33,7 @@ struct PlayView: View {
                     }
                 }
             }
-            .frame(maxWidth: getWidthPercent(90))
+            .frame(maxWidth: getWidthPercent(90), maxHeight: .infinity)
             .animation(.linear, value: results)
             .overlay(PlayViewFooter(score: score, highScore: highScore, level: dataModel.level), alignment: .bottomLeading)
         }.onAppear { dataModel.startLevel() }

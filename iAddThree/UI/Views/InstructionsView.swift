@@ -55,10 +55,8 @@ struct InstructionsView: View {
                     ToolBarButton(text: "Next", color: .green, isShowing: showNextButton, action: { turnPage() })
                 }.padding()
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            .background(.black.opacity(0.5))
-            .cornerRadius(20)
-            .padding()
+            .withTextBackground()
+            .frame(maxWidth: getWidthPercent(98), maxHeight: .infinity, alignment: .top)
         }.onChalkboard()
     }
 }

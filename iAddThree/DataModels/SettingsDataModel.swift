@@ -7,11 +7,34 @@
 
 import Foundation
 
+enum SettingsViewState {
+    case list, about, upgrade
+}
+
 final class SettingsDataModel: ObservableObject {
-    let requestAppReview: () -> Void
-    let emailURL = "mailto:nnobadicares@gmail.com"
-    let privacyPolicyURL = "https://github.com/nikolainobadi/PrivacyPolicies/blob/main/iAddThree/iAddThree_PrivacyPolicy.md"
+    @Published var showingAbout = false
+    @Published var state: SettingsViewState = .list
     
+    private let versionNumber: String?
+    private let requestAppReview: () -> Void
+    
+    init(versionNumber: String?, requestAppReview: @escaping () -> Void) {
+        self.versionNumber = versionNumber
+        self.requestAppReview = requestAppReview
+    }
+}
+
+
+// MARK: - View Model
+extension SettingsDataModel {
+    var emailURL: String { "mailto:\(SUPPORT_EMAIL)" }
+    var privacyPolicyURL: String { "https://github.com/nikolainobadi/PrivacyPolicies/blob/main/iAddThree/iAddThree_PrivacyPolicy.md" }
+    var title: String { state == .upgrade ? "iAddThree Pro" : "Settings" }
+    var versionText: String {
+        guard let versionNumber = versionNumber else { return "" }
+        
+        return "Version \(versionNumber)"
+    }
     var aboutText: String {
         """
         iAddThree was inspired by a mental exercise presented in the book *Thinking Fast and Slow*, by nobel prize winning psychologist, Daniel Kahneman.
@@ -20,7 +43,6 @@ final class SettingsDataModel: ObservableObject {
         """
     }
     
-    init(requestAppReview: @escaping () -> Void = AppRateManager.requestAppReview) {
-        self.requestAppReview = requestAppReview
-    }
+    func rateApp() { requestAppReview() }
+    func show(_ state: SettingsViewState) { self.state = state }
 }

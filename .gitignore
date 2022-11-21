@@ -23,5 +23,6 @@ xcuserdata/
 *.xcscmblueprint
 
 
-## iAddThree Test plist
+## iAddThree
+CodeSigning/
 iAddThreeTests/**/*.plist

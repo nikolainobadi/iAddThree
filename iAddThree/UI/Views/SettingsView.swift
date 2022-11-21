@@ -9,97 +9,128 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
-    @StateObject var dataModel = SettingsDataModel()
+    @StateObject var dataModel: SettingsDataModel
+
+    private var title: String { dataModel.title }
+    private var showBackButton: Bool { state == .upgrade }
+    private var state: SettingsViewState { dataModel.state }
+    
+    private func showList() { dataModel.show(.list) }
     
     var body: some View {
-        VStack(spacing: 0) {
-            Text("Settings")
-                .setChalkFont(.title)
-            Text(dataModel.aboutText)
-                .setSmoothFont(.body)
-                .padding()
-                .background(.black.opacity(0.5))
-                .cornerRadius(20)
-                .padding(5)
-                .frame(maxHeight: getHeightPercent(60))
-            
-            Spacer()
+        VStack {
+            VStack(spacing: 0) {
+                HStack {
+                    Button(action: showList) {
+                        Label {
+                            Text("Back")
+                        } icon: {
+                            Image(systemName: "chevron.left")
+                        }.setChalkFont(.body)
+                    }
+                    .padding(.horizontal)
+                    .opacity(showBackButton ? 1 : 0)
+                    
+                    Spacer()
+                    DismissButton(dismiss: { dismiss() })
+                }
+                
+                Text(title)
+                    .lineLimit(1)
+                    .setChalkFont(.title, autoSize: true)
+                    .padding(.horizontal)
+                    .padding(.top, state == .upgrade ? getHeightPercent(2) : 0)
+            }.padding(.bottom, getHeightPercent(5))
             
             VStack {
-                SettingsButtonView(emailURLString: dataModel.emailURL, rateApp: dataModel.requestAppReview)
-                Link(destination: URL(string: dataModel.privacyPolicyURL)!) {
-                    Text("Privacy Policy")
-                        .underline()
-                        .setSmoothFont(.body)
+                switch state {
+                case .list:
+                    SettingsButtonView(dataModel: dataModel)
+                case .about:
+                    AboutView(showList: showList, aboutText: dataModel.aboutText)
+                        .padding(.horizontal, 5)
+                case .upgrade:
+                    SettingsComposer.makeProUpgradeView()
                 }
-            }.padding()
+            }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .onChalkboard()
-        .overlay(
-            Button(action: { dismiss() }, label: { Image(systemName: "xmark") })
-                .setChalkFont(.subheadline)
-                .padding(.horizontal)
-            , alignment: .topTrailing
-        )
+        .overlay(Text(dataModel.versionText).setSmoothFont(.body), alignment: .bottom)
+    }
+}
+
+
+// MARK: - About
+fileprivate struct AboutView: View {
+    let showList: () -> Void
+    let aboutText: String
+    
+    var body: some View {
+        VStack {
+            HStack {
+                Button(action: showList) {
+                    Label {
+                        Text("Settings List")
+                            .underline()
+                    } icon: {
+                        Image(systemName: "chevron.left")
+                    }.setSmoothFont(.body)
+                }.padding(.horizontal)
+                Spacer()
+            }
+            Text(aboutText)
+                .setSmoothFont(.body)
+                .padding()
+        }.withTextBackground()
     }
 }
 
 
 // MARK: - Buttons
 fileprivate struct SettingsButtonView: View {
-    let emailURLString: String
-    let rateApp: () -> Void
+    @State private var showingProUpgrade = false
+    @ObservedObject var dataModel: SettingsDataModel
+    
+    private var width: CGFloat { 70 }
     
     var body: some View {
-        if isSmallDevice {
-            HStack {
-                Link("Feedback?", destination: URL(string: emailURLString)!)
-                    .lineLimit(1)
+        VStack(spacing: getHeightPercent(5)) {
+            Button(action: { dataModel.show(.upgrade) }) {
+                Text("Remove Ads")
+                    .frame(width: getWidthPercent(width))
                     .withRoundedBorder()
-                    .padding()
-               
-                Button(action: rateApp) {
-                    Text("Rate App")
-                        .withRoundedBorder()
-                        .padding()
-                }
-            }.setChalkFont(.subheadline, autoSize: true)
-        } else {
-            VStack {
-                Link("Feedback?", destination: URL(string: emailURLString)!)
-                    .frame(width: getWidthPercent(60))
+            }
+            
+            Link("Send Feedback", destination: URL(string: dataModel.emailURL)!)
+                .frame(width: getWidthPercent(width))
+                .withRoundedBorder()
+            
+            Button(action: dataModel.rateApp) {
+                Text("Rate App")
+                    .frame(width: getWidthPercent(width))
                     .withRoundedBorder()
-                    .padding()
-                
-                Button(action: rateApp) {
-                    Text("Rate App")
-                        .frame(width: getWidthPercent(60))
-                        .withRoundedBorder()
-                        .padding()
-                }
-            }.setChalkFont(.headline)
-        }
+            }
+            
+            Button(action: { dataModel.show(.about) }) {
+                Text("About")
+                    .frame(width: getWidthPercent(width))
+                    .withRoundedBorder()
+            }
+            
+            Link("Privacy Policy", destination: URL(string: dataModel.privacyPolicyURL)!)
+                .frame(width: getWidthPercent(width))
+                .withRoundedBorder()
+        }.setSmoothFont(.headline)
     }
 }
 
+
+// MARK: - Preview
 struct SettingsView_Previews: PreviewProvider {
+    static var dataModel: SettingsDataModel { SettingsDataModel(versionNumber: "2.0.1", requestAppReview: { }) }
+    
     static var previews: some View {
-//        SettingsView()
-//            .previewDevice("iPod touch (7th generation)")
-//        SettingsView()
-//            .previewDevice("iPhone 8")
-//        SettingsView()
-//            .previewDevice("iPhone 11")
-//        SettingsView()
-        SettingsView()
-            .previewDevice("iPad mini (6th generation)")
-        SettingsView()
-            .previewDevice("iPad (9th generation)")
-        SettingsView()
-            .previewDevice("iPad Pro (12.9-inch) (5th generation)")
+        SettingsView(dataModel: dataModel)
     }
 }
-
-
-
-
