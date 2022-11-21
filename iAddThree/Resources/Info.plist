@@ -2,13 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIApplicationSceneManifest</key>
-	<dict>
-		<key>UIApplicationSupportsMultipleScenes</key>
-		<false/>
-	</dict>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>This will allow personalized ads to display in the app. If you would prefer non-personalized ads, choose &apos;Ask App Not to Track&apos;.</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-1506379315609688~7868479485</string>
 	<key>GADIsAdManagerApp</key>
@@ -216,5 +209,10 @@
 			<string>3qcr597p9d.skadnetwork</string>
 		</dict>
 	</array>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+	</dict>
 </dict>
 </plist>
