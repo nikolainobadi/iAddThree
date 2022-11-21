@@ -69,7 +69,7 @@ extension LevelResultsDataModelTests {
         
         sut.showResults()
         
-        waitForExpectations(timeout: 2.1)
+        waitForExpectations(timeout: 2.2)
     }
     
     func test_showResults_withPointsToAdd_newScoreSet() {
