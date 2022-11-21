@@ -47,8 +47,8 @@ extension InAppPurchaseManager: InAppPurchaseStore {
         }
     }
     
-    func restorePurchases() async throws {
-        // MARK: - TODO
+    func restorePurchases() async -> Bool {
+        return ((try? await AppStore.sync()) != nil)
     }
 }
 

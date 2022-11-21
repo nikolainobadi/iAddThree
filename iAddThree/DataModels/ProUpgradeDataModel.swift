@@ -71,11 +71,10 @@ extension ProUpgradeDataModel {
     
     func restorePurchase() {
         Task {
-            do {
-                try await store.restorePurchases()
-            } catch {
-                await showError(error as? ProUpgradeError ?? .networkError)
-            }
+            let didResetPurchases = await store.restorePurchases()
+            
+            // obviously success is not an 'error' but the success message in the alert will be useful anyway
+            await showError(didResetPurchases ? .restorePurchaseSuccess : .restorePurchaseError)
         }
     }
 }
@@ -103,5 +102,5 @@ protocol InAppPurchaseStore {
     
     func fetchProducts() async throws
     func purchaseRemoveAdsEntitlement() async throws -> Bool
-    func restorePurchases() async throws // ideally should NOT be needed
+    func restorePurchases() async -> Bool // ideally should NOT be needed
 }

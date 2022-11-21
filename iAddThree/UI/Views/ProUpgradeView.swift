@@ -87,7 +87,7 @@ struct ProUpgradeView_Previews: PreviewProvider {
         
         func fetchProducts() async throws { }
         func purchaseRemoveAdsEntitlement() async throws -> Bool { false }
-        func restorePurchases() async throws { }
+        func restorePurchases() async -> Bool { true }
     }
     
     static var dataModel: ProUpgradeDataModel { ProUpgradeDataModel(store: MockStore()) }
