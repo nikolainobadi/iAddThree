@@ -82,10 +82,6 @@ final class ProUpgradeDataModelTests: XCTestCase {
         XCTAssertNotNil(sut.error)
         XCTAssertNil(defaults.value(forKey: AppStorageKey.adsRemoved))
     }
-
-//    func test_restorePurchases() async {
-//
-//    }
 }
 
 
