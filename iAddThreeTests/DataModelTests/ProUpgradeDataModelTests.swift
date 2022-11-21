@@ -91,10 +91,10 @@ final class ProUpgradeDataModelTests: XCTestCase {
 
 // MARK: - SUT
 extension ProUpgradeDataModelTests {
-    func makeSUT(throwError: Bool = false, shouldPurchase: Bool = false, file: StaticString = #filePath, line: UInt = #line) -> (sut: ProUpgradeDataModel, store: MockStore, defaults: UserDefaults) {
+    func makeSUT(throwError: Bool = false, shouldPurchase: Bool = false, shouldRestorePurchases: Bool = false, file: StaticString = #filePath, line: UInt = #line) -> (sut: ProUpgradeDataModel, store: MockStore, defaults: UserDefaults) {
         
         let defaults = MockUserDefaults(suiteName: #file)!
-        let store = MockStore(throwError: throwError, shouldPurchase: shouldPurchase)
+        let store = MockStore(throwError: throwError, shouldPurchase: shouldPurchase, shouldRestorePurchases: shouldRestorePurchases)
         let sut = ProUpgradeDataModel(store: store, defaults: defaults)
         
         trackForMemoryLeaks(sut, file: file, line: line)
@@ -112,10 +112,12 @@ extension ProUpgradeDataModelTests {
 
         private let throwError: Bool
         private let shouldPurchase: Bool
+        private let shouldRestorePurchases: Bool
         
-        init(throwError: Bool, shouldPurchase: Bool) {
+        init(throwError: Bool, shouldPurchase: Bool, shouldRestorePurchases: Bool) {
             self.throwError = throwError
             self.shouldPurchase = shouldPurchase
+            self.shouldRestorePurchases = shouldRestorePurchases
         }
         
         var purchasesRestored = false
@@ -135,10 +137,9 @@ extension ProUpgradeDataModelTests {
             return shouldPurchase
         }
         
-        func restorePurchases() async throws {
-            if throwError { throw ProUpgradeError.networkError }
-            
-            purchasesRestored = true
+        
+        func restorePurchases() async -> Bool {
+            return shouldRestorePurchases
         }
     }
 }
