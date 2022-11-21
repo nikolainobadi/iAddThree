@@ -16,6 +16,7 @@
 		D419E547292AF239004D90EA /* ProUpgradeDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419E546292AF239004D90EA /* ProUpgradeDataModelTests.swift */; };
 		D419E549292AF3BA004D90EA /* MockUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419E548292AF3BA004D90EA /* MockUserDefaults.swift */; };
 		D419E54B292AF719004D90EA /* SettingsDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419E54A292AF719004D90EA /* SettingsDataModelTests.swift */; };
+		D419E54D292AF8E7004D90EA /* FinishedBannerMessageFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419E54C292AF8E7004D90EA /* FinishedBannerMessageFactoryTests.swift */; };
 		D42DBEFA28E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DBEF928E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift */; };
 		D42DBEFE28E25E65006E29D0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DBEFD28E25E65006E29D0 /* SettingsView.swift */; };
 		D4374A122923287800FAB889 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4374A112923287800FAB889 /* MainMenu.swift */; };
@@ -106,6 +107,7 @@
 		D419E546292AF239004D90EA /* ProUpgradeDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUpgradeDataModelTests.swift; sourceTree = "<group>"; };
 		D419E548292AF3BA004D90EA /* MockUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDefaults.swift; sourceTree = "<group>"; };
 		D419E54A292AF719004D90EA /* SettingsDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDataModelTests.swift; sourceTree = "<group>"; };
+		D419E54C292AF8E7004D90EA /* FinishedBannerMessageFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedBannerMessageFactoryTests.swift; sourceTree = "<group>"; };
 		D42DBEF928E25DCB006E29D0 /* UserDefaultsHighScoreStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHighScoreStore.swift; sourceTree = "<group>"; };
 		D42DBEFD28E25E65006E29D0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D42F498E28E2993A007DCD8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/nelix/iOSApps/iAddThree/iAddThree/Resources/Info.plist; sourceTree = "<absolute>"; };
@@ -488,6 +490,7 @@
 				E82AF16228E12C9600F93822 /* TimerManagerTests.swift */,
 				E86E06F62915DC9F00F68D15 /* ScoreManagerTests.swift */,
 				D40283242926F86900E6B326 /* ModeLevelHighScoreStoreDecoratorTests.swift */,
+				D419E54C292AF8E7004D90EA /* FinishedBannerMessageFactoryTests.swift */,
 			);
 			path = LogicTests;
 			sourceTree = "<group>";
@@ -673,6 +676,7 @@
 				D40283252926F86900E6B326 /* ModeLevelHighScoreStoreDecoratorTests.swift in Sources */,
 				E86E06F42915D6E000F68D15 /* LevelScoreRepositoryTests.swift in Sources */,
 				D419E547292AF239004D90EA /* ProUpgradeDataModelTests.swift in Sources */,
+				D419E54D292AF8E7004D90EA /* FinishedBannerMessageFactoryTests.swift in Sources */,
 				D4AD9F0829198EB000270165 /* GameModeMenuDataModelTests.swift in Sources */,
 				D419E54B292AF719004D90EA /* SettingsDataModelTests.swift in Sources */,
 				D4BD27B028DFD0BB00C698A9 /* XCTestCase+Extensions.swift in Sources */,
