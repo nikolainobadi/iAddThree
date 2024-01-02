@@ -52,10 +52,8 @@
 		D4B91DC02B44D79D00F9D3F1 /* iAddThree */ = {
 			isa = PBXGroup;
 			children = (
-				D4B91DC12B44D79D00F9D3F1 /* iAddThreeApp.swift */,
-				D4B91DC32B44D79D00F9D3F1 /* ContentView.swift */,
-				D4B91DC52B44D79E00F9D3F1 /* Assets.xcassets */,
-				D4B91DC72B44D79E00F9D3F1 /* iAddThree.entitlements */,
+				D4B91DD22B44D9B600F9D3F1 /* Resources */,
+				D4B91DD12B44D9B000F9D3F1 /* Sources */,
 				D4B91DC82B44D79E00F9D3F1 /* Preview Content */,
 			);
 			path = iAddThree;
@@ -67,6 +65,32 @@
 				D4B91DC92B44D79E00F9D3F1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D4B91DD02B44D9A900F9D3F1 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D4B91DC12B44D79D00F9D3F1 /* iAddThreeApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D4B91DD12B44D9B000F9D3F1 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				D4B91DC32B44D79D00F9D3F1 /* ContentView.swift */,
+				D4B91DD02B44D9A900F9D3F1 /* App */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		D4B91DD22B44D9B600F9D3F1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D4B91DC72B44D79E00F9D3F1 /* iAddThree.entitlements */,
+				D4B91DC52B44D79E00F9D3F1 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,7 +290,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = iAddThree/iAddThree.entitlements;
+				CODE_SIGN_ENTITLEMENTS = iAddThree/Resources/iAddThree.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iAddThree/Preview Content\"";
@@ -282,8 +306,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -304,7 +328,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = iAddThree/iAddThree.entitlements;
+				CODE_SIGN_ENTITLEMENTS = iAddThree/Resources/iAddThree.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iAddThree/Preview Content\"";
@@ -320,14 +344,14 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nobadi.iAddThree;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nobadi.AddThree;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
