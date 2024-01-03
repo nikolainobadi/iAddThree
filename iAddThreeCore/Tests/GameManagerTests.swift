@@ -16,18 +16,43 @@ final class GameManagerTests: XCTestCase {
         XCTAssertTrue(sut.currentHighScore == 0)
         XCTAssertTrue(sut.unlockedAchievements.isEmpty)
     }
+    
+    func test_saveResults_scoreIsGreaterThanCurrentHighScore_newScoreSaved() {
+        let score = 4
+        let results = makeResults(score: score)
+        let (sut, store) = makeSUT()
+        
+        sut.saveResults(results)
+        
+        XCTAssertEqual(store.highScore, score)
+    }
+    
+    func test_saveResults_scoreIsLessThanCurrentHighScore_oldHighScoreRemains() {
+        let score = 4
+        let currentHighScore = 10
+        let results = makeResults(score: score)
+        let (sut, store) = makeSUT(currentHighScore: currentHighScore)
+        
+        sut.saveResults(results)
+        
+        XCTAssertEqual(store.highScore, nil)
+    }
 }
 
 
 // MARK: - SUT
 extension GameManagerTests {
-    func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: GameManager, store: MockStore) {
+    func makeSUT(currentHighScore: Int = 0, unlockedAchievements: [GameAchievement] = [], file: StaticString = #filePath, line: UInt = #line) -> (sut: GameManager, store: MockStore) {
         let store = MockStore()
-        let sut = GameManager(store: store)
+        let sut = GameManager(store: store, currentHighScore: currentHighScore, unlockedAchievements: unlockedAchievements)
         
         trackForMemoryLeaks(sut, file: file, line: line)
         
         return (sut, store)
+    }
+    
+    func makeResults(score: Int = 0, didCompleteLevel: Bool = true, completionTime: TimeInterval = 10) -> LevelResults {
+        return .init(score: score, level: 0, didCompleteLevel: didCompleteLevel, completionTime: completionTime)
     }
 }
 

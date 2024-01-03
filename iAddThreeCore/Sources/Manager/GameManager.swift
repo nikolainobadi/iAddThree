@@ -10,11 +10,13 @@ import Foundation
 final class GameManager {
     private let store: GameStore
     
-    private(set) var currentHighScore = 0
-    private(set) var unlockedAchievements: [GameAchievement] = []
+    private(set) var currentHighScore: Int
+    private(set) var unlockedAchievements: [GameAchievement]
     
-    init(store: GameStore) {
+    init(store: GameStore, currentHighScore: Int = 0, unlockedAchievements: [GameAchievement] = []) {
         self.store = store
+        self.currentHighScore = currentHighScore
+        self.unlockedAchievements = unlockedAchievements
     }
 }
 
@@ -31,7 +33,7 @@ extension GameManager {
 private extension GameManager {
     func updateHighScore(newScore: Int) {
         if newScore > currentHighScore {
-            
+            store.saveHighScore(newScore)
         }
     }
 }
