@@ -17,6 +17,9 @@ struct LaunchCoordinatorView: View {
                 
             SplashView()
                 .onlyShow(when: showingSplashScreen)
+                .delayedOnAppear(seconds: 3) {
+                    showingSplashScreen = false
+                }
         }
     }
 }

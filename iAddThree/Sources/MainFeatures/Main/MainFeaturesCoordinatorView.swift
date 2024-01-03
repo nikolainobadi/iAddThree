@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct MainFeaturesCoordinatorView: View {
+    @State private var showingSettings = false
+    
     var body: some View {
-        VStack {
-            
-        }
+        GameCoordinatorView()
+            .sheet(isPresented: $showingSettings) {
+                SettingsCoordinatorView()
+            }
     }
 }
 

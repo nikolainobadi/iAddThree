@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D40BE8D02B44E8E00033114A /* SettingsCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40BE8CF2B44E8E00033114A /* SettingsCoordinatorView.swift */; };
+		D40BE8D52B44E9500033114A /* GameCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40BE8D42B44E9500033114A /* GameCoordinatorView.swift */; };
 		D4B91DC22B44D79D00F9D3F1 /* iAddThreeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91DC12B44D79D00F9D3F1 /* iAddThreeApp.swift */; };
 		D4B91DC62B44D79E00F9D3F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B91DC52B44D79E00F9D3F1 /* Assets.xcassets */; };
 		D4B91DCA2B44D79E00F9D3F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B91DC92B44D79E00F9D3F1 /* Preview Assets.xcassets */; };
@@ -56,6 +58,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D40BE8CF2B44E8E00033114A /* SettingsCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinatorView.swift; sourceTree = "<group>"; };
+		D40BE8D42B44E9500033114A /* GameCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinatorView.swift; sourceTree = "<group>"; };
 		D4B91DBE2B44D79D00F9D3F1 /* iAddThree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAddThree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B91DC12B44D79D00F9D3F1 /* iAddThreeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAddThreeApp.swift; sourceTree = "<group>"; };
 		D4B91DC52B44D79E00F9D3F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +106,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D40BE8D12B44E90E0033114A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D40BE8CF2B44E8E00033114A /* SettingsCoordinatorView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		D40BE8D22B44E9120033114A /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				D40BE8D42B44E9500033114A /* GameCoordinatorView.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		D40BE8D32B44E9440033114A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D4B91DDC2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		D4B91DB52B44D79D00F9D3F1 = {
 			isa = PBXGroup;
 			children = (
@@ -179,7 +207,9 @@
 		D4B91DDB2B44DAB900F9D3F1 /* MainFeatures */ = {
 			isa = PBXGroup;
 			children = (
-				D4B91DDC2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift */,
+				D40BE8D32B44E9440033114A /* Main */,
+				D40BE8D22B44E9120033114A /* Game */,
+				D40BE8D12B44E90E0033114A /* Settings */,
 			);
 			path = MainFeatures;
 			sourceTree = "<group>";
@@ -379,6 +409,8 @@
 				D4B91DD52B44DA2600F9D3F1 /* LaunchCoordinatorView.swift in Sources */,
 				D4B91DDD2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift in Sources */,
 				D4B91DC22B44D79D00F9D3F1 /* iAddThreeApp.swift in Sources */,
+				D40BE8D52B44E9500033114A /* GameCoordinatorView.swift in Sources */,
+				D40BE8D02B44E8E00033114A /* SettingsCoordinatorView.swift in Sources */,
 				D4B91DD72B44DA5E00F9D3F1 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
