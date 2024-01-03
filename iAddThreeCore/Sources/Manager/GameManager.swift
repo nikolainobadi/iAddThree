@@ -40,6 +40,6 @@ private extension GameManager {
 
 
 // MARK: - Dependencies
-protocol GameStore {
+public protocol GameStore {
     func saveHighScore(_ score: Int)
 }

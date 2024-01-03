@@ -24,6 +24,7 @@
 		D4B91E042B44DE7500F9D3F1 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91E032B44DE7500F9D3F1 /* XCTestCase+Extensions.swift */; };
 		D4B91E082B44DEDE00F9D3F1 /* LevelResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91E072B44DEDE00F9D3F1 /* LevelResults.swift */; };
 		D4B91E0A2B44DF9500F9D3F1 /* GameAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91E092B44DF9500F9D3F1 /* GameAchievement.swift */; };
+		D4E614702B45D72E009DF4DD /* UserDetaultsGameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6146F2B45D72E009DF4DD /* UserDetaultsGameStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +76,8 @@
 		D4B91E032B44DE7500F9D3F1 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
 		D4B91E072B44DEDE00F9D3F1 /* LevelResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelResults.swift; sourceTree = "<group>"; };
 		D4B91E092B44DF9500F9D3F1 /* GameAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAchievement.swift; sourceTree = "<group>"; };
-		D4B91E0B2B44E07700F9D3F1 /* iAddThreeCore.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = iAddThreeCore.xctestplan; path = iAddThreeCore/Tests/iAddThreeCore.xctestplan; sourceTree = "<group>"; };
+		D4B91E0B2B44E07700F9D3F1 /* iAddThreeCore.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = iAddThreeCore.xctestplan; sourceTree = "<group>"; };
+		D4E6146F2B45D72E009DF4DD /* UserDetaultsGameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetaultsGameStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +135,6 @@
 		D4B91DB52B44D79D00F9D3F1 = {
 			isa = PBXGroup;
 			children = (
-				D4B91E0B2B44E07700F9D3F1 /* iAddThreeCore.xctestplan */,
 				D4B91DC02B44D79D00F9D3F1 /* iAddThree */,
 				D4B91DE42B44DD1D00F9D3F1 /* iAddThreeCore */,
 				D4B91DBF2B44D79D00F9D3F1 /* Products */,
@@ -207,9 +208,8 @@
 		D4B91DDB2B44DAB900F9D3F1 /* MainFeatures */ = {
 			isa = PBXGroup;
 			children = (
-				D40BE8D32B44E9440033114A /* Main */,
-				D40BE8D22B44E9120033114A /* Game */,
-				D40BE8D12B44E90E0033114A /* Settings */,
+				D4E6146D2B45D6FE009DF4DD /* UI */,
+				D4E6146E2B45D71C009DF4DD /* Storage */,
 			);
 			path = MainFeatures;
 			sourceTree = "<group>";
@@ -235,6 +235,7 @@
 		D4B91E002B44DDF800F9D3F1 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				D4B91E0B2B44E07700F9D3F1 /* iAddThreeCore.xctestplan */,
 				D4B91E012B44DE1400F9D3F1 /* GameManagerTests.swift */,
 				D4B91E032B44DE7500F9D3F1 /* XCTestCase+Extensions.swift */,
 			);
@@ -256,6 +257,24 @@
 				D4B91E092B44DF9500F9D3F1 /* GameAchievement.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D4E6146D2B45D6FE009DF4DD /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D40BE8D32B44E9440033114A /* Main */,
+				D40BE8D22B44E9120033114A /* Game */,
+				D40BE8D12B44E90E0033114A /* Settings */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D4E6146E2B45D71C009DF4DD /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				D4E6146F2B45D72E009DF4DD /* UserDetaultsGameStore.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,6 +427,7 @@
 			files = (
 				D4B91DD52B44DA2600F9D3F1 /* LaunchCoordinatorView.swift in Sources */,
 				D4B91DDD2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift in Sources */,
+				D4E614702B45D72E009DF4DD /* UserDetaultsGameStore.swift in Sources */,
 				D4B91DC22B44D79D00F9D3F1 /* iAddThreeApp.swift in Sources */,
 				D40BE8D52B44E9500033114A /* GameCoordinatorView.swift in Sources */,
 				D40BE8D02B44E8E00033114A /* SettingsCoordinatorView.swift in Sources */,
