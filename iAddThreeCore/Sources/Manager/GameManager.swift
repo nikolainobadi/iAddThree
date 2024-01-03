@@ -22,12 +22,22 @@ final class GameManager {
 // MARK: - Actions
 extension GameManager {
     func saveResults(_ results: LevelResults) {
-        
+        updateHighScore(newScore: results.score)
+    }
+}
+
+
+// MARK: - Private Methods
+private extension GameManager {
+    func updateHighScore(newScore: Int) {
+        if newScore > currentHighScore {
+            
+        }
     }
 }
 
 
 // MARK: - Dependencies
 protocol GameStore {
-    
+    func saveHighScore(_ score: Int)
 }

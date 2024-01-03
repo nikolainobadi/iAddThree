@@ -9,8 +9,13 @@ import XCTest
 @testable import iAddThreeCore
 
 final class GameManagerTests: XCTestCase {
-    
-    
+    func test_init_startingValues() {
+        let (sut, store) = makeSUT()
+        
+        XCTAssertNil(store.highScore)
+        XCTAssertTrue(sut.currentHighScore == 0)
+        XCTAssertTrue(sut.unlockedAchievements.isEmpty)
+    }
 }
 
 
@@ -30,6 +35,10 @@ extension GameManagerTests {
 // MARK: - Helper Classes
 extension GameManagerTests {
     class MockStore: GameStore {
-        
+        private(set) var highScore: Int?
+
+        func saveHighScore(_ score: Int) {
+            self.highScore = score
+        }
     }
 }
