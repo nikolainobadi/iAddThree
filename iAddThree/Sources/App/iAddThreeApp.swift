@@ -11,7 +11,7 @@ import SwiftUI
 struct iAddThreeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LaunchCoordinatorView()
         }
     }
 }

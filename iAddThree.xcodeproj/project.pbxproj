@@ -8,18 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		D4B91DC22B44D79D00F9D3F1 /* iAddThreeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91DC12B44D79D00F9D3F1 /* iAddThreeApp.swift */; };
-		D4B91DC42B44D79D00F9D3F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91DC32B44D79D00F9D3F1 /* ContentView.swift */; };
 		D4B91DC62B44D79E00F9D3F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B91DC52B44D79E00F9D3F1 /* Assets.xcassets */; };
 		D4B91DCA2B44D79E00F9D3F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B91DC92B44D79E00F9D3F1 /* Preview Assets.xcassets */; };
+		D4B91DD52B44DA2600F9D3F1 /* LaunchCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91DD42B44DA2600F9D3F1 /* LaunchCoordinatorView.swift */; };
+		D4B91DD72B44DA5E00F9D3F1 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91DD62B44DA5E00F9D3F1 /* SplashView.swift */; };
+		D4B91DDA2B44DAAE00F9D3F1 /* NnSwiftUIHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = D4B91DD92B44DAAE00F9D3F1 /* NnSwiftUIHelpers */; };
+		D4B91DDD2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91DDC2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D4B91DBE2B44D79D00F9D3F1 /* iAddThree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAddThree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B91DC12B44D79D00F9D3F1 /* iAddThreeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAddThreeApp.swift; sourceTree = "<group>"; };
-		D4B91DC32B44D79D00F9D3F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D4B91DC52B44D79E00F9D3F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4B91DC72B44D79E00F9D3F1 /* iAddThree.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iAddThree.entitlements; sourceTree = "<group>"; };
 		D4B91DC92B44D79E00F9D3F1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D4B91DD42B44DA2600F9D3F1 /* LaunchCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCoordinatorView.swift; sourceTree = "<group>"; };
+		D4B91DD62B44DA5E00F9D3F1 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		D4B91DDC2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeaturesCoordinatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4B91DDA2B44DAAE00F9D3F1 /* NnSwiftUIHelpers in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,8 +84,9 @@
 		D4B91DD12B44D9B000F9D3F1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				D4B91DC32B44D79D00F9D3F1 /* ContentView.swift */,
 				D4B91DD02B44D9A900F9D3F1 /* App */,
+				D4B91DD32B44DA1900F9D3F1 /* Launch */,
+				D4B91DDB2B44DAB900F9D3F1 /* MainFeatures */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -91,6 +98,23 @@
 				D4B91DC52B44D79E00F9D3F1 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		D4B91DD32B44DA1900F9D3F1 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				D4B91DD42B44DA2600F9D3F1 /* LaunchCoordinatorView.swift */,
+				D4B91DD62B44DA5E00F9D3F1 /* SplashView.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		D4B91DDB2B44DAB900F9D3F1 /* MainFeatures */ = {
+			isa = PBXGroup;
+			children = (
+				D4B91DDC2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift */,
+			);
+			path = MainFeatures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,6 +133,9 @@
 			dependencies = (
 			);
 			name = iAddThree;
+			packageProductDependencies = (
+				D4B91DD92B44DAAE00F9D3F1 /* NnSwiftUIHelpers */,
+			);
 			productName = iAddThree;
 			productReference = D4B91DBE2B44D79D00F9D3F1 /* iAddThree.app */;
 			productType = "com.apple.product-type.application";
@@ -137,6 +164,9 @@
 				Base,
 			);
 			mainGroup = D4B91DB52B44D79D00F9D3F1;
+			packageReferences = (
+				D4B91DD82B44DAAE00F9D3F1 /* XCRemoteSwiftPackageReference "NnSwiftUIHelpers" */,
+			);
 			productRefGroup = D4B91DBF2B44D79D00F9D3F1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -163,8 +193,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4B91DC42B44D79D00F9D3F1 /* ContentView.swift in Sources */,
+				D4B91DD52B44DA2600F9D3F1 /* LaunchCoordinatorView.swift in Sources */,
+				D4B91DDD2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift in Sources */,
 				D4B91DC22B44D79D00F9D3F1 /* iAddThreeApp.swift in Sources */,
+				D4B91DD72B44DA5E00F9D3F1 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +415,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D4B91DD82B44DAAE00F9D3F1 /* XCRemoteSwiftPackageReference "NnSwiftUIHelpers" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nikolainobadi/NnSwiftUIHelpers";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D4B91DD92B44DAAE00F9D3F1 /* NnSwiftUIHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4B91DD82B44DAAE00F9D3F1 /* XCRemoteSwiftPackageReference "NnSwiftUIHelpers" */;
+			productName = NnSwiftUIHelpers;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D4B91DB62B44D79D00F9D3F1 /* Project object */;
 }
