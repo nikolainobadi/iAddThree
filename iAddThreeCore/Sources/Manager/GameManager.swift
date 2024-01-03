@@ -11,6 +11,7 @@ final class GameManager {
     private let store: GameStore
     
     private(set) var currentHighScore = 0
+    private(set) var unlockedAchievements: [GameAchievement] = []
     
     init(store: GameStore) {
         self.store = store
