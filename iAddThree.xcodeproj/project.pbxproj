@@ -31,6 +31,7 @@
 		D4C006512B4893F100C36B5F /* AppRater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006502B4893F100C36B5F /* AppRater.swift */; };
 		D4C006532B48940200C36B5F /* AppVersionCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006522B48940200C36B5F /* AppVersionCache.swift */; };
 		D4C006552B4894C900C36B5F /* SettingsButtonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006542B4894C900C36B5F /* SettingsButtonListView.swift */; };
+		D4C0065B2B48978A00C36B5F /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C0065A2B48978A00C36B5F /* SettingsHeaderView.swift */; };
 		D4E614702B45D72E009DF4DD /* UserDetaultsGameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6146F2B45D72E009DF4DD /* UserDetaultsGameStore.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		D4C006502B4893F100C36B5F /* AppRater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRater.swift; sourceTree = "<group>"; };
 		D4C006522B48940200C36B5F /* AppVersionCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionCache.swift; sourceTree = "<group>"; };
 		D4C006542B4894C900C36B5F /* SettingsButtonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonListView.swift; sourceTree = "<group>"; };
+		D4C0065A2B48978A00C36B5F /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
 		D4E6146F2B45D72E009DF4DD /* UserDetaultsGameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetaultsGameStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +130,7 @@
 			children = (
 				D40BE8CF2B44E8E00033114A /* SettingsCoordinatorView.swift */,
 				D4C006542B4894C900C36B5F /* SettingsButtonListView.swift */,
+				D4C0065A2B48978A00C36B5F /* SettingsHeaderView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				D40BE8D02B44E8E00033114A /* SettingsCoordinatorView.swift in Sources */,
 				D4C006532B48940200C36B5F /* AppVersionCache.swift in Sources */,
 				D4C0064E2B48901C00C36B5F /* TitleBanner.swift in Sources */,
+				D4C0065B2B48978A00C36B5F /* SettingsHeaderView.swift in Sources */,
 				D4B91DD72B44DA5E00F9D3F1 /* SplashView.swift in Sources */,
 				D4C006552B4894C900C36B5F /* SettingsButtonListView.swift in Sources */,
 			);

@@ -9,24 +9,8 @@ import SwiftUI
 import NnSwiftUIHelpers
 import iAddThreeClassicKit
 
-fileprivate enum SettingsViewState {
-    case list, about, upgrade
-}
-
-extension SettingsViewState {
-    var title: String {
-        switch self {
-        case .list:
-            return "Settings"
-        case .about:
-            return "About iAddThree"
-        case .upgrade:
-            return "Pro Upgrade"
-        }
-    }
-}
-
 struct SettingsCoordinatorView: View {
+    @Environment(\.dismiss) private var dismiss
     @State private var state: SettingsViewState = .list
     
     private var versionNumber: String {
@@ -39,14 +23,8 @@ struct SettingsCoordinatorView: View {
     
     var body: some View {
         VStack {
-            VStack {
-                Text(state.title)
-                    .lineLimit(1)
-                    .setChalkFont(.title, autoSize: true)
-                    .padding(.horizontal)
-                    .padding(.top, state == .upgrade ? getHeightPercent(2) : 0)
-            }
-            .padding(.bottom, getHeightPercent(5))
+            SettingsHeaderView(state: state, dismiss: { dismiss() }, showList: { state = .list })
+                .padding(.bottom, getHeightPercent(5))
             
             switch state {
             case .list:
@@ -75,4 +53,23 @@ struct SettingsCoordinatorView: View {
 // MARK: - Preview
 #Preview {
     SettingsCoordinatorView()
+}
+
+
+// MARK: - Dependencies
+enum SettingsViewState {
+    case list, about, upgrade
+}
+
+extension SettingsViewState {
+    var title: String {
+        switch self {
+        case .list:
+            return "Settings"
+        case .about:
+            return "About iAddThree"
+        case .upgrade:
+            return "Pro Upgrade"
+        }
+    }
 }
