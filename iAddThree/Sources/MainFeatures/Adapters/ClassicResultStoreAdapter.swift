@@ -20,17 +20,24 @@ final class ClassicResultStoreAdapter {
 
 // MARK: - Store
 extension ClassicResultStoreAdapter: iAddThreeClassicKit.ClassicResultStore {
-    var highScore: Int { 0 }
+    var highScore: Int {
+        return manager.currentHighScore
+    }
     
     func saveResults(_ results: iAddThreeClassicKit.ClassicLevelResults) {
-        
+        manager.saveResults(results.toLevelResults())
     }
 }
 
 
 // MARK: - Extension Dependencies
 extension ClassicLevelResults {
-    var totalScore: Int {
+    var pointsAndBonus: Int {
         return correctAnswerCount + (bonusPoints ?? 0)
     }
+    
+    func toLevelResults() -> LevelResults {
+        return .init(score: pointsAndBonus, level: currentLevel, didCompleteLevel: completionTime != nil, completionTime: completionTime)
+    }
+    
 }
