@@ -24,7 +24,16 @@ struct GameCoordinatorView: View {
                 endGame: { self.selectedMode =  nil }
             )
         } else {
-            ClassicModeComposer.makeClassicModeListView(availableModes: [.add], onSelection: playSelectedMode(_:))
+            VStack {
+                TitleBanner(canShowSubtractBanner: false)
+                    .padding()
+                
+                Spacer()
+                
+                ClassicModeComposer.makeClassicModeListView(availableModes: [.add], onSelection: playSelectedMode(_:))
+                
+                Spacer()
+            }
         }
     }
 }

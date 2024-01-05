@@ -27,6 +27,7 @@
 		D4C006442B48871D00C36B5F /* iAddThreeClassicKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C006432B48871D00C36B5F /* iAddThreeClassicKit.xcframework */; };
 		D4C006452B48871D00C36B5F /* iAddThreeClassicKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4C006432B48871D00C36B5F /* iAddThreeClassicKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D4C006482B488CB500C36B5F /* ClassicResultStoreAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006472B488CB500C36B5F /* ClassicResultStoreAdapter.swift */; };
+		D4C0064E2B48901C00C36B5F /* TitleBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C0064D2B48901C00C36B5F /* TitleBanner.swift */; };
 		D4E614702B45D72E009DF4DD /* UserDetaultsGameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6146F2B45D72E009DF4DD /* UserDetaultsGameStore.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		D4B91E0B2B44E07700F9D3F1 /* iAddThreeCore.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = iAddThreeCore.xctestplan; sourceTree = "<group>"; };
 		D4C006432B48871D00C36B5F /* iAddThreeClassicKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = iAddThreeClassicKit.xcframework; path = ../iAddThreeClassicKit.xcframework; sourceTree = "<group>"; };
 		D4C006472B488CB500C36B5F /* ClassicResultStoreAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicResultStoreAdapter.swift; sourceTree = "<group>"; };
+		D4C0064D2B48901C00C36B5F /* TitleBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBanner.swift; sourceTree = "<group>"; };
 		D4E6146F2B45D72E009DF4DD /* UserDetaultsGameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetaultsGameStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +193,7 @@
 				D4B91DD02B44D9A900F9D3F1 /* App */,
 				D4B91DD32B44DA1900F9D3F1 /* Launch */,
 				D4B91DDB2B44DAB900F9D3F1 /* MainFeatures */,
+				D4C0064B2B488FF400C36B5F /* Shared */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -282,6 +285,22 @@
 				D4C006472B488CB500C36B5F /* ClassicResultStoreAdapter.swift */,
 			);
 			path = Adapters;
+			sourceTree = "<group>";
+		};
+		D4C0064B2B488FF400C36B5F /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D4C0064C2B488FF600C36B5F /* UI */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		D4C0064C2B488FF600C36B5F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D4C0064D2B48901C00C36B5F /* TitleBanner.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		D4E6146D2B45D6FE009DF4DD /* UI */ = {
@@ -457,6 +476,7 @@
 				D4B91DC22B44D79D00F9D3F1 /* iAddThreeApp.swift in Sources */,
 				D40BE8D52B44E9500033114A /* GameCoordinatorView.swift in Sources */,
 				D40BE8D02B44E8E00033114A /* SettingsCoordinatorView.swift in Sources */,
+				D4C0064E2B48901C00C36B5F /* TitleBanner.swift in Sources */,
 				D4B91DD72B44DA5E00F9D3F1 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
