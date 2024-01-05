@@ -7,6 +7,7 @@
 
 import SwiftUI
 import NnSwiftUIHelpers
+import iAddThreeClassicKit
 
 struct LaunchCoordinatorView: View {
     @State private var showingSplashScreen = true
@@ -21,6 +22,7 @@ struct LaunchCoordinatorView: View {
                     showingSplashScreen = false
                 }
         }
+        .onChalkboard()
     }
 }
 

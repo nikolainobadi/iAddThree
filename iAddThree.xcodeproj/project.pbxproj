@@ -24,6 +24,8 @@
 		D4B91E042B44DE7500F9D3F1 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91E032B44DE7500F9D3F1 /* XCTestCase+Extensions.swift */; };
 		D4B91E082B44DEDE00F9D3F1 /* LevelResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91E072B44DEDE00F9D3F1 /* LevelResults.swift */; };
 		D4B91E0A2B44DF9500F9D3F1 /* GameAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91E092B44DF9500F9D3F1 /* GameAchievement.swift */; };
+		D4C006442B48871D00C36B5F /* iAddThreeClassicKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C006432B48871D00C36B5F /* iAddThreeClassicKit.xcframework */; };
+		D4C006452B48871D00C36B5F /* iAddThreeClassicKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4C006432B48871D00C36B5F /* iAddThreeClassicKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D4E614702B45D72E009DF4DD /* UserDetaultsGameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6146F2B45D72E009DF4DD /* UserDetaultsGameStore.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				D4C006452B48871D00C36B5F /* iAddThreeClassicKit.xcframework in Embed Frameworks */,
 				D4B91DEA2B44DD1D00F9D3F1 /* iAddThreeCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -77,6 +80,7 @@
 		D4B91E072B44DEDE00F9D3F1 /* LevelResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelResults.swift; sourceTree = "<group>"; };
 		D4B91E092B44DF9500F9D3F1 /* GameAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAchievement.swift; sourceTree = "<group>"; };
 		D4B91E0B2B44E07700F9D3F1 /* iAddThreeCore.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = iAddThreeCore.xctestplan; sourceTree = "<group>"; };
+		D4C006432B48871D00C36B5F /* iAddThreeClassicKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = iAddThreeClassicKit.xcframework; path = ../iAddThreeClassicKit.xcframework; sourceTree = "<group>"; };
 		D4E6146F2B45D72E009DF4DD /* UserDetaultsGameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetaultsGameStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4C006442B48871D00C36B5F /* iAddThreeClassicKit.xcframework in Frameworks */,
 				D4B91DE92B44DD1D00F9D3F1 /* iAddThreeCore.framework in Frameworks */,
 				D4B91DDA2B44DAAE00F9D3F1 /* NnSwiftUIHelpers in Frameworks */,
 			);
@@ -138,6 +143,7 @@
 				D4B91DC02B44D79D00F9D3F1 /* iAddThree */,
 				D4B91DE42B44DD1D00F9D3F1 /* iAddThreeCore */,
 				D4B91DBF2B44D79D00F9D3F1 /* Products */,
+				D4C006422B48871D00C36B5F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -257,6 +263,14 @@
 				D4B91E092B44DF9500F9D3F1 /* GameAchievement.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D4C006422B48871D00C36B5F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4C006432B48871D00C36B5F /* iAddThreeClassicKit.xcframework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D4E6146D2B45D6FE009DF4DD /* UI */ = {
