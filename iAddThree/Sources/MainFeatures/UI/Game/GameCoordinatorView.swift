@@ -6,15 +6,24 @@
 //
 
 import SwiftUI
+import iAddThreeClassicKit
 
 struct GameCoordinatorView: View {
-    @State private var selectedMode: String?
+    @State private var selectedMode: GameMode?
+    
+    private func playSelectedMode(_ mode: GameMode) {
+        selectedMode = mode
+    }
     
     var body: some View {
         if let selectedMode = selectedMode {
-            Text("play \(selectedMode)")
+            ClassicModeComposer.makeClassicGameCoordinatorView(
+                mode: selectedMode,
+                store: ClassicResultStoreAdapter(manager: .init(store: UserDefaultsGameStore())),
+                endGame: { self.selectedMode =  nil }
+            )
         } else {
-            Text("Game Menu")
+            ClassicModeComposer.makeClassicModeListView(availableModes: [.add], onSelection: playSelectedMode(_:))
         }
     }
 }
@@ -23,4 +32,5 @@ struct GameCoordinatorView: View {
 // MARK: - Preview
 #Preview {
     GameCoordinatorView()
+        .onChalkboard()
 }

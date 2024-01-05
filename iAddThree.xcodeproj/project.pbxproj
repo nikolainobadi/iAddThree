@@ -26,6 +26,7 @@
 		D4B91E0A2B44DF9500F9D3F1 /* GameAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91E092B44DF9500F9D3F1 /* GameAchievement.swift */; };
 		D4C006442B48871D00C36B5F /* iAddThreeClassicKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C006432B48871D00C36B5F /* iAddThreeClassicKit.xcframework */; };
 		D4C006452B48871D00C36B5F /* iAddThreeClassicKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4C006432B48871D00C36B5F /* iAddThreeClassicKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D4C006482B488CB500C36B5F /* ClassicResultStoreAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006472B488CB500C36B5F /* ClassicResultStoreAdapter.swift */; };
 		D4E614702B45D72E009DF4DD /* UserDetaultsGameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6146F2B45D72E009DF4DD /* UserDetaultsGameStore.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		D4B91E092B44DF9500F9D3F1 /* GameAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAchievement.swift; sourceTree = "<group>"; };
 		D4B91E0B2B44E07700F9D3F1 /* iAddThreeCore.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = iAddThreeCore.xctestplan; sourceTree = "<group>"; };
 		D4C006432B48871D00C36B5F /* iAddThreeClassicKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = iAddThreeClassicKit.xcframework; path = ../iAddThreeClassicKit.xcframework; sourceTree = "<group>"; };
+		D4C006472B488CB500C36B5F /* ClassicResultStoreAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicResultStoreAdapter.swift; sourceTree = "<group>"; };
 		D4E6146F2B45D72E009DF4DD /* UserDetaultsGameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetaultsGameStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				D4E6146D2B45D6FE009DF4DD /* UI */,
+				D4C006462B488CAC00C36B5F /* Adapters */,
 				D4E6146E2B45D71C009DF4DD /* Storage */,
 			);
 			path = MainFeatures;
@@ -271,6 +274,14 @@
 				D4C006432B48871D00C36B5F /* iAddThreeClassicKit.xcframework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D4C006462B488CAC00C36B5F /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				D4C006472B488CB500C36B5F /* ClassicResultStoreAdapter.swift */,
+			);
+			path = Adapters;
 			sourceTree = "<group>";
 		};
 		D4E6146D2B45D6FE009DF4DD /* UI */ = {
@@ -440,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4B91DD52B44DA2600F9D3F1 /* LaunchCoordinatorView.swift in Sources */,
+				D4C006482B488CB500C36B5F /* ClassicResultStoreAdapter.swift in Sources */,
 				D4B91DDD2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift in Sources */,
 				D4E614702B45D72E009DF4DD /* UserDetaultsGameStore.swift in Sources */,
 				D4B91DC22B44D79D00F9D3F1 /* iAddThreeApp.swift in Sources */,

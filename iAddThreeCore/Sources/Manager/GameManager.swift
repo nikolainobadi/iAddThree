@@ -7,13 +7,13 @@
 
 import Foundation
 
-final class GameManager {
+public final class GameManager {
     private let store: GameStore
     
     private(set) var currentHighScore: Int
     private(set) var unlockedAchievements: [GameAchievement]
     
-    init(store: GameStore, currentHighScore: Int = 0, unlockedAchievements: [GameAchievement] = []) {
+    public init(store: GameStore, currentHighScore: Int = 0, unlockedAchievements: [GameAchievement] = []) {
         self.store = store
         self.currentHighScore = currentHighScore
         self.unlockedAchievements = unlockedAchievements
@@ -41,5 +41,7 @@ private extension GameManager {
 
 // MARK: - Dependencies
 public protocol GameStore {
+    var highScore: Int { get }
+    
     func saveHighScore(_ score: Int)
 }
