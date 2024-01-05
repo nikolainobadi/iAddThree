@@ -9,12 +9,16 @@ import Foundation
 import iAddThreeCore
 
 final class UserDefaultsGameStore {
+    private let modeId: String
     private let defaults: UserDefaults
     
     var highScore: Int = 0
     
-    init(defaults: UserDefaults = .standard) {
+    init(modeId: String, defaults: UserDefaults = .standard) {
+        self.modeId = modeId
         self.defaults = defaults
+        
+        highScore = defaults.integer(forKey: modeId)
     }
 }
 
@@ -22,6 +26,6 @@ final class UserDefaultsGameStore {
 // MARK: - GameStore
 extension UserDefaultsGameStore: GameStore {
     func saveHighScore(_ score: Int) {
-        // save high score
+        defaults.setValue(score, forKey: modeId)
     }
 }

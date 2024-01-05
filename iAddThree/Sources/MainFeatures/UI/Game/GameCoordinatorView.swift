@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import iAddThreeCore
 import iAddThreeClassicKit
 
 struct GameCoordinatorView: View {
@@ -19,7 +20,7 @@ struct GameCoordinatorView: View {
         if let selectedMode = selectedMode {
             ClassicModeComposer.makeClassicGameCoordinatorView(
                 mode: selectedMode,
-                store: ClassicResultStoreAdapter(manager: .init(store: UserDefaultsGameStore())),
+                store: ClassicResultStoreAdapter(manager: .customInit(mode: selectedMode)),
                 endGame: { self.selectedMode =  nil }
             )
         } else {
@@ -33,4 +34,12 @@ struct GameCoordinatorView: View {
 #Preview {
     GameCoordinatorView()
         .onChalkboard()
+}
+
+
+// MARK: - Extension Dependencies
+extension GameManager {
+    static func customInit(mode: GameMode) -> GameManager {
+        return .init(store: UserDefaultsGameStore(modeId: mode.id))
+    }
 }
