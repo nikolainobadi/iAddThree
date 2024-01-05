@@ -11,7 +11,7 @@ import iAddThreeClassicKit
 
 struct SettingsCoordinatorView: View {
     @Environment(\.dismiss) private var dismiss
-    @State private var state: SettingsViewState = .list
+    @State private var state: SettingsViewState = .about
     
     private var versionNumber: String {
         return AppVersionCache.getVersionDetails()
@@ -34,7 +34,9 @@ struct SettingsCoordinatorView: View {
                     showUpgrade: { state = .upgrade }
                 )
             case .about:
-                Text("About")
+                Text(state.detailText)
+                    .setChalkFont(.body, isSmooth: true)
+                    // MARK: - TODO -> add text background
             case .upgrade:
                 Text("Upgrade")
             }
@@ -70,6 +72,17 @@ extension SettingsViewState {
             return "About iAddThree"
         case .upgrade:
             return "Pro Upgrade"
+        }
+    }
+}
+
+extension SettingsViewState {
+    var detailText: String {
+        switch self {
+        case .about:
+            return "iAddThree was inspired by a mental exercise presented in the book *Thinking Fast and Slow*, by nobel prize winning psychologist, Daniel Kahneman.\n\nThe game is designed to train your 'working memory' (short-term memory) by simulating the cognitive stress than can occur when you try to maintain multiple pieces of information at the same time."
+        default:
+            return ""
         }
     }
 }
