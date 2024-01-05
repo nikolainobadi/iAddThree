@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import NnSwiftUIHelpers
+import iAddThreeClassicKit
 
 struct SplashView: View {
     @State private var isAnimating = false
@@ -18,9 +20,9 @@ struct SplashView: View {
                 Text("Three")
             }
             .lineLimit(1)
-//            .setChalkFont(.largeTitle, autoSize: true)
+            .setChalkFont(.largeTitle, autoSize: true)
             .padding(.horizontal)
-//            .offset(y: isAnimating ? 0 : getHeightPercent(70))
+            .offset(y: isAnimating ? 0 : getHeightPercent(70))
             .animation(.easeInOut(duration: 1.5), value: isAnimating)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
