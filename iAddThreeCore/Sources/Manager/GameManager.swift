@@ -22,7 +22,7 @@ public final class GameManager {
 // MARK: - Actions
 public extension GameManager {
     func saveResults(_ results: LevelResults) {
-        updateHighScore(newScore: results.score)
+        updateHighScore(newScore: results.normalPoints)
     }
 }
 

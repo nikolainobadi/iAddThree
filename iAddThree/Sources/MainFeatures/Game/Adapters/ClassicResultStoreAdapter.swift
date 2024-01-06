@@ -32,11 +32,7 @@ extension ClassicResultStoreAdapter: iAddThreeClassicKit.ClassicResultStore {
 
 // MARK: - Extension Dependencies
 extension ClassicLevelResults {
-    var pointsAndBonus: Int {
-        return correctAnswerCount + (bonusPoints ?? 0)
-    }
-    
     func toLevelResults() -> LevelResults {
-        return .init(score: pointsAndBonus, level: currentLevel, didCompleteLevel: completionTime != nil, completionTime: completionTime)
+        return .init(level: currentLevel, normalPoints: correctAnswerCount, bonusPoints: bonusPoints, didCompleteLevel: completionTime != nil, completionTime: completionTime)
     }
 }
