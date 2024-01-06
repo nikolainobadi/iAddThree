@@ -12,6 +12,7 @@ import iAddThreeClassicKit
 struct LaunchCoordinatorView: View {
     @State private var showingSplashScreen = true
     @State private var shouldShowAppOpenAdd = false
+    @Environment(\.scenePhase) private var scenePhase
     @AppStorage(AppStorageKey.adsRemoved) private var adsRemoved = false
     @AppStorage(AppStorageKey.initialLaunch) private var isInitialLaunch = true
     
@@ -24,7 +25,7 @@ struct LaunchCoordinatorView: View {
             if showingSplashScreen {
                 SplashView()
                     .onlyShow(when: showingSplashScreen)
-                    .delayedOnAppear(seconds: 2) {
+                    .delayedOnAppear(seconds: 3) {
                         shouldShowAppOpenAdd = true
                         waitAndPerform(delay: 0.5, withAnimation: .smooth) {
                             showingSplashScreen = false
@@ -44,6 +45,11 @@ struct LaunchCoordinatorView: View {
         .onAppear {
             SharedGoogleAdManager.initializeMobileAds()
             SharedStoreKitManager.startTransactionListener(completion: { adsRemoved = $0 })
+        }
+        .onChange(of: scenePhase) {
+            if scenePhase == .active {
+                shouldShowAppOpenAdd = true
+            }
         }
     }
 }

@@ -25,7 +25,7 @@ private extension AdMobId {
         case .interstitial:
             return "ca-app-pub-3940256099942544/4411468910"
         case .openApp:
-            return "ca-app-pub-3940256099942544/5662855259"
+            return "ca-app-pub-3940256099942544/5575463023"
         }
     }
     
