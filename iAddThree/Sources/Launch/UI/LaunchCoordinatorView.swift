@@ -21,20 +21,28 @@ struct LaunchCoordinatorView: View {
     
     var body: some View {
         ZStack {
-            MainFeaturesCoordinatorView()
-                
-            SplashView()
-                .onlyShow(when: showingSplashScreen)
-                .delayedOnAppear(seconds: 3) {
-                    showingSplashScreen = false
-                    shouldShowAppOpenAdd = true
-                }
+            if showingSplashScreen {
+                SplashView()
+                    .onlyShow(when: showingSplashScreen)
+                    .delayedOnAppear(seconds: 2) {
+                        shouldShowAppOpenAdd = true
+                        waitAndPerform(delay: 0.5, withAnimation: .smooth) {
+                            showingSplashScreen = false
+                        }
+                    }
+            } else {
+                MainFeaturesCoordinatorView()
+                    .onAppear {
+                        isInitialLaunch = false
+                    }
+            }
         }
         .onChalkboard()
         .appOpenAd(shouldShowAd: $shouldShowAppOpenAdd)
         .environment(\.canShowAds, canShowAds)
         .environment(\.didPurchasePro, adsRemoved)
         .onAppear {
+            SharedGoogleAdManager.initializeMobileAds()
             SharedStoreKitManager.startTransactionListener(completion: { adsRemoved = $0 })
         }
     }

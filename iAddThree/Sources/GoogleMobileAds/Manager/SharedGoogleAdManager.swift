@@ -24,6 +24,7 @@ enum SharedGoogleAdManager {
 extension SharedGoogleAdManager {
     static func initializeMobileAds() {
         GADMobileAds.sharedInstance().start()
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ GADSimulatorID ]
     }
     
     static func requestTrackingAuthorization() async {
@@ -35,7 +36,7 @@ extension SharedGoogleAdManager {
 // MARK: - Loader
 extension SharedGoogleAdManager {
     static func loadAppOpenAd() async throws -> GADAppOpenAd {
-        return try await GADAppOpenAd.load(withAdUnitID: AdMobId.openApp.unitId, request: .customInit(trackingAuthStatus: appTrackingAuthStatus))
+        return try await GADAppOpenAd.load(withAdUnitID: AdMobId.openApp.unitId, request: .customInit(trackingAuthStatus: appTrackingAuthStatus), orientation: .portrait)
     }
     
     static func loadInterstitialAd() async throws -> GADInterstitialAd {
