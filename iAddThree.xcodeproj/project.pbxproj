@@ -54,8 +54,9 @@
 		D4EFAC782B4A05BB00763A5A /* ModeLevelError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFAC772B4A05BB00763A5A /* ModeLevelError+Extensions.swift */; };
 		D4EFAC792B4A05D900763A5A /* ModeLevelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446A38D2B49CCF5001B287D /* ModeLevelError.swift */; };
 		D4EFAC7A2B4A05DC00763A5A /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446A38B2B49CCC6001B287D /* GameViewModel.swift */; };
-		D4EFAC7C2B4A05FB00763A5A /* AppStorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006742B48C92A00C36B5F /* AppStorageKey.swift */; };
 		D4EFAC7F2B4A066B00763A5A /* GameViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFAC7D2B4A066700763A5A /* GameViewModelTests.swift */; };
+		D4EFAC802B4A09D500763A5A /* AppStorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006742B48C92A00C36B5F /* AppStorageKey.swift */; };
+		D4EFAC832B4A0A1700763A5A /* UserDefaultsGameModeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFAC822B4A0A1700763A5A /* UserDefaultsGameModeStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		D4EFAC702B4A012A00763A5A /* ProUpgradeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUpgradeViewModelTests.swift; sourceTree = "<group>"; };
 		D4EFAC772B4A05BB00763A5A /* ModeLevelError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModeLevelError+Extensions.swift"; sourceTree = "<group>"; };
 		D4EFAC7D2B4A066700763A5A /* GameViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModelTests.swift; sourceTree = "<group>"; };
+		D4EFAC822B4A0A1700763A5A /* UserDefaultsGameModeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsGameModeStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -470,6 +472,7 @@
 		D4C006722B48C91700C36B5F /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				D4C006742B48C92A00C36B5F /* AppStorageKey.swift */,
 				D4A1BAFB2B48D24F009EFAFE /* DidPurchaseProKey.swift */,
 			);
 			path = Storage;
@@ -489,6 +492,7 @@
 		D4E6146E2B45D71C009DF4DD /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				D4EFAC822B4A0A1700763A5A /* UserDefaultsGameModeStore.swift */,
 				D4E6146F2B45D72E009DF4DD /* UserDetaultsGameStore.swift */,
 			);
 			path = Storage;
@@ -497,7 +501,6 @@
 		D4EFAC6A2B4A00D600763A5A /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				D4EFAC7B2B4A05EB00763A5A /* Shared */,
 				D4EFAC742B4A059300763A5A /* Game */,
 				D4EFAC732B4A058C00763A5A /* ProUpgrade */,
 			);
@@ -568,14 +571,6 @@
 				D4EFAC772B4A05BB00763A5A /* ModeLevelError+Extensions.swift */,
 			);
 			path = iAddThreeCore;
-			sourceTree = "<group>";
-		};
-		D4EFAC7B2B4A05EB00763A5A /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				D4C006742B48C92A00C36B5F /* AppStorageKey.swift */,
-			);
-			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -743,6 +738,7 @@
 				D4C006712B48C4B600C36B5F /* SharedStoreKitManager.swift in Sources */,
 				D446A3892B49C810001B287D /* GameModeListView.swift in Sources */,
 				D4B91DDD2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift in Sources */,
+				D4EFAC802B4A09D500763A5A /* AppStorageKey.swift in Sources */,
 				D4E614702B45D72E009DF4DD /* UserDetaultsGameStore.swift in Sources */,
 				D4C006512B4893F100C36B5F /* AppRater.swift in Sources */,
 				D4C0066F2B48C1B800C36B5F /* StoreKitPurchaseError.swift in Sources */,
@@ -752,6 +748,7 @@
 				D4A1BB242B48EBCC009EFAFE /* CanShowAdsKey.swift in Sources */,
 				D40BE8D52B44E9500033114A /* GameCoordinatorView.swift in Sources */,
 				D40BE8D02B44E8E00033114A /* SettingsCoordinatorView.swift in Sources */,
+				D4EFAC832B4A0A1700763A5A /* UserDefaultsGameModeStore.swift in Sources */,
 				D4C006532B48940200C36B5F /* AppVersionCache.swift in Sources */,
 				D4C0064E2B48901C00C36B5F /* TitleBanner.swift in Sources */,
 				D4C0065B2B48978A00C36B5F /* SettingsHeaderView.swift in Sources */,
@@ -769,7 +766,6 @@
 				D4B91E082B44DEDE00F9D3F1 /* LevelResults.swift in Sources */,
 				D4B91E0A2B44DF9500F9D3F1 /* GameAchievement.swift in Sources */,
 				D4EFAC792B4A05D900763A5A /* ModeLevelError.swift in Sources */,
-				D4EFAC7C2B4A05FB00763A5A /* AppStorageKey.swift in Sources */,
 				D4EFAC6B2B4A00E800763A5A /* ProUpgradeViewModel.swift in Sources */,
 				D4EFAC7A2B4A05DC00763A5A /* GameViewModel.swift in Sources */,
 			);

@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import iAddThreeCore
 
 struct MainFeaturesCoordinatorView: View {
     @State private var showingSettings = false
     
     var body: some View {
-        GameCoordinatorView(viewModel: .init())
+        GameCoordinatorView(viewModel: .customInit())
             .sheet(isPresented: $showingSettings) {
                 SettingsCoordinatorView()
             }
@@ -22,4 +23,12 @@ struct MainFeaturesCoordinatorView: View {
 // MARK: - Preview
 #Preview {
     MainFeaturesCoordinatorView()
+}
+
+
+// MARK: - Extension Dependencies
+extension GameViewModel {
+    static func customInit() -> GameViewModel {
+        return .init(store: UserDefaultsGameModeStore())
+    }
 }

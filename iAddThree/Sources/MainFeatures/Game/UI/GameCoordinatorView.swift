@@ -28,7 +28,7 @@ struct GameCoordinatorView: View {
 
 // MARK: - Preview
 #Preview {
-    GameCoordinatorView(viewModel: .init())
+    GameCoordinatorView(viewModel: .customInit())
         .onChalkboard()
         .withNnErrorHandling()
 }

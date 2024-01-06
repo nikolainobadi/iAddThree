@@ -8,7 +8,7 @@
 import Foundation
 
 public final class GameViewModel: ObservableObject {
-    @Published var selectedMode: GameMode?
+    @Published public var selectedMode: GameMode?
     
     private let store: GameModeStore
     
