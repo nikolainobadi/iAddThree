@@ -263,8 +263,8 @@
 		D4B91DC02B44D79D00F9D3F1 /* iAddThree */ = {
 			isa = PBXGroup;
 			children = (
-				D4B91DD22B44D9B600F9D3F1 /* Resources */,
 				D4B91DD12B44D9B000F9D3F1 /* Sources */,
+				D4B91DD22B44D9B600F9D3F1 /* Resources */,
 				D4B91DC82B44D79E00F9D3F1 /* Preview Content */,
 			);
 			path = iAddThree;
