@@ -15,7 +15,7 @@ struct GameCoordinatorView: View {
     var body: some View {
         if let selectedMode = viewModel.selectedMode {
             ClassicModeComposer.makeClassicGameCoordinatorView(
-                mode: selectedMode,
+                mode: selectedMode.classicMode,
                 store: ClassicResultStoreAdapter(manager: .customInit(mode: selectedMode)),
                 endGame: { viewModel.selectedMode =  nil }
             )
@@ -36,7 +36,20 @@ struct GameCoordinatorView: View {
 
 // MARK: - Extension Dependencies
 extension GameManager {
-    static func customInit(mode: iAddThreeClassicKit.GameMode) -> GameManager {
-        return .init(modeId: mode.id, store: UserDefaultsGameStore())
+    static func customInit(mode: iAddThreeCore.GameMode) -> GameManager {
+        return .init(mode: mode, store: UserDefaultsGameStore())
+    }
+}
+
+extension iAddThreeCore.GameMode {
+    var classicMode: iAddThreeClassicKit.GameMode {
+        switch self {
+        case .add:
+            return .add
+        case .subtract:
+            return .subtract
+        case .hybrid:
+            return .hybrid
+        }
     }
 }

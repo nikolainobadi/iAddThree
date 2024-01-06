@@ -6,16 +6,16 @@
 //
 
 public final class GameManager {
-    private let modeId: String
+    private let mode: GameMode
     private let store: GameStore
     
     public private(set) var currentHighScore: Int
     private(set) var unlockedAchievements: [GameAchievement] = []
     
-    public init(modeId: String, store: GameStore) {
+    public init(mode: GameMode, store: GameStore) {
+        self.mode = mode
         self.store = store
-        self.modeId = modeId
-        self.currentHighScore = store.getHighScore(modeId: modeId)
+        self.currentHighScore = store.getHighScore(modeId: mode.id)
     }
 }
 
@@ -33,7 +33,7 @@ private extension GameManager {
     func updateHighScore(newScore: Int) {
         if newScore > currentHighScore {
             currentHighScore = newScore
-            store.saveHighScore(newScore, modeId: modeId)
+            store.saveHighScore(newScore, modeId: mode.id)
         }
     }
 }

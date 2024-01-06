@@ -5,15 +5,16 @@
 //  Created by Nikolai Nobadi on 1/6/24.
 //
 
-enum GameMode: String {
+@frozen
+public enum GameMode: String, Identifiable, CaseIterable {
     case add, subtract, hybrid
-}
-
-extension GameMode: Identifiable {
-    var id: String {
+    
+    public var id: String {
         return "\(name) \(self == .hybrid ? "" : "Three")"
     }
-    
+}
+
+public extension GameMode {
     var name: String {
         return rawValue.capitalized
     }

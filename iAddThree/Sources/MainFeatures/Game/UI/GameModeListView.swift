@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
-import iAddThreeClassicKit
+import iAddThreeCore
 import NnSwiftUIErrorHandling
 
 struct GameModeListView: View {
     let canShowSubtractBanner: Bool
-    let onSelection: (iAddThreeClassicKit.GameMode) throws -> Void
+    let onSelection: (GameMode) throws -> Void
     
     var body: some View {
         VStack {
@@ -20,7 +20,7 @@ struct GameModeListView: View {
             
             Spacer()
             LazyVStack {
-                ForEach(iAddThreeClassicKit.GameMode.allCases) { mode in
+                ForEach(GameMode.allCases) { mode in
                     NnTryButton("mode.name") {
                         try onSelection(mode)
                     }

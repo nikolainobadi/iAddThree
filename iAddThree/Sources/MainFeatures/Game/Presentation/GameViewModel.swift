@@ -6,14 +6,14 @@
 //
 
 import Foundation
-import iAddThreeClassicKit
+import iAddThreeCore
 
 final class GameViewModel: ObservableObject {
-    @Published var selectedMode: iAddThreeClassicKit.GameMode?
+    @Published var selectedMode: GameMode?
     
     private let defaults: UserDefaults
     
-    init(selectedMode: iAddThreeClassicKit.GameMode? = nil, defaults: UserDefaults = .standard) {
+    init(selectedMode: GameMode? = nil, defaults: UserDefaults = .standard) {
         self.selectedMode = selectedMode
         self.defaults = defaults
     }
@@ -22,7 +22,7 @@ final class GameViewModel: ObservableObject {
 
 // MARK: - Actions
 extension GameViewModel {
-    func playSelectedMode(_ mode: iAddThreeClassicKit.GameMode) throws {
+    func playSelectedMode(_ mode: GameMode) throws {
         try verifyCanPlayMode(mode)
         
         selectedMode = mode
@@ -32,7 +32,7 @@ extension GameViewModel {
 
 // MARK: - Private Methods
 private extension GameViewModel {
-    func verifyCanPlayMode(_ mode: iAddThreeClassicKit.GameMode) throws {
+    func verifyCanPlayMode(_ mode: GameMode) throws {
         guard mode != .add else { return }
         
         let modeLevel = defaults.integer(forKey: AppStorageKey.modeLevel)
