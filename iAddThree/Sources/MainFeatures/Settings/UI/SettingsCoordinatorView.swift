@@ -37,8 +37,9 @@ struct SettingsCoordinatorView: View {
                 )
             case .about:
                 Text(state.detailText)
+                    .padding()
+                    .withTextBackground()
                     .setChalkFont(.body, isSmooth: true)
-                    // MARK: - TODO -> add text background
             case .upgrade:
                 ProUpgradeView(viewModel: .init(store: InAppPurchaseStoreAdapter()), didPurchasePro: didPurchasePro)
             }

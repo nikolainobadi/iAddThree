@@ -11,6 +11,8 @@
 		D40BE8D52B44E9500033114A /* GameCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40BE8D42B44E9500033114A /* GameCoordinatorView.swift */; };
 		D4A1BAFA2B48D189009EFAFE /* NnSwiftUIErrorHandling in Frameworks */ = {isa = PBXBuildFile; productRef = D4A1BAF92B48D189009EFAFE /* NnSwiftUIErrorHandling */; };
 		D4A1BAFC2B48D24F009EFAFE /* DidPurchaseProKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BAFB2B48D24F009EFAFE /* DidPurchaseProKey.swift */; };
+		D4A1BB102B48E484009EFAFE /* iAddThreeClassicKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A1BB0F2B48E484009EFAFE /* iAddThreeClassicKit.xcframework */; };
+		D4A1BB112B48E484009EFAFE /* iAddThreeClassicKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4A1BB0F2B48E484009EFAFE /* iAddThreeClassicKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D4B91DC22B44D79D00F9D3F1 /* iAddThreeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91DC12B44D79D00F9D3F1 /* iAddThreeApp.swift */; };
 		D4B91DC62B44D79E00F9D3F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B91DC52B44D79E00F9D3F1 /* Assets.xcassets */; };
 		D4B91DCA2B44D79E00F9D3F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B91DC92B44D79E00F9D3F1 /* Preview Assets.xcassets */; };
@@ -26,8 +28,6 @@
 		D4B91E042B44DE7500F9D3F1 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91E032B44DE7500F9D3F1 /* XCTestCase+Extensions.swift */; };
 		D4B91E082B44DEDE00F9D3F1 /* LevelResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91E072B44DEDE00F9D3F1 /* LevelResults.swift */; };
 		D4B91E0A2B44DF9500F9D3F1 /* GameAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91E092B44DF9500F9D3F1 /* GameAchievement.swift */; };
-		D4C006442B48871D00C36B5F /* iAddThreeClassicKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C006432B48871D00C36B5F /* iAddThreeClassicKit.xcframework */; };
-		D4C006452B48871D00C36B5F /* iAddThreeClassicKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4C006432B48871D00C36B5F /* iAddThreeClassicKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D4C006482B488CB500C36B5F /* ClassicResultStoreAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006472B488CB500C36B5F /* ClassicResultStoreAdapter.swift */; };
 		D4C0064E2B48901C00C36B5F /* TitleBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C0064D2B48901C00C36B5F /* TitleBanner.swift */; };
 		D4C006512B4893F100C36B5F /* AppRater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006502B4893F100C36B5F /* AppRater.swift */; };
@@ -67,7 +67,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D4C006452B48871D00C36B5F /* iAddThreeClassicKit.xcframework in Embed Frameworks */,
+				D4A1BB112B48E484009EFAFE /* iAddThreeClassicKit.xcframework in Embed Frameworks */,
 				D4B91DEA2B44DD1D00F9D3F1 /* iAddThreeCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -79,6 +79,7 @@
 		D40BE8CF2B44E8E00033114A /* SettingsCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinatorView.swift; sourceTree = "<group>"; };
 		D40BE8D42B44E9500033114A /* GameCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinatorView.swift; sourceTree = "<group>"; };
 		D4A1BAFB2B48D24F009EFAFE /* DidPurchaseProKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidPurchaseProKey.swift; sourceTree = "<group>"; };
+		D4A1BB0F2B48E484009EFAFE /* iAddThreeClassicKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = iAddThreeClassicKit.xcframework; path = ../iAddThreeClassicKit/iAddThreeClassicKit.xcframework; sourceTree = "<group>"; };
 		D4B91DBE2B44D79D00F9D3F1 /* iAddThree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAddThree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B91DC12B44D79D00F9D3F1 /* iAddThreeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAddThreeApp.swift; sourceTree = "<group>"; };
 		D4B91DC52B44D79E00F9D3F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,7 +96,6 @@
 		D4B91E072B44DEDE00F9D3F1 /* LevelResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelResults.swift; sourceTree = "<group>"; };
 		D4B91E092B44DF9500F9D3F1 /* GameAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAchievement.swift; sourceTree = "<group>"; };
 		D4B91E0B2B44E07700F9D3F1 /* iAddThreeCore.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = iAddThreeCore.xctestplan; sourceTree = "<group>"; };
-		D4C006432B48871D00C36B5F /* iAddThreeClassicKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = iAddThreeClassicKit.xcframework; path = ../iAddThreeClassicKit.xcframework; sourceTree = "<group>"; };
 		D4C006472B488CB500C36B5F /* ClassicResultStoreAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicResultStoreAdapter.swift; sourceTree = "<group>"; };
 		D4C0064D2B48901C00C36B5F /* TitleBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBanner.swift; sourceTree = "<group>"; };
 		D4C006502B4893F100C36B5F /* AppRater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRater.swift; sourceTree = "<group>"; };
@@ -117,8 +117,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4A1BAFA2B48D189009EFAFE /* NnSwiftUIErrorHandling in Frameworks */,
-				D4C006442B48871D00C36B5F /* iAddThreeClassicKit.xcframework in Frameworks */,
 				D4B91DE92B44DD1D00F9D3F1 /* iAddThreeCore.framework in Frameworks */,
+				D4A1BB102B48E484009EFAFE /* iAddThreeClassicKit.xcframework in Frameworks */,
 				D4B91DDA2B44DAAE00F9D3F1 /* NnSwiftUIHelpers in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,7 +311,7 @@
 		D4C006422B48871D00C36B5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D4C006432B48871D00C36B5F /* iAddThreeClassicKit.xcframework */,
+				D4A1BB0F2B48E484009EFAFE /* iAddThreeClassicKit.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

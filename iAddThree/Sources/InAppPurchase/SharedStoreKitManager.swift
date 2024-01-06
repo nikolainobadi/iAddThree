@@ -71,7 +71,7 @@ private extension SharedStoreKitManager {
             return try await action()
         } catch {
             if let storeKitPurchaseError = error as? StoreKitPurchaseError {
-                throw error
+                throw storeKitPurchaseError
             }
             
             throw StoreKitPurchaseError.other(error.localizedDescription)

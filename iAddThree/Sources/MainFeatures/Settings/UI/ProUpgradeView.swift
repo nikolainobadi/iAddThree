@@ -20,7 +20,7 @@ struct ProUpgradeView: View {
             Text(viewModel.getMessage(isPro: didPurchasePro))
                 .padding()
                 .setChalkFont(.body, isSmooth: true)
-//                .withTextBackground()
+                .withTextBackground()
                 .multilineTextAlignment(.center)
                 .framePercent(widthPercent: 98, heighPercent: 80)
                 .padding(.bottom)

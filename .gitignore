@@ -41,5 +41,6 @@ Podfile.lock
 node_modules/
 serviceKey/
 
+iAddThreeClassicKit.xcframework/
 
 
