@@ -12,8 +12,8 @@ final class GameManagerTests: XCTestCase {
     func test_init_startingValues() {
         let (sut, store) = makeSUT()
         
-        XCTAssertNil(store.highScore)
-        XCTAssertTrue(sut.currentHighScore == 0)
+        XCTAssertEqual(store.highScore, 0)
+        XCTAssertEqual(sut.currentHighScore, 0)
         XCTAssertTrue(sut.unlockedAchievements.isEmpty)
     }
     
@@ -35,16 +35,16 @@ final class GameManagerTests: XCTestCase {
         
         sut.saveResults(results)
         
-        XCTAssertEqual(store.highScore, nil)
+        XCTAssertEqual(store.highScore, currentHighScore)
     }
 }
 
 
 // MARK: - SUT
 extension GameManagerTests {
-    func makeSUT(currentHighScore: Int = 0, unlockedAchievements: [GameAchievement] = [], file: StaticString = #filePath, line: UInt = #line) -> (sut: GameManager, store: MockStore) {
-        let store = MockStore()
-        let sut = GameManager(store: store, currentHighScore: currentHighScore, unlockedAchievements: unlockedAchievements)
+    func makeSUT(currentHighScore: Int = 0, file: StaticString = #filePath, line: UInt = #line) -> (sut: GameManager, store: MockStore) {
+        let store = MockStore(highScore: currentHighScore)
+        let sut = GameManager(store: store)
         
         trackForMemoryLeaks(sut, file: file, line: line)
         
@@ -52,7 +52,7 @@ extension GameManagerTests {
     }
     
     func makeResults(score: Int = 0, didCompleteLevel: Bool = true, completionTime: TimeInterval = 10) -> LevelResults {
-        return .init(score: score, level: 0, didCompleteLevel: didCompleteLevel, completionTime: completionTime)
+        return .init(level: 1, normalPoints: score, bonusPoints: nil, didCompleteLevel: didCompleteLevel, completionTime: completionTime)
     }
 }
 
@@ -60,7 +60,11 @@ extension GameManagerTests {
 // MARK: - Helper Classes
 extension GameManagerTests {
     class MockStore: GameStore {
-        private(set) var highScore: Int?
+        private(set) var highScore: Int
+        
+        init(highScore: Int) {
+            self.highScore = highScore
+        }
 
         func saveHighScore(_ score: Int) {
             self.highScore = score
