@@ -289,12 +289,12 @@
 		D4B91DD12B44D9B000F9D3F1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				D4A1BB292B48F327009EFAFE /* Extensions */,
 				D4B91DD02B44D9A900F9D3F1 /* App */,
 				D4B91DD32B44DA1900F9D3F1 /* Launch */,
 				D4B91DDB2B44DAB900F9D3F1 /* MainFeatures */,
 				D4C006662B48C10B00C36B5F /* InAppPurchase */,
 				D4A1BB122B48E6DD009EFAFE /* GoogleMobileAds */,
+				D4A1BB292B48F327009EFAFE /* Extensions */,
 				D4C0064B2B488FF400C36B5F /* Shared */,
 			);
 			path = Sources;

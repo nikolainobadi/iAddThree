@@ -39,5 +39,4 @@ extension ClassicLevelResults {
     func toLevelResults() -> LevelResults {
         return .init(score: pointsAndBonus, level: currentLevel, didCompleteLevel: completionTime != nil, completionTime: completionTime)
     }
-    
 }
