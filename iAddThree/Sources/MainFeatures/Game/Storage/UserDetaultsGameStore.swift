@@ -19,6 +19,14 @@ final class UserDefaultsGameStore {
 
 // MARK: - GameStore
 extension UserDefaultsGameStore: GameStore {
+    var modeLevel: Int {
+        return defaults.integer(forKey: AppStorageKey.modeLevel)
+    }
+    
+    func incrementModeLevel() {
+        defaults.setValue(modeLevel + 1, forKey: AppStorageKey.modeLevel)
+    }
+    
     func getHighScore(modeId: String) -> Int {
         return defaults.integer(forKey: modeId)
     }
