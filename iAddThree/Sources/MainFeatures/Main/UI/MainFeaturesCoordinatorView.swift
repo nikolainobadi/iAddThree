@@ -11,7 +11,7 @@ struct MainFeaturesCoordinatorView: View {
     @State private var showingSettings = false
     
     var body: some View {
-        GameCoordinatorView()
+        GameCoordinatorView(viewModel: .init())
             .sheet(isPresented: $showingSettings) {
                 SettingsCoordinatorView()
             }

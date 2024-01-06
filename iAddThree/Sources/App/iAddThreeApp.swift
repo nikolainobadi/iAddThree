@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import NnSwiftUIErrorHandling
 
 @main
 struct iAddThreeApp: App {
     var body: some Scene {
         WindowGroup {
             LaunchCoordinatorView()
+                .withNnErrorHandling()
         }
     }
 }

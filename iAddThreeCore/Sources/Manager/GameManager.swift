@@ -6,14 +6,16 @@
 //
 
 public final class GameManager {
+    private let modeId: String
     private let store: GameStore
     
     public private(set) var currentHighScore: Int
     private(set) var unlockedAchievements: [GameAchievement] = []
     
-    public init(store: GameStore) {
+    public init(modeId: String, store: GameStore) {
         self.store = store
-        self.currentHighScore = store.highScore
+        self.modeId = modeId
+        self.currentHighScore = store.getHighScore(modeId: modeId)
     }
 }
 
@@ -21,7 +23,7 @@ public final class GameManager {
 // MARK: - Actions
 public extension GameManager {
     func saveResults(_ results: LevelResults) {
-        updateHighScore(newScore: results.normalPoints)
+        updateHighScore(newScore: results.newScore)
     }
 }
 
@@ -30,7 +32,8 @@ public extension GameManager {
 private extension GameManager {
     func updateHighScore(newScore: Int) {
         if newScore > currentHighScore {
-            store.saveHighScore(newScore)
+            currentHighScore = newScore
+            store.saveHighScore(newScore, modeId: modeId)
         }
     }
 }
@@ -38,7 +41,14 @@ private extension GameManager {
 
 // MARK: - Dependencies
 public protocol GameStore {
-    var highScore: Int { get }
-    
-    func saveHighScore(_ score: Int)
+    func getHighScore(modeId: String) -> Int
+    func saveHighScore(_ score: Int, modeId: String)
+}
+
+
+// MARK: - Extension Dependencies
+extension LevelResults {
+    var newScore: Int {
+        return normalPoints + (bonusPoints ?? 0)
+    }
 }
