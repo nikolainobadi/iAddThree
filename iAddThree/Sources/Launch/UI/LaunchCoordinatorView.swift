@@ -11,6 +11,7 @@ import iAddThreeClassicKit
 
 struct LaunchCoordinatorView: View {
     @State private var showingSplashScreen = true
+    @AppStorage(AppStorageKey.adsRemoved) private var adsRemoved = false
     
     var body: some View {
         ZStack {
@@ -23,6 +24,9 @@ struct LaunchCoordinatorView: View {
                 }
         }
         .onChalkboard()
+        .onAppear {
+            SharedStoreKitManager.startTransactionListener(completion: { adsRemoved = $0 })
+        }
     }
 }
 

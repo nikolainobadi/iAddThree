@@ -6,19 +6,20 @@
 //
 
 import Foundation
-//import NnSwiftUIErrorHandling
+import NnSwiftUIErrorHandling
 
-enum ProUpgradeError: Error {
+enum StoreKitPurchaseError: Error {
     case fetchProductsError
     case unverifiedTransaction
     case networkError
     case restorePurchaseSuccess
     case restorePurchaseError
+    case other(String)
 }
 
 
 // MARK: - CustomError
-extension ProUpgradeError/*: NnDisplayableError*/ {
+extension StoreKitPurchaseError: NnDisplayableError {
     var title: String {
         switch self {
         case .networkError:
@@ -31,6 +32,8 @@ extension ProUpgradeError/*: NnDisplayableError*/ {
             return "Success"
         case .restorePurchaseError:
             return "Restore Error"
+        case .other:
+            return "Error"
         }
     }
     
@@ -48,6 +51,8 @@ extension ProUpgradeError/*: NnDisplayableError*/ {
             return "If you've made any iAddThree purchases, they should now be restored. If not, try restarting the app. For further support, please contact me at \(SUPPORT_EMAIL)"
         case .restorePurchaseError:
             return "Unable to restore purchases. Please try again. If you still are unable to restore your purchases, please contact me at \(SUPPORT_EMAIL)"
+        case .other(let message):
+            return message
         }
     }
 }

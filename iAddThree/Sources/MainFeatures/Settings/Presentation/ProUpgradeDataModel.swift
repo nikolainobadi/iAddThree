@@ -8,10 +8,8 @@
 import Foundation
 
 final class ProUpgradeDataModel: ObservableObject {
-    @Published var error: Error?
     @Published var productName = ""
     @Published var productPrice = ""
-    @Published var didRestorePurchases = false
     
     private let store: InAppPurchaseStore
     private let defaults: UserDefaults
@@ -46,58 +44,38 @@ extension ProUpgradeDataModel {
         """
     }
     
-    func fetchProduct() async {
-        startListeners()
+    func fetchProduct() async throws {
+        let (name, price) = try await store.fetchProducts()
         
-        do {
-            try await store.fetchProducts()
-        } catch {
-            
-        }
+        await updateProductInfo(name: name, price: price)
     }
     
     func purchase() async throws {
-        let didPurchase = try await store.purchaseRemoveAdsEntitlement()
-        
-        if didPurchase {
-            updateProStatus()
-        }
+        try await store.purchasePro()
     }
     
     func restorePurchase() async throws {
-        let didResetPurchases = await store.restorePurchases()
-        
-        await MainActor.run(body: {
-            self.didRestorePurchases = didResetPurchases
-        })
+        try await store.restorePurchases()
     }
 }
 
 
-// MARK: - Private Methods
+// MARK: - MainActor
+@MainActor
 private extension ProUpgradeDataModel {
-//    @MainActor func showError(_ error: ProUpgradeError) {
-//        self.error = error
-//    }
-    
-    func startListeners() {
-//        store.productNamePublisher.dispatchOnMainQueue().assign(to: &$productName)
-//        store.productPricePublisher.dispatchOnMainQueue().assign(to: &$productPrice)
-    }
-    
-    func updateProStatus() {
-//        defaults.set(true, forKey: AppStorageKey.adsRemoved)
+    func updateProductInfo(name: String, price: String) {
+        productName = name
+        productPrice = price
     }
 }
 
 
 // MARK: - Dependencies
 protocol InAppPurchaseStore {
-    var productNamePublisher: Published<String>.Publisher { get }
-    var productPricePublisher: Published<String>.Publisher { get }
+    typealias ProductInfo = (name: String, price: String)
     
-    func fetchProducts() async throws
-    func purchaseRemoveAdsEntitlement() async throws -> Bool
-    func restorePurchases() async -> Bool // ideally should NOT be needed
+    func fetchProducts() async throws -> ProductInfo
+    func purchasePro() async throws
+    func restorePurchases() async throws
 }
 

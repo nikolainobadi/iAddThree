@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D40BE8D02B44E8E00033114A /* SettingsCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40BE8CF2B44E8E00033114A /* SettingsCoordinatorView.swift */; };
 		D40BE8D52B44E9500033114A /* GameCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40BE8D42B44E9500033114A /* GameCoordinatorView.swift */; };
+		D4A1BAFA2B48D189009EFAFE /* NnSwiftUIErrorHandling in Frameworks */ = {isa = PBXBuildFile; productRef = D4A1BAF92B48D189009EFAFE /* NnSwiftUIErrorHandling */; };
 		D4B91DC22B44D79D00F9D3F1 /* iAddThreeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91DC12B44D79D00F9D3F1 /* iAddThreeApp.swift */; };
 		D4B91DC62B44D79E00F9D3F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B91DC52B44D79E00F9D3F1 /* Assets.xcassets */; };
 		D4B91DCA2B44D79E00F9D3F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B91DC92B44D79E00F9D3F1 /* Preview Assets.xcassets */; };
@@ -34,10 +35,10 @@
 		D4C0065B2B48978A00C36B5F /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C0065A2B48978A00C36B5F /* SettingsHeaderView.swift */; };
 		D4C0065F2B48BFA800C36B5F /* ProUpgradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C0065E2B48BFA800C36B5F /* ProUpgradeView.swift */; };
 		D4C006652B48C0B700C36B5F /* ProUpgradeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006642B48C0B700C36B5F /* ProUpgradeDataModel.swift */; };
-		D4C006692B48C13E00C36B5F /* InAppPurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006682B48C13E00C36B5F /* InAppPurchaseManager.swift */; };
-		D4C0066B2B48C16B00C36B5F /* InAppPurchaseProductKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C0066A2B48C16B00C36B5F /* InAppPurchaseProductKey.swift */; };
-		D4C0066D2B48C18800C36B5F /* TransactionResultVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C0066C2B48C18800C36B5F /* TransactionResultVerifier.swift */; };
+		D4C006692B48C13E00C36B5F /* InAppPurchaseStoreAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006682B48C13E00C36B5F /* InAppPurchaseStoreAdapter.swift */; };
 		D4C0066F2B48C1B800C36B5F /* StoreKitPurchaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C0066E2B48C1B800C36B5F /* StoreKitPurchaseError.swift */; };
+		D4C006712B48C4B600C36B5F /* SharedStoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006702B48C4B600C36B5F /* SharedStoreKitManager.swift */; };
+		D4C006752B48C92A00C36B5F /* AppStorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006742B48C92A00C36B5F /* AppStorageKey.swift */; };
 		D4E614702B45D72E009DF4DD /* UserDetaultsGameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6146F2B45D72E009DF4DD /* UserDetaultsGameStore.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,10 +102,10 @@
 		D4C0065A2B48978A00C36B5F /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
 		D4C0065E2B48BFA800C36B5F /* ProUpgradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUpgradeView.swift; sourceTree = "<group>"; };
 		D4C006642B48C0B700C36B5F /* ProUpgradeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUpgradeDataModel.swift; sourceTree = "<group>"; };
-		D4C006682B48C13E00C36B5F /* InAppPurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseManager.swift; sourceTree = "<group>"; };
-		D4C0066A2B48C16B00C36B5F /* InAppPurchaseProductKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseProductKey.swift; sourceTree = "<group>"; };
-		D4C0066C2B48C18800C36B5F /* TransactionResultVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResultVerifier.swift; sourceTree = "<group>"; };
+		D4C006682B48C13E00C36B5F /* InAppPurchaseStoreAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseStoreAdapter.swift; sourceTree = "<group>"; };
 		D4C0066E2B48C1B800C36B5F /* StoreKitPurchaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitPurchaseError.swift; sourceTree = "<group>"; };
+		D4C006702B48C4B600C36B5F /* SharedStoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedStoreKitManager.swift; sourceTree = "<group>"; };
+		D4C006742B48C92A00C36B5F /* AppStorageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKey.swift; sourceTree = "<group>"; };
 		D4E6146F2B45D72E009DF4DD /* UserDetaultsGameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetaultsGameStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4A1BAFA2B48D189009EFAFE /* NnSwiftUIErrorHandling in Frameworks */,
 				D4C006442B48871D00C36B5F /* iAddThreeClassicKit.xcframework in Frameworks */,
 				D4B91DE92B44DD1D00F9D3F1 /* iAddThreeCore.framework in Frameworks */,
 				D4B91DDA2B44DAAE00F9D3F1 /* NnSwiftUIHelpers in Frameworks */,
@@ -142,6 +144,7 @@
 			children = (
 				D4E6146D2B45D6FE009DF4DD /* UI */,
 				D4C006632B48C0A400C36B5F /* Presentation */,
+				D4A1BAF72B48CF3A009EFAFE /* Adapters */,
 				D4C0064F2B4893DF00C36B5F /* Handlers */,
 			);
 			path = Settings;
@@ -160,9 +163,17 @@
 		D40BE8D32B44E9440033114A /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				D4B91DDC2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift */,
+				D4C006732B48C92300C36B5F /* UI */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		D4A1BAF72B48CF3A009EFAFE /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				D4C006682B48C13E00C36B5F /* InAppPurchaseStoreAdapter.swift */,
+			);
+			path = Adapters;
 			sourceTree = "<group>";
 		};
 		D4B91DB52B44D79D00F9D3F1 = {
@@ -235,8 +246,8 @@
 		D4B91DD32B44DA1900F9D3F1 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
-				D4B91DD42B44DA2600F9D3F1 /* LaunchCoordinatorView.swift */,
-				D4B91DD62B44DA5E00F9D3F1 /* SplashView.swift */,
+				D4C006762B48C94300C36B5F /* UI */,
+				D4C006722B48C91700C36B5F /* Storage */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -356,12 +367,35 @@
 		D4C006662B48C10B00C36B5F /* InAppPurchase */ = {
 			isa = PBXGroup;
 			children = (
-				D4C006682B48C13E00C36B5F /* InAppPurchaseManager.swift */,
-				D4C0066A2B48C16B00C36B5F /* InAppPurchaseProductKey.swift */,
-				D4C0066C2B48C18800C36B5F /* TransactionResultVerifier.swift */,
 				D4C0066E2B48C1B800C36B5F /* StoreKitPurchaseError.swift */,
+				D4C006702B48C4B600C36B5F /* SharedStoreKitManager.swift */,
 			);
 			path = InAppPurchase;
+			sourceTree = "<group>";
+		};
+		D4C006722B48C91700C36B5F /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				D4C006742B48C92A00C36B5F /* AppStorageKey.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		D4C006732B48C92300C36B5F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D4B91DDC2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D4C006762B48C94300C36B5F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D4B91DD42B44DA2600F9D3F1 /* LaunchCoordinatorView.swift */,
+				D4B91DD62B44DA5E00F9D3F1 /* SplashView.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		D4E6146D2B45D6FE009DF4DD /* UI */ = {
@@ -413,6 +447,7 @@
 			name = iAddThree;
 			packageProductDependencies = (
 				D4B91DD92B44DAAE00F9D3F1 /* NnSwiftUIHelpers */,
+				D4A1BAF92B48D189009EFAFE /* NnSwiftUIErrorHandling */,
 			);
 			productName = iAddThree;
 			productReference = D4B91DBE2B44D79D00F9D3F1 /* iAddThree.app */;
@@ -488,6 +523,7 @@
 			mainGroup = D4B91DB52B44D79D00F9D3F1;
 			packageReferences = (
 				D4B91DD82B44DAAE00F9D3F1 /* XCRemoteSwiftPackageReference "NnSwiftUIHelpers" */,
+				D4A1BAF82B48D189009EFAFE /* XCRemoteSwiftPackageReference "NnSwiftUIErrorHandling" */,
 			);
 			productRefGroup = D4B91DBF2B44D79D00F9D3F1 /* Products */;
 			projectDirPath = "";
@@ -534,9 +570,10 @@
 				D4B91DD52B44DA2600F9D3F1 /* LaunchCoordinatorView.swift in Sources */,
 				D4C0065F2B48BFA800C36B5F /* ProUpgradeView.swift in Sources */,
 				D4C006652B48C0B700C36B5F /* ProUpgradeDataModel.swift in Sources */,
-				D4C006692B48C13E00C36B5F /* InAppPurchaseManager.swift in Sources */,
+				D4C006692B48C13E00C36B5F /* InAppPurchaseStoreAdapter.swift in Sources */,
 				D4C006482B488CB500C36B5F /* ClassicResultStoreAdapter.swift in Sources */,
-				D4C0066D2B48C18800C36B5F /* TransactionResultVerifier.swift in Sources */,
+				D4C006712B48C4B600C36B5F /* SharedStoreKitManager.swift in Sources */,
+				D4C006752B48C92A00C36B5F /* AppStorageKey.swift in Sources */,
 				D4B91DDD2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift in Sources */,
 				D4E614702B45D72E009DF4DD /* UserDetaultsGameStore.swift in Sources */,
 				D4C006512B4893F100C36B5F /* AppRater.swift in Sources */,
@@ -544,7 +581,6 @@
 				D4B91DC22B44D79D00F9D3F1 /* iAddThreeApp.swift in Sources */,
 				D40BE8D52B44E9500033114A /* GameCoordinatorView.swift in Sources */,
 				D40BE8D02B44E8E00033114A /* SettingsCoordinatorView.swift in Sources */,
-				D4C0066B2B48C16B00C36B5F /* InAppPurchaseProductKey.swift in Sources */,
 				D4C006532B48940200C36B5F /* AppVersionCache.swift in Sources */,
 				D4C0064E2B48901C00C36B5F /* TitleBanner.swift in Sources */,
 				D4C0065B2B48978A00C36B5F /* SettingsHeaderView.swift in Sources */,
@@ -954,6 +990,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D4A1BAF82B48D189009EFAFE /* XCRemoteSwiftPackageReference "NnSwiftUIErrorHandling" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nikolainobadi/NnSwiftUIErrorHandling.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		D4B91DD82B44DAAE00F9D3F1 /* XCRemoteSwiftPackageReference "NnSwiftUIHelpers" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nikolainobadi/NnSwiftUIHelpers";
@@ -965,6 +1009,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D4A1BAF92B48D189009EFAFE /* NnSwiftUIErrorHandling */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4A1BAF82B48D189009EFAFE /* XCRemoteSwiftPackageReference "NnSwiftUIErrorHandling" */;
+			productName = NnSwiftUIErrorHandling;
+		};
 		D4B91DD92B44DAAE00F9D3F1 /* NnSwiftUIHelpers */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D4B91DD82B44DAAE00F9D3F1 /* XCRemoteSwiftPackageReference "NnSwiftUIHelpers" */;
