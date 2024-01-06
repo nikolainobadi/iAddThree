@@ -9,12 +9,11 @@ public final class GameManager {
     private let store: GameStore
     
     public private(set) var currentHighScore: Int
-    private(set) var unlockedAchievements: [GameAchievement]
+    private(set) var unlockedAchievements: [GameAchievement] = []
     
-    public init(store: GameStore, currentHighScore: Int = 0, unlockedAchievements: [GameAchievement] = []) {
+    public init(store: GameStore) {
         self.store = store
-        self.currentHighScore = currentHighScore
-        self.unlockedAchievements = unlockedAchievements
+        self.currentHighScore = store.highScore
     }
 }
 
