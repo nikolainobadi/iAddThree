@@ -93,6 +93,7 @@
 		D4A1BB1F2B48E9B4009EFAFE /* FullScreenAdInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenAdInfo.swift; sourceTree = "<group>"; };
 		D4A1BB212B48EB73009EFAFE /* AppOpenAdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOpenAdsManager.swift; sourceTree = "<group>"; };
 		D4A1BB232B48EBCC009EFAFE /* CanShowAdsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanShowAdsKey.swift; sourceTree = "<group>"; };
+		D4A1BB252B48ED3F009EFAFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4B91DBE2B44D79D00F9D3F1 /* iAddThree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAddThree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B91DC12B44D79D00F9D3F1 /* iAddThreeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAddThreeApp.swift; sourceTree = "<group>"; };
 		D4B91DC52B44D79E00F9D3F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -291,6 +292,7 @@
 		D4B91DD22B44D9B600F9D3F1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D4A1BB252B48ED3F009EFAFE /* Info.plist */,
 				D4B91DC72B44D79E00F9D3F1 /* iAddThree.entitlements */,
 				D4B91DC52B44D79E00F9D3F1 /* Assets.xcassets */,
 			);
@@ -816,6 +818,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iAddThree/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = iAddThree;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -858,6 +861,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iAddThree/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = iAddThree;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
