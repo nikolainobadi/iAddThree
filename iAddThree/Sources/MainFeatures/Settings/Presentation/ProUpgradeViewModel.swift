@@ -1,5 +1,5 @@
 //
-//  ProUpgradeDataModel.swift
+//  ProUpgradeViewModel.swift
 //  iAddThree
 //
 //  Created by Nikolai Nobadi on 1/5/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ProUpgradeDataModel: ObservableObject {
+final class ProUpgradeViewModel: ObservableObject {
     @Published var productName = ""
     @Published var productPrice = ""
     
@@ -15,7 +15,9 @@ final class ProUpgradeDataModel: ObservableObject {
     private let defaults: UserDefaults
     private let myEmail = "nikolai.nobadi@gmail.com"
     
-    init(store: InAppPurchaseStore, defaults: UserDefaults = UserDefaults.standard) {
+    init(productName: String = "", productPrice: String = "", store: InAppPurchaseStore, defaults: UserDefaults = UserDefaults.standard) {
+        self.productName = productName
+        self.productPrice = productPrice
         self.store = store
         self.defaults = defaults
     }
@@ -23,7 +25,29 @@ final class ProUpgradeDataModel: ObservableObject {
 
 
 // MARK: - View Model
-extension ProUpgradeDataModel {
+extension ProUpgradeViewModel {
+    func getMessage(isPro: Bool) -> String {
+        return isPro ? thankYouMessage : removeAdsMessage
+    }
+    
+    func fetchProduct() async throws {
+        let (name, price) = try await store.fetchProducts()
+        
+        await updateProductInfo(name: name, price: price)
+    }
+    
+    func purchase() async throws {
+        try await store.purchasePro()
+    }
+    
+    func restorePurchase() async throws {
+        try await store.restorePurchases()
+    }
+}
+
+
+// MARK: - Private
+private extension ProUpgradeViewModel {
     var removeAdsMessage: String {
         """
         Tired of those pesky ads ruining your cognitive training?
@@ -43,26 +67,12 @@ extension ProUpgradeDataModel {
         If you ever have any ideas/feedback (for iAddThree or any of my apps), please feel free to email me directly at \(myEmail)!
         """
     }
-    
-    func fetchProduct() async throws {
-        let (name, price) = try await store.fetchProducts()
-        
-        await updateProductInfo(name: name, price: price)
-    }
-    
-    func purchase() async throws {
-        try await store.purchasePro()
-    }
-    
-    func restorePurchase() async throws {
-        try await store.restorePurchases()
-    }
 }
 
 
 // MARK: - MainActor
 @MainActor
-private extension ProUpgradeDataModel {
+private extension ProUpgradeViewModel {
     func updateProductInfo(name: String, price: String) {
         productName = name
         productPrice = price

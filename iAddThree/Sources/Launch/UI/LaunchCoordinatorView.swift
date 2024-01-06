@@ -24,6 +24,7 @@ struct LaunchCoordinatorView: View {
                 }
         }
         .onChalkboard()
+        .environment(\.didPurchasePro, adsRemoved)
         .onAppear {
             SharedStoreKitManager.startTransactionListener(completion: { adsRemoved = $0 })
         }

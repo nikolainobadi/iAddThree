@@ -12,6 +12,7 @@ import iAddThreeClassicKit
 struct SettingsCoordinatorView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var state: SettingsViewState = .about
+    @Environment(\.didPurchasePro) private var didPurchasePro
     
     private var versionNumber: String {
         return AppVersionCache.getVersionDetails()
@@ -29,7 +30,8 @@ struct SettingsCoordinatorView: View {
             switch state {
             case .list:
                 SettingsButtonListView(
-                    rateApp: rateApp, 
+                    didPurchasePro: didPurchasePro,
+                    rateApp: rateApp,
                     showAbout: { state = .about },
                     showUpgrade: { state = .upgrade }
                 )
@@ -38,7 +40,7 @@ struct SettingsCoordinatorView: View {
                     .setChalkFont(.body, isSmooth: true)
                     // MARK: - TODO -> add text background
             case .upgrade:
-                Text("Upgrade")
+                ProUpgradeView(viewModel: .init(store: InAppPurchaseStoreAdapter()), didPurchasePro: didPurchasePro)
             }
             
             Spacer()
