@@ -6,22 +6,20 @@
 //
 
 import Foundation
-import iAddThreeCore
 
-final class GameViewModel: ObservableObject {
+public final class GameViewModel: ObservableObject {
     @Published var selectedMode: GameMode?
     
-    private let defaults: UserDefaults
+    private let store: GameModeStore
     
-    init(selectedMode: GameMode? = nil, defaults: UserDefaults = .standard) {
-        self.selectedMode = selectedMode
-        self.defaults = defaults
+    public init(store: GameModeStore) {
+        self.store = store
     }
 }
 
 
 // MARK: - Actions
-extension GameViewModel {
+public extension GameViewModel {
     func playSelectedMode(_ mode: GameMode) throws {
         try verifyCanPlayMode(mode)
         
@@ -35,7 +33,7 @@ private extension GameViewModel {
     func verifyCanPlayMode(_ mode: GameMode) throws {
         guard mode != .add else { return }
         
-        let modeLevel = defaults.integer(forKey: AppStorageKey.modeLevel)
+        let modeLevel = store.modeLevel
         
         switch mode {
         case .subtract:
@@ -50,4 +48,10 @@ private extension GameViewModel {
             throw ModeLevelError.unknown
         }
     }
+}
+
+
+// MARK: - Dependencies
+public protocol GameModeStore {
+    var modeLevel: Int { get }
 }

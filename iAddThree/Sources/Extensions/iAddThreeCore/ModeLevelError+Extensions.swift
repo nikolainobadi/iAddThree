@@ -1,25 +1,19 @@
 //
-//  ModeLevelError.swift
+//  ModeLevelError+Extensions.swift
 //  iAddThree
 //
 //  Created by Nikolai Nobadi on 1/6/24.
 //
 
-import Foundation
+import iAddThreeCore
 import NnSwiftUIErrorHandling
 
-enum ModeLevelError: Error {
-    case subtract, hybrid, unknown
-}
-
-
-// MARK: - DisplayableError
 extension ModeLevelError: NnDisplayableError {
-    var title: String {
+    public var title: String {
         return "Restricted"
     }
     
-    var message: String {
+    public var message: String {
         switch self {
         case .subtract:
             return "Complete level 1 in 'Add' mode to unlock 'Subtract'."
