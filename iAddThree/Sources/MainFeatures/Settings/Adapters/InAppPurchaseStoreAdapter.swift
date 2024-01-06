@@ -7,6 +7,7 @@
 
 import StoreKit
 import Foundation
+import iAddThreeCore
 
 final class InAppPurchaseStoreAdapter: InAppPurchaseStore {
     func fetchProducts() async throws -> ProductInfo {

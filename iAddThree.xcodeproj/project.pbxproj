@@ -47,12 +47,13 @@
 		D4C006552B4894C900C36B5F /* SettingsButtonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006542B4894C900C36B5F /* SettingsButtonListView.swift */; };
 		D4C0065B2B48978A00C36B5F /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C0065A2B48978A00C36B5F /* SettingsHeaderView.swift */; };
 		D4C0065F2B48BFA800C36B5F /* ProUpgradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C0065E2B48BFA800C36B5F /* ProUpgradeView.swift */; };
-		D4C006652B48C0B700C36B5F /* ProUpgradeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006642B48C0B700C36B5F /* ProUpgradeViewModel.swift */; };
 		D4C006692B48C13E00C36B5F /* InAppPurchaseStoreAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006682B48C13E00C36B5F /* InAppPurchaseStoreAdapter.swift */; };
 		D4C0066F2B48C1B800C36B5F /* StoreKitPurchaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C0066E2B48C1B800C36B5F /* StoreKitPurchaseError.swift */; };
 		D4C006712B48C4B600C36B5F /* SharedStoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006702B48C4B600C36B5F /* SharedStoreKitManager.swift */; };
 		D4C006752B48C92A00C36B5F /* AppStorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006742B48C92A00C36B5F /* AppStorageKey.swift */; };
 		D4E614702B45D72E009DF4DD /* UserDetaultsGameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6146F2B45D72E009DF4DD /* UserDetaultsGameStore.swift */; };
+		D4EFAC6B2B4A00E800763A5A /* ProUpgradeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006642B48C0B700C36B5F /* ProUpgradeViewModel.swift */; };
+		D4EFAC722B4A014B00763A5A /* ProUpgradeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFAC702B4A012A00763A5A /* ProUpgradeViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,7 @@
 		D4C006702B48C4B600C36B5F /* SharedStoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedStoreKitManager.swift; sourceTree = "<group>"; };
 		D4C006742B48C92A00C36B5F /* AppStorageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKey.swift; sourceTree = "<group>"; };
 		D4E6146F2B45D72E009DF4DD /* UserDetaultsGameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetaultsGameStore.swift; sourceTree = "<group>"; };
+		D4EFAC702B4A012A00763A5A /* ProUpgradeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUpgradeViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,7 +193,7 @@
 		D40BE8D32B44E9440033114A /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				D4C006732B48C92300C36B5F /* UI */,
+				D4B91DDC2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -331,7 +333,8 @@
 		D4B91DD32B44DA1900F9D3F1 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
-				D4C006762B48C94300C36B5F /* UI */,
+				D4B91DD42B44DA2600F9D3F1 /* LaunchCoordinatorView.swift */,
+				D4B91DD62B44DA5E00F9D3F1 /* SplashView.swift */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				D4B91E062B44DECD00F9D3F1 /* Model */,
+				D4EFAC6A2B4A00D600763A5A /* Presentation */,
 				D4B91E052B44DEC900F9D3F1 /* Manager */,
 			);
 			path = Sources;
@@ -367,9 +371,10 @@
 		D4B91E002B44DDF800F9D3F1 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				D4B91E0B2B44E07700F9D3F1 /* iAddThreeCore.xctestplan */,
-				D4B91E012B44DE1400F9D3F1 /* GameManagerTests.swift */,
-				D4B91E032B44DE7500F9D3F1 /* XCTestCase+Extensions.swift */,
+				D4EFAC6C2B4A010000763A5A /* TestPlan */,
+				D4EFAC6E2B4A010E00763A5A /* TestHelpers */,
+				D4EFAC6D2B4A010600763A5A /* ManagerTests */,
+				D4EFAC6F2B4A011900763A5A /* PresentationTests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -446,7 +451,6 @@
 		D4C006632B48C0A400C36B5F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				D4C006642B48C0B700C36B5F /* ProUpgradeViewModel.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -469,23 +473,6 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
-		D4C006732B48C92300C36B5F /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				D4B91DDC2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		D4C006762B48C94300C36B5F /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				D4B91DD42B44DA2600F9D3F1 /* LaunchCoordinatorView.swift */,
-				D4B91DD62B44DA5E00F9D3F1 /* SplashView.swift */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
 		D4E6146D2B45D6FE009DF4DD /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -503,6 +490,46 @@
 				D4E6146F2B45D72E009DF4DD /* UserDetaultsGameStore.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		D4EFAC6A2B4A00D600763A5A /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				D4C006642B48C0B700C36B5F /* ProUpgradeViewModel.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		D4EFAC6C2B4A010000763A5A /* TestPlan */ = {
+			isa = PBXGroup;
+			children = (
+				D4B91E0B2B44E07700F9D3F1 /* iAddThreeCore.xctestplan */,
+			);
+			path = TestPlan;
+			sourceTree = "<group>";
+		};
+		D4EFAC6D2B4A010600763A5A /* ManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				D4B91E012B44DE1400F9D3F1 /* GameManagerTests.swift */,
+			);
+			path = ManagerTests;
+			sourceTree = "<group>";
+		};
+		D4EFAC6E2B4A010E00763A5A /* TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				D4B91E032B44DE7500F9D3F1 /* XCTestCase+Extensions.swift */,
+			);
+			path = TestHelpers;
+			sourceTree = "<group>";
+		};
+		D4EFAC6F2B4A011900763A5A /* PresentationTests */ = {
+			isa = PBXGroup;
+			children = (
+				D4EFAC702B4A012A00763A5A /* ProUpgradeViewModelTests.swift */,
+			);
+			path = PresentationTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -662,7 +689,6 @@
 				D4A1BB222B48EB73009EFAFE /* AppOpenAdsManager.swift in Sources */,
 				D446A38C2B49CCC6001B287D /* GameViewModel.swift in Sources */,
 				D4C0065F2B48BFA800C36B5F /* ProUpgradeView.swift in Sources */,
-				D4C006652B48C0B700C36B5F /* ProUpgradeViewModel.swift in Sources */,
 				D4A1BB142B48E711009EFAFE /* SharedGoogleAdManager.swift in Sources */,
 				D4C006692B48C13E00C36B5F /* InAppPurchaseStoreAdapter.swift in Sources */,
 				D4A1BB202B48E9B4009EFAFE /* FullScreenAdInfo.swift in Sources */,
@@ -698,6 +724,7 @@
 				D4B91DF02B44DDB200F9D3F1 /* GameManager.swift in Sources */,
 				D4B91E082B44DEDE00F9D3F1 /* LevelResults.swift in Sources */,
 				D4B91E0A2B44DF9500F9D3F1 /* GameAchievement.swift in Sources */,
+				D4EFAC6B2B4A00E800763A5A /* ProUpgradeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,6 +733,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4B91E042B44DE7500F9D3F1 /* XCTestCase+Extensions.swift in Sources */,
+				D4EFAC722B4A014B00763A5A /* ProUpgradeViewModelTests.swift in Sources */,
 				D4B91E022B44DE1400F9D3F1 /* GameManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

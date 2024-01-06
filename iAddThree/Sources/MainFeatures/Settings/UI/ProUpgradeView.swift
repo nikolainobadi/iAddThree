@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import iAddThreeCore
 import NnSwiftUIHelpers
 import iAddThreeClassicKit
 import NnSwiftUIErrorHandling
@@ -54,8 +55,6 @@ struct ProUpgradeView: View {
 
 // MARK: - Preview
 #Preview {
-    let viewModel = ProUpgradeViewModel(productName: "Remove Ads", productPrice: "$0.99", store: InAppPurchaseStoreAdapter())
-    
-    return ProUpgradeView(viewModel: viewModel, didPurchasePro: false)
+    ProUpgradeView(viewModel: .init(store: InAppPurchaseStoreAdapter()), didPurchasePro: false)
         .onChalkboard()
 }
