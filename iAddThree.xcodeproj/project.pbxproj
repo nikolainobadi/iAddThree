@@ -13,6 +13,9 @@
 		D4A1BAFC2B48D24F009EFAFE /* DidPurchaseProKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BAFB2B48D24F009EFAFE /* DidPurchaseProKey.swift */; };
 		D4A1BB102B48E484009EFAFE /* iAddThreeClassicKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A1BB0F2B48E484009EFAFE /* iAddThreeClassicKit.xcframework */; };
 		D4A1BB112B48E484009EFAFE /* iAddThreeClassicKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4A1BB0F2B48E484009EFAFE /* iAddThreeClassicKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D4A1BB142B48E711009EFAFE /* SharedGoogleAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BB132B48E711009EFAFE /* SharedGoogleAdManager.swift */; };
+		D4A1BB172B48E730009EFAFE /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = D4A1BB162B48E730009EFAFE /* GoogleMobileAds */; };
+		D4A1BB192B48E780009EFAFE /* AdMobId.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BB182B48E780009EFAFE /* AdMobId.swift */; };
 		D4B91DC22B44D79D00F9D3F1 /* iAddThreeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91DC12B44D79D00F9D3F1 /* iAddThreeApp.swift */; };
 		D4B91DC62B44D79E00F9D3F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B91DC52B44D79E00F9D3F1 /* Assets.xcassets */; };
 		D4B91DCA2B44D79E00F9D3F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B91DC92B44D79E00F9D3F1 /* Preview Assets.xcassets */; };
@@ -80,6 +83,8 @@
 		D40BE8D42B44E9500033114A /* GameCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinatorView.swift; sourceTree = "<group>"; };
 		D4A1BAFB2B48D24F009EFAFE /* DidPurchaseProKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidPurchaseProKey.swift; sourceTree = "<group>"; };
 		D4A1BB0F2B48E484009EFAFE /* iAddThreeClassicKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = iAddThreeClassicKit.xcframework; path = ../iAddThreeClassicKit/iAddThreeClassicKit.xcframework; sourceTree = "<group>"; };
+		D4A1BB132B48E711009EFAFE /* SharedGoogleAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedGoogleAdManager.swift; sourceTree = "<group>"; };
+		D4A1BB182B48E780009EFAFE /* AdMobId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobId.swift; sourceTree = "<group>"; };
 		D4B91DBE2B44D79D00F9D3F1 /* iAddThree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAddThree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B91DC12B44D79D00F9D3F1 /* iAddThreeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAddThreeApp.swift; sourceTree = "<group>"; };
 		D4B91DC52B44D79E00F9D3F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,6 +123,7 @@
 			files = (
 				D4A1BAFA2B48D189009EFAFE /* NnSwiftUIErrorHandling in Frameworks */,
 				D4B91DE92B44DD1D00F9D3F1 /* iAddThreeCore.framework in Frameworks */,
+				D4A1BB172B48E730009EFAFE /* GoogleMobileAds in Frameworks */,
 				D4A1BB102B48E484009EFAFE /* iAddThreeClassicKit.xcframework in Frameworks */,
 				D4B91DDA2B44DAAE00F9D3F1 /* NnSwiftUIHelpers in Frameworks */,
 			);
@@ -178,6 +184,15 @@
 			path = Adapters;
 			sourceTree = "<group>";
 		};
+		D4A1BB122B48E6DD009EFAFE /* GoogleMobileAds */ = {
+			isa = PBXGroup;
+			children = (
+				D4A1BB132B48E711009EFAFE /* SharedGoogleAdManager.swift */,
+				D4A1BB182B48E780009EFAFE /* AdMobId.swift */,
+			);
+			path = GoogleMobileAds;
+			sourceTree = "<group>";
+		};
 		D4B91DB52B44D79D00F9D3F1 = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +246,7 @@
 				D4B91DD32B44DA1900F9D3F1 /* Launch */,
 				D4B91DDB2B44DAB900F9D3F1 /* MainFeatures */,
 				D4C006662B48C10B00C36B5F /* InAppPurchase */,
+				D4A1BB122B48E6DD009EFAFE /* GoogleMobileAds */,
 				D4C0064B2B488FF400C36B5F /* Shared */,
 			);
 			path = Sources;
@@ -451,6 +467,7 @@
 			packageProductDependencies = (
 				D4B91DD92B44DAAE00F9D3F1 /* NnSwiftUIHelpers */,
 				D4A1BAF92B48D189009EFAFE /* NnSwiftUIErrorHandling */,
+				D4A1BB162B48E730009EFAFE /* GoogleMobileAds */,
 			);
 			productName = iAddThree;
 			productReference = D4B91DBE2B44D79D00F9D3F1 /* iAddThree.app */;
@@ -527,6 +544,7 @@
 			packageReferences = (
 				D4B91DD82B44DAAE00F9D3F1 /* XCRemoteSwiftPackageReference "NnSwiftUIHelpers" */,
 				D4A1BAF82B48D189009EFAFE /* XCRemoteSwiftPackageReference "NnSwiftUIErrorHandling" */,
+				D4A1BB152B48E730009EFAFE /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = D4B91DBF2B44D79D00F9D3F1 /* Products */;
 			projectDirPath = "";
@@ -573,6 +591,7 @@
 				D4B91DD52B44DA2600F9D3F1 /* LaunchCoordinatorView.swift in Sources */,
 				D4C0065F2B48BFA800C36B5F /* ProUpgradeView.swift in Sources */,
 				D4C006652B48C0B700C36B5F /* ProUpgradeViewModel.swift in Sources */,
+				D4A1BB142B48E711009EFAFE /* SharedGoogleAdManager.swift in Sources */,
 				D4C006692B48C13E00C36B5F /* InAppPurchaseStoreAdapter.swift in Sources */,
 				D4A1BAFC2B48D24F009EFAFE /* DidPurchaseProKey.swift in Sources */,
 				D4C006482B488CB500C36B5F /* ClassicResultStoreAdapter.swift in Sources */,
@@ -583,6 +602,7 @@
 				D4C006512B4893F100C36B5F /* AppRater.swift in Sources */,
 				D4C0066F2B48C1B800C36B5F /* StoreKitPurchaseError.swift in Sources */,
 				D4B91DC22B44D79D00F9D3F1 /* iAddThreeApp.swift in Sources */,
+				D4A1BB192B48E780009EFAFE /* AdMobId.swift in Sources */,
 				D40BE8D52B44E9500033114A /* GameCoordinatorView.swift in Sources */,
 				D40BE8D02B44E8E00033114A /* SettingsCoordinatorView.swift in Sources */,
 				D4C006532B48940200C36B5F /* AppVersionCache.swift in Sources */,
@@ -1002,6 +1022,14 @@
 				kind = branch;
 			};
 		};
+		D4A1BB152B48E730009EFAFE /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.14.0;
+			};
+		};
 		D4B91DD82B44DAAE00F9D3F1 /* XCRemoteSwiftPackageReference "NnSwiftUIHelpers" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nikolainobadi/NnSwiftUIHelpers";
@@ -1017,6 +1045,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D4A1BAF82B48D189009EFAFE /* XCRemoteSwiftPackageReference "NnSwiftUIErrorHandling" */;
 			productName = NnSwiftUIErrorHandling;
+		};
+		D4A1BB162B48E730009EFAFE /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4A1BB152B48E730009EFAFE /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
 		};
 		D4B91DD92B44DAAE00F9D3F1 /* NnSwiftUIHelpers */ = {
 			isa = XCSwiftPackageProductDependency;
