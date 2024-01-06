@@ -189,7 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				D4C006612B48C08200C36B5F /* UI */,
-				D446A38A2B49CCBB001B287D /* Presentation */,
 				D4E6146E2B45D71C009DF4DD /* Storage */,
 				D4C006462B488CAC00C36B5F /* Adapters */,
 			);
@@ -202,13 +201,6 @@
 				D4B91DDC2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		D446A38A2B49CCBB001B287D /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Presentation;
 			sourceTree = "<group>";
 		};
 		D4A1BAF72B48CF3A009EFAFE /* Adapters */ = {

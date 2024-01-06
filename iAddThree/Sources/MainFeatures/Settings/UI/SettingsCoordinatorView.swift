@@ -10,8 +10,7 @@ import NnSwiftUIHelpers
 import iAddThreeClassicKit
 
 struct SettingsCoordinatorView: View {
-    @Environment(\.dismiss) private var dismiss
-    @State private var state: SettingsViewState = .about
+    @State private var state: SettingsViewState = .list
     @Environment(\.didPurchasePro) private var didPurchasePro
     
     private var versionNumber: String {
@@ -24,7 +23,7 @@ struct SettingsCoordinatorView: View {
     
     var body: some View {
         VStack {
-            SettingsHeaderView(state: state, dismiss: { dismiss() }, showList: { state = .list })
+            SettingsHeaderView(state: state, showList: { state = .list })
                 .padding(.bottom, getHeightPercent(5))
             
             switch state {

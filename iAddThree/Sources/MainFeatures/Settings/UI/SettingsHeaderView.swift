@@ -6,20 +6,22 @@
 //
 
 import SwiftUI
+import NnSwiftUIHelpers
+import iAddThreeClassicKit
 
 struct SettingsHeaderView: View {
     let state: SettingsViewState
-    let dismiss: () -> Void
     let showList: () -> Void
     
     var body: some View {
         VStack {
             HStack {
-                NavBackButton(backAction: showList)
+                ChalkNavBackButton(text: "Back", action: showList)
                     .onlyShow(when: state != .list)
                 Spacer()
-                NavDismissButton(dismiss: dismiss)
             }
+            .padding(.horizontal)
+            .padding(.top, getHeightPercent(2))
             
             Text(state.title)
                 .lineLimit(1)

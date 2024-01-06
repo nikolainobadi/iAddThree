@@ -36,13 +36,13 @@ struct GameCoordinatorView: View {
 
 // MARK: - Extension Dependencies
 extension GameManager {
-    static func customInit(mode: iAddThreeCore.GameMode) -> GameManager {
+    static func customInit(mode: GameMode) -> GameManager {
         return .init(mode: mode, store: UserDefaultsGameStore())
     }
 }
 
 extension iAddThreeCore.GameMode {
-    var classicMode: iAddThreeClassicKit.GameMode {
+    var classicMode: ClassicGameMode {
         switch self {
         case .add:
             return .add

@@ -7,6 +7,8 @@
 
 import SwiftUI
 import iAddThreeCore
+import NnSwiftUIHelpers
+import iAddThreeClassicKit
 import NnSwiftUIErrorHandling
 
 struct GameModeListView: View {
@@ -21,10 +23,10 @@ struct GameModeListView: View {
             Spacer()
             LazyVStack {
                 ForEach(GameMode.allCases) { mode in
-                    NnTryButton("mode.name") {
+                    NnTryButton(mode.name) {
                         try onSelection(mode)
                     }
-//                    .buttonStyle(ChalkButtonStyle())
+                    .buttonStyle(ChalkButtonStyle(frameWidth: getWidthPercent(70)))
                 }
             }
             
@@ -37,4 +39,5 @@ struct GameModeListView: View {
 // MARK: - Preview
 #Preview {
     GameModeListView(canShowSubtractBanner: false, onSelection: { _ in })
+        .onChalkboard()
 }
