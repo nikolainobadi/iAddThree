@@ -25,15 +25,15 @@ private extension AchievementManager {
         case .level(let requiredLevel):
             guard let levelCompleted = info.levelCompleted else { return false }
             
-            return levelCompleted >= requiredLevel
+            return levelCompleted == requiredLevel
         case .time(let maxTime):
             guard let completionTime = info.completionTime else { return false }
             
             return completionTime <= maxTime
         case .perfectScoreStreak(let requiredStreak):
             return info.perfectStreakCount == requiredStreak
-        case .completedLevelCount(let requiredCount):
-            return info.completedLevelCount >= requiredCount
+        case .totalCompletedLevelCount(let requiredCount):
+            return info.totalCompletedLevelCount == requiredCount
         }
     }
 }

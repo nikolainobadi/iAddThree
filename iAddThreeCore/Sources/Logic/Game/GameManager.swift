@@ -88,6 +88,6 @@ fileprivate extension LevelResults {
     }
     
     func toAchievementInfo(modeName: String, completedLevelCount: Int) -> ResultAchievementInfo {
-        return .init(modeName: modeName, completedLevelCount: completedLevelCount, levelCompleted: levelCompleted, perfectStreakCount: perfectStreakCount, completionTime: completionTime)
+        return .init(modeName: modeName, totalCompletedLevelCount: completedLevelCount, levelCompleted: levelCompleted, perfectStreakCount: perfectStreakCount, completionTime: completionTime)
     }
 }

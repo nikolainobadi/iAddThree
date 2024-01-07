@@ -11,6 +11,6 @@ enum AchievementType {
     case level(Int)
     case time(TimeInterval)
     case perfectScoreStreak(Int)
-    case completedLevelCount(Int)
+    case totalCompletedLevelCount(Int)
 }
 

@@ -12,7 +12,7 @@ enum AchievementConfigurator {
             AchievementMetadata(identifier: "\(modeName)_level_10", requirement: .level(10)),
             AchievementMetadata(identifier: "\(modeName)_level_30", requirement: .level(30)),
             AchievementMetadata(identifier: "\(modeName)_quick_completion", requirement: .time(5)),
-            AchievementMetadata(identifier: "\(modeName)_frequent_player", requirement: .completedLevelCount(100)),
+            AchievementMetadata(identifier: "\(modeName)_frequent_player", requirement: .totalCompletedLevelCount(100)),
             AchievementMetadata(identifier: "\(modeName)_perfect_streak", requirement: .perfectScoreStreak(10))
         ]
     }

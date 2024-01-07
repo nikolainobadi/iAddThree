@@ -9,7 +9,7 @@ import Foundation
 
 struct ResultAchievementInfo {
     let modeName: String
-    let completedLevelCount: Int
+    let totalCompletedLevelCount: Int
     let levelCompleted: Int?
     let perfectStreakCount: Int
     let completionTime: TimeInterval?
