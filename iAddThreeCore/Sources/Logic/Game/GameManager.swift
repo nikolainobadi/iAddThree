@@ -12,10 +12,18 @@ public final class GameManager {
     public private(set) var currentHighScore: Int
     private lazy var unlockedAchievements: [GameAchievement] = store.loadUnlockedAchievements(modeId: mode.id)
     
-    public init(mode: GameMode, store: GameStore) {
+    init(mode: GameMode, store: GameStore) {
         self.mode = mode
         self.store = store
         self.currentHighScore = store.loadHighScore(modeId: mode.id)
+    }
+}
+
+
+// MARK: - Convenience init
+public extension GameManager {
+    convenience init(mode: GameMode, socialStore: SocialPerformanceStore, performanceStore: GamePerformanceStore) {
+        self.init(mode: mode, store: GameStorageManager(socialStore: socialStore, performanceStore: performanceStore))
     }
 }
 

@@ -60,7 +60,7 @@ extension GameStorageManager: GameStore {
 
 
 // MARK: - Dependencies
-protocol GamePerformanceStore {
+public protocol GamePerformanceStore {
     var modeLevel: Int { get }
     
     func getHighScore(modeId: String) -> Int
@@ -69,7 +69,7 @@ protocol GamePerformanceStore {
     func saveHighScore(_ newHighScore: Int, modeId: String)
 }
 
-protocol SocialPerformanceStore {
+public protocol SocialPerformanceStore {
     func loadHighScore(modeId: String) -> Int?
     func loadUnlockedAchievements(modeId: String) -> [GameAchievement]
     func saveHighScore(_ newHighScore: Int, modeId: String)
