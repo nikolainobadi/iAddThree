@@ -1,10 +1,8 @@
 ## User settings
 xcuserdata/
-xcshareddata/
 *.xcscmblueprint
 
 ## Project settings
-project.xcworkspace/
 
 ## Build generated
 build/
@@ -19,7 +17,6 @@ DerivedData/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-xcshareddata/
 
 ## Other
 *.moved-aside
@@ -32,7 +29,6 @@ Podfile.lock
 
 # Swift Package Manager
 .build/
-.swiftpm/
 
 # macOS
 .DS_Store
@@ -42,5 +38,6 @@ node_modules/
 serviceKey/
 
 iAddThreeClassicKit.xcframework/
+
 
 
