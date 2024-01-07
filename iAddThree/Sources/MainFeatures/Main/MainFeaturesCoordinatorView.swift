@@ -45,6 +45,6 @@ struct MainFeaturesCoordinatorView: View {
 // MARK: - Extension Dependencies
 extension GameViewModel {
     static func customInit() -> GameViewModel {
-        return .init(store: UserDefaultsGameModeStore())
+        return .init(store: UserDefaultsGamePerformanceStore())
     }
 }

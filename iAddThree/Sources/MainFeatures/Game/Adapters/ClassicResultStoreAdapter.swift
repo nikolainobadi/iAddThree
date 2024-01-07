@@ -37,7 +37,8 @@ extension ClassicLevelResults {
             level: currentLevel,
             normalPoints: correctAnswerCount,
             bonusPoints: bonusPoints,
-            didCompleteLevel: completionTime != nil,
+            didCompleteLevel: completionTime != nil, 
+            perfectStreakCount: perfectStreakCount,
             completionTime: completionTime
         )
     }

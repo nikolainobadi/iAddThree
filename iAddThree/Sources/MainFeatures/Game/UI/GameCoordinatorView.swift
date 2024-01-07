@@ -37,7 +37,7 @@ struct GameCoordinatorView: View {
 // MARK: - Extension Dependencies
 extension GameManager {
     static func customInit(mode: GameMode) -> GameManager {
-        return .init(mode: mode, store: UserDefaultsGameStore())
+        return .init(mode: mode, socialStore: GameKitSocialPerformanceStore(), performanceStore: UserDefaultsGamePerformanceStore())
     }
 }
 
