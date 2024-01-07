@@ -23,7 +23,13 @@ public final class GameManager {
 // MARK: - Actions
 public extension GameManager {
     func saveResults(_ results: LevelResults) {
-        store.saveRecord(record: makePerformanceRecord(results: results))
+        let record = makePerformanceRecord(results: results)
+        
+        if let newHighScore = record.newHighScore {
+            currentHighScore = newHighScore
+        }
+        
+        store.saveRecord(record: record)
     }
 }
 
@@ -39,7 +45,7 @@ private extension GameManager {
     }
     
     func getNewAchievements(from results: LevelResults) -> [GameAchievement] {
-        let info = results.toAchievementInfo(modeName: mode.name, completedLevelCount: store.getCompletedLevelsCount(modeId: mode.id))
+        let info = results.toAchievementInfo(modeName: mode.name, completedLevelCount: store.getTotalCompletedLevelsCount(modeId: mode.id))
         let potentialNewAchievements = AchievementManager.getAchievements(info: info)
         
         if potentialNewAchievements.isEmpty { return [] }
@@ -71,7 +77,7 @@ public protocol GameStore {
     var modeLevel: Int { get }
     
     func getHighScore(modeId: String) -> Int
-    func getCompletedLevelsCount(modeId: String) -> Int
+    func getTotalCompletedLevelsCount(modeId: String) -> Int
     func saveRecord(record: PerformanceRecord)
     func loadUnlockedAchievements(modeId: String) -> [GameAchievement]
 }
