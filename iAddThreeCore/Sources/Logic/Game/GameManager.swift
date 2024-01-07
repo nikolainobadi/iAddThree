@@ -10,7 +10,6 @@ public final class GameManager {
     private let store: GameStore
     
     public private(set) var currentHighScore: Int
-    private(set) var unlockedAchievements: [GameAchievement] = []
     
     public init(mode: GameMode, store: GameStore) {
         self.mode = mode
