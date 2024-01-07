@@ -20,6 +20,7 @@
 		D424CFBC2B4B33FE00391FFF /* GameStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D424CFBB2B4B33FE00391FFF /* GameStorageManager.swift */; };
 		D424CFBE2B4B3AC900391FFF /* GameKitSocialPerformanceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D424CFBD2B4B3AC900391FFF /* GameKitSocialPerformanceStore.swift */; };
 		D424CFC02B4B3BAA00391FFF /* InheritableUserDefaultsGameModeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D424CFBF2B4B3BAA00391FFF /* InheritableUserDefaultsGameModeStore.swift */; };
+		D424CFC42B4B622000391FFF /* SharedGameKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D424CFC32B4B622000391FFF /* SharedGameKitManager.swift */; };
 		D446A3892B49C810001B287D /* GameModeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446A3882B49C810001B287D /* GameModeListView.swift */; };
 		D446A3902B49E743001B287D /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446A38F2B49E743001B287D /* GameMode.swift */; };
 		D4A1BAFA2B48D189009EFAFE /* NnSwiftUIErrorHandling in Frameworks */ = {isa = PBXBuildFile; productRef = D4A1BAF92B48D189009EFAFE /* NnSwiftUIErrorHandling */; };
@@ -114,6 +115,7 @@
 		D424CFBB2B4B33FE00391FFF /* GameStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStorageManager.swift; sourceTree = "<group>"; };
 		D424CFBD2B4B3AC900391FFF /* GameKitSocialPerformanceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameKitSocialPerformanceStore.swift; sourceTree = "<group>"; };
 		D424CFBF2B4B3BAA00391FFF /* InheritableUserDefaultsGameModeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InheritableUserDefaultsGameModeStore.swift; sourceTree = "<group>"; };
+		D424CFC32B4B622000391FFF /* SharedGameKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedGameKitManager.swift; sourceTree = "<group>"; };
 		D446A3882B49C810001B287D /* GameModeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeListView.swift; sourceTree = "<group>"; };
 		D446A38B2B49CCC6001B287D /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		D446A38D2B49CCF5001B287D /* ModeLevelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeLevelError.swift; sourceTree = "<group>"; };
@@ -267,6 +269,14 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		D424CFC12B4B620900391FFF /* GameCenter */ = {
+			isa = PBXGroup;
+			children = (
+				D424CFC32B4B622000391FFF /* SharedGameKitManager.swift */,
+			);
+			path = GameCenter;
+			sourceTree = "<group>";
+		};
 		D4A1BAF72B48CF3A009EFAFE /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +384,7 @@
 				D4B91DD32B44DA1900F9D3F1 /* Launch */,
 				D4B91DDB2B44DAB900F9D3F1 /* MainFeatures */,
 				D4C006662B48C10B00C36B5F /* InAppPurchase */,
+				D424CFC12B4B620900391FFF /* GameCenter */,
 				D4A1BB122B48E6DD009EFAFE /* GoogleMobileAds */,
 				D4A1BB292B48F327009EFAFE /* Extensions */,
 				D4C0064B2B488FF400C36B5F /* Shared */,
@@ -784,6 +795,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D424CFC42B4B622000391FFF /* SharedGameKitManager.swift in Sources */,
 				D4B91DD52B44DA2600F9D3F1 /* LaunchCoordinatorView.swift in Sources */,
 				D4A1BB2B2B48F331009EFAFE /* View+Extensions.swift in Sources */,
 				D4A1BB222B48EB73009EFAFE /* AppOpenAdsManager.swift in Sources */,
