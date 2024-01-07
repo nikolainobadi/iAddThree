@@ -420,10 +420,10 @@
 		D4B91DFF2B44DDF300F9D3F1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				D424CFBA2B4B33F400391FFF /* Storage */,
 				D4B91E062B44DECD00F9D3F1 /* Model */,
 				D4EFAC6A2B4A00D600763A5A /* Presentation */,
 				D4B91E052B44DEC900F9D3F1 /* Logic */,
+				D424CFBA2B4B33F400391FFF /* Storage */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
