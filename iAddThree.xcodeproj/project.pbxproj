@@ -9,6 +9,20 @@
 /* Begin PBXBuildFile section */
 		D40BE8D02B44E8E00033114A /* SettingsCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40BE8CF2B44E8E00033114A /* SettingsCoordinatorView.swift */; };
 		D40BE8D52B44E9500033114A /* GameCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40BE8D42B44E9500033114A /* GameCoordinatorView.swift */; };
+		D446A3892B49C810001B287D /* GameModeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446A3882B49C810001B287D /* GameModeListView.swift */; };
+		D446A3902B49E743001B287D /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446A38F2B49E743001B287D /* GameMode.swift */; };
+		D4A1BAFA2B48D189009EFAFE /* NnSwiftUIErrorHandling in Frameworks */ = {isa = PBXBuildFile; productRef = D4A1BAF92B48D189009EFAFE /* NnSwiftUIErrorHandling */; };
+		D4A1BAFC2B48D24F009EFAFE /* DidPurchaseProKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BAFB2B48D24F009EFAFE /* DidPurchaseProKey.swift */; };
+		D4A1BB102B48E484009EFAFE /* iAddThreeClassicKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A1BB0F2B48E484009EFAFE /* iAddThreeClassicKit.xcframework */; };
+		D4A1BB112B48E484009EFAFE /* iAddThreeClassicKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4A1BB0F2B48E484009EFAFE /* iAddThreeClassicKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D4A1BB142B48E711009EFAFE /* SharedGoogleAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BB132B48E711009EFAFE /* SharedGoogleAdManager.swift */; };
+		D4A1BB192B48E780009EFAFE /* AdMobId.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BB182B48E780009EFAFE /* AdMobId.swift */; };
+		D4A1BB1E2B48E94A009EFAFE /* AppOpenAdsViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BB1D2B48E94A009EFAFE /* AppOpenAdsViewModifier.swift */; };
+		D4A1BB202B48E9B4009EFAFE /* FullScreenAdInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BB1F2B48E9B4009EFAFE /* FullScreenAdInfo.swift */; };
+		D4A1BB222B48EB73009EFAFE /* AppOpenAdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BB212B48EB73009EFAFE /* AppOpenAdsManager.swift */; };
+		D4A1BB242B48EBCC009EFAFE /* CanShowAdsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BB232B48EBCC009EFAFE /* CanShowAdsKey.swift */; };
+		D4A1BB282B48F109009EFAFE /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = D4A1BB272B48F109009EFAFE /* GoogleMobileAds */; };
+		D4A1BB2B2B48F331009EFAFE /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BB2A2B48F331009EFAFE /* View+Extensions.swift */; };
 		D4B91DC22B44D79D00F9D3F1 /* iAddThreeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91DC12B44D79D00F9D3F1 /* iAddThreeApp.swift */; };
 		D4B91DC62B44D79E00F9D3F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B91DC52B44D79E00F9D3F1 /* Assets.xcassets */; };
 		D4B91DCA2B44D79E00F9D3F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B91DC92B44D79E00F9D3F1 /* Preview Assets.xcassets */; };
@@ -24,7 +38,25 @@
 		D4B91E042B44DE7500F9D3F1 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91E032B44DE7500F9D3F1 /* XCTestCase+Extensions.swift */; };
 		D4B91E082B44DEDE00F9D3F1 /* LevelResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91E072B44DEDE00F9D3F1 /* LevelResults.swift */; };
 		D4B91E0A2B44DF9500F9D3F1 /* GameAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91E092B44DF9500F9D3F1 /* GameAchievement.swift */; };
+		D4C006482B488CB500C36B5F /* ClassicResultStoreAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006472B488CB500C36B5F /* ClassicResultStoreAdapter.swift */; };
+		D4C0064E2B48901C00C36B5F /* TitleBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C0064D2B48901C00C36B5F /* TitleBanner.swift */; };
+		D4C006512B4893F100C36B5F /* AppRater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006502B4893F100C36B5F /* AppRater.swift */; };
+		D4C006532B48940200C36B5F /* AppVersionCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006522B48940200C36B5F /* AppVersionCache.swift */; };
+		D4C006552B4894C900C36B5F /* SettingsButtonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006542B4894C900C36B5F /* SettingsButtonListView.swift */; };
+		D4C0065B2B48978A00C36B5F /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C0065A2B48978A00C36B5F /* SettingsHeaderView.swift */; };
+		D4C0065F2B48BFA800C36B5F /* ProUpgradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C0065E2B48BFA800C36B5F /* ProUpgradeView.swift */; };
+		D4C006692B48C13E00C36B5F /* InAppPurchaseStoreAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006682B48C13E00C36B5F /* InAppPurchaseStoreAdapter.swift */; };
+		D4C0066F2B48C1B800C36B5F /* StoreKitPurchaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C0066E2B48C1B800C36B5F /* StoreKitPurchaseError.swift */; };
+		D4C006712B48C4B600C36B5F /* SharedStoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006702B48C4B600C36B5F /* SharedStoreKitManager.swift */; };
 		D4E614702B45D72E009DF4DD /* UserDetaultsGameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6146F2B45D72E009DF4DD /* UserDetaultsGameStore.swift */; };
+		D4EFAC6B2B4A00E800763A5A /* ProUpgradeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006642B48C0B700C36B5F /* ProUpgradeViewModel.swift */; };
+		D4EFAC722B4A014B00763A5A /* ProUpgradeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFAC702B4A012A00763A5A /* ProUpgradeViewModelTests.swift */; };
+		D4EFAC782B4A05BB00763A5A /* ModeLevelError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFAC772B4A05BB00763A5A /* ModeLevelError+Extensions.swift */; };
+		D4EFAC792B4A05D900763A5A /* ModeLevelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446A38D2B49CCF5001B287D /* ModeLevelError.swift */; };
+		D4EFAC7A2B4A05DC00763A5A /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446A38B2B49CCC6001B287D /* GameViewModel.swift */; };
+		D4EFAC7F2B4A066B00763A5A /* GameViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFAC7D2B4A066700763A5A /* GameViewModelTests.swift */; };
+		D4EFAC802B4A09D500763A5A /* AppStorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006742B48C92A00C36B5F /* AppStorageKey.swift */; };
+		D4EFAC832B4A0A1700763A5A /* UserDefaultsGameModeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFAC822B4A0A1700763A5A /* UserDefaultsGameModeStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +83,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				D4A1BB112B48E484009EFAFE /* iAddThreeClassicKit.xcframework in Embed Frameworks */,
 				D4B91DEA2B44DD1D00F9D3F1 /* iAddThreeCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -61,6 +94,20 @@
 /* Begin PBXFileReference section */
 		D40BE8CF2B44E8E00033114A /* SettingsCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinatorView.swift; sourceTree = "<group>"; };
 		D40BE8D42B44E9500033114A /* GameCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinatorView.swift; sourceTree = "<group>"; };
+		D446A3882B49C810001B287D /* GameModeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeListView.swift; sourceTree = "<group>"; };
+		D446A38B2B49CCC6001B287D /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		D446A38D2B49CCF5001B287D /* ModeLevelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeLevelError.swift; sourceTree = "<group>"; };
+		D446A38F2B49E743001B287D /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
+		D4A1BAFB2B48D24F009EFAFE /* DidPurchaseProKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidPurchaseProKey.swift; sourceTree = "<group>"; };
+		D4A1BB0F2B48E484009EFAFE /* iAddThreeClassicKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = iAddThreeClassicKit.xcframework; path = ../iAddThreeClassicKit/iAddThreeClassicKit.xcframework; sourceTree = "<group>"; };
+		D4A1BB132B48E711009EFAFE /* SharedGoogleAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedGoogleAdManager.swift; sourceTree = "<group>"; };
+		D4A1BB182B48E780009EFAFE /* AdMobId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobId.swift; sourceTree = "<group>"; };
+		D4A1BB1D2B48E94A009EFAFE /* AppOpenAdsViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOpenAdsViewModifier.swift; sourceTree = "<group>"; };
+		D4A1BB1F2B48E9B4009EFAFE /* FullScreenAdInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenAdInfo.swift; sourceTree = "<group>"; };
+		D4A1BB212B48EB73009EFAFE /* AppOpenAdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOpenAdsManager.swift; sourceTree = "<group>"; };
+		D4A1BB232B48EBCC009EFAFE /* CanShowAdsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanShowAdsKey.swift; sourceTree = "<group>"; };
+		D4A1BB252B48ED3F009EFAFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4A1BB2A2B48F331009EFAFE /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		D4B91DBE2B44D79D00F9D3F1 /* iAddThree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAddThree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B91DC12B44D79D00F9D3F1 /* iAddThreeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAddThreeApp.swift; sourceTree = "<group>"; };
 		D4B91DC52B44D79E00F9D3F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,7 +124,23 @@
 		D4B91E072B44DEDE00F9D3F1 /* LevelResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelResults.swift; sourceTree = "<group>"; };
 		D4B91E092B44DF9500F9D3F1 /* GameAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAchievement.swift; sourceTree = "<group>"; };
 		D4B91E0B2B44E07700F9D3F1 /* iAddThreeCore.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = iAddThreeCore.xctestplan; sourceTree = "<group>"; };
+		D4C006472B488CB500C36B5F /* ClassicResultStoreAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicResultStoreAdapter.swift; sourceTree = "<group>"; };
+		D4C0064D2B48901C00C36B5F /* TitleBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBanner.swift; sourceTree = "<group>"; };
+		D4C006502B4893F100C36B5F /* AppRater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRater.swift; sourceTree = "<group>"; };
+		D4C006522B48940200C36B5F /* AppVersionCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionCache.swift; sourceTree = "<group>"; };
+		D4C006542B4894C900C36B5F /* SettingsButtonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonListView.swift; sourceTree = "<group>"; };
+		D4C0065A2B48978A00C36B5F /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
+		D4C0065E2B48BFA800C36B5F /* ProUpgradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUpgradeView.swift; sourceTree = "<group>"; };
+		D4C006642B48C0B700C36B5F /* ProUpgradeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUpgradeViewModel.swift; sourceTree = "<group>"; };
+		D4C006682B48C13E00C36B5F /* InAppPurchaseStoreAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseStoreAdapter.swift; sourceTree = "<group>"; };
+		D4C0066E2B48C1B800C36B5F /* StoreKitPurchaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitPurchaseError.swift; sourceTree = "<group>"; };
+		D4C006702B48C4B600C36B5F /* SharedStoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedStoreKitManager.swift; sourceTree = "<group>"; };
+		D4C006742B48C92A00C36B5F /* AppStorageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKey.swift; sourceTree = "<group>"; };
 		D4E6146F2B45D72E009DF4DD /* UserDetaultsGameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetaultsGameStore.swift; sourceTree = "<group>"; };
+		D4EFAC702B4A012A00763A5A /* ProUpgradeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUpgradeViewModelTests.swift; sourceTree = "<group>"; };
+		D4EFAC772B4A05BB00763A5A /* ModeLevelError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModeLevelError+Extensions.swift"; sourceTree = "<group>"; };
+		D4EFAC7D2B4A066700763A5A /* GameViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModelTests.swift; sourceTree = "<group>"; };
+		D4EFAC822B4A0A1700763A5A /* UserDefaultsGameModeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsGameModeStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +148,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4A1BAFA2B48D189009EFAFE /* NnSwiftUIErrorHandling in Frameworks */,
 				D4B91DE92B44DD1D00F9D3F1 /* iAddThreeCore.framework in Frameworks */,
+				D4A1BB282B48F109009EFAFE /* GoogleMobileAds in Frameworks */,
+				D4A1BB102B48E484009EFAFE /* iAddThreeClassicKit.xcframework in Frameworks */,
 				D4B91DDA2B44DAAE00F9D3F1 /* NnSwiftUIHelpers in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,7 +177,10 @@
 		D40BE8D12B44E90E0033114A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				D40BE8CF2B44E8E00033114A /* SettingsCoordinatorView.swift */,
+				D4E6146D2B45D6FE009DF4DD /* UI */,
+				D4C006632B48C0A400C36B5F /* Presentation */,
+				D4A1BAF72B48CF3A009EFAFE /* Adapters */,
+				D4C0064F2B4893DF00C36B5F /* Handlers */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -119,7 +188,9 @@
 		D40BE8D22B44E9120033114A /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				D40BE8D42B44E9500033114A /* GameCoordinatorView.swift */,
+				D4C006612B48C08200C36B5F /* UI */,
+				D4E6146E2B45D71C009DF4DD /* Storage */,
+				D4C006462B488CAC00C36B5F /* Adapters */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -132,12 +203,67 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		D4A1BAF72B48CF3A009EFAFE /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				D4C006682B48C13E00C36B5F /* InAppPurchaseStoreAdapter.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
+		D4A1BB122B48E6DD009EFAFE /* GoogleMobileAds */ = {
+			isa = PBXGroup;
+			children = (
+				D4A1BB1B2B48E934009EFAFE /* Model */,
+				D4A1BB1A2B48E92F009EFAFE /* Manager */,
+				D4A1BB1C2B48E939009EFAFE /* ViewModifier */,
+			);
+			path = GoogleMobileAds;
+			sourceTree = "<group>";
+		};
+		D4A1BB1A2B48E92F009EFAFE /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D4A1BB212B48EB73009EFAFE /* AppOpenAdsManager.swift */,
+				D4A1BB132B48E711009EFAFE /* SharedGoogleAdManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		D4A1BB1B2B48E934009EFAFE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D4A1BB182B48E780009EFAFE /* AdMobId.swift */,
+				D4A1BB1F2B48E9B4009EFAFE /* FullScreenAdInfo.swift */,
+				D4A1BB232B48EBCC009EFAFE /* CanShowAdsKey.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D4A1BB1C2B48E939009EFAFE /* ViewModifier */ = {
+			isa = PBXGroup;
+			children = (
+				D4A1BB1D2B48E94A009EFAFE /* AppOpenAdsViewModifier.swift */,
+			);
+			path = ViewModifier;
+			sourceTree = "<group>";
+		};
+		D4A1BB292B48F327009EFAFE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D4EFAC762B4A05AB00763A5A /* iAddThreeCore */,
+				D4EFAC752B4A05A000763A5A /* UI */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		D4B91DB52B44D79D00F9D3F1 = {
 			isa = PBXGroup;
 			children = (
 				D4B91DC02B44D79D00F9D3F1 /* iAddThree */,
 				D4B91DE42B44DD1D00F9D3F1 /* iAddThreeCore */,
 				D4B91DBF2B44D79D00F9D3F1 /* Products */,
+				D4C006422B48871D00C36B5F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,8 +280,8 @@
 		D4B91DC02B44D79D00F9D3F1 /* iAddThree */ = {
 			isa = PBXGroup;
 			children = (
-				D4B91DD22B44D9B600F9D3F1 /* Resources */,
 				D4B91DD12B44D9B000F9D3F1 /* Sources */,
+				D4B91DD22B44D9B600F9D3F1 /* Resources */,
 				D4B91DC82B44D79E00F9D3F1 /* Preview Content */,
 			);
 			path = iAddThree;
@@ -183,6 +309,10 @@
 				D4B91DD02B44D9A900F9D3F1 /* App */,
 				D4B91DD32B44DA1900F9D3F1 /* Launch */,
 				D4B91DDB2B44DAB900F9D3F1 /* MainFeatures */,
+				D4C006662B48C10B00C36B5F /* InAppPurchase */,
+				D4A1BB122B48E6DD009EFAFE /* GoogleMobileAds */,
+				D4A1BB292B48F327009EFAFE /* Extensions */,
+				D4C0064B2B488FF400C36B5F /* Shared */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -190,6 +320,7 @@
 		D4B91DD22B44D9B600F9D3F1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D4A1BB252B48ED3F009EFAFE /* Info.plist */,
 				D4B91DC72B44D79E00F9D3F1 /* iAddThree.entitlements */,
 				D4B91DC52B44D79E00F9D3F1 /* Assets.xcassets */,
 			);
@@ -208,8 +339,9 @@
 		D4B91DDB2B44DAB900F9D3F1 /* MainFeatures */ = {
 			isa = PBXGroup;
 			children = (
-				D4E6146D2B45D6FE009DF4DD /* UI */,
-				D4E6146E2B45D71C009DF4DD /* Storage */,
+				D40BE8D32B44E9440033114A /* Main */,
+				D40BE8D22B44E9120033114A /* Game */,
+				D40BE8D12B44E90E0033114A /* Settings */,
 			);
 			path = MainFeatures;
 			sourceTree = "<group>";
@@ -227,6 +359,7 @@
 			isa = PBXGroup;
 			children = (
 				D4B91E062B44DECD00F9D3F1 /* Model */,
+				D4EFAC6A2B4A00D600763A5A /* Presentation */,
 				D4B91E052B44DEC900F9D3F1 /* Manager */,
 			);
 			path = Sources;
@@ -235,9 +368,10 @@
 		D4B91E002B44DDF800F9D3F1 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				D4B91E0B2B44E07700F9D3F1 /* iAddThreeCore.xctestplan */,
-				D4B91E012B44DE1400F9D3F1 /* GameManagerTests.swift */,
-				D4B91E032B44DE7500F9D3F1 /* XCTestCase+Extensions.swift */,
+				D4EFAC6C2B4A010000763A5A /* TestPlan */,
+				D4EFAC6E2B4A010E00763A5A /* TestHelpers */,
+				D4EFAC6D2B4A010600763A5A /* ManagerTests */,
+				D4EFAC6F2B4A011900763A5A /* PresentationTests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -255,16 +389,94 @@
 			children = (
 				D4B91E072B44DEDE00F9D3F1 /* LevelResults.swift */,
 				D4B91E092B44DF9500F9D3F1 /* GameAchievement.swift */,
+				D446A38F2B49E743001B287D /* GameMode.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D4C006422B48871D00C36B5F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4A1BB0F2B48E484009EFAFE /* iAddThreeClassicKit.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D4C006462B488CAC00C36B5F /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				D4C006472B488CB500C36B5F /* ClassicResultStoreAdapter.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
+		D4C0064B2B488FF400C36B5F /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D4C0064C2B488FF600C36B5F /* UI */,
+				D4C006722B48C91700C36B5F /* Storage */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		D4C0064C2B488FF600C36B5F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D4C0064D2B48901C00C36B5F /* TitleBanner.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D4C0064F2B4893DF00C36B5F /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				D4C006502B4893F100C36B5F /* AppRater.swift */,
+				D4C006522B48940200C36B5F /* AppVersionCache.swift */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		D4C006612B48C08200C36B5F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D40BE8D42B44E9500033114A /* GameCoordinatorView.swift */,
+				D446A3882B49C810001B287D /* GameModeListView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D4C006632B48C0A400C36B5F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		D4C006662B48C10B00C36B5F /* InAppPurchase */ = {
+			isa = PBXGroup;
+			children = (
+				D4C0066E2B48C1B800C36B5F /* StoreKitPurchaseError.swift */,
+				D4C006702B48C4B600C36B5F /* SharedStoreKitManager.swift */,
+			);
+			path = InAppPurchase;
+			sourceTree = "<group>";
+		};
+		D4C006722B48C91700C36B5F /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				D4C006742B48C92A00C36B5F /* AppStorageKey.swift */,
+				D4A1BAFB2B48D24F009EFAFE /* DidPurchaseProKey.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		D4E6146D2B45D6FE009DF4DD /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				D40BE8D32B44E9440033114A /* Main */,
-				D40BE8D22B44E9120033114A /* Game */,
-				D40BE8D12B44E90E0033114A /* Settings */,
+				D40BE8CF2B44E8E00033114A /* SettingsCoordinatorView.swift */,
+				D4C006542B4894C900C36B5F /* SettingsButtonListView.swift */,
+				D4C0065A2B48978A00C36B5F /* SettingsHeaderView.swift */,
+				D4C0065E2B48BFA800C36B5F /* ProUpgradeView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -272,9 +484,85 @@
 		D4E6146E2B45D71C009DF4DD /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				D4EFAC822B4A0A1700763A5A /* UserDefaultsGameModeStore.swift */,
 				D4E6146F2B45D72E009DF4DD /* UserDetaultsGameStore.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		D4EFAC6A2B4A00D600763A5A /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				D4EFAC742B4A059300763A5A /* Game */,
+				D4EFAC732B4A058C00763A5A /* ProUpgrade */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		D4EFAC6C2B4A010000763A5A /* TestPlan */ = {
+			isa = PBXGroup;
+			children = (
+				D4B91E0B2B44E07700F9D3F1 /* iAddThreeCore.xctestplan */,
+			);
+			path = TestPlan;
+			sourceTree = "<group>";
+		};
+		D4EFAC6D2B4A010600763A5A /* ManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				D4B91E012B44DE1400F9D3F1 /* GameManagerTests.swift */,
+			);
+			path = ManagerTests;
+			sourceTree = "<group>";
+		};
+		D4EFAC6E2B4A010E00763A5A /* TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				D4B91E032B44DE7500F9D3F1 /* XCTestCase+Extensions.swift */,
+			);
+			path = TestHelpers;
+			sourceTree = "<group>";
+		};
+		D4EFAC6F2B4A011900763A5A /* PresentationTests */ = {
+			isa = PBXGroup;
+			children = (
+				D4EFAC702B4A012A00763A5A /* ProUpgradeViewModelTests.swift */,
+				D4EFAC7D2B4A066700763A5A /* GameViewModelTests.swift */,
+			);
+			path = PresentationTests;
+			sourceTree = "<group>";
+		};
+		D4EFAC732B4A058C00763A5A /* ProUpgrade */ = {
+			isa = PBXGroup;
+			children = (
+				D4C006642B48C0B700C36B5F /* ProUpgradeViewModel.swift */,
+			);
+			path = ProUpgrade;
+			sourceTree = "<group>";
+		};
+		D4EFAC742B4A059300763A5A /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				D446A38B2B49CCC6001B287D /* GameViewModel.swift */,
+				D446A38D2B49CCF5001B287D /* ModeLevelError.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		D4EFAC752B4A05A000763A5A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D4A1BB2A2B48F331009EFAFE /* View+Extensions.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D4EFAC762B4A05AB00763A5A /* iAddThreeCore */ = {
+			isa = PBXGroup;
+			children = (
+				D4EFAC772B4A05BB00763A5A /* ModeLevelError+Extensions.swift */,
+			);
+			path = iAddThreeCore;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +595,8 @@
 			name = iAddThree;
 			packageProductDependencies = (
 				D4B91DD92B44DAAE00F9D3F1 /* NnSwiftUIHelpers */,
+				D4A1BAF92B48D189009EFAFE /* NnSwiftUIErrorHandling */,
+				D4A1BB272B48F109009EFAFE /* GoogleMobileAds */,
 			);
 			productName = iAddThree;
 			productReference = D4B91DBE2B44D79D00F9D3F1 /* iAddThree.app */;
@@ -382,6 +672,8 @@
 			mainGroup = D4B91DB52B44D79D00F9D3F1;
 			packageReferences = (
 				D4B91DD82B44DAAE00F9D3F1 /* XCRemoteSwiftPackageReference "NnSwiftUIHelpers" */,
+				D4A1BAF82B48D189009EFAFE /* XCRemoteSwiftPackageReference "NnSwiftUIErrorHandling" */,
+				D4A1BB262B48F109009EFAFE /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = D4B91DBF2B44D79D00F9D3F1 /* Products */;
 			projectDirPath = "";
@@ -426,12 +718,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4B91DD52B44DA2600F9D3F1 /* LaunchCoordinatorView.swift in Sources */,
+				D4A1BB2B2B48F331009EFAFE /* View+Extensions.swift in Sources */,
+				D4A1BB222B48EB73009EFAFE /* AppOpenAdsManager.swift in Sources */,
+				D4C0065F2B48BFA800C36B5F /* ProUpgradeView.swift in Sources */,
+				D4A1BB142B48E711009EFAFE /* SharedGoogleAdManager.swift in Sources */,
+				D4C006692B48C13E00C36B5F /* InAppPurchaseStoreAdapter.swift in Sources */,
+				D4A1BB202B48E9B4009EFAFE /* FullScreenAdInfo.swift in Sources */,
+				D4A1BAFC2B48D24F009EFAFE /* DidPurchaseProKey.swift in Sources */,
+				D4C006482B488CB500C36B5F /* ClassicResultStoreAdapter.swift in Sources */,
+				D4EFAC782B4A05BB00763A5A /* ModeLevelError+Extensions.swift in Sources */,
+				D4C006712B48C4B600C36B5F /* SharedStoreKitManager.swift in Sources */,
+				D446A3892B49C810001B287D /* GameModeListView.swift in Sources */,
 				D4B91DDD2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift in Sources */,
+				D4EFAC802B4A09D500763A5A /* AppStorageKey.swift in Sources */,
 				D4E614702B45D72E009DF4DD /* UserDetaultsGameStore.swift in Sources */,
+				D4C006512B4893F100C36B5F /* AppRater.swift in Sources */,
+				D4C0066F2B48C1B800C36B5F /* StoreKitPurchaseError.swift in Sources */,
 				D4B91DC22B44D79D00F9D3F1 /* iAddThreeApp.swift in Sources */,
+				D4A1BB192B48E780009EFAFE /* AdMobId.swift in Sources */,
+				D4A1BB1E2B48E94A009EFAFE /* AppOpenAdsViewModifier.swift in Sources */,
+				D4A1BB242B48EBCC009EFAFE /* CanShowAdsKey.swift in Sources */,
 				D40BE8D52B44E9500033114A /* GameCoordinatorView.swift in Sources */,
 				D40BE8D02B44E8E00033114A /* SettingsCoordinatorView.swift in Sources */,
+				D4EFAC832B4A0A1700763A5A /* UserDefaultsGameModeStore.swift in Sources */,
+				D4C006532B48940200C36B5F /* AppVersionCache.swift in Sources */,
+				D4C0064E2B48901C00C36B5F /* TitleBanner.swift in Sources */,
+				D4C0065B2B48978A00C36B5F /* SettingsHeaderView.swift in Sources */,
 				D4B91DD72B44DA5E00F9D3F1 /* SplashView.swift in Sources */,
+				D4C006552B4894C900C36B5F /* SettingsButtonListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,9 +753,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D446A3902B49E743001B287D /* GameMode.swift in Sources */,
 				D4B91DF02B44DDB200F9D3F1 /* GameManager.swift in Sources */,
 				D4B91E082B44DEDE00F9D3F1 /* LevelResults.swift in Sources */,
 				D4B91E0A2B44DF9500F9D3F1 /* GameAchievement.swift in Sources */,
+				D4EFAC792B4A05D900763A5A /* ModeLevelError.swift in Sources */,
+				D4EFAC6B2B4A00E800763A5A /* ProUpgradeViewModel.swift in Sources */,
+				D4EFAC7A2B4A05DC00763A5A /* GameViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,7 +767,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4EFAC7F2B4A066B00763A5A /* GameViewModelTests.swift in Sources */,
 				D4B91E042B44DE7500F9D3F1 /* XCTestCase+Extensions.swift in Sources */,
+				D4EFAC722B4A014B00763A5A /* ProUpgradeViewModelTests.swift in Sources */,
 				D4B91E022B44DE1400F9D3F1 /* GameManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -598,25 +918,30 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iAddThree/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = iAddThree;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This will allow personalized ads to display in the app. If you would prefer non-personalized ads, choose 'Ask App Not to Track'.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nobadi.iAddThree;
+				MARKETING_VERSION = 4.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nobadi.AddThree;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -637,25 +962,30 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iAddThree/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = iAddThree;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This will allow personalized ads to display in the app. If you would prefer non-personalized ads, choose 'Ask App Not to Track'.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 4.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nobadi.AddThree;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -830,6 +1160,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D4A1BAF82B48D189009EFAFE /* XCRemoteSwiftPackageReference "NnSwiftUIErrorHandling" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nikolainobadi/NnSwiftUIErrorHandling.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		D4A1BB262B48F109009EFAFE /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		D4B91DD82B44DAAE00F9D3F1 /* XCRemoteSwiftPackageReference "NnSwiftUIHelpers" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nikolainobadi/NnSwiftUIHelpers";
@@ -841,6 +1187,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D4A1BAF92B48D189009EFAFE /* NnSwiftUIErrorHandling */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4A1BAF82B48D189009EFAFE /* XCRemoteSwiftPackageReference "NnSwiftUIErrorHandling" */;
+			productName = NnSwiftUIErrorHandling;
+		};
+		D4A1BB272B48F109009EFAFE /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4A1BB262B48F109009EFAFE /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
 		D4B91DD92B44DAAE00F9D3F1 /* NnSwiftUIHelpers */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D4B91DD82B44DAAE00F9D3F1 /* XCRemoteSwiftPackageReference "NnSwiftUIHelpers" */;

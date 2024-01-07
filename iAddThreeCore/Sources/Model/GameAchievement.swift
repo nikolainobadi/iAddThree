@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GameAchievement {
+public struct GameAchievement {
     let id: String
     let gameModeId: String
 }
