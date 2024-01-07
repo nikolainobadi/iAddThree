@@ -10,13 +10,12 @@ public final class GameManager {
     private let store: GameStore
     
     public private(set) var currentHighScore: Int
-    private var unlockedAchievements: [GameAchievement]
+    private lazy var unlockedAchievements: [GameAchievement] = store.loadUnlockedAchievements(modeId: mode.id)
     
     public init(mode: GameMode, store: GameStore) {
         self.mode = mode
         self.store = store
         self.currentHighScore = store.getHighScore(modeId: mode.id)
-        self.unlockedAchievements = store.loadUnlockedAchievements(modeId: mode.id)
     }
 }
 
@@ -34,10 +33,21 @@ private extension GameManager {
     func makePerformanceRecord(results: LevelResults) -> PerformanceRecord {
         let newHighScore = results.newScore > currentHighScore ? results.newScore : nil
         let unlockNextMode = shouldUnlockNextMode(levelCompleted:  results.levelCompleted, currentModeLevel: store.modeLevel)
-        let info = results.toAchievementInfo(modeName: mode.name, completedLevelCount: store.getCompletedLevelsCount(modeId: mode.id))
-        let newAchievements = AchievementManager.getAchievements(info: info, previouslyUnlocked: unlockedAchievements)
+        let newAchievements = getNewAchievements(from: results)
         
         return .init(modeId: mode.id, newHighScore: newHighScore, shouldUnlockNextMode: unlockNextMode, newAchievements: newAchievements)
+    }
+    
+    func getNewAchievements(from results: LevelResults) -> [GameAchievement] {
+        let info = results.toAchievementInfo(modeName: mode.name, completedLevelCount: store.getCompletedLevelsCount(modeId: mode.id))
+        let potentialNewAchievements = AchievementManager.getAchievements(info: info)
+        
+        if potentialNewAchievements.isEmpty { return [] }
+        
+        let previouslyUnlockedIdentifiers = Set(unlockedAchievements.map { $0.identifier })
+        
+        // Filter out achievements that have already been unlocked
+        return potentialNewAchievements.filter { !previouslyUnlockedIdentifiers.contains($0.identifier) }
     }
     
     func shouldUnlockNextMode(levelCompleted: Int?, currentModeLevel: Int) -> Bool {
@@ -68,7 +78,7 @@ public protocol GameStore {
 
 
 // MARK: - Extension Dependencies
-extension LevelResults {
+fileprivate extension LevelResults {
     var newScore: Int {
         return normalPoints + (bonusPoints ?? 0)
     }
@@ -81,5 +91,3 @@ extension LevelResults {
         return .init(modeName: modeName, completedLevelCount: completedLevelCount, levelCompleted: levelCompleted, perfectStreakCount: perfectStreakCount, completionTime: completionTime)
     }
 }
-
-

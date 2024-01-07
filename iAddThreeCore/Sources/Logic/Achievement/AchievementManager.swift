@@ -6,15 +6,13 @@
 //
 
 enum AchievementManager {
-    static func getAchievements(info: ResultAchievementInfo, previouslyUnlocked: [GameAchievement]) -> [GameAchievement] {
+    static func getAchievements(info: ResultAchievementInfo) -> [GameAchievement] {
         let achievementsForMode = AchievementConfigurator.generateAchievements(modeName: info.modeName)
-        let previouslyUnlockedIdentifiers = Set(previouslyUnlocked.map { $0.identifier })
 
         return achievementsForMode.compactMap { metadata in
-            if !previouslyUnlockedIdentifiers.contains(metadata.identifier) && checkAchievement(metadata, withInfo: info) {
-                return GameAchievement(identifier: metadata.identifier)
-            }
-            return nil
+            guard checkAchievement(metadata, withInfo: info) else { return nil }
+            
+            return GameAchievement(identifier: metadata.identifier)
         }
     }
 }
