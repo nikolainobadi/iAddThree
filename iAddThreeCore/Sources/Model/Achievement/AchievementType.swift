@@ -10,7 +10,7 @@ import Foundation
 enum AchievementType {
     case level(Int)
     case time(TimeInterval)
-    case playCount(Int)
     case perfectScoreStreak(Int)
+    case completedLevelCount(Int)
 }
 

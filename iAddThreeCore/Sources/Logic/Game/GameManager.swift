@@ -10,11 +10,13 @@ public final class GameManager {
     private let store: GameStore
     
     public private(set) var currentHighScore: Int
+    private var unlockedAchievements: [GameAchievement]
     
     public init(mode: GameMode, store: GameStore) {
         self.mode = mode
         self.store = store
         self.currentHighScore = store.getHighScore(modeId: mode.id)
+        self.unlockedAchievements = store.loadUnlockedAchievements(modeId: mode.id)
     }
 }
 
@@ -22,39 +24,34 @@ public final class GameManager {
 // MARK: - Actions
 public extension GameManager {
     func saveResults(_ results: LevelResults) {
-        updateHighScore(newScore: results.newScore)
-        unlockNextMode(levelCompleted: results.didCompleteLevel ? results.level : nil)
+        store.saveRecord(record: makePerformanceRecord(results: results))
     }
 }
 
 
 // MARK: - Private Methods
 private extension GameManager {
-    func unlockNextMode(levelCompleted: Int?) {
-        guard
-            let levelCompleted = levelCompleted,
-            shouldUnlockNextMode(levelCompleted: levelCompleted, currentModeLevel: store.modeLevel)
-        else { return }
+    func makePerformanceRecord(results: LevelResults) -> PerformanceRecord {
+        let newHighScore = results.newScore > currentHighScore ? results.newScore : nil
+        let unlockNextMode = shouldUnlockNextMode(levelCompleted:  results.levelCompleted, currentModeLevel: store.modeLevel)
+        let info = results.toAchievementInfo(modeName: mode.name, completedLevelCount: store.getCompletedLevelsCount(modeId: mode.id))
+        let newAchievements = AchievementManager.getAchievements(info: info, previouslyUnlocked: unlockedAchievements)
         
-        store.incrementModeLevel()
+        return .init(modeId: mode.id, newHighScore: newHighScore, shouldUnlockNextMode: unlockNextMode, newAchievements: newAchievements)
     }
     
-    func shouldUnlockNextMode(levelCompleted: Int, currentModeLevel: Int) -> Bool {
-        switch mode {
-        case .add:
-            return levelCompleted == 1 && currentModeLevel == 0
-        case .subtract:
-            return levelCompleted == 10 && currentModeLevel == 1
-        case .hybrid:
-            return false
-        }
-    }
-    
-    func updateHighScore(newScore: Int) {
-        if newScore > currentHighScore {
-            currentHighScore = newScore
-            store.saveHighScore(newScore, modeId: mode.id)
-        }
+    func shouldUnlockNextMode(levelCompleted: Int?, currentModeLevel: Int) -> Bool {
+        guard let levelCompleted = levelCompleted else { return false }
+        
+        let unlockConditions: [GameMode: (level: Int, requiredModeLevel: Int)] = [
+            .add: (1, 0),
+            .subtract: (10, 1),
+            .hybrid: (-1, -1) // -1 or another sentinel value to indicate no unlock
+        ]
+        
+        guard let condition = unlockConditions[mode] else { return false }
+        
+        return levelCompleted == condition.level && currentModeLevel == condition.requiredModeLevel
     }
 }
 
@@ -63,9 +60,10 @@ private extension GameManager {
 public protocol GameStore {
     var modeLevel: Int { get }
     
-    func incrementModeLevel()
     func getHighScore(modeId: String) -> Int
-    func saveHighScore(_ score: Int, modeId: String)
+    func getCompletedLevelsCount(modeId: String) -> Int
+    func saveRecord(record: PerformanceRecord)
+    func loadUnlockedAchievements(modeId: String) -> [GameAchievement]
 }
 
 
@@ -74,4 +72,14 @@ extension LevelResults {
     var newScore: Int {
         return normalPoints + (bonusPoints ?? 0)
     }
+    
+    var levelCompleted: Int? {
+        return didCompleteLevel ? level : nil
+    }
+    
+    func toAchievementInfo(modeName: String, completedLevelCount: Int) -> ResultAchievementInfo {
+        return .init(modeName: modeName, completedLevelCount: completedLevelCount, levelCompleted: levelCompleted, perfectStreakCount: perfectStreakCount, completionTime: completionTime)
+    }
 }
+
+

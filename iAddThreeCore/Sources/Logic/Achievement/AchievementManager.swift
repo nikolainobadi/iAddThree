@@ -6,11 +6,15 @@
 //
 
 enum AchievementManager {
-    static func getAchievements(info: ResultAchievementInfo) -> [GameAchievement] {
-        let achievementsForMode = AchievementConfigurator.generateAchievements(modeName: info.mode.name)
+    static func getAchievements(info: ResultAchievementInfo, previouslyUnlocked: [GameAchievement]) -> [GameAchievement] {
+        let achievementsForMode = AchievementConfigurator.generateAchievements(modeName: info.modeName)
+        let previouslyUnlockedIdentifiers = Set(previouslyUnlocked.map { $0.identifier })
 
         return achievementsForMode.compactMap { metadata in
-            checkAchievement(metadata, withInfo: info) ? GameAchievement(identifier: metadata.identifier) : nil
+            if !previouslyUnlockedIdentifiers.contains(metadata.identifier) && checkAchievement(metadata, withInfo: info) {
+                return GameAchievement(identifier: metadata.identifier)
+            }
+            return nil
         }
     }
 }
@@ -21,13 +25,17 @@ private extension AchievementManager {
     static func checkAchievement(_ achievement: AchievementMetadata, withInfo info: ResultAchievementInfo) -> Bool {
         switch achievement.requirement {
         case .level(let requiredLevel):
-            return info.levelCompleted >= requiredLevel
+            guard let levelCompleted = info.levelCompleted else { return false }
+            
+            return levelCompleted >= requiredLevel
         case .time(let maxTime):
-            return info.completionTime <= maxTime
-        case .playCount(let requiredCount):
-            return info.modePlayCount >= requiredCount
+            guard let completionTime = info.completionTime else { return false }
+            
+            return completionTime <= maxTime
         case .perfectScoreStreak(let requiredStreak):
             return info.perfectStreakCount == requiredStreak
+        case .completedLevelCount(let requiredCount):
+            return info.completedLevelCount >= requiredCount
         }
     }
 }

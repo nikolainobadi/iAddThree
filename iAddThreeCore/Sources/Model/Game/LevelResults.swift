@@ -12,13 +12,15 @@ public struct LevelResults {
     let normalPoints: Int
     let bonusPoints: Int?
     let didCompleteLevel: Bool
+    let perfectStreakCount: Int
     let completionTime: TimeInterval?
     
-    public init(level: Int, normalPoints: Int, bonusPoints: Int?, didCompleteLevel: Bool, completionTime: TimeInterval?) {
+    public init(level: Int, normalPoints: Int, bonusPoints: Int?, didCompleteLevel: Bool, perfectStreakCount: Int, completionTime: TimeInterval?) {
         self.level = level
         self.normalPoints = normalPoints
         self.bonusPoints = bonusPoints
         self.didCompleteLevel = didCompleteLevel
+        self.perfectStreakCount = perfectStreakCount
         self.completionTime = completionTime
     }
 }
