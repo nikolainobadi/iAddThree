@@ -175,11 +175,11 @@ extension GameManagerTests {
             self.unlockedAchievements = unlockedAchievements
         }
         
-        func getTotalCompletedLevelsCount(modeId: String) -> Int {
+        func loadTotalCompletedLevelsCount(modeId: String) -> Int {
             return totalCompletedLevelsCount
         }
         
-        func getHighScore(modeId: String) -> Int {
+        func loadHighScore(modeId: String) -> Int {
             return highScore
         }
         
@@ -187,7 +187,7 @@ extension GameManagerTests {
             return unlockedAchievements
         }
 
-        func saveRecord(record: PerformanceRecord) {
+        func save(record: PerformanceRecord) {
             self.savedScore = record.newHighScore
             self.didIncrementLevel = record.shouldUnlockNextMode
         }
