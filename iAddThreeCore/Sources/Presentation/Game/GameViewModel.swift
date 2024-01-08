@@ -25,6 +25,10 @@ public extension GameViewModel {
         
         selectedMode = mode
     }
+    
+    func endGame() {
+        selectedMode = nil
+    }
 }
 
 

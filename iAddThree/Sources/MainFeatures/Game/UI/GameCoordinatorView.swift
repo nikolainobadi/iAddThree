@@ -14,14 +14,20 @@ struct GameCoordinatorView: View {
     
     var body: some View {
         if let selectedMode = viewModel.selectedMode {
-            ClassicModeComposer.makeClassicGameCoordinatorView(
-                mode: selectedMode.classicMode,
-                store: ClassicResultStoreAdapter(manager: .customInit(mode: selectedMode)),
-                endGame: { viewModel.selectedMode =  nil }
-            )
+            GameView(mode: selectedMode)
         } else {
             GameModeListView(canShowSubtractBanner: false, onSelection: viewModel.playSelectedMode(_:))
         }
+    }
+}
+
+
+// MARK: - GameView
+fileprivate struct GameView: View {
+    let mode: GameMode
+    
+    var body: some View {
+        Text("Classic")
     }
 }
 

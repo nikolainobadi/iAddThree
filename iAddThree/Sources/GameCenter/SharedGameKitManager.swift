@@ -32,6 +32,12 @@ extension SharedGameKitManager {
 
 // MARK: - Leaderboard
 extension SharedGameKitManager {
+    static func loadHighScore(leaderboardId: String) -> Int? {
+        guard localPlayer.isAuthenticated else { return nil }
+        
+        return nil
+    }
+    
     static func saveHighScore(score: Int, leaderboardId: String) {
         guard localPlayer.isAuthenticated else { return }
         
@@ -62,6 +68,15 @@ extension SharedGameKitManager {
 
 // MARK: - Private Methods
 private extension SharedGameKitManager {
+    static func loadHighScore(_ leaderboardId: String) async throws -> Int? {
+        let leaderboards = try await GKLeaderboard.loadLeaderboards(IDs: [leaderboardId])
+        guard let leaderboard = leaderboards.first(where: { $0.baseLeaderboardID == leaderboardId }) else { return nil }
+        
+        let (localPlayerEntry, _, _) = try await leaderboard.loadEntries(for: .global, timeScope: .allTime, range: NSRange(location: 1, length: 1))
+        
+        return localPlayerEntry?.score
+    }
+    
     static func submitScore(score: Int, leaderboardId: String) async throws {
         try await GKLeaderboard.submitScore(score, context: 0, player: localPlayer, leaderboardIDs: [leaderboardId])
     }

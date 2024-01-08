@@ -9,13 +9,13 @@ public final class GameManager {
     private let mode: GameMode
     private let store: GameStore
     
-    public private(set) var currentHighScore: Int
-    private lazy var unlockedAchievements: [GameAchievement] = store.loadUnlockedAchievements(modeId: mode.id)
+    public private(set) var currentHighScore: Int = 0
+    private lazy var unlockedAchievements: [GameAchievement] = []
     
     init(mode: GameMode, store: GameStore) {
         self.mode = mode
         self.store = store
-        self.currentHighScore = store.loadHighScore(modeId: mode.id)
+        self.loadData()
     }
 }
 
@@ -44,6 +44,13 @@ public extension GameManager {
 
 // MARK: - Private Methods
 private extension GameManager {
+    func loadData() {
+        Task {
+            currentHighScore = await store.loadHighScore(modeId: mode.id)
+            unlockedAchievements = await store.loadUnlockedAchievements(modeId: mode.id)
+        }
+    }
+    
     func makePerformanceRecord(results: LevelResults) -> PerformanceRecord {
         let newHighScore = results.newScore > currentHighScore ? results.newScore : nil
         let unlockNextMode = shouldUnlockNextMode(levelCompleted:  results.levelCompleted, currentModeLevel: store.modeLevel)
@@ -85,9 +92,9 @@ public protocol GameStore {
     var modeLevel: Int { get }
     
     func save(record: PerformanceRecord)
-    func loadHighScore(modeId: String) -> Int
+    func loadHighScore(modeId: String) async -> Int
     func loadTotalCompletedLevelsCount(modeId: String) -> Int
-    func loadUnlockedAchievements(modeId: String) -> [GameAchievement]
+    func loadUnlockedAchievements(modeId: String) async -> [GameAchievement]
 }
 
 

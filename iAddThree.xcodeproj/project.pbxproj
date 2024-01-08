@@ -23,10 +23,10 @@
 		D424CFC42B4B622000391FFF /* SharedGameKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D424CFC32B4B622000391FFF /* SharedGameKitManager.swift */; };
 		D446A3892B49C810001B287D /* GameModeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446A3882B49C810001B287D /* GameModeListView.swift */; };
 		D446A3902B49E743001B287D /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446A38F2B49E743001B287D /* GameMode.swift */; };
+		D46669342B4B94880086D356 /* iAddThreeClassicKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46669332B4B94880086D356 /* iAddThreeClassicKit.xcframework */; };
+		D46669352B4B94880086D356 /* iAddThreeClassicKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D46669332B4B94880086D356 /* iAddThreeClassicKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D4A1BAFA2B48D189009EFAFE /* NnSwiftUIErrorHandling in Frameworks */ = {isa = PBXBuildFile; productRef = D4A1BAF92B48D189009EFAFE /* NnSwiftUIErrorHandling */; };
 		D4A1BAFC2B48D24F009EFAFE /* DidPurchaseProKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BAFB2B48D24F009EFAFE /* DidPurchaseProKey.swift */; };
-		D4A1BB102B48E484009EFAFE /* iAddThreeClassicKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A1BB0F2B48E484009EFAFE /* iAddThreeClassicKit.xcframework */; };
-		D4A1BB112B48E484009EFAFE /* iAddThreeClassicKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4A1BB0F2B48E484009EFAFE /* iAddThreeClassicKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D4A1BB142B48E711009EFAFE /* SharedGoogleAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BB132B48E711009EFAFE /* SharedGoogleAdManager.swift */; };
 		D4A1BB192B48E780009EFAFE /* AdMobId.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BB182B48E780009EFAFE /* AdMobId.swift */; };
 		D4A1BB1E2B48E94A009EFAFE /* AppOpenAdsViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BB1D2B48E94A009EFAFE /* AppOpenAdsViewModifier.swift */; };
@@ -93,7 +93,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D4A1BB112B48E484009EFAFE /* iAddThreeClassicKit.xcframework in Embed Frameworks */,
+				D46669352B4B94880086D356 /* iAddThreeClassicKit.xcframework in Embed Frameworks */,
 				D4B91DEA2B44DD1D00F9D3F1 /* iAddThreeCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -120,8 +120,8 @@
 		D446A38B2B49CCC6001B287D /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		D446A38D2B49CCF5001B287D /* ModeLevelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeLevelError.swift; sourceTree = "<group>"; };
 		D446A38F2B49E743001B287D /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
+		D46669332B4B94880086D356 /* iAddThreeClassicKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = iAddThreeClassicKit.xcframework; sourceTree = "<group>"; };
 		D4A1BAFB2B48D24F009EFAFE /* DidPurchaseProKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidPurchaseProKey.swift; sourceTree = "<group>"; };
-		D4A1BB0F2B48E484009EFAFE /* iAddThreeClassicKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = iAddThreeClassicKit.xcframework; path = ../iAddThreeClassicKit/iAddThreeClassicKit.xcframework; sourceTree = "<group>"; };
 		D4A1BB132B48E711009EFAFE /* SharedGoogleAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedGoogleAdManager.swift; sourceTree = "<group>"; };
 		D4A1BB182B48E780009EFAFE /* AdMobId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobId.swift; sourceTree = "<group>"; };
 		D4A1BB1D2B48E94A009EFAFE /* AppOpenAdsViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOpenAdsViewModifier.swift; sourceTree = "<group>"; };
@@ -168,10 +168,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D46669342B4B94880086D356 /* iAddThreeClassicKit.xcframework in Frameworks */,
 				D4A1BAFA2B48D189009EFAFE /* NnSwiftUIErrorHandling in Frameworks */,
 				D4B91DE92B44DD1D00F9D3F1 /* iAddThreeCore.framework in Frameworks */,
 				D4A1BB282B48F109009EFAFE /* GoogleMobileAds in Frameworks */,
-				D4A1BB102B48E484009EFAFE /* iAddThreeClassicKit.xcframework in Frameworks */,
 				D4B91DDA2B44DAAE00F9D3F1 /* NnSwiftUIHelpers in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,7 +473,7 @@
 		D4C006422B48871D00C36B5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D4A1BB0F2B48E484009EFAFE /* iAddThreeClassicKit.xcframework */,
+				D46669332B4B94880086D356 /* iAddThreeClassicKit.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
