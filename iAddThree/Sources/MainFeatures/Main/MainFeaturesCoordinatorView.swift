@@ -18,7 +18,7 @@ struct MainFeaturesCoordinatorView: View {
             GameCoordinatorView(adapter: .customInit(mode: selectedMode), endGame: viewModel.endGame)
         } else {
             GameModeListView(
-                canShowSubtractBanner: viewModel.canShowSubtractBanner,
+                modeLevel: viewModel.modeLevel,
                 onSelection: viewModel.playSelectedMode(_:)
             )
             .overlay(alignment: .topTrailing) {

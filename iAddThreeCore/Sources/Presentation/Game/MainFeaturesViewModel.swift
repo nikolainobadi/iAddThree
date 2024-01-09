@@ -21,6 +21,10 @@ public final class MainFeaturesViewModel: ObservableObject {
 
 // MARK: - Actions
 public extension MainFeaturesViewModel {
+    var modeLevel: Int {
+        return store.modeLevel
+    }
+    
     var canShowSubtractBanner: Bool {
         return store.modeLevel > 0
     }
