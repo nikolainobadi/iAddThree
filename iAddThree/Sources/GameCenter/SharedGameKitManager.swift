@@ -32,7 +32,7 @@ extension SharedGameKitManager {
 
 // MARK: - Leaderboard
 extension SharedGameKitManager {
-    static func loadHighScore(leaderboardId: String) -> Int? {
+    static func loadHighScore(leaderboardId: String) async -> Int? {
         guard localPlayer.isAuthenticated else { return nil }
         
         return nil
@@ -50,14 +50,10 @@ extension SharedGameKitManager {
 
 // MARK: - Achievements
 extension SharedGameKitManager {
-    static func reportAchievement(achievementID: String, percentComplete: Double) {
-        guard localPlayer.isAuthenticated else { return }
+    static func reportAchievementList(idList: [String]) {
+        let achievements = idList.map({ makeGKAchievement(id: $0) })
         
-        let achievement = GKAchievement(identifier: achievementID)
-        achievement.percentComplete = percentComplete
-        achievement.showsCompletionBanner = true  // Show banner if achievement is completed
-        
-        GKAchievement.report([achievement], withCompletionHandler: { error in
+        GKAchievement.report(achievements, withCompletionHandler: { error in
             if let error = error {
                 print("Error reporting achievement: \(error.localizedDescription)")
             }
@@ -79,5 +75,13 @@ private extension SharedGameKitManager {
     
     static func submitScore(score: Int, leaderboardId: String) async throws {
         try await GKLeaderboard.submitScore(score, context: 0, player: localPlayer, leaderboardIDs: [leaderboardId])
+    }
+    
+    static func makeGKAchievement(id: String) -> GKAchievement {
+        let achievement = GKAchievement(identifier: id)
+        achievement.percentComplete = 100
+        achievement.showsCompletionBanner = true
+        
+        return achievement
     }
 }
