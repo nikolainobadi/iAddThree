@@ -18,7 +18,6 @@ public final class GameManager {
     init(mode: GameMode, store: GameStore) {
         self.mode = mode
         self.store = store
-        self.loadData()
     }
 }
 
@@ -33,8 +32,9 @@ public extension GameManager {
 
 // MARK: - Actions
 public extension GameManager {
-    func loadHighScore() async {
+    func loadData() async {
         currentHighScore = await store.loadHighScore(modeId: mode.id)
+        unlockedAchievements = await store.loadUnlockedAchievements(modeId: mode.id)
     }
     
     func saveResults(_ results: LevelResults) {
@@ -51,13 +51,6 @@ public extension GameManager {
 
 // MARK: - Private Methods
 private extension GameManager {
-    func loadData() {
-        Task {
-            currentHighScore = await store.loadHighScore(modeId: mode.id)
-            unlockedAchievements = await store.loadUnlockedAchievements(modeId: mode.id)
-        }
-    }
-    
     func makePerformanceRecord(results: LevelResults) -> PerformanceRecord {
         let newHighScore = results.newScore > currentHighScore ? results.newScore : nil
         let unlockNextMode = shouldUnlockNextMode(levelCompleted:  results.levelCompleted, currentModeLevel: store.modeLevel)

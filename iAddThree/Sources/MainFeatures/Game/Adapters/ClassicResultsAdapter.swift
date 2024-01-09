@@ -31,7 +31,7 @@ extension ClassicResultsAdapter {
     }
     
     func loadHighScore() async {
-        await manager.loadHighScore()
+        await manager.loadData()
     }
     
     func saveResults(_ results: iAddThreeClassicKit.ClassicLevelResults) {
