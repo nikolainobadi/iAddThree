@@ -5,12 +5,15 @@
 //  Created by Nikolai Nobadi on 1/2/24.
 //
 
+import Foundation
+
 public final class GameManager {
-    private let mode: GameMode
+    @Published public var currentHighScore: Int = 0
+
+    public let mode: GameMode
     private let store: GameStore
-    
-    public private(set) var currentHighScore: Int = 0
-    private lazy var unlockedAchievements: [GameAchievement] = []
+
+    private var unlockedAchievements: [GameAchievement] = []
     
     init(mode: GameMode, store: GameStore) {
         self.mode = mode
@@ -30,6 +33,10 @@ public extension GameManager {
 
 // MARK: - Actions
 public extension GameManager {
+    func loadHighScore() {
+        
+    }
+    
     func saveResults(_ results: LevelResults) {
         let record = makePerformanceRecord(results: results)
         

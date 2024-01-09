@@ -45,16 +45,26 @@ extension GameStorageManager: GameStore {
     }
     
     func save(record: PerformanceRecord) {
-        if let newHighScore = record.newHighScore {
-            socialStore.saveHighScore(newHighScore, modeId: record.modeId)
-            performanceStore.saveHighScore(newHighScore, modeId: record.modeId)
+        socialStore.saveAchievements(record.newAchievements)
+        unlockModes(shouldUnlockNextMode: record.shouldUnlockNextMode)
+        saveHighScore(newHighScore: record.newHighScore, modeId: record.modeId)
+    }
+}
+
+
+// MARK: - Private Methods
+private extension GameStorageManager {
+    func saveHighScore(newHighScore: Int?, modeId: String) {
+        if let newHighScore = newHighScore {
+            socialStore.saveHighScore(newHighScore, modeId: modeId)
+            performanceStore.saveHighScore(newHighScore, modeId: modeId)
         }
-        
-        if record.shouldUnlockNextMode {
+    }
+    
+    func unlockModes(shouldUnlockNextMode: Bool) {
+        if shouldUnlockNextMode {
             performanceStore.incrementModeLevel()
         }
-        
-        socialStore.saveAchievements(record.newAchievements)
     }
 }
 

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import iAddThreeCore
 import NnSwiftUIHelpers
 import iAddThreeClassicKit
 
@@ -32,7 +33,7 @@ struct LaunchCoordinatorView: View {
                         }
                     }
             } else {
-                MainFeaturesCoordinatorView()
+                MainFeaturesCoordinatorView(viewModel: .customInit())
                     .onAppear {
                         isInitialLaunch = false
                     }
@@ -58,4 +59,12 @@ struct LaunchCoordinatorView: View {
 // MARK: - Preview
 #Preview {
     LaunchCoordinatorView()
+}
+
+
+// MARK: - Extension Dependencies
+extension MainFeaturesViewModel {
+    static func customInit() -> MainFeaturesViewModel {
+        return .init(store: UserDefaultsGamePerformanceStore())
+    }
 }
