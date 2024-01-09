@@ -21,6 +21,9 @@ struct GameCoordinatorView: View {
             endGame: endGame,
             saveResults: adapter.saveResults(_:)
         )
+        .task {
+            await adapter.loadHighScore()
+        }
     }
 }
 

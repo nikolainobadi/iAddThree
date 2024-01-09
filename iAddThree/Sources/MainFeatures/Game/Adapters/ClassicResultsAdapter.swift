@@ -17,7 +17,9 @@ final class ClassicResultsAdapter: ObservableObject {
     init(manager: GameManager) {
         self.manager = manager
         
-        manager.$currentHighScore.assign(to: &$currentHighScore)
+        manager.$currentHighScore
+            .receive(on: RunLoop.main)
+            .assign(to: &$currentHighScore)
     }
 }
 
@@ -26,6 +28,10 @@ final class ClassicResultsAdapter: ObservableObject {
 extension ClassicResultsAdapter {
     var mode: ClassicGameMode {
         return manager.mode.classicMode
+    }
+    
+    func loadHighScore() async {
+        await manager.loadHighScore()
     }
     
     func saveResults(_ results: iAddThreeClassicKit.ClassicLevelResults) {

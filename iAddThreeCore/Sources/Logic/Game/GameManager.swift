@@ -33,8 +33,8 @@ public extension GameManager {
 
 // MARK: - Actions
 public extension GameManager {
-    func loadHighScore() {
-        
+    func loadHighScore() async {
+        currentHighScore = await store.loadHighScore(modeId: mode.id)
     }
     
     func saveResults(_ results: LevelResults) {
