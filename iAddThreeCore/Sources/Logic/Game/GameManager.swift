@@ -33,8 +33,8 @@ public extension GameManager {
 // MARK: - Actions
 public extension GameManager {
     func loadData() async {
-        currentHighScore = await store.loadHighScore(modeId: mode.id)
-        unlockedAchievements = await store.loadUnlockedAchievements(modeId: mode.id)
+        currentHighScore = await store.loadHighScore(mode: mode)
+        unlockedAchievements = await store.loadUnlockedAchievements(mode: mode)
     }
     
     func saveResults(_ results: LevelResults) {
@@ -56,11 +56,11 @@ private extension GameManager {
         let unlockNextMode = shouldUnlockNextMode(levelCompleted:  results.levelCompleted, currentModeLevel: store.modeLevel)
         let newAchievements = getNewAchievements(from: results)
         
-        return .init(modeId: mode.id, newHighScore: newHighScore, shouldUnlockNextMode: unlockNextMode, newAchievements: newAchievements)
+        return .init(mode: mode, newHighScore: newHighScore, shouldUnlockNextMode: unlockNextMode, newAchievements: newAchievements)
     }
     
     func getNewAchievements(from results: LevelResults) -> [GameAchievement] {
-        let info = results.toAchievementInfo(modeName: mode.name, completedLevelCount: store.loadTotalCompletedLevelsCount(modeId: mode.id))
+        let info = results.toAchievementInfo(modeName: mode.name, completedLevelCount: store.loadTotalCompletedLevelsCount(mode: mode))
         let potentialNewAchievements = AchievementManager.getAchievements(info: info)
         
         if potentialNewAchievements.isEmpty { return [] }
@@ -92,9 +92,9 @@ public protocol GameStore {
     var modeLevel: Int { get }
     
     func save(record: PerformanceRecord)
-    func loadHighScore(modeId: String) async -> Int
-    func loadTotalCompletedLevelsCount(modeId: String) -> Int
-    func loadUnlockedAchievements(modeId: String) async -> [GameAchievement]
+    func loadHighScore(mode: GameMode) async -> Int
+    func loadTotalCompletedLevelsCount(mode: GameMode) -> Int
+    func loadUnlockedAchievements(mode: GameMode) async -> [GameAchievement]
 }
 
 

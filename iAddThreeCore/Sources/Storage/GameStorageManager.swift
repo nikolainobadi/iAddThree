@@ -24,21 +24,21 @@ extension GameStorageManager: GameStore {
         return performanceStore.modeLevel
     }
     
-    func loadUnlockedAchievements(modeId: String) async -> [GameAchievement] {
-        return await socialStore.loadUnlockedAchievements(modeId: modeId)
+    func loadUnlockedAchievements(mode: GameMode) async -> [GameAchievement] {
+        return await socialStore.loadUnlockedAchievements(modeId: mode.storageId)
     }
     
-    func loadTotalCompletedLevelsCount(modeId: String) -> Int {
-        return performanceStore.getTotalCompletedLevelsCount(modeId: modeId)
+    func loadTotalCompletedLevelsCount(mode: GameMode) -> Int {
+        return performanceStore.getTotalCompletedLevelsCount(modeId: mode.storageId)
     }
     
-    func loadHighScore(modeId: String) async -> Int {
-        guard let leaderboardHighScore = await socialStore.loadHighScore(modeId: modeId) else {
-            return performanceStore.getHighScore(modeId: modeId)
+    func loadHighScore(mode: GameMode) async -> Int {
+        guard let leaderboardHighScore = await socialStore.loadHighScore(modeId: mode.storageId) else {
+            return performanceStore.getHighScore(modeId: mode.storageId)
         }
             
-        if leaderboardHighScore > performanceStore.getHighScore(modeId: modeId) {
-            performanceStore.saveHighScore(leaderboardHighScore, modeId: modeId)
+        if leaderboardHighScore > performanceStore.getHighScore(modeId: mode.storageId) {
+            performanceStore.saveHighScore(leaderboardHighScore, modeId: mode.storageId)
         }
         
         return leaderboardHighScore
@@ -47,7 +47,7 @@ extension GameStorageManager: GameStore {
     func save(record: PerformanceRecord) {
         socialStore.saveAchievements(record.newAchievements)
         unlockModes(shouldUnlockNextMode: record.shouldUnlockNextMode)
-        saveHighScore(newHighScore: record.newHighScore, modeId: record.modeId)
+        saveHighScore(newHighScore: record.newHighScore, modeId: record.mode.storageId)
     }
 }
 
@@ -84,4 +84,19 @@ public protocol SocialPerformanceStore {
     func loadUnlockedAchievements(modeId: String) async -> [GameAchievement]
     func saveHighScore(_ newHighScore: Int, modeId: String)
     func saveAchievements(_ achievements: [GameAchievement])
+}
+
+
+// MARK: - Extension Dependencies
+extension GameMode {
+    var storageId: String {
+        switch self {
+        case .add:
+            return "ADD_THREE_CLASSIC"
+        case .subtract:
+            return "SUBTRACT_THREE_CLASSIC"
+        case .hybrid:
+            return "HYBRID_CLASSIC"
+        }
+    }
 }
