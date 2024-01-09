@@ -50,6 +50,14 @@ extension SharedGameKitManager {
 
 // MARK: - Achievements
 extension SharedGameKitManager {
+    static func loadAchievementIds() async -> [String] {
+        guard localPlayer.isAuthenticated else { return [] }
+        
+        let idList = try? await GKAchievement.loadAchievements().map({ $0.identifier })
+        
+        return idList ?? []
+    }
+    
     static func reportAchievementList(idList: [String]) {
         let achievements = idList.map({ makeGKAchievement(id: $0) })
         

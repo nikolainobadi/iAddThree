@@ -25,7 +25,7 @@ extension GameStorageManager: GameStore {
     }
     
     func loadUnlockedAchievements(mode: GameMode) async -> [GameAchievement] {
-        return await socialStore.loadUnlockedAchievements(modeId: mode.storageId)
+        return await socialStore.loadUnlockedAchievements()
     }
     
     func loadTotalCompletedLevelsCount(mode: GameMode) -> Int {
@@ -81,7 +81,7 @@ public protocol GamePerformanceStore {
 
 public protocol SocialPerformanceStore {
     func loadHighScore(modeId: String) async -> Int?
-    func loadUnlockedAchievements(modeId: String) async -> [GameAchievement]
+    func loadUnlockedAchievements() async -> [GameAchievement]
     func saveHighScore(_ newHighScore: Int, modeId: String)
     func saveAchievements(_ achievements: [GameAchievement])
 }

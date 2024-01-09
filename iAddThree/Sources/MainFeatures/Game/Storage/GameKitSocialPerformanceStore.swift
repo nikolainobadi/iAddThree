@@ -12,8 +12,8 @@ final class GameKitSocialPerformanceStore: SocialPerformanceStore {
         return await SharedGameKitManager.loadHighScore(leaderboardId: modeId)
     }
     
-    func loadUnlockedAchievements(modeId: String) async -> [GameAchievement] {
-        return []
+    func loadUnlockedAchievements() async -> [GameAchievement] {
+        return await SharedGameKitManager.loadAchievementIds().map({ .init(identifier: $0) })
     }
     
     func saveHighScore(_ newHighScore: Int, modeId: String) {
