@@ -15,10 +15,9 @@ struct LaunchCoordinatorView: View {
     @State private var shouldShowAppOpenAdd = false
     @Environment(\.scenePhase) private var scenePhase
     @AppStorage(AppStorageKey.adsRemoved) private var adsRemoved = false
-    @AppStorage(AppStorageKey.initialLaunch) private var isInitialLaunch = true
     
     private var canShowAds: Bool {
-        return !isInitialLaunch && !adsRemoved
+        return !adsRemoved && !SharedAdStateManager.isPurchasingPro
     }
     
     private func gameCenterLogin() {
@@ -39,7 +38,6 @@ struct LaunchCoordinatorView: View {
             } else {
                 MainFeaturesCoordinatorView(viewModel: .customInit())
                     .onAppear {
-                        isInitialLaunch = false
                         if !canShowAds {
                             gameCenterLogin()
                         }

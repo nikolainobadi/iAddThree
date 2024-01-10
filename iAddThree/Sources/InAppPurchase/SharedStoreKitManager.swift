@@ -12,6 +12,7 @@ enum SharedStoreKitManager {
     private static let removeAds = "com.nobadi.AddThree.RemoveAd"
     
     private static var product: Product?
+    private static var updateListenerTask: Task<Void, Error>?
 }
 
 
@@ -19,15 +20,16 @@ enum SharedStoreKitManager {
 extension SharedStoreKitManager {
     typealias RemoveAds = Bool
     static func startTransactionListener(completion: @escaping (RemoveAds) -> Void) {
-        Task {
+        updateListenerTask = Task.detached {
             for await result in Transaction.updates {
                 do {
                     let transaction = try checkVerified(result)
                     
                     completion(transaction.productID == removeAds)
+                    
                     await transaction.finish()
                 } catch {
-                    print("Transaction verification failed: \(error)")
+                    print("transaction error: ", error.localizedDescription)
                 }
             }
         }
@@ -38,15 +40,33 @@ extension SharedStoreKitManager {
 // MARK: - Fetch
 extension SharedStoreKitManager {
     static func fetchProduct() async throws -> Product? {
-        return try await Product.products(for: [removeAds]).first
+        let product = try await Product.products(for: [removeAds]).first
+        
+        self.product = product
+        
+        return product
     }
 }
 
 
 // MARK: - Purchase
 extension SharedStoreKitManager {
-    static func purchasePro() async throws  {
-        let _ = try await product?.purchase()
+    static func purchasePro() async throws -> Transaction?  {
+        guard let product = product else {
+            throw StoreKitPurchaseError.fetchProductsError
+        }
+        
+        let result = try await product.purchase()
+        
+        switch result {
+        case .success(let successResult):
+            return try checkVerified(successResult)
+        case .userCancelled:
+            print("user cancelled transaction")
+            return nil
+        default:
+            return nil
+        }
     }
     
     static func restorePurchases() async throws {

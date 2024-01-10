@@ -11,7 +11,16 @@ import iAddThreeClassicKit
 
 struct SettingsHeaderView: View {
     let state: SettingsViewState
+    let didPurchasePro: Bool
     let showList: () -> Void
+    
+    var title: String {
+        if state == .upgrade && didPurchasePro {
+            return "Thank You"
+        }
+        
+        return state.title
+    }
     
     var body: some View {
         VStack {
@@ -23,7 +32,7 @@ struct SettingsHeaderView: View {
             .padding(.horizontal)
             .padding(.top, getHeightPercent(2))
             
-            Text(state.title)
+            Text(title)
                 .lineLimit(1)
                 .setChalkFont(.title, autoSize: true)
                 .padding(.horizontal)

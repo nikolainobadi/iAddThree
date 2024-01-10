@@ -35,6 +35,8 @@
 		D4A1BB242B48EBCC009EFAFE /* CanShowAdsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BB232B48EBCC009EFAFE /* CanShowAdsKey.swift */; };
 		D4A1BB282B48F109009EFAFE /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = D4A1BB272B48F109009EFAFE /* GoogleMobileAds */; };
 		D4A1BB2B2B48F331009EFAFE /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BB2A2B48F331009EFAFE /* View+Extensions.swift */; };
+		D4A75DEB2B4F25AD0081A02B /* SharedAdStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A75DEA2B4F25AD0081A02B /* SharedAdStateManager.swift */; };
+		D4A75DED2B4F28030081A02B /* StoreKitConfig.storekit in Resources */ = {isa = PBXBuildFile; fileRef = D4A75DEC2B4F28030081A02B /* StoreKitConfig.storekit */; };
 		D4B91DC22B44D79D00F9D3F1 /* iAddThreeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91DC12B44D79D00F9D3F1 /* iAddThreeApp.swift */; };
 		D4B91DC62B44D79E00F9D3F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B91DC52B44D79E00F9D3F1 /* Assets.xcassets */; };
 		D4B91DCA2B44D79E00F9D3F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B91DC92B44D79E00F9D3F1 /* Preview Assets.xcassets */; };
@@ -130,6 +132,8 @@
 		D4A1BB232B48EBCC009EFAFE /* CanShowAdsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanShowAdsKey.swift; sourceTree = "<group>"; };
 		D4A1BB252B48ED3F009EFAFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4A1BB2A2B48F331009EFAFE /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		D4A75DEA2B4F25AD0081A02B /* SharedAdStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedAdStateManager.swift; sourceTree = "<group>"; };
+		D4A75DEC2B4F28030081A02B /* StoreKitConfig.storekit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StoreKitConfig.storekit; sourceTree = "<group>"; };
 		D4B91DBE2B44D79D00F9D3F1 /* iAddThree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAddThree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B91DC12B44D79D00F9D3F1 /* iAddThreeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAddThreeApp.swift; sourceTree = "<group>"; };
 		D4B91DC52B44D79E00F9D3F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -300,6 +304,7 @@
 			children = (
 				D4A1BB212B48EB73009EFAFE /* AppOpenAdsManager.swift */,
 				D4A1BB132B48E711009EFAFE /* SharedGoogleAdManager.swift */,
+				D4A75DEA2B4F25AD0081A02B /* SharedAdStateManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -531,6 +536,7 @@
 		D4C006662B48C10B00C36B5F /* InAppPurchase */ = {
 			isa = PBXGroup;
 			children = (
+				D4A75DEC2B4F28030081A02B /* StoreKitConfig.storekit */,
 				D4C0066E2B48C1B800C36B5F /* StoreKitPurchaseError.swift */,
 				D4C006702B48C4B600C36B5F /* SharedStoreKitManager.swift */,
 			);
@@ -769,6 +775,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4A75DED2B4F28030081A02B /* StoreKitConfig.storekit in Resources */,
 				D4B91DCA2B44D79E00F9D3F1 /* Preview Assets.xcassets in Resources */,
 				D4B91DC62B44D79E00F9D3F1 /* Assets.xcassets in Resources */,
 			);
@@ -808,6 +815,7 @@
 				D4EFAC782B4A05BB00763A5A /* ModeLevelError+Extensions.swift in Sources */,
 				D4C006712B48C4B600C36B5F /* SharedStoreKitManager.swift in Sources */,
 				D446A3892B49C810001B287D /* GameModeListView.swift in Sources */,
+				D4A75DEB2B4F25AD0081A02B /* SharedAdStateManager.swift in Sources */,
 				D4B91DDD2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift in Sources */,
 				D424CFC02B4B3BAA00391FFF /* InheritableUserDefaultsGameModeStore.swift in Sources */,
 				D4EFAC802B4A09D500763A5A /* AppStorageKey.swift in Sources */,

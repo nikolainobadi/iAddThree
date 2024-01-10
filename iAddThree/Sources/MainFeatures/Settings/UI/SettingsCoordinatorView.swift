@@ -23,7 +23,7 @@ struct SettingsCoordinatorView: View {
     
     var body: some View {
         VStack {
-            SettingsHeaderView(state: state, showList: { state = .list })
+            SettingsHeaderView(state: state, didPurchasePro: didPurchasePro, showList: { state = .list })
                 .padding(.bottom, getHeightPercent(5))
             
             switch state {
