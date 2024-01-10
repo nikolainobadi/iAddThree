@@ -45,6 +45,7 @@ extension ClassicLevelResults {
     func toLevelResults() -> LevelResults {
         return .init(
             level: currentLevel,
+            scoreBeforePoints: currentScore,
             normalPoints: correctAnswerCount,
             bonusPoints: bonusPoints,
             didCompleteLevel: numberList.filter({ $0.userAnswer == nil }).count == 0, 

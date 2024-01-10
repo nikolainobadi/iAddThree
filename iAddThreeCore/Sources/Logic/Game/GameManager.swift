@@ -52,6 +52,7 @@ public extension GameManager {
 // MARK: - Private Methods
 private extension GameManager {
     func makePerformanceRecord(results: LevelResults) -> PerformanceRecord {
+        print("newScore: \(results.newScore), currentHighScore: \(currentHighScore)")
         let newHighScore = results.newScore > currentHighScore ? results.newScore : nil
         let unlockNextMode = shouldUnlockNextMode(levelCompleted:  results.levelCompleted, currentModeLevel: store.modeLevel)
         let newAchievements = getNewAchievements(from: results)
@@ -100,9 +101,7 @@ public protocol GameStore {
 
 // MARK: - Extension Dependencies
 fileprivate extension LevelResults {
-    var newScore: Int {
-        return normalPoints + (bonusPoints ?? 0)
-    }
+    
     
     var levelCompleted: Int? {
         return didCompleteLevel ? level : nil

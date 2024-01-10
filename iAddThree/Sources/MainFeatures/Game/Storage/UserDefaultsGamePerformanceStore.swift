@@ -28,6 +28,7 @@ final class UserDefaultsGamePerformanceStore: InheritableUserDefaultsGameModeSto
     }
     
     func saveHighScore(_ score: Int, modeId: String) {
+        print("saving new high score \(score), for modeId: \(modeId)")
         defaults.setValue(score, forKey: modeId)
     }
 }
