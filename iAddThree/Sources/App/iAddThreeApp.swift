@@ -14,6 +14,7 @@ struct iAddThreeApp: App {
         WindowGroup {
             LaunchCoordinatorView()
                 .withNnErrorHandling()
+                .preferredColorScheme(.light)
         }
     }
 }

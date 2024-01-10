@@ -18,7 +18,7 @@ struct LaunchCoordinatorView: View {
     @AppStorage(AppStorageKey.initialLaunch) private var isInitialLaunch = true
     
     private var canShowAds: Bool {
-        return !isInitialLaunch && !adsRemoved
+        return !isInitialLaunch && !adsRemoved && !SharedAdStateManager.isPurchasingPro
     }
     
     private func gameCenterLogin() {

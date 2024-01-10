@@ -29,7 +29,7 @@ struct SettingsButtonListView: View {
             NormalButton(title: "About", action: showAbout)
             LinkButton(title: "Privacy Policy", urlString: PRIVACY_URL)
         }
-        .setChalkFont(.headline, isSmooth: true)
+        .setChalkFont(.headline, isSmooth: true, textColor: .black)
     }
 }
 
