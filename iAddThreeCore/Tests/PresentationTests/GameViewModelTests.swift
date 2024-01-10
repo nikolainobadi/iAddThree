@@ -63,8 +63,8 @@ final class GameViewModelTests: XCTestCase {
 
 // MARK: - SUT
 extension GameViewModelTests {
-    func makeSUT(modeLevel: Int = 0) -> GameViewModel {
-        return GameViewModel(store: MockStore(modeLevel: modeLevel))
+    func makeSUT(modeLevel: Int = 0) -> MainFeaturesViewModel {
+        return MainFeaturesViewModel(store: MockStore(modeLevel: modeLevel))
     }
 }
 

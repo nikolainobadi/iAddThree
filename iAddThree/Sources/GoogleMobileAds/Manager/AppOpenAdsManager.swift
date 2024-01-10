@@ -9,6 +9,7 @@ import Foundation
 import GoogleMobileAds
 
 final class AppOpenAdsManager: NSObject, ObservableObject {
+    @Published var didDismissAd = false
     @Published var adToDisplay: FullScreenAdInfo<GADAppOpenAd>?
     
     private var nextAd: FullScreenAdInfo<GADAppOpenAd>?
@@ -18,6 +19,8 @@ final class AppOpenAdsManager: NSObject, ObservableObject {
 // MARK: - Actions
 extension AppOpenAdsManager {
     func showAd() {
+        didDismissAd = false
+        
         if SharedGoogleAdManager.didSetAuthStatus {
             setAdToDisplay()
         } else {
@@ -35,7 +38,7 @@ extension AppOpenAdsManager: GADFullScreenContentDelegate {
     func adWillDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
         resetAds()
         loadNextAd()
-        
+        didDismissAd = true
     }
     
     func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {

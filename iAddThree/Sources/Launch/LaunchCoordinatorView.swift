@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import iAddThreeCore
 import NnSwiftUIHelpers
 import iAddThreeClassicKit
 
@@ -20,6 +21,10 @@ struct LaunchCoordinatorView: View {
         return !isInitialLaunch && !adsRemoved
     }
     
+    private func gameCenterLogin() {
+        SharedGameKitManager.authenticateLocalPlayer(presentingViewController: UIApplication.shared.getTopViewController())
+    }
+    
     var body: some View {
         ZStack {
             if showingSplashScreen {
@@ -32,14 +37,19 @@ struct LaunchCoordinatorView: View {
                         }
                     }
             } else {
-                MainFeaturesCoordinatorView()
+                MainFeaturesCoordinatorView(viewModel: .customInit())
                     .onAppear {
                         isInitialLaunch = false
+                        if !canShowAds {
+                            gameCenterLogin()
+                        }
                     }
             }
         }
         .onChalkboard()
-        .appOpenAd(shouldShowAd: $shouldShowAppOpenAdd)
+        .appOpenAd(shouldShowAd: $shouldShowAppOpenAdd) {
+            gameCenterLogin()
+        }
         .environment(\.canShowAds, canShowAds)
         .environment(\.didPurchasePro, adsRemoved)
         .onAppear {
@@ -58,4 +68,12 @@ struct LaunchCoordinatorView: View {
 // MARK: - Preview
 #Preview {
     LaunchCoordinatorView()
+}
+
+
+// MARK: - Extension Dependencies
+extension MainFeaturesViewModel {
+    static func customInit() -> MainFeaturesViewModel {
+        return .init(store: UserDefaultsGamePerformanceStore())
+    }
 }

@@ -13,12 +13,14 @@ final class GameManagerTests: XCTestCase {
         let (sut, store) = makeSUT()
         
         XCTAssertNil(store.savedScore)
-        XCTAssertNil(store.savedModeId)
         XCTAssertFalse(store.didIncrementLevel)
         XCTAssertEqual(sut.currentHighScore, 0)
-        XCTAssertTrue(sut.unlockedAchievements.isEmpty)
     }
-    
+}
+
+
+// MARK: - HighScore
+extension GameManagerTests {
     func test_saveResults_scoreIsGreaterThanCurrentHighScore_newScoreSaved() {
         let normalPoints = 4
         let results = makeResults(normalPoints: normalPoints)
@@ -46,7 +48,7 @@ final class GameManagerTests: XCTestCase {
         let (sut, store) = makeSUT(currentHighScore: currentHighScore)
         
         sut.saveResults(results)
-
+        
         XCTAssertNil(store.savedScore)
     }
     
@@ -57,10 +59,14 @@ final class GameManagerTests: XCTestCase {
         let sut = makeSUT(currentHighScore: currentHighScore).sut
         
         sut.saveResults(results)
-
+        
         XCTAssertEqual(sut.currentHighScore, currentHighScore)
     }
-    
+}
+
+
+// MARK: - ModeLevel
+extension GameManagerTests {
     func test_saveResults_addMode_completingFirstLevel_firstTime_incrementsModeLevel() {
         let results = makeResults()
         let (sut, store) = makeSUT(mode: .add)
@@ -135,8 +141,8 @@ final class GameManagerTests: XCTestCase {
 
 // MARK: - SUT
 extension GameManagerTests {
-    func makeSUT(mode: GameMode = .add, modeLevel: Int = 0, currentHighScore: Int = 0, file: StaticString = #filePath, line: UInt = #line) -> (sut: GameManager, store: MockStore) {
-        let store = MockStore(modeLevel: modeLevel, highScore: currentHighScore)
+    func makeSUT(mode: GameMode = .add, modeLevel: Int = 0, currentHighScore: Int = 0, totalCompletedLevelsCount: Int = 0, unlockedAchievements: [GameAchievement] = [], file: StaticString = #filePath, line: UInt = #line) -> (sut: GameManager, store: MockStore) {
+       let store = MockStore(modeLevel: modeLevel, highScore: currentHighScore, totalCompletedLevelsCount: totalCompletedLevelsCount, unlockedAchievements: unlockedAchievements)
         let sut = GameManager(mode: mode, store: store)
         
         trackForMemoryLeaks(sut, file: file, line: line)
@@ -144,8 +150,8 @@ extension GameManagerTests {
         return (sut, store)
     }
     
-    func makeResults(normalPoints: Int = 0, level: Int = 1, didCompleteLevel: Bool = true, completionTime: TimeInterval = 10) -> LevelResults {
-        return .init(level: level, normalPoints: normalPoints, bonusPoints: nil, didCompleteLevel: didCompleteLevel, completionTime: completionTime)
+    func makeResults(normalPoints: Int = 0, level: Int = 1, perfectStreakCount: Int = 0, completionTime: TimeInterval? = 10) -> LevelResults {
+        return .init(level: level, normalPoints: normalPoints, bonusPoints: nil, didCompleteLevel: completionTime != nil, perfectStreakCount: perfectStreakCount, completionTime: completionTime)
     }
 }
 
@@ -154,28 +160,36 @@ extension GameManagerTests {
 extension GameManagerTests {
     class MockStore: GameStore {
         private let highScore: Int
+        private let totalCompletedLevelsCount: Int
+        private let unlockedAchievements: [GameAchievement]
+        
         private(set) var savedScore: Int?
-        private(set) var savedModeId: String?
         private(set) var didIncrementLevel = false
         
         var modeLevel: Int
         
-        init(modeLevel: Int, highScore: Int) {
+        init(modeLevel: Int, highScore: Int, totalCompletedLevelsCount: Int, unlockedAchievements: [GameAchievement]) {
             self.modeLevel = modeLevel
             self.highScore = highScore
+            self.totalCompletedLevelsCount = totalCompletedLevelsCount
+            self.unlockedAchievements = unlockedAchievements
         }
         
-        func incrementModeLevel() {
-            didIncrementLevel = true
+        func loadTotalCompletedLevelsCount(modeId: String) -> Int {
+            return totalCompletedLevelsCount
         }
         
-        func getHighScore(modeId: String) -> Int {
+        func loadHighScore(modeId: String) -> Int {
             return highScore
         }
+        
+        func loadUnlockedAchievements(modeId: String) -> [GameAchievement] {
+            return unlockedAchievements
+        }
 
-        func saveHighScore(_ score: Int, modeId: String) {
-            savedScore = score
-            savedModeId = modeId
+        func save(record: PerformanceRecord) {
+            self.savedScore = record.newHighScore
+            self.didIncrementLevel = record.shouldUnlockNextMode
         }
     }
 }

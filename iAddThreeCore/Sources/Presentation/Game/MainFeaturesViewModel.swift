@@ -1,5 +1,5 @@
 //
-//  GameViewModel.swift
+//  MainFeaturesViewModel.swift
 //  iAddThree
 //
 //  Created by Nikolai Nobadi on 1/6/24.
@@ -7,8 +7,9 @@
 
 import Foundation
 
-public final class GameViewModel: ObservableObject {
+public final class MainFeaturesViewModel: ObservableObject {
     @Published public var selectedMode: GameMode?
+    @Published public var showingSettings = false
     
     private let store: GameModeStore
     
@@ -19,17 +20,37 @@ public final class GameViewModel: ObservableObject {
 
 
 // MARK: - Actions
-public extension GameViewModel {
+public extension MainFeaturesViewModel {
+    var modeLevel: Int {
+        return store.modeLevel
+    }
+    
+    var canShowSubtractBanner: Bool {
+        return store.modeLevel > 0
+    }
+    
     func playSelectedMode(_ mode: GameMode) throws {
         try verifyCanPlayMode(mode)
         
         selectedMode = mode
     }
+    
+    func endGame() {
+        selectedMode = nil
+    }
+    
+    func showSettings() {
+        showingSettings = true
+    }
+    
+    func dismissSettings() {
+        showingSettings = false
+    }
 }
 
 
 // MARK: - Private Methods
-private extension GameViewModel {
+private extension MainFeaturesViewModel {
     func verifyCanPlayMode(_ mode: GameMode) throws {
         guard mode != .add else { return }
         

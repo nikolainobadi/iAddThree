@@ -10,37 +10,34 @@ import iAddThreeCore
 import iAddThreeClassicKit
 
 struct GameCoordinatorView: View {
-    @StateObject var viewModel: GameViewModel
+    @StateObject var adapter: ClassicResultsAdapter
+    
+    let endGame: () -> Void
     
     var body: some View {
-        if let selectedMode = viewModel.selectedMode {
-            ClassicModeComposer.makeClassicGameCoordinatorView(
-                mode: selectedMode.classicMode,
-                store: ClassicResultStoreAdapter(manager: .customInit(mode: selectedMode)),
-                endGame: { viewModel.selectedMode =  nil }
-            )
-        } else {
-            GameModeListView(canShowSubtractBanner: false, onSelection: viewModel.playSelectedMode(_:))
+        ClassicGameCoordinatorView(
+            mode: adapter.mode,
+            highScore: adapter.currentHighScore,
+            endGame: endGame,
+            saveResults: adapter.saveResults(_:)
+        )
+        .task {
+            await adapter.loadHighScore()
         }
     }
 }
 
 
+
 // MARK: - Preview
 #Preview {
-    GameCoordinatorView(viewModel: .customInit())
+    GameCoordinatorView(adapter: .init(manager: .customInit(mode: .add)), endGame: { })
         .onChalkboard()
         .withNnErrorHandling()
 }
 
 
 // MARK: - Extension Dependencies
-extension GameManager {
-    static func customInit(mode: GameMode) -> GameManager {
-        return .init(mode: mode, store: UserDefaultsGameStore())
-    }
-}
-
 extension iAddThreeCore.GameMode {
     var classicMode: ClassicGameMode {
         switch self {
