@@ -21,6 +21,10 @@ struct LaunchCoordinatorView: View {
         return !isInitialLaunch && !adsRemoved
     }
     
+    private func gameCenterLogin() {
+        SharedGameKitManager.authenticateLocalPlayer(presentingViewController: UIApplication.shared.getTopViewController())
+    }
+    
     var body: some View {
         ZStack {
             if showingSplashScreen {
@@ -36,11 +40,16 @@ struct LaunchCoordinatorView: View {
                 MainFeaturesCoordinatorView(viewModel: .customInit())
                     .onAppear {
                         isInitialLaunch = false
+                        if !canShowAds {
+                            gameCenterLogin()
+                        }
                     }
             }
         }
         .onChalkboard()
-        .appOpenAd(shouldShowAd: $shouldShowAppOpenAdd)
+        .appOpenAd(shouldShowAd: $shouldShowAppOpenAdd) {
+            gameCenterLogin()
+        }
         .environment(\.canShowAds, canShowAds)
         .environment(\.didPurchasePro, adsRemoved)
         .onAppear {

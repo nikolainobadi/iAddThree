@@ -7,7 +7,7 @@
 
 enum AchievementManager {
     static func getAchievements(info: ResultAchievementInfo) -> [GameAchievement] {
-        let achievementsForMode = AchievementConfigurator.generateAchievements(modeName: info.modeName)
+        let achievementsForMode = AchievementConfigurator.generateAchievements(modeName: info.modeName.lowercased())
 
         return achievementsForMode.compactMap { metadata in
             guard checkAchievement(metadata, withInfo: info) else { return nil }

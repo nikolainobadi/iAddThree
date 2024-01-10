@@ -7,6 +7,7 @@
 
 import GameKit
 
+// MARK: - TODO -> still need to figure out how to implement
 enum SharedGameKitManager {
     static var localPlayer: GKLocalPlayer {
         return GKLocalPlayer.local
@@ -16,16 +17,14 @@ enum SharedGameKitManager {
 
 // MARK: - Auth
 extension SharedGameKitManager {
-    static func authenticateLocalPlayer(presentingViewController: UIViewController, completion: @escaping (Bool, Error?) -> Void) {
-        localPlayer.authenticateHandler = { viewController, error in
-            if let vc = viewController {
-                presentingViewController.present(vc, animated: true, completion: nil)
-            } else if localPlayer.isAuthenticated {
-                completion(true, nil)
-            } else {
-                completion(false, error)
-            }
-        }
+    static func authenticateLocalPlayer(presentingViewController: UIViewController?) {
+//        guard let presentingViewController = presentingViewController else { return }
+//        
+//        localPlayer.authenticateHandler = { viewController, error in
+//            if let vc = viewController {
+//                presentingViewController.present(vc, animated: true, completion: nil)
+//            }
+//        }
     }
 }
 

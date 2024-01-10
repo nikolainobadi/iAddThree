@@ -47,7 +47,7 @@ extension ClassicLevelResults {
             level: currentLevel,
             normalPoints: correctAnswerCount,
             bonusPoints: bonusPoints,
-            didCompleteLevel: completionTime != nil, 
+            didCompleteLevel: numberList.filter({ $0.userAnswer == nil }).count == 0, 
             perfectStreakCount: perfectStreakCount,
             completionTime: completionTime
         )
