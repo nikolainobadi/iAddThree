@@ -1,5 +1,6 @@
 
 # iAddThree
+[![CI Actions Status](https://github.com/nikolainobadi/iAddThreeApp/workflows/CI/badge.svg)](https://github.com/nikolainobadi/iAddThreeApp/actions)
 
 ## Overview
 A small math app based on a cognitive exercise developer by clinical psychologist Daniel Kahneman.
