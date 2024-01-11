@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// `ModeLevelError` represents the types of errors that can occur related to game mode levels.
+/// It includes errors for subtract, hybrid, and unknown types.
 @frozen
 public enum ModeLevelError: Error {
     case subtract, hybrid, unknown

@@ -13,4 +13,3 @@ enum AchievementType {
     case perfectScoreStreak(Int)
     case totalCompletedLevelCount(Int)
 }
-
