@@ -41,22 +41,26 @@ extension GameManagerTests {
         XCTAssertEqual(sut.currentHighScore, normalPoints)
     }
     
-    func test_saveResults_scoreIsLessThanCurrentHighScore_oldHighScoreRemains() {
+    func test_saveResults_scoreIsLessThanCurrentHighScore_oldHighScoreRemains() async {
         let normalPoints = 4
         let currentHighScore = 10
         let results = makeResults(normalPoints: normalPoints)
         let (sut, store) = makeSUT(currentHighScore: currentHighScore)
+        
+        await sut.loadData()
         
         sut.saveResults(results)
         
         XCTAssertNil(store.savedScore)
     }
     
-    func test_saveResults_scoreIsLessThanCurrentHighScore_currentHighScoreRemainsSame() {
+    func test_saveResults_scoreIsLessThanCurrentHighScore_currentHighScoreRemainsSame() async {
         let normalPoints = 4
         let currentHighScore = 10
         let results = makeResults(normalPoints: normalPoints)
         let sut = makeSUT(currentHighScore: currentHighScore).sut
+        
+        await sut.loadData()
         
         sut.saveResults(results)
         
@@ -150,8 +154,8 @@ extension GameManagerTests {
         return (sut, store)
     }
     
-    func makeResults(normalPoints: Int = 0, level: Int = 1, perfectStreakCount: Int = 0, completionTime: TimeInterval? = 10) -> LevelResults {
-        return .init(level: level, normalPoints: normalPoints, bonusPoints: nil, didCompleteLevel: completionTime != nil, perfectStreakCount: perfectStreakCount, completionTime: completionTime)
+    func makeResults(scoreBeforePoints: Int = 0, normalPoints: Int = 0, level: Int = 1, perfectStreakCount: Int = 0, completionTime: TimeInterval? = 10) -> LevelResults {
+        return .init(level: level, scoreBeforePoints: scoreBeforePoints, normalPoints: normalPoints, bonusPoints: nil, didCompleteLevel: completionTime != nil, perfectStreakCount: perfectStreakCount, completionTime: completionTime)
     }
 }
 
@@ -175,15 +179,15 @@ extension GameManagerTests {
             self.unlockedAchievements = unlockedAchievements
         }
         
-        func loadTotalCompletedLevelsCount(modeId: String) -> Int {
-            return totalCompletedLevelsCount
-        }
-        
-        func loadHighScore(modeId: String) -> Int {
+        func loadHighScore(mode: iAddThreeCore.GameMode) async -> Int {
             return highScore
         }
         
-        func loadUnlockedAchievements(modeId: String) -> [GameAchievement] {
+        func loadTotalCompletedLevelsCount(mode: iAddThreeCore.GameMode) -> Int {
+            return totalCompletedLevelsCount
+        }
+        
+        func loadUnlockedAchievements(mode: iAddThreeCore.GameMode) async -> [iAddThreeCore.GameAchievement] {
             return unlockedAchievements
         }
 
