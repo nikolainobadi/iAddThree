@@ -15,23 +15,37 @@ struct MainFeaturesCoordinatorView: View {
     @StateObject var viewModel: MainFeaturesViewModel
     
     var body: some View {
-        if let selectedMode = viewModel.selectedMode {
-            GameCoordinatorView(adapter: .customInit(mode: selectedMode), endGame: viewModel.endGame)
-        } else {
-            GameModeListView(
-                modeLevel: viewModel.modeLevel,
-                onSelection: viewModel.playSelectedMode(_:)
-            )
-            .overlay(alignment: .topTrailing) {
-                SettingsButton(action: viewModel.showSettings)
-            }
-            .sheet(isPresented: $viewModel.showingSettings) {
-                SettingsCoordinatorView()
-                    .overlay(alignment: .topTrailing) {
-                        ChalkNavDismissButton(action: viewModel.dismissSettings)
+        Group {
+            if let selectedMode = viewModel.selectedMode {
+                GameCoordinatorView(
+                    adapter: .customInit(mode: selectedMode),
+                    endGame: {
+                        withAnimation {
+                            viewModel.endGame()
+                        }
                     }
-                    .withNnLoadingView()
-                    .withNnErrorHandling()
+                )
+                .transition(.asymmetric(insertion: .push(from: .trailing), removal: .push(from: .leading)))
+            } else {
+                GameModeListView(
+                    modeLevel: viewModel.modeLevel,
+                    onSelection: { mode in
+                        try withAnimation {
+                            try viewModel.playSelectedMode(mode)
+                        }
+                    }
+                )
+                .overlay(alignment: .topTrailing) {
+                    SettingsButton(action: viewModel.showSettings)
+                }
+                .sheet(isPresented: $viewModel.showingSettings) {
+                    SettingsCoordinatorView()
+                        .overlay(alignment: .topTrailing) {
+                            ChalkNavDismissButton(action: viewModel.dismissSettings)
+                        }
+                        .withNnLoadingView()
+                        .withNnErrorHandling()
+                }
             }
         }
     }
