@@ -14,38 +14,27 @@ struct MainFeaturesCoordinatorView: View {
     @StateObject var viewModel: MainFeaturesViewModel
     
     var body: some View {
-        Group {
-            if let selectedMode = viewModel.selectedMode {
+        NavigationStack {
+            GameModeListView(
+                modeLevel: viewModel.modeLevel,
+                onSelection: viewModel.playSelectedMode(_:)
+            )
+            .onChalkboard()
+            .overlay(alignment: .topTrailing) {
+                SettingsButton(action: viewModel.showSettings)
+            }
+            .sheetWithErrorHandling(isPresented: $viewModel.showingSettings) {
+                SettingsCoordinatorView()
+                    .overlay(alignment: .topTrailing) {
+                        ChalkNavDismissButton(action: viewModel.dismissSettings)
+                    }
+            }
+            .navigationDestination(item: $viewModel.selectedMode) { mode in
                 GameCoordinatorView(
-                    adapter: .customInit(mode: selectedMode),
-                    endGame: {
-                        withAnimation {
-                            viewModel.endGame()
-                        }
-                    }
+                    adapter: .customInit(mode: mode),
+                    endGame: viewModel.endGame
                 )
-                .transition(.asymmetric(insertion: .push(from: .trailing), removal: .push(from: .leading)))
-                .onAppear {
-                    print("selected mode in view", selectedMode)
-                }
-            } else {
-                GameModeListView(
-                    modeLevel: viewModel.modeLevel,
-                    onSelection: { mode in
-                        try withAnimation {
-                            try viewModel.playSelectedMode(mode)
-                        }
-                    }
-                )
-                .overlay(alignment: .topTrailing) {
-                    SettingsButton(action: viewModel.showSettings)
-                }
-                .sheetWithErrorHandling(isPresented: $viewModel.showingSettings) {
-                    SettingsCoordinatorView()
-                        .overlay(alignment: .topTrailing) {
-                            ChalkNavDismissButton(action: viewModel.dismissSettings)
-                        }
-                }
+                .navigationBarBackButtonHidden()
             }
         }
     }

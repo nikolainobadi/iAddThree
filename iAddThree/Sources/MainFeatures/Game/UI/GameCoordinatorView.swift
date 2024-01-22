@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NnSwiftUIKit
 import iAddThreeCore
 import iAddThreeClassicKit
 
