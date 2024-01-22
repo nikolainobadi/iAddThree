@@ -23,8 +23,6 @@
 		D424CFC42B4B622000391FFF /* SharedGameKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D424CFC32B4B622000391FFF /* SharedGameKitManager.swift */; };
 		D446A3892B49C810001B287D /* GameModeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446A3882B49C810001B287D /* GameModeListView.swift */; };
 		D446A3902B49E743001B287D /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446A38F2B49E743001B287D /* GameMode.swift */; };
-		D474B0B12B4E224F00599C06 /* iAddThreeClassicKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D474B0B02B4E224F00599C06 /* iAddThreeClassicKit.xcframework */; };
-		D474B0B22B4E224F00599C06 /* iAddThreeClassicKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D474B0B02B4E224F00599C06 /* iAddThreeClassicKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D4A1BAFA2B48D189009EFAFE /* NnSwiftUIErrorHandling in Frameworks */ = {isa = PBXBuildFile; productRef = D4A1BAF92B48D189009EFAFE /* NnSwiftUIErrorHandling */; };
 		D4A1BAFC2B48D24F009EFAFE /* DidPurchaseProKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BAFB2B48D24F009EFAFE /* DidPurchaseProKey.swift */; };
 		D4A1BB142B48E711009EFAFE /* SharedGoogleAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BB132B48E711009EFAFE /* SharedGoogleAdManager.swift */; };
@@ -61,6 +59,8 @@
 		D4C006692B48C13E00C36B5F /* InAppPurchaseStoreAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006682B48C13E00C36B5F /* InAppPurchaseStoreAdapter.swift */; };
 		D4C0066F2B48C1B800C36B5F /* StoreKitPurchaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C0066E2B48C1B800C36B5F /* StoreKitPurchaseError.swift */; };
 		D4C006712B48C4B600C36B5F /* SharedStoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006702B48C4B600C36B5F /* SharedStoreKitManager.swift */; };
+		D4DBABD52B5EEC060090A98E /* iAddThreeClassicKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DBABD42B5EEC060090A98E /* iAddThreeClassicKit.xcframework */; };
+		D4DBABD62B5EEC060090A98E /* iAddThreeClassicKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4DBABD42B5EEC060090A98E /* iAddThreeClassicKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D4E614702B45D72E009DF4DD /* UserDefaultsGamePerformanceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6146F2B45D72E009DF4DD /* UserDefaultsGamePerformanceStore.swift */; };
 		D4EFAC6B2B4A00E800763A5A /* ProUpgradeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006642B48C0B700C36B5F /* ProUpgradeViewModel.swift */; };
 		D4EFAC722B4A014B00763A5A /* ProUpgradeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFAC702B4A012A00763A5A /* ProUpgradeViewModelTests.swift */; };
@@ -95,7 +95,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D474B0B22B4E224F00599C06 /* iAddThreeClassicKit.xcframework in Embed Frameworks */,
+				D4DBABD62B5EEC060090A98E /* iAddThreeClassicKit.xcframework in Embed Frameworks */,
 				D4B91DEA2B44DD1D00F9D3F1 /* iAddThreeCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -122,7 +122,6 @@
 		D446A38B2B49CCC6001B287D /* MainFeaturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeaturesViewModel.swift; sourceTree = "<group>"; };
 		D446A38D2B49CCF5001B287D /* ModeLevelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeLevelError.swift; sourceTree = "<group>"; };
 		D446A38F2B49E743001B287D /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
-		D474B0B02B4E224F00599C06 /* iAddThreeClassicKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = iAddThreeClassicKit.xcframework; sourceTree = "<group>"; };
 		D4A1BAFB2B48D24F009EFAFE /* DidPurchaseProKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidPurchaseProKey.swift; sourceTree = "<group>"; };
 		D4A1BB132B48E711009EFAFE /* SharedGoogleAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedGoogleAdManager.swift; sourceTree = "<group>"; };
 		D4A1BB182B48E780009EFAFE /* AdMobId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobId.swift; sourceTree = "<group>"; };
@@ -161,6 +160,7 @@
 		D4C0066E2B48C1B800C36B5F /* StoreKitPurchaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitPurchaseError.swift; sourceTree = "<group>"; };
 		D4C006702B48C4B600C36B5F /* SharedStoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedStoreKitManager.swift; sourceTree = "<group>"; };
 		D4C006742B48C92A00C36B5F /* AppStorageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKey.swift; sourceTree = "<group>"; };
+		D4DBABD42B5EEC060090A98E /* iAddThreeClassicKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = iAddThreeClassicKit.xcframework; path = ../Desktop/iAddThreeClassicKit.xcframework; sourceTree = "<group>"; };
 		D4E6146F2B45D72E009DF4DD /* UserDefaultsGamePerformanceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsGamePerformanceStore.swift; sourceTree = "<group>"; };
 		D4EFAC702B4A012A00763A5A /* ProUpgradeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUpgradeViewModelTests.swift; sourceTree = "<group>"; };
 		D4EFAC772B4A05BB00763A5A /* ModeLevelError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModeLevelError+Extensions.swift"; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D474B0B12B4E224F00599C06 /* iAddThreeClassicKit.xcframework in Frameworks */,
+				D4DBABD52B5EEC060090A98E /* iAddThreeClassicKit.xcframework in Frameworks */,
 				D4A1BAFA2B48D189009EFAFE /* NnSwiftUIErrorHandling in Frameworks */,
 				D4B91DE92B44DD1D00F9D3F1 /* iAddThreeCore.framework in Frameworks */,
 				D4A1BB282B48F109009EFAFE /* GoogleMobileAds in Frameworks */,
@@ -478,7 +478,7 @@
 		D4C006422B48871D00C36B5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D474B0B02B4E224F00599C06 /* iAddThreeClassicKit.xcframework */,
+				D4DBABD42B5EEC060090A98E /* iAddThreeClassicKit.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
