@@ -15,9 +15,7 @@ struct MainFeaturesCoordinatorView: View {
     @StateObject var viewModel: MainFeaturesViewModel
     
     var body: some View {
-        if let selectedMode = viewModel.selectedMode {
-            GameCoordinatorView(adapter: .customInit(mode: selectedMode), endGame: viewModel.endGame)
-        } else {
+        NavigationStack {
             GameModeListView(
                 modeLevel: viewModel.modeLevel,
                 onSelection: viewModel.playSelectedMode(_:)
@@ -32,6 +30,9 @@ struct MainFeaturesCoordinatorView: View {
                     }
                     .withNnLoadingView()
                     .withNnErrorHandling()
+            }
+            .navigationDestination(item: $viewModel.selectedMode) { selectedMode in
+                GameCoordinatorView(adapter: .customInit(mode: selectedMode), endGame: viewModel.endGame)
             }
         }
     }
