@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import NnSwiftUIKit
+import NnSwiftUIHelpers
 import iAddThreeClassicKit
 
 fileprivate let EMAIL_URL = "mailto: nnobadicares@gmail.com"

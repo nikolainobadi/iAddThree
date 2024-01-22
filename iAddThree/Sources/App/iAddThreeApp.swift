@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import NnSwiftUIKit
+import NnSwiftUIErrorHandling
 
 @main
 struct iAddThreeApp: App {

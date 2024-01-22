@@ -5,8 +5,8 @@
 //  Created by Nikolai Nobadi on 1/6/24.
 //
 
-import NnSwiftUIKit
 import iAddThreeCore
+import NnSwiftUIErrorHandling
 
 extension ModeLevelError: NnDisplayableError {
     public var title: String {

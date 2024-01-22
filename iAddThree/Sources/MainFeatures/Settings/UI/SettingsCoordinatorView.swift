@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import NnSwiftUIKit
+import NnSwiftUIHelpers
 import iAddThreeClassicKit
 
 struct SettingsCoordinatorView: View {

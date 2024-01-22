@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import NnSwiftUIKit
+import NnSwiftUIErrorHandling
 
 enum StoreKitPurchaseError: Error {
     case fetchProductsError

@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
-import NnSwiftUIKit
 import iAddThreeCore
 import iAddThreeClassicKit
+import NnSwiftUIErrorHandling
 
 struct GameCoordinatorView: View {
     @StateObject var adapter: ClassicResultsAdapter
