@@ -6,10 +6,9 @@
 //
 
 import SwiftUI
+import NnSwiftUIKit
 import iAddThreeCore
-import NnSwiftUIHelpers
 import iAddThreeClassicKit
-import NnSwiftUIErrorHandling
 
 struct GameModeListView: View {
     let modeLevel: Int
@@ -21,7 +20,7 @@ struct GameModeListView: View {
                 .padding()
             
             Spacer()
-            LazyVStack {
+            VStack {
                 ForEach(GameMode.allCases) { mode in
                     ButtonRow(mode: mode, isAvailable: modeLevel >= mode.modeLevelRequirement, onSelection: onSelection)
                 }

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import NnSwiftUIHelpers
+import NnSwiftUIKit
 
 struct SplashView: View {
     @State private var isAnimating = false

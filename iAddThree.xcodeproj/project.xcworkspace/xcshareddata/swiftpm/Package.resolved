@@ -28,21 +28,12 @@
       }
     },
     {
-      "identity" : "nnswiftuierrorhandling",
+      "identity" : "nnswiftuikit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/nikolainobadi/NnSwiftUIErrorHandling.git",
+      "location" : "https://github.com/nikolainobadi/NnSwiftUIKit",
       "state" : {
         "branch" : "main",
-        "revision" : "1287a44078edd1f3d76dc6d94c280c6ddb948753"
-      }
-    },
-    {
-      "identity" : "nnswiftuihelpers",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/nikolainobadi/NnSwiftUIHelpers",
-      "state" : {
-        "branch" : "main",
-        "revision" : "673120637e4e378d96397f430109ac7ea585dce5"
+        "revision" : "f46ff80b1fa99288097d481eb039518f97d82f74"
       }
     },
     {

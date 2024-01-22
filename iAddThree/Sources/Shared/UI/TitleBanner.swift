@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import NnSwiftUIHelpers
+import NnSwiftUIKit
 import iAddThreeClassicKit
 
 struct TitleBanner: View {
@@ -49,5 +49,3 @@ struct TitleBanner: View {
         }
     }
 }
-
-

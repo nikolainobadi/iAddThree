@@ -6,8 +6,8 @@
 //
 
 import SwiftUI
+import NnSwiftUIKit
 import iAddThreeCore
-import NnSwiftUIHelpers
 import iAddThreeClassicKit
 
 struct LaunchCoordinatorView: View {
@@ -18,10 +18,6 @@ struct LaunchCoordinatorView: View {
     
     private var canShowAds: Bool {
         return !adsRemoved && !SharedAdStateManager.isPurchasingPro
-    }
-    
-    private func gameCenterLogin() {
-        SharedGameKitManager.authenticateLocalPlayer(presentingViewController: UIApplication.shared.getTopViewController())
     }
     
     var body: some View {
@@ -37,17 +33,10 @@ struct LaunchCoordinatorView: View {
                     }
             } else {
                 MainFeaturesCoordinatorView(viewModel: .customInit())
-                    .onAppear {
-                        if !canShowAds {
-                            gameCenterLogin()
-                        }
-                    }
             }
         }
         .onChalkboard()
-        .appOpenAd(shouldShowAd: $shouldShowAppOpenAdd) {
-            gameCenterLogin()
-        }
+        .appOpenAd(shouldShowAd: $shouldShowAppOpenAdd, onDismissAd: nil)
         .environment(\.canShowAds, canShowAds)
         .environment(\.didPurchasePro, adsRemoved)
         .onAppear {

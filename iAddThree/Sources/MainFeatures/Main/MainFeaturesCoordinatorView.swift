@@ -6,10 +6,9 @@
 //
 
 import SwiftUI
+import NnSwiftUIKit
 import iAddThreeCore
-import NnSwiftUIHelpers
 import iAddThreeClassicKit
-import NnSwiftUIErrorHandling
 
 struct MainFeaturesCoordinatorView: View {
     @StateObject var viewModel: MainFeaturesViewModel
@@ -26,6 +25,9 @@ struct MainFeaturesCoordinatorView: View {
                     }
                 )
                 .transition(.asymmetric(insertion: .push(from: .trailing), removal: .push(from: .leading)))
+                .onAppear {
+                    print("selected mode in view", selectedMode)
+                }
             } else {
                 GameModeListView(
                     modeLevel: viewModel.modeLevel,
@@ -38,13 +40,11 @@ struct MainFeaturesCoordinatorView: View {
                 .overlay(alignment: .topTrailing) {
                     SettingsButton(action: viewModel.showSettings)
                 }
-                .sheet(isPresented: $viewModel.showingSettings) {
+                .sheetWithErrorHandling(isPresented: $viewModel.showingSettings) {
                     SettingsCoordinatorView()
                         .overlay(alignment: .topTrailing) {
                             ChalkNavDismissButton(action: viewModel.dismissSettings)
                         }
-                        .withNnLoadingView()
-                        .withNnErrorHandling()
                 }
             }
         }
