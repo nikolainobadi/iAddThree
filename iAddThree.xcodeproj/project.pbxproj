@@ -24,6 +24,7 @@
 		D42D513E2B61D48600AE1355 /* NnSwiftUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = D42D513D2B61D48600AE1355 /* NnSwiftUIKit */; };
 		D42D51402B61D4B200AE1355 /* NnSwiftUIKit+ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D513F2B61D4B200AE1355 /* NnSwiftUIKit+ViewExtensions.swift */; };
 		D42D51422B61D68A00AE1355 /* AsyncTryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D51412B61D68A00AE1355 /* AsyncTryButton.swift */; };
+		D42D51432B61D7EC00AE1355 /* NnSwiftUIKit in Embed Frameworks */ = {isa = PBXBuildFile; productRef = D42D513D2B61D48600AE1355 /* NnSwiftUIKit */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D446A3892B49C810001B287D /* GameModeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446A3882B49C810001B287D /* GameModeListView.swift */; };
 		D446A3902B49E743001B287D /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446A38F2B49E743001B287D /* GameMode.swift */; };
 		D4A1BAFC2B48D24F009EFAFE /* DidPurchaseProKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BAFB2B48D24F009EFAFE /* DidPurchaseProKey.swift */; };
@@ -98,6 +99,7 @@
 			files = (
 				D4DBABCD2B5ECFBB0090A98E /* iAddThreeClassicKit.xcframework in Embed Frameworks */,
 				D4B91DEA2B44DD1D00F9D3F1 /* iAddThreeCore.framework in Embed Frameworks */,
+				D42D51432B61D7EC00AE1355 /* NnSwiftUIKit in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
