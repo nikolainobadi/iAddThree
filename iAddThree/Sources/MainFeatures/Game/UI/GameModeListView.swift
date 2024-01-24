@@ -21,7 +21,7 @@ struct GameModeListView: View {
                 .padding()
             
             Spacer()
-            LazyVStack {
+            VStack {
                 ForEach(GameMode.allCases) { mode in
                     ButtonRow(mode: mode, isAvailable: modeLevel >= mode.modeLevelRequirement, onSelection: onSelection)
                 }

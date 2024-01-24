@@ -13,6 +13,7 @@ struct iAddThreeApp: App {
     var body: some Scene {
         WindowGroup {
             LaunchCoordinatorView()
+                .withNnLoadingView()
                 .withNnErrorHandling()
                 .preferredColorScheme(.light)
         }

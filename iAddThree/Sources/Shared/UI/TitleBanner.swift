@@ -15,9 +15,7 @@ struct TitleBanner: View {
     let canShowSubtractBanner: Bool
     
     private func startAnimation() {
-        if canShowSubtractBanner {
-            showingSubtractBanner = true
-        }
+        showingSubtractBanner = canShowSubtractBanner
     }
     
     var body: some View {
@@ -49,5 +47,3 @@ struct TitleBanner: View {
         }
     }
 }
-
-

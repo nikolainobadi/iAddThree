@@ -7,7 +7,6 @@
 
 import SwiftUI
 import iAddThreeCore
-import NnSwiftUIHelpers
 import iAddThreeClassicKit
 import NnSwiftUIErrorHandling
 
@@ -15,23 +14,29 @@ struct MainFeaturesCoordinatorView: View {
     @StateObject var viewModel: MainFeaturesViewModel
     
     var body: some View {
-        if let selectedMode = viewModel.selectedMode {
-            GameCoordinatorView(adapter: .customInit(mode: selectedMode), endGame: viewModel.endGame)
-        } else {
+        NavigationStack {
             GameModeListView(
                 modeLevel: viewModel.modeLevel,
                 onSelection: viewModel.playSelectedMode(_:)
             )
+            .onChalkboard()
             .overlay(alignment: .topTrailing) {
                 SettingsButton(action: viewModel.showSettings)
             }
             .sheet(isPresented: $viewModel.showingSettings) {
                 SettingsCoordinatorView()
+                    .withNnLoadingView()
+                    .withNnErrorHandling()
                     .overlay(alignment: .topTrailing) {
                         ChalkNavDismissButton(action: viewModel.dismissSettings)
                     }
-                    .withNnLoadingView()
-                    .withNnErrorHandling()
+            }
+            .navigationDestination(item: $viewModel.selectedMode) { mode in
+                GameCoordinatorView(
+                    adapter: .customInit(mode: mode),
+                    endGame: viewModel.endGame
+                )
+                .navigationBarBackButtonHidden()
             }
         }
     }
