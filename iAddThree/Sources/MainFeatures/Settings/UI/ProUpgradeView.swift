@@ -7,9 +7,7 @@
 
 import SwiftUI
 import iAddThreeCore
-import NnSwiftUIHelpers
 import iAddThreeClassicKit
-import NnSwiftUIErrorHandling
 
 struct ProUpgradeView: View {
     @StateObject var viewModel: ProUpgradeViewModel
@@ -51,7 +49,7 @@ fileprivate struct ProUpgradeButtonView: View {
     
     var body: some View {
         VStack {
-            NnAsyncTryButton(action: viewModel.purchase) {
+            AsyncTryButton(action: viewModel.purchase) {
                 VStack {
                     Text(viewModel.productName)
                         .setChalkFont(.headline, isSmooth: true)
@@ -66,7 +64,7 @@ fileprivate struct ProUpgradeButtonView: View {
             .shadow(color: .black, radius: 4, x: 2, y: 2)
             .padding()
             
-            NnAsyncTryButton(action: viewModel.restorePurchase) {
+            AsyncTryButton(action: viewModel.restorePurchase) {
                 Text("Restore Purchase")
                     .underline()
                     .setChalkFont(.body, isSmooth: true)

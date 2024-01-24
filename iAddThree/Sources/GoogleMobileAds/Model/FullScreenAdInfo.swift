@@ -5,7 +5,7 @@
 //  Created by Nikolai Nobadi on 1/5/24.
 //
 
-import NnSwiftUIHelpers
+import NnSwiftUIKit
 import GoogleMobileAds
 
 struct FullScreenAdInfo<Ad: GADFullScreenPresentingAd>: Identifiable {

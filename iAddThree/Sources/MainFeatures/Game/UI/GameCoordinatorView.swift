@@ -8,7 +8,6 @@
 import SwiftUI
 import iAddThreeCore
 import iAddThreeClassicKit
-import NnSwiftUIErrorHandling
 
 struct GameCoordinatorView: View {
     @StateObject var adapter: ClassicResultsAdapter
@@ -34,7 +33,7 @@ struct GameCoordinatorView: View {
 #Preview {
     GameCoordinatorView(adapter: .init(manager: .customInit(mode: .add)), endGame: { })
         .onChalkboard()
-        .withNnErrorHandling()
+        .withErrorHandling()
 }
 
 

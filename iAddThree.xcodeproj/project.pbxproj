@@ -21,6 +21,10 @@
 		D424CFBE2B4B3AC900391FFF /* GameKitSocialPerformanceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D424CFBD2B4B3AC900391FFF /* GameKitSocialPerformanceStore.swift */; };
 		D424CFC02B4B3BAA00391FFF /* InheritableUserDefaultsGameModeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D424CFBF2B4B3BAA00391FFF /* InheritableUserDefaultsGameModeStore.swift */; };
 		D424CFC42B4B622000391FFF /* SharedGameKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D424CFC32B4B622000391FFF /* SharedGameKitManager.swift */; };
+		D42D513E2B61D48600AE1355 /* NnSwiftUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = D42D513D2B61D48600AE1355 /* NnSwiftUIKit */; };
+		D42D51402B61D4B200AE1355 /* NnSwiftUIKit+ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D513F2B61D4B200AE1355 /* NnSwiftUIKit+ViewExtensions.swift */; };
+		D42D51422B61D68A00AE1355 /* AsyncTryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D51412B61D68A00AE1355 /* AsyncTryButton.swift */; };
+		D42D51432B61D7EC00AE1355 /* NnSwiftUIKit in Embed Frameworks */ = {isa = PBXBuildFile; productRef = D42D513D2B61D48600AE1355 /* NnSwiftUIKit */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D446A3892B49C810001B287D /* GameModeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446A3882B49C810001B287D /* GameModeListView.swift */; };
 		D446A3902B49E743001B287D /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446A38F2B49E743001B287D /* GameMode.swift */; };
 		D4A1BAFC2B48D24F009EFAFE /* DidPurchaseProKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BAFB2B48D24F009EFAFE /* DidPurchaseProKey.swift */; };
@@ -41,7 +45,6 @@
 		D4B91DD72B44DA5E00F9D3F1 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91DD62B44DA5E00F9D3F1 /* SplashView.swift */; };
 		D4B91DDD2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91DDC2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift */; };
 		D4B91DE92B44DD1D00F9D3F1 /* iAddThreeCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B91DE32B44DD1D00F9D3F1 /* iAddThreeCore.framework */; };
-		D4B91DEA2B44DD1D00F9D3F1 /* iAddThreeCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4B91DE32B44DD1D00F9D3F1 /* iAddThreeCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D4B91DF02B44DDB200F9D3F1 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91DEF2B44DDB200F9D3F1 /* GameManager.swift */; };
 		D4B91DF92B44DDF000F9D3F1 /* iAddThreeCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B91DE32B44DD1D00F9D3F1 /* iAddThreeCore.framework */; };
 		D4B91E022B44DE1400F9D3F1 /* GameManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91E012B44DE1400F9D3F1 /* GameManagerTests.swift */; };
@@ -59,8 +62,6 @@
 		D4C006712B48C4B600C36B5F /* SharedStoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006702B48C4B600C36B5F /* SharedStoreKitManager.swift */; };
 		D4DBABCC2B5ECFBB0090A98E /* iAddThreeClassicKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DBABCB2B5ECFBB0090A98E /* iAddThreeClassicKit.xcframework */; };
 		D4DBABCD2B5ECFBB0090A98E /* iAddThreeClassicKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4DBABCB2B5ECFBB0090A98E /* iAddThreeClassicKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D4DBABD02B5EE5300090A98E /* NnSwiftUIHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = D4DBABCF2B5EE5300090A98E /* NnSwiftUIHelpers */; };
-		D4DBABD32B5EE5410090A98E /* NnSwiftUIErrorHandling in Frameworks */ = {isa = PBXBuildFile; productRef = D4DBABD22B5EE5410090A98E /* NnSwiftUIErrorHandling */; };
 		D4E614702B45D72E009DF4DD /* UserDefaultsGamePerformanceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6146F2B45D72E009DF4DD /* UserDefaultsGamePerformanceStore.swift */; };
 		D4EFAC6B2B4A00E800763A5A /* ProUpgradeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006642B48C0B700C36B5F /* ProUpgradeViewModel.swift */; };
 		D4EFAC722B4A014B00763A5A /* ProUpgradeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFAC702B4A012A00763A5A /* ProUpgradeViewModelTests.swift */; };
@@ -96,7 +97,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D4DBABCD2B5ECFBB0090A98E /* iAddThreeClassicKit.xcframework in Embed Frameworks */,
-				D4B91DEA2B44DD1D00F9D3F1 /* iAddThreeCore.framework in Embed Frameworks */,
+				D42D51432B61D7EC00AE1355 /* NnSwiftUIKit in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,6 +119,8 @@
 		D424CFBD2B4B3AC900391FFF /* GameKitSocialPerformanceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameKitSocialPerformanceStore.swift; sourceTree = "<group>"; };
 		D424CFBF2B4B3BAA00391FFF /* InheritableUserDefaultsGameModeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InheritableUserDefaultsGameModeStore.swift; sourceTree = "<group>"; };
 		D424CFC32B4B622000391FFF /* SharedGameKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedGameKitManager.swift; sourceTree = "<group>"; };
+		D42D513F2B61D4B200AE1355 /* NnSwiftUIKit+ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NnSwiftUIKit+ViewExtensions.swift"; sourceTree = "<group>"; };
+		D42D51412B61D68A00AE1355 /* AsyncTryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncTryButton.swift; sourceTree = "<group>"; };
 		D446A3882B49C810001B287D /* GameModeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeListView.swift; sourceTree = "<group>"; };
 		D446A38B2B49CCC6001B287D /* MainFeaturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeaturesViewModel.swift; sourceTree = "<group>"; };
 		D446A38D2B49CCF5001B287D /* ModeLevelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeLevelError.swift; sourceTree = "<group>"; };
@@ -174,9 +177,8 @@
 			files = (
 				D4B91DE92B44DD1D00F9D3F1 /* iAddThreeCore.framework in Frameworks */,
 				D4A1BB282B48F109009EFAFE /* GoogleMobileAds in Frameworks */,
-				D4DBABD02B5EE5300090A98E /* NnSwiftUIHelpers in Frameworks */,
-				D4DBABD32B5EE5410090A98E /* NnSwiftUIErrorHandling in Frameworks */,
 				D4DBABCC2B5ECFBB0090A98E /* iAddThreeClassicKit.xcframework in Frameworks */,
+				D42D513E2B61D48600AE1355 /* NnSwiftUIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,8 +331,8 @@
 		D4A1BB292B48F327009EFAFE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				D4EFAC762B4A05AB00763A5A /* iAddThreeCore */,
 				D4EFAC752B4A05A000763A5A /* UI */,
+				D4EFAC762B4A05AB00763A5A /* iAddThreeCore */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -628,7 +630,9 @@
 		D4EFAC752B4A05A000763A5A /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D42D51412B61D68A00AE1355 /* AsyncTryButton.swift */,
 				D4A1BB2A2B48F331009EFAFE /* View+Extensions.swift */,
+				D42D513F2B61D4B200AE1355 /* NnSwiftUIKit+ViewExtensions.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -671,8 +675,7 @@
 			name = iAddThree;
 			packageProductDependencies = (
 				D4A1BB272B48F109009EFAFE /* GoogleMobileAds */,
-				D4DBABCF2B5EE5300090A98E /* NnSwiftUIHelpers */,
-				D4DBABD22B5EE5410090A98E /* NnSwiftUIErrorHandling */,
+				D42D513D2B61D48600AE1355 /* NnSwiftUIKit */,
 			);
 			productName = iAddThree;
 			productReference = D4B91DBE2B44D79D00F9D3F1 /* iAddThree.app */;
@@ -748,8 +751,7 @@
 			mainGroup = D4B91DB52B44D79D00F9D3F1;
 			packageReferences = (
 				D4A1BB262B48F109009EFAFE /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
-				D4DBABCE2B5EE5300090A98E /* XCRemoteSwiftPackageReference "NnSwiftUIHelpers" */,
-				D4DBABD12B5EE5410090A98E /* XCRemoteSwiftPackageReference "NnSwiftUIErrorHandling" */,
+				D42D513C2B61D48600AE1355 /* XCRemoteSwiftPackageReference "NnSwiftUIKit" */,
 			);
 			productRefGroup = D4B91DBF2B44D79D00F9D3F1 /* Products */;
 			projectDirPath = "";
@@ -810,6 +812,7 @@
 				D4A75DEB2B4F25AD0081A02B /* SharedAdStateManager.swift in Sources */,
 				D4B91DDD2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift in Sources */,
 				D424CFC02B4B3BAA00391FFF /* InheritableUserDefaultsGameModeStore.swift in Sources */,
+				D42D51402B61D4B200AE1355 /* NnSwiftUIKit+ViewExtensions.swift in Sources */,
 				D4EFAC802B4A09D500763A5A /* AppStorageKey.swift in Sources */,
 				D4E614702B45D72E009DF4DD /* UserDefaultsGamePerformanceStore.swift in Sources */,
 				D4C006512B4893F100C36B5F /* AppRater.swift in Sources */,
@@ -821,6 +824,7 @@
 				D4A1BB242B48EBCC009EFAFE /* CanShowAdsKey.swift in Sources */,
 				D40BE8D52B44E9500033114A /* GameCoordinatorView.swift in Sources */,
 				D40BE8D02B44E8E00033114A /* SettingsCoordinatorView.swift in Sources */,
+				D42D51422B61D68A00AE1355 /* AsyncTryButton.swift in Sources */,
 				D4C006532B48940200C36B5F /* AppVersionCache.swift in Sources */,
 				D4C0064E2B48901C00C36B5F /* TitleBanner.swift in Sources */,
 				D4C0065B2B48978A00C36B5F /* SettingsHeaderView.swift in Sources */,
@@ -995,7 +999,6 @@
 		D4B91DCE2B44D79E00F9D3F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iAddThree/Resources/iAddThree.entitlements;
@@ -1025,6 +1028,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 3.5.0;
+				MERGED_BINARY_TYPE = manual;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nobadi.AddThree;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -1039,7 +1043,6 @@
 		D4B91DCF2B44D79E00F9D3F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iAddThree/Resources/iAddThree.entitlements;
@@ -1069,6 +1072,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 3.5.0;
+				MERGED_BINARY_TYPE = manual;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nobadi.AddThree;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -1106,6 +1110,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 1.0;
+				MERGEABLE_LIBRARY = YES;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nobadi.iAddThreeCore;
@@ -1148,6 +1153,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 1.0;
+				MERGEABLE_LIBRARY = YES;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nobadi.iAddThreeCore;
@@ -1248,6 +1254,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D42D513C2B61D48600AE1355 /* XCRemoteSwiftPackageReference "NnSwiftUIKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nikolainobadi/NnSwiftUIKit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		D4A1BB262B48F109009EFAFE /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
@@ -1256,39 +1270,18 @@
 				minimumVersion = 9.0.0;
 			};
 		};
-		D4DBABCE2B5EE5300090A98E /* XCRemoteSwiftPackageReference "NnSwiftUIHelpers" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/nikolainobadi/NnSwiftUIHelpers";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-		D4DBABD12B5EE5410090A98E /* XCRemoteSwiftPackageReference "NnSwiftUIErrorHandling" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/nikolainobadi/NnSwiftUIErrorHandling.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D42D513D2B61D48600AE1355 /* NnSwiftUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D42D513C2B61D48600AE1355 /* XCRemoteSwiftPackageReference "NnSwiftUIKit" */;
+			productName = NnSwiftUIKit;
+		};
 		D4A1BB272B48F109009EFAFE /* GoogleMobileAds */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D4A1BB262B48F109009EFAFE /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
 			productName = GoogleMobileAds;
-		};
-		D4DBABCF2B5EE5300090A98E /* NnSwiftUIHelpers */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D4DBABCE2B5EE5300090A98E /* XCRemoteSwiftPackageReference "NnSwiftUIHelpers" */;
-			productName = NnSwiftUIHelpers;
-		};
-		D4DBABD22B5EE5410090A98E /* NnSwiftUIErrorHandling */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D4DBABD12B5EE5410090A98E /* XCRemoteSwiftPackageReference "NnSwiftUIErrorHandling" */;
-			productName = NnSwiftUIErrorHandling;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

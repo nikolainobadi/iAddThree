@@ -8,7 +8,6 @@
 import SwiftUI
 import iAddThreeCore
 import iAddThreeClassicKit
-import NnSwiftUIErrorHandling
 
 struct MainFeaturesCoordinatorView: View {
     @StateObject var viewModel: MainFeaturesViewModel
@@ -23,10 +22,8 @@ struct MainFeaturesCoordinatorView: View {
             .overlay(alignment: .topTrailing) {
                 SettingsButton(action: viewModel.showSettings)
             }
-            .sheet(isPresented: $viewModel.showingSettings) {
+            .sheetWithErrorHandling(isPresented: $viewModel.showingSettings) {
                 SettingsCoordinatorView()
-                    .withNnLoadingView()
-                    .withNnErrorHandling()
                     .overlay(alignment: .topTrailing) {
                         ChalkNavDismissButton(action: viewModel.dismissSettings)
                     }
