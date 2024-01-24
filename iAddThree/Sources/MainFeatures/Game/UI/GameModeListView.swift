@@ -7,9 +7,7 @@
 
 import SwiftUI
 import iAddThreeCore
-import NnSwiftUIHelpers
 import iAddThreeClassicKit
-import NnSwiftUIErrorHandling
 
 struct GameModeListView: View {
     let modeLevel: Int
@@ -44,7 +42,7 @@ fileprivate struct ButtonRow: View {
     }
     
     var body: some View {
-        NnTryButton(mode.name) {
+        TryButton(mode.name) {
             try onSelection(mode)
         }
         .buttonStyle(ChalkButtonStyle(textColor: textColor, frameWidth: getWidthPercent(70)))
