@@ -43,9 +43,7 @@ public extension MainFeaturesViewModel {
     /// - Throws: `ModeLevelError` if the mode cannot be played due to level restrictions.
     func playSelectedMode(_ mode: GameMode) throws {
         try verifyCanPlayMode(mode)
-        print("mode", mode.name)
         selectedMode = mode
-        print("selected mode", selectedMode ?? "no mode selected")
     }
     
     /// Ends the current game, resetting the selected mode.

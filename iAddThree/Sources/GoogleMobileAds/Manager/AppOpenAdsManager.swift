@@ -44,8 +44,6 @@ extension AppOpenAdsManager: GADFullScreenContentDelegate {
     func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
         resetAds()
         loadNextAd()
-        
-        print("App open ad failed to present with error: \(error.localizedDescription).")
     }
 }
 
@@ -53,10 +51,8 @@ extension AppOpenAdsManager: GADFullScreenContentDelegate {
 private extension AppOpenAdsManager {
     func setAdToDisplay() {
         if let nextAd = nextAd, !nextAd.isExpired {
-            print("setting ad")
             adToDisplay = nextAd
         } else {
-            print("loading next ad")
             loadNextAd()
         }
     }
@@ -81,7 +77,6 @@ private extension AppOpenAdsManager {
 
                 nextAd = .init(ad: ad)
             } catch {
-                print(error)
                 print("error loading ad", error.localizedDescription)
             }
         }
