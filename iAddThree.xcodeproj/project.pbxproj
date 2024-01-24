@@ -45,7 +45,6 @@
 		D4B91DD72B44DA5E00F9D3F1 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91DD62B44DA5E00F9D3F1 /* SplashView.swift */; };
 		D4B91DDD2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91DDC2B44DAC700F9D3F1 /* MainFeaturesCoordinatorView.swift */; };
 		D4B91DE92B44DD1D00F9D3F1 /* iAddThreeCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B91DE32B44DD1D00F9D3F1 /* iAddThreeCore.framework */; };
-		D4B91DEA2B44DD1D00F9D3F1 /* iAddThreeCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4B91DE32B44DD1D00F9D3F1 /* iAddThreeCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D4B91DF02B44DDB200F9D3F1 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91DEF2B44DDB200F9D3F1 /* GameManager.swift */; };
 		D4B91DF92B44DDF000F9D3F1 /* iAddThreeCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B91DE32B44DD1D00F9D3F1 /* iAddThreeCore.framework */; };
 		D4B91E022B44DE1400F9D3F1 /* GameManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B91E012B44DE1400F9D3F1 /* GameManagerTests.swift */; };
@@ -98,7 +97,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D4DBABCD2B5ECFBB0090A98E /* iAddThreeClassicKit.xcframework in Embed Frameworks */,
-				D4B91DEA2B44DD1D00F9D3F1 /* iAddThreeCore.framework in Embed Frameworks */,
 				D42D51432B61D7EC00AE1355 /* NnSwiftUIKit in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1001,7 +999,6 @@
 		D4B91DCE2B44D79E00F9D3F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iAddThree/Resources/iAddThree.entitlements;
@@ -1031,6 +1028,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 3.5.0;
+				MERGED_BINARY_TYPE = manual;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nobadi.AddThree;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -1045,7 +1043,6 @@
 		D4B91DCF2B44D79E00F9D3F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iAddThree/Resources/iAddThree.entitlements;
@@ -1075,6 +1072,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 3.5.0;
+				MERGED_BINARY_TYPE = manual;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nobadi.AddThree;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -1112,6 +1110,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 1.0;
+				MERGEABLE_LIBRARY = YES;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nobadi.iAddThreeCore;
@@ -1154,6 +1153,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 1.0;
+				MERGEABLE_LIBRARY = YES;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nobadi.iAddThreeCore;
