@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import iAddThreeClassicKit
 
 extension ProcessInfo {
     static var isTesting: Bool {
@@ -22,6 +23,10 @@ extension ProcessInfo {
     
     static var skipSplashScreen: Bool {
         return processInfo.environment["SkipSplashScreen"] == "true"
+    }
+    
+    static var isTestingClassicKit: Bool {
+        return processInfo.environment[CLASSIC_KIT_TESTING] == "true"
     }
 }
 

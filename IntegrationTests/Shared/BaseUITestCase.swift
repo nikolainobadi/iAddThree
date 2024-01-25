@@ -7,10 +7,10 @@
 
 import XCTest
 
-class BaseUITestCase: XCTestCase {
-    let app = XCUIApplication()
+public class BaseUITestCase: XCTestCase {
+    public let app = XCUIApplication()
     
-    override func setUpWithError() throws {
+    public override func setUpWithError() throws {
         continueAfterFailure = false
         app.launchEnvironment["UITesting"] = "true"
     }
@@ -18,7 +18,7 @@ class BaseUITestCase: XCTestCase {
 
 
 // MARK: - Helper Methods
-extension BaseUITestCase {
+public extension BaseUITestCase {
     func launchApp(with variables: [String: String] = [:]) {
         for (key, value) in variables {
             app.launchEnvironment[key] = value

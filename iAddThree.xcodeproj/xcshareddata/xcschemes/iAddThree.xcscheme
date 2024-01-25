@@ -40,6 +40,17 @@
                ReferencedContainer = "container:iAddThree.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D4F4CADA2B63270A000C68A6"
+               BuildableName = "iAddThreeClassicKitUIIntegragtionTests.xctest"
+               BlueprintName = "iAddThreeClassicKitUIIntegragtionTests"
+               ReferencedContainer = "container:iAddThree.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
