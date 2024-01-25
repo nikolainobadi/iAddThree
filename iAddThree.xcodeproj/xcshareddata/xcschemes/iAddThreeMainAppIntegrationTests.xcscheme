@@ -29,7 +29,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:MainAppIntegrationTests/iAddThreeMainAppIntegrationTests.xctestplan"
+            reference = "container:MainAppIntegrationTests/TestPlan/iAddThreeMainAppIntegrationTests.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>

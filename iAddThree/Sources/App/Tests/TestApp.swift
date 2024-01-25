@@ -9,26 +9,33 @@ import SwiftUI
 
 struct TestApp: App {
     private let requiresAppLaunch: Bool
+    private let skipSplashScreen: Bool
     
     init() {
-        if ProcessInfo.requiresAppLaunch {
-            self.requiresAppLaunch = true
+        skipSplashScreen = ProcessInfo.skipSplashScreen
+        requiresAppLaunch = ProcessInfo.requiresAppLaunch
+        
+        if requiresAppLaunch{
             let defaults = UserDefaults.testingSuite()
             defaults.removePersistentDomain(forName: "uiTestingUserDefaults")
             
             if ProcessInfo.removeAds {
                 defaults.set(true, forKey: AppStorageKey.adsRemoved)
             }
-        } else {
-            self.requiresAppLaunch = false
         }
     }
     
     var body: some Scene {
         WindowGroup {
             if requiresAppLaunch {
-                LaunchCoordinatorView()
-                    .withErrorHandling()
+                Group {
+                    if skipSplashScreen {
+                        MainFeaturesCoordinatorView(viewModel: .customInit())
+                    } else {
+                        LaunchCoordinatorView()
+                    }
+                }
+                .withErrorHandling()
             } else {
                 Text("Running Unit Tests")
             }

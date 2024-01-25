@@ -74,6 +74,8 @@
 		D4F4CAAA2B62D0F5000C68A6 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4CAA92B62D0F5000C68A6 /* TestApp.swift */; };
 		D4F4CAAC2B62D13C000C68A6 /* AppLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4CAAB2B62D13C000C68A6 /* AppLauncher.swift */; };
 		D4F4CAAE2B62D557000C68A6 /* ProcessInfo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4CAAD2B62D557000C68A6 /* ProcessInfo+Extensions.swift */; };
+		D4F4CAB72B631182000C68A6 /* SettingsNavigationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4CAB62B631182000C68A6 /* SettingsNavigationUITests.swift */; };
+		D4F4CABA2B6311E8000C68A6 /* BaseUITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4CAB92B6311E8000C68A6 /* BaseUITestCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +187,8 @@
 		D4F4CAA92B62D0F5000C68A6 /* TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApp.swift; sourceTree = "<group>"; };
 		D4F4CAAB2B62D13C000C68A6 /* AppLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLauncher.swift; sourceTree = "<group>"; };
 		D4F4CAAD2B62D557000C68A6 /* ProcessInfo+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+Extensions.swift"; sourceTree = "<group>"; };
+		D4F4CAB62B631182000C68A6 /* SettingsNavigationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationUITests.swift; sourceTree = "<group>"; };
+		D4F4CAB92B6311E8000C68A6 /* BaseUITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUITestCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,8 +313,9 @@
 		D42D51492B61DA7E00AE1355 /* MainAppIntegrationTests */ = {
 			isa = PBXGroup;
 			children = (
-				D42D51532B61DABC00AE1355 /* SplashScreenToMainMenuNavigationTests.swift */,
-				D42D51552B61DC3C00AE1355 /* iAddThreeMainAppIntegrationTests.xctestplan */,
+				D4F4CABC2B631299000C68A6 /* UITests */,
+				D4F4CABB2B631290000C68A6 /* TestPlan */,
+				D4F4CAB82B6311DB000C68A6 /* Helpers */,
 			);
 			path = MainAppIntegrationTests;
 			sourceTree = "<group>";
@@ -707,6 +712,31 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
+		D4F4CAB82B6311DB000C68A6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D4F4CAB92B6311E8000C68A6 /* BaseUITestCase.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D4F4CABB2B631290000C68A6 /* TestPlan */ = {
+			isa = PBXGroup;
+			children = (
+				D42D51552B61DC3C00AE1355 /* iAddThreeMainAppIntegrationTests.xctestplan */,
+			);
+			path = TestPlan;
+			sourceTree = "<group>";
+		};
+		D4F4CABC2B631299000C68A6 /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				D4F4CAB62B631182000C68A6 /* SettingsNavigationUITests.swift */,
+				D42D51532B61DABC00AE1355 /* SplashScreenToMainMenuNavigationTests.swift */,
+			);
+			path = UITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -889,6 +919,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4F4CAB72B631182000C68A6 /* SettingsNavigationUITests.swift in Sources */,
+				D4F4CABA2B6311E8000C68A6 /* BaseUITestCase.swift in Sources */,
 				D42D51542B61DABC00AE1355 /* SplashScreenToMainMenuNavigationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -19,6 +19,10 @@ extension ProcessInfo {
     static var removeAds: Bool {
         return processInfo.environment["RemoveAds"] == "true"
     }
+    
+    static var skipSplashScreen: Bool {
+        return processInfo.environment["SkipSplashScreen"] == "true"
+    }
 }
 
 extension UserDefaults {
