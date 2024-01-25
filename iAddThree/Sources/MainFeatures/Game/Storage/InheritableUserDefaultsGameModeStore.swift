@@ -20,6 +20,6 @@ class InheritableUserDefaultsGameModeStore {
 // MARK: - GameModeStore
 extension InheritableUserDefaultsGameModeStore: GameModeStore {
     var modeLevel: Int {
-        return defaults.integer(forKey: AppStorageKey.modeLevel)
+        return defaults.integer(forKey: OldAppStorageKey.modeLevel)
     }
 }

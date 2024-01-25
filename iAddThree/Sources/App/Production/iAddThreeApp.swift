@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@main
 struct iAddThreeApp: App {
     var body: some Scene {
         WindowGroup {

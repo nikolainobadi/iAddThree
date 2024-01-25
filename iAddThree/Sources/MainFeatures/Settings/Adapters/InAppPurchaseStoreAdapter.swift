@@ -27,7 +27,7 @@ final class InAppPurchaseStoreAdapter: InAppPurchaseStore {
     func purchasePro() async throws {
         try await handlePurchaseAction {
             if let transaction = try await SharedStoreKitManager.purchasePro() {
-                defaults.setValue(true, forKey: AppStorageKey.adsRemoved)
+                defaults.setValue(true, forKey: OldAppStorageKey.adsRemoved)
                 await transaction.finish()
             }
         }
