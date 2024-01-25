@@ -14,17 +14,17 @@ final class UserDefaultsGamePerformanceStore: InheritableUserDefaultsGameModeSto
     }
     
     func getTotalCompletedLevelsCount(modeId: String) -> Int {
-        return defaults.integer(forKey: OldAppStorageKey.totalCompletedLevelsKey(modeId: modeId))
+        return defaults.integer(forKey: AppStorageKey.totalCompletedLevelsKey(modeId: modeId))
     }
     
     func incrementModeLevel() {
-        defaults.setValue(modeLevel + 1, forKey: OldAppStorageKey.modeLevel)
+        defaults.setValue(modeLevel + 1, forKey: AppStorageKey.modeLevel)
     }
     
     func incrementTotalCompletedLevels(modeId: String) {
         let count = getTotalCompletedLevelsCount(modeId: modeId)
         
-        defaults.setValue(count + 1, forKey: OldAppStorageKey.totalCompletedLevelsKey(modeId: modeId))
+        defaults.setValue(count + 1, forKey: AppStorageKey.totalCompletedLevelsKey(modeId: modeId))
     }
     
     func saveHighScore(_ score: Int, modeId: String) {

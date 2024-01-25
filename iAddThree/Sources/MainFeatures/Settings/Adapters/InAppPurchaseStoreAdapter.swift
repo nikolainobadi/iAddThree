@@ -12,7 +12,7 @@ import iAddThreeCore
 final class InAppPurchaseStoreAdapter: InAppPurchaseStore {
     private let defaults: UserDefaults
     
-    init(defaults: UserDefaults = .standard) {
+    init(defaults: UserDefaults = .customInit()) {
         self.defaults = defaults
     }
     
@@ -27,7 +27,7 @@ final class InAppPurchaseStoreAdapter: InAppPurchaseStore {
     func purchasePro() async throws {
         try await handlePurchaseAction {
             if let transaction = try await SharedStoreKitManager.purchasePro() {
-                defaults.setValue(true, forKey: OldAppStorageKey.adsRemoved)
+                defaults.setValue(true, forKey: AppStorageKey.adsRemoved)
                 await transaction.finish()
             }
         }

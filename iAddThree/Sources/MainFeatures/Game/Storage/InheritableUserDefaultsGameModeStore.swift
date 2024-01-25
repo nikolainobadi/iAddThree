@@ -11,7 +11,7 @@ import iAddThreeCore
 class InheritableUserDefaultsGameModeStore {
     let defaults: UserDefaults
     
-    init(defaults: UserDefaults = .standard) {
+    init(defaults: UserDefaults = .customInit()) {
         self.defaults = defaults
     }
 }
@@ -20,6 +20,6 @@ class InheritableUserDefaultsGameModeStore {
 // MARK: - GameModeStore
 extension InheritableUserDefaultsGameModeStore: GameModeStore {
     var modeLevel: Int {
-        return defaults.integer(forKey: OldAppStorageKey.modeLevel)
+        return defaults.integer(forKey: AppStorageKey.modeLevel)
     }
 }

@@ -13,6 +13,12 @@ struct TestApp: App {
     init() {
         if ProcessInfo.requiresAppLaunch {
             self.requiresAppLaunch = true
+            let defaults = UserDefaults.testingSuite()
+            defaults.removePersistentDomain(forName: "uiTestingUserDefaults")
+            
+            if ProcessInfo.removeAds {
+                defaults.set(true, forKey: AppStorageKey.adsRemoved)
+            }
         } else {
             self.requiresAppLaunch = false
         }
