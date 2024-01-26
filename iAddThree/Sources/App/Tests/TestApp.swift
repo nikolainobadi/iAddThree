@@ -20,9 +20,10 @@ struct TestApp: App {
         if requiresAppLaunch {
             let defaults = UserDefaults.testingSuite()
             defaults.removePersistentDomain(forName: UI_USER_DEFAULTS_SUITE)
+            defaults.set(ProcessInfo.isTrue(.removeAds), forKey: AppStorageKey.adsRemoved)
             
-            if ProcessInfo.isTrue(.removeAds) {
-                defaults.set(true, forKey: AppStorageKey.adsRemoved)
+            if ProcessInfo.isTrue(.unlockedSubtractMode) {
+                defaults.set(1, forKey: AppStorageKey.modeLevel)
             }
         }
     }

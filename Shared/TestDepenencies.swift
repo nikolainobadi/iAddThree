@@ -10,5 +10,5 @@ import Foundation
 public let UI_USER_DEFAULTS_SUITE = "uiTestingUserDefaults"
 
 public enum TestENVKey: String {
-    case requiresAppLaunch, skipSplashScreen, removeAds
+    case requiresAppLaunch, skipSplashScreen, removeAds, unlockedSubtractMode
 }

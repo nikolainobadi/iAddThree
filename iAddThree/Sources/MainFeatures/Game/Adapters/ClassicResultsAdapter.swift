@@ -42,13 +42,20 @@ extension ClassicResultsAdapter {
 
 // MARK: - Extension Dependencies
 extension ClassicLevelResults {
+    var didCompleteLevel: Bool {
+        let allAnswersFilled = numberList.allSatisfy({ $0.userAnswer != nil })
+        let scoredAtLeaseOnePoint = numberList.filter({ $0.isCorrect }).count > 0
+        
+        return allAnswersFilled && scoredAtLeaseOnePoint
+    }
+    
     func toLevelResults() -> LevelResults {
         return .init(
             level: currentLevel,
             scoreBeforePoints: currentScore,
             normalPoints: correctAnswerCount,
             bonusPoints: bonusPoints,
-            didCompleteLevel: numberList.filter({ $0.userAnswer == nil }).count == 0, 
+            didCompleteLevel: didCompleteLevel,
             perfectStreakCount: perfectStreakCount,
             completionTime: completionTime
         )
