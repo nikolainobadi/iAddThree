@@ -148,7 +148,6 @@
 		D42D51412B61D68A00AE1355 /* AsyncTryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncTryButton.swift; sourceTree = "<group>"; };
 		D42D51482B61DA7E00AE1355 /* MainAppIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MainAppIntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42D51532B61DABC00AE1355 /* SplashScreenToMainMenuNavigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenToMainMenuNavigationTests.swift; sourceTree = "<group>"; };
-		D42D51552B61DC3C00AE1355 /* iAddThreeMainAppIntegrationTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = iAddThreeMainAppIntegrationTests.xctestplan; sourceTree = "<group>"; };
 		D446A3882B49C810001B287D /* GameModeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeListView.swift; sourceTree = "<group>"; };
 		D446A38B2B49CCC6001B287D /* MainFeaturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeaturesViewModel.swift; sourceTree = "<group>"; };
 		D446A38D2B49CCF5001B287D /* ModeLevelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeLevelError.swift; sourceTree = "<group>"; };
@@ -195,7 +194,7 @@
 		D4C006742B48C92A00C36B5F /* AppStorageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKey.swift; sourceTree = "<group>"; };
 		D4C9A5422B6429D500E0D63F /* iAddThreeClassicKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = iAddThreeClassicKit.xcframework; sourceTree = "<group>"; };
 		D4C9A5462B642CE600E0D63F /* TestDepenencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDepenencies.swift; sourceTree = "<group>"; };
-		D4C9A54A2B642DC700E0D63F /* iAddThreeMainAppIntegrationTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = iAddThreeMainAppIntegrationTests.xctestplan; path = IntegrationTests/MainAppIntegrationTests/TestPlan/iAddThreeMainAppIntegrationTests.xctestplan; sourceTree = "<group>"; };
+		D4C9A54B2B642F3700E0D63F /* iAddThreeMainAppIntegrationTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = iAddThreeMainAppIntegrationTests.xctestplan; sourceTree = "<group>"; };
 		D4E6146F2B45D72E009DF4DD /* UserDefaultsGamePerformanceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsGamePerformanceStore.swift; sourceTree = "<group>"; };
 		D4EFAC702B4A012A00763A5A /* ProUpgradeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUpgradeViewModelTests.swift; sourceTree = "<group>"; };
 		D4EFAC772B4A05BB00763A5A /* ModeLevelError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModeLevelError+Extensions.swift"; sourceTree = "<group>"; };
@@ -401,7 +400,6 @@
 		D4B91DB52B44D79D00F9D3F1 = {
 			isa = PBXGroup;
 			children = (
-				D4C9A54A2B642DC700E0D63F /* iAddThreeMainAppIntegrationTests.xctestplan */,
 				D4B91DC02B44D79D00F9D3F1 /* iAddThree */,
 				D4B91DE42B44DD1D00F9D3F1 /* iAddThreeCore */,
 				D4F4CB0D2B632825000C68A6 /* IntegrationTests */,
@@ -749,7 +747,7 @@
 		D4F4CABB2B631290000C68A6 /* TestPlan */ = {
 			isa = PBXGroup;
 			children = (
-				D42D51552B61DC3C00AE1355 /* iAddThreeMainAppIntegrationTests.xctestplan */,
+				D4C9A54B2B642F3700E0D63F /* iAddThreeMainAppIntegrationTests.xctestplan */,
 			);
 			path = TestPlan;
 			sourceTree = "<group>";
