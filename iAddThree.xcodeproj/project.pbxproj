@@ -29,8 +29,6 @@
 		D446A3892B49C810001B287D /* GameModeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446A3882B49C810001B287D /* GameModeListView.swift */; };
 		D446A3902B49E743001B287D /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446A38F2B49E743001B287D /* GameMode.swift */; };
 		D457738B2B632C8C0081C67B /* iAddThreeClassicKitUIIntegragtionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D457738A2B632C8C0081C67B /* iAddThreeClassicKitUIIntegragtionTests.swift */; };
-		D457738E2B632E8A0081C67B /* iAddThreeClassicKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D457738D2B632E8A0081C67B /* iAddThreeClassicKit.xcframework */; };
-		D457738F2B632E8A0081C67B /* iAddThreeClassicKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D457738D2B632E8A0081C67B /* iAddThreeClassicKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D4A1BAFC2B48D24F009EFAFE /* DidPurchaseProKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BAFB2B48D24F009EFAFE /* DidPurchaseProKey.swift */; };
 		D4A1BB142B48E711009EFAFE /* SharedGoogleAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BB132B48E711009EFAFE /* SharedGoogleAdManager.swift */; };
 		D4A1BB192B48E780009EFAFE /* AdMobId.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BB182B48E780009EFAFE /* AdMobId.swift */; };
@@ -64,6 +62,11 @@
 		D4C006692B48C13E00C36B5F /* InAppPurchaseStoreAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006682B48C13E00C36B5F /* InAppPurchaseStoreAdapter.swift */; };
 		D4C0066F2B48C1B800C36B5F /* StoreKitPurchaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C0066E2B48C1B800C36B5F /* StoreKitPurchaseError.swift */; };
 		D4C006712B48C4B600C36B5F /* SharedStoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006702B48C4B600C36B5F /* SharedStoreKitManager.swift */; };
+		D4C9A5432B6429D500E0D63F /* iAddThreeClassicKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C9A5422B6429D500E0D63F /* iAddThreeClassicKit.xcframework */; };
+		D4C9A5442B6429D500E0D63F /* iAddThreeClassicKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4C9A5422B6429D500E0D63F /* iAddThreeClassicKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D4C9A5472B642CE600E0D63F /* TestDepenencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9A5462B642CE600E0D63F /* TestDepenencies.swift */; };
+		D4C9A5482B642CEF00E0D63F /* TestDepenencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9A5462B642CE600E0D63F /* TestDepenencies.swift */; };
+		D4C9A5492B642CEF00E0D63F /* TestDepenencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9A5462B642CE600E0D63F /* TestDepenencies.swift */; };
 		D4E614702B45D72E009DF4DD /* UserDefaultsGamePerformanceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6146F2B45D72E009DF4DD /* UserDefaultsGamePerformanceStore.swift */; };
 		D4EFAC6B2B4A00E800763A5A /* ProUpgradeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C006642B48C0B700C36B5F /* ProUpgradeViewModel.swift */; };
 		D4EFAC722B4A014B00763A5A /* ProUpgradeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFAC702B4A012A00763A5A /* ProUpgradeViewModelTests.swift */; };
@@ -118,7 +121,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D457738F2B632E8A0081C67B /* iAddThreeClassicKit.xcframework in Embed Frameworks */,
+				D4C9A5442B6429D500E0D63F /* iAddThreeClassicKit.xcframework in Embed Frameworks */,
 				D42D51432B61D7EC00AE1355 /* NnSwiftUIKit in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -151,8 +154,7 @@
 		D446A38D2B49CCF5001B287D /* ModeLevelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeLevelError.swift; sourceTree = "<group>"; };
 		D446A38F2B49E743001B287D /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		D457738A2B632C8C0081C67B /* iAddThreeClassicKitUIIntegragtionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAddThreeClassicKitUIIntegragtionTests.swift; sourceTree = "<group>"; };
-		D457738C2B632CD70081C67B /* iAddThreeClassicKitUIIntegragtionTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; name = iAddThreeClassicKitUIIntegragtionTests.xctestplan; path = IntegrationTests/iAddThreeClassicKitUIIntegragtionTests/TestPlan/iAddThreeClassicKitUIIntegragtionTests.xctestplan; sourceTree = SOURCE_ROOT; };
-		D457738D2B632E8A0081C67B /* iAddThreeClassicKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = iAddThreeClassicKit.xcframework; sourceTree = "<group>"; };
+		D457738C2B632CD70081C67B /* iAddThreeClassicKitUIIntegragtionTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = iAddThreeClassicKitUIIntegragtionTests.xctestplan; path = IntegrationTests/iAddThreeClassicKitUIIntegragtionTests/TestPlan/iAddThreeClassicKitUIIntegragtionTests.xctestplan; sourceTree = SOURCE_ROOT; };
 		D4A1BAFB2B48D24F009EFAFE /* DidPurchaseProKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidPurchaseProKey.swift; sourceTree = "<group>"; };
 		D4A1BB132B48E711009EFAFE /* SharedGoogleAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedGoogleAdManager.swift; sourceTree = "<group>"; };
 		D4A1BB182B48E780009EFAFE /* AdMobId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobId.swift; sourceTree = "<group>"; };
@@ -191,6 +193,9 @@
 		D4C0066E2B48C1B800C36B5F /* StoreKitPurchaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitPurchaseError.swift; sourceTree = "<group>"; };
 		D4C006702B48C4B600C36B5F /* SharedStoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedStoreKitManager.swift; sourceTree = "<group>"; };
 		D4C006742B48C92A00C36B5F /* AppStorageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKey.swift; sourceTree = "<group>"; };
+		D4C9A5422B6429D500E0D63F /* iAddThreeClassicKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = iAddThreeClassicKit.xcframework; sourceTree = "<group>"; };
+		D4C9A5462B642CE600E0D63F /* TestDepenencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDepenencies.swift; sourceTree = "<group>"; };
+		D4C9A54A2B642DC700E0D63F /* iAddThreeMainAppIntegrationTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = iAddThreeMainAppIntegrationTests.xctestplan; path = IntegrationTests/MainAppIntegrationTests/TestPlan/iAddThreeMainAppIntegrationTests.xctestplan; sourceTree = "<group>"; };
 		D4E6146F2B45D72E009DF4DD /* UserDefaultsGamePerformanceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsGamePerformanceStore.swift; sourceTree = "<group>"; };
 		D4EFAC702B4A012A00763A5A /* ProUpgradeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUpgradeViewModelTests.swift; sourceTree = "<group>"; };
 		D4EFAC772B4A05BB00763A5A /* ModeLevelError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModeLevelError+Extensions.swift"; sourceTree = "<group>"; };
@@ -217,7 +222,7 @@
 			files = (
 				D4B91DE92B44DD1D00F9D3F1 /* iAddThreeCore.framework in Frameworks */,
 				D4A1BB282B48F109009EFAFE /* GoogleMobileAds in Frameworks */,
-				D457738E2B632E8A0081C67B /* iAddThreeClassicKit.xcframework in Frameworks */,
+				D4C9A5432B6429D500E0D63F /* iAddThreeClassicKit.xcframework in Frameworks */,
 				D42D513E2B61D48600AE1355 /* NnSwiftUIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,9 +401,11 @@
 		D4B91DB52B44D79D00F9D3F1 = {
 			isa = PBXGroup;
 			children = (
+				D4C9A54A2B642DC700E0D63F /* iAddThreeMainAppIntegrationTests.xctestplan */,
 				D4B91DC02B44D79D00F9D3F1 /* iAddThree */,
 				D4B91DE42B44DD1D00F9D3F1 /* iAddThreeCore */,
 				D4F4CB0D2B632825000C68A6 /* IntegrationTests */,
+				D4C9A5452B642CD000E0D63F /* Shared */,
 				D4B91DBF2B44D79D00F9D3F1 /* Products */,
 				D4C006422B48871D00C36B5F /* Frameworks */,
 			);
@@ -540,7 +547,7 @@
 		D4C006422B48871D00C36B5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D457738D2B632E8A0081C67B /* iAddThreeClassicKit.xcframework */,
+				D4C9A5422B6429D500E0D63F /* iAddThreeClassicKit.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -605,6 +612,14 @@
 				D4A1BAFB2B48D24F009EFAFE /* DidPurchaseProKey.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		D4C9A5452B642CD000E0D63F /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D4C9A5462B642CE600E0D63F /* TestDepenencies.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		D4E6146D2B45D6FE009DF4DD /* UI */ = {
@@ -778,6 +793,7 @@
 		D4F4CB112B6328CE000C68A6 /* TestPlan */ = {
 			isa = PBXGroup;
 			children = (
+				D457738C2B632CD70081C67B /* iAddThreeClassicKitUIIntegragtionTests.xctestplan */,
 			);
 			path = TestPlan;
 			sourceTree = "<group>";
@@ -786,7 +802,6 @@
 			isa = PBXGroup;
 			children = (
 				D457738A2B632C8C0081C67B /* iAddThreeClassicKitUIIntegragtionTests.swift */,
-				D457738C2B632CD70081C67B /* iAddThreeClassicKitUIIntegragtionTests.xctestplan */,
 			);
 			path = UITests;
 			sourceTree = "<group>";
@@ -1006,6 +1021,7 @@
 				D4F4CAB72B631182000C68A6 /* SettingsNavigationUITests.swift in Sources */,
 				D42D51542B61DABC00AE1355 /* SplashScreenToMainMenuNavigationTests.swift in Sources */,
 				D4F4CAFD2B632794000C68A6 /* BaseUITestCase.swift in Sources */,
+				D4C9A5482B642CEF00E0D63F /* TestDepenencies.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1036,6 +1052,7 @@
 				D4F4CAAE2B62D557000C68A6 /* ProcessInfo+Extensions.swift in Sources */,
 				D4E614702B45D72E009DF4DD /* UserDefaultsGamePerformanceStore.swift in Sources */,
 				D4C006512B4893F100C36B5F /* AppRater.swift in Sources */,
+				D4C9A5472B642CE600E0D63F /* TestDepenencies.swift in Sources */,
 				D4C0066F2B48C1B800C36B5F /* StoreKitPurchaseError.swift in Sources */,
 				D4B91DC22B44D79D00F9D3F1 /* iAddThreeApp.swift in Sources */,
 				D4A1BB192B48E780009EFAFE /* AdMobId.swift in Sources */,
@@ -1091,6 +1108,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4F4CB0F2B632846000C68A6 /* BaseUITestCase.swift in Sources */,
+				D4C9A5492B642CEF00E0D63F /* TestDepenencies.swift in Sources */,
 				D457738B2B632C8C0081C67B /* iAddThreeClassicKitUIIntegragtionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

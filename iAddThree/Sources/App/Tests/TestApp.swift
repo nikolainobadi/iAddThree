@@ -7,23 +7,21 @@
 
 import SwiftUI
 import iAddThreeCore
+import iAddThreeClassicKit
 
 struct TestApp: App {
-    @State private var isTestingClassicKit: Bool
-    
-    private let requiresAppLaunch: Bool
     private let skipSplashScreen: Bool
+    private let requiresAppLaunch: Bool
     
     init() {
-        skipSplashScreen = ProcessInfo.skipSplashScreen
-        requiresAppLaunch = ProcessInfo.requiresAppLaunch
-        _isTestingClassicKit = .init(wrappedValue: ProcessInfo.isTestingClassicKit)
+        skipSplashScreen = ProcessInfo.isTrue(.skipSplashScreen)
+        requiresAppLaunch = ProcessInfo.isTrue(.requiresAppLaunch)
         
-        if requiresAppLaunch{
+        if requiresAppLaunch {
             let defaults = UserDefaults.testingSuite()
-            defaults.removePersistentDomain(forName: "uiTestingUserDefaults")
+            defaults.removePersistentDomain(forName: UI_USER_DEFAULTS_SUITE)
             
-            if ProcessInfo.removeAds {
+            if ProcessInfo.isTrue(.removeAds) {
                 defaults.set(true, forKey: AppStorageKey.adsRemoved)
             }
         }
@@ -34,11 +32,7 @@ struct TestApp: App {
             if requiresAppLaunch {
                 Group {
                     if skipSplashScreen {
-                        if isTestingClassicKit {
-                            GameCoordinatorView(adapter: .testInit(), endGame: { isTestingClassicKit = false })
-                        } else {
-                            MainFeaturesCoordinatorView(viewModel: .customInit())
-                        }
+                        MainFeaturesCoordinatorView(viewModel: .customInit())
                     } else {
                         LaunchCoordinatorView()
                     }
@@ -49,24 +43,4 @@ struct TestApp: App {
             }
         }
     }
-}
-
-
-extension ClassicResultsAdapter {
-    static func testInit(mode: GameMode = .add) -> ClassicResultsAdapter {
-        return .init(manager: .testInit(mode: mode))
-    }
-}
-
-extension GameManager {
-    static func testInit(mode: GameMode) -> GameManager {
-        return .init(mode: mode, socialStore: MockSocialStore(), performanceStore: UserDefaultsGamePerformanceStore(defaults: .testingSuite()))
-    }
-}
-
-class MockSocialStore: SocialPerformanceStore {
-    func loadHighScore(modeId: String) async -> Int? { nil }
-    func loadUnlockedAchievements() async -> [iAddThreeCore.GameAchievement] { [] }
-    func saveHighScore(_ newHighScore: Int, modeId: String) { }
-    func saveAchievements(_ achievements: [iAddThreeCore.GameAchievement]) { }
 }

@@ -6,25 +6,24 @@
 //
 
 import XCTest
+import iAddThree
 
 public class BaseUITestCase: XCTestCase {
     public let app = XCUIApplication()
     
     public override func setUpWithError() throws {
         continueAfterFailure = false
-        app.launchEnvironment["UITesting"] = "true"
+        addKeysToEnvironment(keys: [.requiresAppLaunch])
     }
 }
 
 
 // MARK: - Helper Methods
 public extension BaseUITestCase {
-    func launchApp(with variables: [String: String] = [:]) {
-        for (key, value) in variables {
-            app.launchEnvironment[key] = value
+    func addKeysToEnvironment(keys: [TestENVKey]) {
+        for key in keys {
+            app.launchEnvironment[key.rawValue] = "true"
         }
-        
-        app.launch()
     }
     
     func waitForElement(_ query: XCUIElementQuery, named name: String, timeout: TimeInterval = 3, file: StaticString = #filePath, line: UInt = #line) -> XCUIElement {
@@ -51,3 +50,5 @@ public extension BaseUITestCase {
         XCTAssertFalse(elementExists, "\(name) should disappear after 3 seconds")
     }
 }
+
+

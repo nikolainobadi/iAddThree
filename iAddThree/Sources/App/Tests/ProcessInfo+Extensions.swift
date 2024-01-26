@@ -8,25 +8,15 @@
 import Foundation
 import iAddThreeClassicKit
 
+
+
 extension ProcessInfo {
     static var isTesting: Bool {
-        return requiresAppLaunch || NSClassFromString("XCTestCase") != nil
+        return isTrue(.requiresAppLaunch) || NSClassFromString("XCTestCase") != nil
     }
     
-    static var requiresAppLaunch: Bool {
-        return processInfo.environment["UITesting"] == "true"
-    }
-    
-    static var removeAds: Bool {
-        return processInfo.environment["RemoveAds"] == "true"
-    }
-    
-    static var skipSplashScreen: Bool {
-        return processInfo.environment["SkipSplashScreen"] == "true"
-    }
-    
-    static var isTestingClassicKit: Bool {
-        return processInfo.environment[CLASSIC_KIT_TESTING] == "true"
+    static func isTrue(_ key: TestENVKey) -> Bool {
+        return processInfo.environment[key.rawValue] == "true"
     }
 }
 
@@ -43,6 +33,6 @@ extension UserDefaults {
     }
     
     static func testingSuite(name: String? = nil) -> UserDefaults {
-        return .init(suiteName: name ?? "uiTestingUserDefaults") ?? .standard
+        return .init(suiteName: name ?? UI_USER_DEFAULTS_SUITE) ?? .standard
     }
 }

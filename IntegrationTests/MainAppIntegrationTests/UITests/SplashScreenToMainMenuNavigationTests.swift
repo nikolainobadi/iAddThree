@@ -10,14 +10,15 @@ import XCTest
 
 final class SplashScreenToMainMenuNavigationTests: BaseUITestCase {
     func test_splashScreenAppears_adAppears_mainFeaturesAppears_afterClosingAd() throws {
-        launchApp()
+        app.launch()
         elementDisappeared(app.otherElements, named: "SplashView")
         waitForElement(app.staticTexts, named: "Continue to app").tap()
         menuButtonsDidAppear()
     }
     
     func test_proUsers_splashScreenAppears_noAdsShown_mainFeaturesAppears() throws {
-        launchApp(with: ["RemoveAds": "true"])
+        addKeysToEnvironment(keys: [.removeAds])
+        app.launch()
         elementDisappeared(app.otherElements, named: "SplashView")
         menuButtonsDidAppear()
     }
