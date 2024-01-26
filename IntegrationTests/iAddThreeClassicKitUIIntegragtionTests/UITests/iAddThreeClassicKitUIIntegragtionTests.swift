@@ -14,11 +14,14 @@ final class iAddThreeClassicKitUIIntegragtionTests: BaseUITestCase {
         
         app.buttons["Start Game"].tap()
         
-        let button = app.buttons["3"]
+        let button = app.buttons["0"]
         button.tap()
         button.tap()
         button.tap()
         button.tap()
-//        app.buttons["Level 2"].tap()
+        
+        waitForElement(app.buttons, named: "Try Again?", timeout: 5).tap()
+        elementAppeared(app.staticTexts, named: "Level: 1")
+        elementAppeared(app.staticTexts, named: "Score: 0")
     }
 }

@@ -28,8 +28,9 @@
 		D42D51542B61DABC00AE1355 /* SplashScreenToMainMenuNavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D51532B61DABC00AE1355 /* SplashScreenToMainMenuNavigationTests.swift */; };
 		D446A3892B49C810001B287D /* GameModeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446A3882B49C810001B287D /* GameModeListView.swift */; };
 		D446A3902B49E743001B287D /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446A38F2B49E743001B287D /* GameMode.swift */; };
-		D45773872B6329A70081C67B /* iAddThreeClassicKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F4CAD42B6326A5000C68A6 /* iAddThreeClassicKit.xcframework */; };
 		D457738B2B632C8C0081C67B /* iAddThreeClassicKitUIIntegragtionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D457738A2B632C8C0081C67B /* iAddThreeClassicKitUIIntegragtionTests.swift */; };
+		D457738E2B632E8A0081C67B /* iAddThreeClassicKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D457738D2B632E8A0081C67B /* iAddThreeClassicKit.xcframework */; };
+		D457738F2B632E8A0081C67B /* iAddThreeClassicKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D457738D2B632E8A0081C67B /* iAddThreeClassicKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D4A1BAFC2B48D24F009EFAFE /* DidPurchaseProKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BAFB2B48D24F009EFAFE /* DidPurchaseProKey.swift */; };
 		D4A1BB142B48E711009EFAFE /* SharedGoogleAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BB132B48E711009EFAFE /* SharedGoogleAdManager.swift */; };
 		D4A1BB192B48E780009EFAFE /* AdMobId.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BB182B48E780009EFAFE /* AdMobId.swift */; };
@@ -75,8 +76,6 @@
 		D4F4CAAC2B62D13C000C68A6 /* AppLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4CAAB2B62D13C000C68A6 /* AppLauncher.swift */; };
 		D4F4CAAE2B62D557000C68A6 /* ProcessInfo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4CAAD2B62D557000C68A6 /* ProcessInfo+Extensions.swift */; };
 		D4F4CAB72B631182000C68A6 /* SettingsNavigationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4CAB62B631182000C68A6 /* SettingsNavigationUITests.swift */; };
-		D4F4CAD52B6326A5000C68A6 /* iAddThreeClassicKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F4CAD42B6326A5000C68A6 /* iAddThreeClassicKit.xcframework */; };
-		D4F4CAD62B6326A5000C68A6 /* iAddThreeClassicKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4F4CAD42B6326A5000C68A6 /* iAddThreeClassicKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D4F4CAFD2B632794000C68A6 /* BaseUITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4CAB92B6311E8000C68A6 /* BaseUITestCase.swift */; };
 		D4F4CB0F2B632846000C68A6 /* BaseUITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4CAB92B6311E8000C68A6 /* BaseUITestCase.swift */; };
 /* End PBXBuildFile section */
@@ -119,7 +118,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D4F4CAD62B6326A5000C68A6 /* iAddThreeClassicKit.xcframework in Embed Frameworks */,
+				D457738F2B632E8A0081C67B /* iAddThreeClassicKit.xcframework in Embed Frameworks */,
 				D42D51432B61D7EC00AE1355 /* NnSwiftUIKit in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -153,6 +152,7 @@
 		D446A38F2B49E743001B287D /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		D457738A2B632C8C0081C67B /* iAddThreeClassicKitUIIntegragtionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAddThreeClassicKitUIIntegragtionTests.swift; sourceTree = "<group>"; };
 		D457738C2B632CD70081C67B /* iAddThreeClassicKitUIIntegragtionTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; name = iAddThreeClassicKitUIIntegragtionTests.xctestplan; path = IntegrationTests/iAddThreeClassicKitUIIntegragtionTests/TestPlan/iAddThreeClassicKitUIIntegragtionTests.xctestplan; sourceTree = SOURCE_ROOT; };
+		D457738D2B632E8A0081C67B /* iAddThreeClassicKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = iAddThreeClassicKit.xcframework; sourceTree = "<group>"; };
 		D4A1BAFB2B48D24F009EFAFE /* DidPurchaseProKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidPurchaseProKey.swift; sourceTree = "<group>"; };
 		D4A1BB132B48E711009EFAFE /* SharedGoogleAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedGoogleAdManager.swift; sourceTree = "<group>"; };
 		D4A1BB182B48E780009EFAFE /* AdMobId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobId.swift; sourceTree = "<group>"; };
@@ -200,7 +200,6 @@
 		D4F4CAAD2B62D557000C68A6 /* ProcessInfo+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+Extensions.swift"; sourceTree = "<group>"; };
 		D4F4CAB62B631182000C68A6 /* SettingsNavigationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationUITests.swift; sourceTree = "<group>"; };
 		D4F4CAB92B6311E8000C68A6 /* BaseUITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUITestCase.swift; sourceTree = "<group>"; };
-		D4F4CAD42B6326A5000C68A6 /* iAddThreeClassicKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = iAddThreeClassicKit.xcframework; sourceTree = "<group>"; };
 		D4F4CADB2B63270A000C68A6 /* iAddThreeClassicKitUIIntegragtionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iAddThreeClassicKitUIIntegragtionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -218,7 +217,7 @@
 			files = (
 				D4B91DE92B44DD1D00F9D3F1 /* iAddThreeCore.framework in Frameworks */,
 				D4A1BB282B48F109009EFAFE /* GoogleMobileAds in Frameworks */,
-				D4F4CAD52B6326A5000C68A6 /* iAddThreeClassicKit.xcframework in Frameworks */,
+				D457738E2B632E8A0081C67B /* iAddThreeClassicKit.xcframework in Frameworks */,
 				D42D513E2B61D48600AE1355 /* NnSwiftUIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,7 +241,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D45773872B6329A70081C67B /* iAddThreeClassicKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,7 +540,7 @@
 		D4C006422B48871D00C36B5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D4F4CAD42B6326A5000C68A6 /* iAddThreeClassicKit.xcframework */,
+				D457738D2B632E8A0081C67B /* iAddThreeClassicKit.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
