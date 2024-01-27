@@ -26,32 +26,13 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      shouldAutocreateTestPlan = "YES">
-      <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D42D51472B61DA7E00AE1355"
-               BuildableName = "MainAppIntegrationTests.xctest"
-               BlueprintName = "MainAppIntegrationTests"
-               ReferencedContainer = "container:iAddThree.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D4F4CADA2B63270A000C68A6"
-               BuildableName = "iAddThreeClassicKitUIIntegragtionTests.xctest"
-               BlueprintName = "iAddThreeClassicKitUIIntegragtionTests"
-               ReferencedContainer = "container:iAddThree.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <TestPlans>
+         <TestPlanReference
+            reference = "container:IntegrationTests/iAddThreeClassicKitUIIntegragtionTests/TestPlan/iAddThreeClassicKitUIIntegragtionTests.xctestplan"
+            default = "YES">
+         </TestPlanReference>
+      </TestPlans>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -73,9 +54,6 @@
             ReferencedContainer = "container:iAddThree.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <StoreKitConfigurationFileReference
-         identifier = "../../iAddThree/Sources/InAppPurchase/StoreKitConfig.storekit">
-      </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

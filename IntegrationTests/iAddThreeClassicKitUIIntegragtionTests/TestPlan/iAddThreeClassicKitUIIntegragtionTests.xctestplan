@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "493D5F57-F999-4DB2-B5EA-8266A4137D47",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:iAddThree.xcodeproj",
+        "identifier" : "D4F4CADA2B63270A000C68A6",
+        "name" : "iAddThreeClassicKitUIIntegragtionTests"
+      }
+    }
+  ],
+  "version" : 1
+}

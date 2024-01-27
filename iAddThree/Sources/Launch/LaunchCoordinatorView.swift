@@ -13,7 +13,7 @@ struct LaunchCoordinatorView: View {
     @State private var showingSplashScreen = true
     @State private var shouldShowAppOpenAdd = false
     @Environment(\.scenePhase) private var scenePhase
-    @AppStorage(AppStorageKey.adsRemoved) private var adsRemoved = false
+    @AppStorage(AppStorageKey.adsRemoved, store: .customInit()) private var adsRemoved = false
     
     private var canShowAds: Bool {
         return !adsRemoved && !SharedAdStateManager.isPurchasingPro
@@ -39,6 +39,7 @@ struct LaunchCoordinatorView: View {
         .environment(\.canShowAds, canShowAds)
         .environment(\.didPurchasePro, adsRemoved)
         .onAppear {
+            print("should remove ads", adsRemoved)
             SharedGoogleAdManager.initializeMobileAds()
             SharedStoreKitManager.startTransactionListener(completion: { adsRemoved = $0 })
         }
@@ -61,5 +62,27 @@ struct LaunchCoordinatorView: View {
 extension MainFeaturesViewModel {
     static func customInit() -> MainFeaturesViewModel {
         return .init(store: UserDefaultsGamePerformanceStore())
+    }
+}
+
+
+struct IsProUITestViewModifier: ViewModifier {
+    @AppStorage(AppStorageKey.adsRemoved) private var adsRemoved = false
+    
+    var isProTester: Bool {
+        return ProcessInfo.processInfo.arguments.contains("IsProForUITest")
+    }
+    
+    func body(content: Content) -> some View {
+        content
+            .onAppear {
+                print("IS PRO IN UI TESTING:", adsRemoved)
+            }
+    }
+}
+
+extension View {
+    func isProForUITesing() -> some View {
+        modifier(IsProUITestViewModifier())
     }
 }

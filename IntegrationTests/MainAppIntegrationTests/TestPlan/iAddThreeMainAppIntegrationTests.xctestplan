@@ -1,0 +1,33 @@
+{
+  "configurations" : [
+    {
+      "id" : "B6FC2743-957E-44AC-98D0-0172814BBED0",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:iAddThree.xcodeproj",
+          "identifier" : "D4B91DBD2B44D79D00F9D3F1",
+          "name" : "iAddThree"
+        }
+      ]
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:iAddThree.xcodeproj",
+        "identifier" : "D42D51472B61DA7E00AE1355",
+        "name" : "MainAppIntegrationTests"
+      }
+    }
+  ],
+  "version" : 1
+}

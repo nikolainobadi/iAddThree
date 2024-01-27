@@ -11,7 +11,7 @@ import iAddThreeCore
 class InheritableUserDefaultsGameModeStore {
     let defaults: UserDefaults
     
-    init(defaults: UserDefaults = .standard) {
+    init(defaults: UserDefaults = .customInit()) {
         self.defaults = defaults
     }
 }
