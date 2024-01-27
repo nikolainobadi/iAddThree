@@ -13,8 +13,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "iAddThreeClassicKit",
-            url: "https://github.com/nikolainobadi/iAddThreeClassicKitXCFramework/releases/download/v0.8.0/iAddThreeClassicKit.xcframework.zip",
-            checksum: "5bbc4a68bc529cc8615a03b804f27fee3c371d45d0691c9c0557e146c6e6bd26"
+            url: "https://github.com/nikolainobadi/iAddThreeClassicKitXCFramework/releases/download/v0.9.5/iAddThreeClassicKit.xcframework.zip",
+            checksum: "afbf9dc26a7972b348c1f1baf8f331d2151a80f8e5941bf077c927a45186028a"
         )
     ]
 )
