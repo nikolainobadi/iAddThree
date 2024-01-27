@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "E0DAFB4E-2965-4F8F-B6FB-3F4D5BF13E58",
+      "id" : "9CCF5A63-62A6-4D9E-8421-3E46A0A6DE5A",
       "name" : "Configuration 1",
       "options" : {
 
@@ -9,10 +9,44 @@
     }
   ],
   "defaultOptions" : {
-
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:iAddThree.xcodeproj",
+          "identifier" : "D4B91DBD2B44D79D00F9D3F1",
+          "name" : "iAddThree"
+        },
+        {
+          "containerPath" : "container:iAddThree.xcodeproj",
+          "identifier" : "D4B91DE22B44DD1D00F9D3F1",
+          "name" : "iAddThreeCore"
+        }
+      ]
+    },
+    "testExecutionOrdering" : "random"
   },
   "testTargets" : [
-
+    {
+      "target" : {
+        "containerPath" : "container:iAddThree.xcodeproj",
+        "identifier" : "D42D51472B61DA7E00AE1355",
+        "name" : "MainAppIntegrationTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:iAddThree.xcodeproj",
+        "identifier" : "D4F4CADA2B63270A000C68A6",
+        "name" : "iAddThreeClassicKitUIIntegragtionTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:iAddThree.xcodeproj",
+        "identifier" : "D4B91DF42B44DDF000F9D3F1",
+        "name" : "iAddThreeCoreTests"
+      }
+    }
   ],
   "version" : 1
 }

@@ -130,8 +130,6 @@
 /* Begin PBXFileReference section */
 		D40BE8CF2B44E8E00033114A /* SettingsCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinatorView.swift; sourceTree = "<group>"; };
 		D40BE8D42B44E9500033114A /* GameCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinatorView.swift; sourceTree = "<group>"; };
-		D41320252B6495620097D528 /* iAddThreeAllTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = iAddThreeAllTests.xctestplan; path = ../iAddThreeAllTests.xctestplan; sourceTree = "<group>"; };
-		D41320272B6495930097D528 /* iAddThreeAllTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = iAddThreeAllTests.xctestplan; sourceTree = "<group>"; };
 		D424CFA62B4B18EB00391FFF /* AchievementMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementMetadata.swift; sourceTree = "<group>"; };
 		D424CFA82B4B18FF00391FFF /* AchievementType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementType.swift; sourceTree = "<group>"; };
 		D424CFAC2B4B194700391FFF /* AchievementConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementConfigurator.swift; sourceTree = "<group>"; };
@@ -155,6 +153,7 @@
 		D446A38F2B49E743001B287D /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		D457738A2B632C8C0081C67B /* iAddThreeClassicKitUIIntegragtionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAddThreeClassicKitUIIntegragtionTests.swift; sourceTree = "<group>"; };
 		D457738C2B632CD70081C67B /* iAddThreeClassicKitUIIntegragtionTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = iAddThreeClassicKitUIIntegragtionTests.xctestplan; path = IntegrationTests/iAddThreeClassicKitUIIntegragtionTests/TestPlan/iAddThreeClassicKitUIIntegragtionTests.xctestplan; sourceTree = SOURCE_ROOT; };
+		D4775FCA2B65792100AE40BF /* iAddThreeAllTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = iAddThreeAllTests.xctestplan; sourceTree = "<group>"; };
 		D4A1BAFB2B48D24F009EFAFE /* DidPurchaseProKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidPurchaseProKey.swift; sourceTree = "<group>"; };
 		D4A1BB132B48E711009EFAFE /* SharedGoogleAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedGoogleAdManager.swift; sourceTree = "<group>"; };
 		D4A1BB182B48E780009EFAFE /* AdMobId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobId.swift; sourceTree = "<group>"; };
@@ -282,7 +281,7 @@
 		D41320262B6495900097D528 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				D41320272B6495930097D528 /* iAddThreeAllTests.xctestplan */,
+				D4775FCA2B65792100AE40BF /* iAddThreeAllTests.xctestplan */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -408,7 +407,6 @@
 		D4B91DB52B44D79D00F9D3F1 = {
 			isa = PBXGroup;
 			children = (
-				D41320252B6495620097D528 /* iAddThreeAllTests.xctestplan */,
 				D429ECCC2B644DBE0014868F /* iAddThreeClassicKit */,
 				D4B91DC02B44D79D00F9D3F1 /* iAddThree */,
 				D4B91DE42B44DD1D00F9D3F1 /* iAddThreeCore */,
